@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Frequently Asked Questions | Surron Knowledge Base{% endblock %}
+{% block meta_description %}Comprehensive answers to questions about Surron electric bikes, battery longevity, spare parts compatibility, warranty claims, and shipping.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Surron Help Center</span>
+        <h1 class="display-4 fw-extrabold mb-3">Frequently Asked Questions</h1>
+        <p class="lead text-secondary mb-0">Detailed guidance regarding our e-bike engineering, battery care best practices, component compatibility, warranty policies, and freight logistics.</p>
+    </div>
+</div>
+
+<div class="container py-5" style="max-width: 900px;">
+    
+    <!-- Topic 1: Orders, Freight & Assembly -->
+    <div class="mb-5">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-shipping-fast text-primary me-2"></i> Orders, Freight & Assembly</h4>
+        <div class="accordion" id="accordionOrders">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingO1">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseO1">
+                        How are Surron electric bikes shipped, and how much assembly is required?
+                    </button>
+                </h2>
+                <div id="collapseO1" class="accordion-collapse collapse show" data-bs-parent="#accordionOrders">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        All Surron e-bikes are shipped in reinforced 7-ply corrugated cartons with biodegradable foam inserts via specialized ground freight carriers. Each bicycle arrives <strong>85% to 90% pre-assembled</strong> from our California facility. The drivetrain, brakes, wiring, and rear motor are already fully tuned. You only need to attach the front wheel, insert the handlebars, screw on the pedals (left pedal is reverse-threaded), and adjust the saddle. A custom multi-tool and torque wrench are included in every box, along with a full-color printed quick-start guide.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingO2">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseO2">
+                        How long does transit take, and is an adult signature required?
+                    </button>
+                </h2>
+                <div id="collapseO2" class="accordion-collapse collapse" data-bs-parent="#accordionOrders">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Orders placed before 2:00 PM PST ship within 1-2 business days. Transit time ranges from 1-2 business days for West Coast deliveries, 2-3 business days for Central states, and 3-5 business days for the East Coast. Because e-bikes are high-value vehicles, carriers require an <strong>adult signature (18+) upon delivery</strong> to ensure security and prevent porch theft.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingO3">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseO3">
+                        Can I purchase without creating an account?
+                    </button>
+                </h2>
+                <div id="collapseO3" class="accordion-collapse collapse" data-bs-parent="#accordionOrders">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        <strong>Yes, absolutely.</strong> We support instant guest checkout and guest wishlist functionality. You can add items to your cart or wishlist, enter your shipping and billing details, and complete your payment seamlessly without having to register or set a password. Tracking updates are sent directly to the email address you provide at checkout.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topic 2: Batteries, Range & Charging -->
+    <div class="mb-5">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-battery-full text-primary me-2"></i> Batteries, Real-World Range & Charging</h4>
+        <div class="accordion" id="accordionBattery">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingB1">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseB1">
+                        What cell chemistry is inside Surron battery packs, and what is their lifespan?
+                    </button>
+                </h2>
+                <div id="collapseB1" class="accordion-collapse collapse show" data-bs-parent="#accordionBattery">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        We exclusively use Grade-A certified Samsung (35E and 50E 21700) and LG Chem NMC lithium-ion cells. Each battery pack features an intelligent multi-channel Battery Management System (BMS) with thermal cut-offs, cell-level over-charge protection, and individual nickel-plate fusing. Our packs are rated for <strong>800 to 1,000 complete charge cycles</strong> before dropping to 70% capacity—translating to roughly 5 to 7 years of typical commuter use.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingB2">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseB2">
+                        How should I store and maintain the battery during cold winter months?
+                    </button>
+                </h2>
+                <div id="collapseB2" class="accordion-collapse collapse" data-bs-parent="#accordionBattery">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Never charge a lithium-ion battery when its temperature is below freezing (32°F / 0°C), as this can cause irreversible lithium plating. If storing your bike for more than 30 days during winter:
+                        <ul class="mt-2 mb-0 ps-3">
+                            <li>Remove the battery key and store the pack indoors at room temperature (50°F–70°F / 10°C–21°C).</li>
+                            <li>Store the pack at <strong>50% to 70% state of charge</strong> (approx. 3 out of 4 LED bars). Do not store at 100% or 0%.</li>
+                            <li>Top off the charge for 30 minutes every 60 days to prevent parasitic sleep-mode drainage.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingB3">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseB3">
+                        How is real-world mileage calculated compared to advertised specs?
+                    </button>
+                </h2>
+                <div id="collapseB3" class="accordion-collapse collapse" data-bs-parent="#accordionBattery">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Our advertised range figures (e.g. 50–70 miles on the Surron Commuter Pro) are measured with a 170-pound rider on level paved terrain using Pedal Assist Level 2 at approximately 15 mph. In throttle-only mode or when tackling steep continuous 12%+ alpine climbs, range will be closer to 30–35 miles. Using eco assist modes on flat commutes can yield over 75 miles per charge.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topic 3: Motors, Sensors & Weather -->
+    <div class="mb-5">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-bolt text-primary me-2"></i> Motors, Sensors & All-Weather Riding</h4>
+        <div class="accordion" id="accordionMotors">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingM1">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseM1">
+                        What is the difference between Torque Sensor and Cadence Sensor pedal assist?
+                    </button>
+                </h2>
+                <div id="collapseM1" class="accordion-collapse collapse show" data-bs-parent="#accordionMotors">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        <strong>Cadence Sensors</strong> act like an on/off switch: once the cranks start spinning, the motor delivers a predetermined power level regardless of how hard you press. 
+                        <strong>Torque Sensors</strong> measure the exact physical force (strain gauge) you apply to the pedals in real time. If you pedal gently, the motor provides whisper-quiet subtle assistance; if you push hard up a steep hill, the motor instantly surges with full torque. All Surron Pro and Mountain models use precision bilateral torque sensors for an intuitive, natural cycling feel.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingM2">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseM2">
+                        Can I ride my Surron e-bike in heavy rain and wash it?
+                    </button>
+                </h2>
+                <div id="collapseM2" class="accordion-collapse collapse" data-bs-parent="#accordionMotors">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Yes. All Surron electrical components, motors, displays, and wiring harnesses carry an <strong>IP65 water resistance rating</strong>. Riding in steady rain, splashing through street puddles, or riding on wet snow will not damage the system. However, you should never submerge the bike in deep water or use high-pressure automotive pressure washers, which can force water past bearing seals. Wipe the frame down with a damp cloth and mild soap.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topic 4: Street Legality & Regulations -->
+    <div class="mb-5">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-balance-scale text-primary me-2"></i> E-Bike Classifications & Street Legality</h4>
+        <div class="accordion" id="accordionLegal">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingL1">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseL1">
+                        What e-bike classification do Surron bikes fall under?
+                    </button>
+                </h2>
+                <div id="collapseL1" class="accordion-collapse collapse show" data-bs-parent="#accordionLegal">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Surron models are configured out of the box as <strong>Class 2 electric bicycles</strong> (20 mph max assist with throttle and pedal assist), making them 100% legal on multi-use bike paths, lanes, and municipal streets without requiring a driver's license, vehicle registration, or insurance in almost all US states and Canadian provinces. Our digital LCD displays allow riders to switch into <strong>Class 3 mode (28 mph pedal assist)</strong> where legally permitted.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingL2">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseL2">
+                        Do I need a special helmet or driver's license?
+                    </button>
+                </h2>
+                <div id="collapseL2" class="accordion-collapse collapse" data-bs-parent="#accordionLegal">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        In the United States and Canada, Class 1 and Class 2 e-bikes do not require a driver's license or motor vehicle registration. Standard bicycle helmets with CPSC certification are strongly recommended for all riders and legally mandatory for riders under 18 (and for all Class 3 riders in states like California, Washington, and New York). For speeds above 20 mph, we recommend an NTA-8776 certified e-bike helmet.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topic 5: Spare Parts, Right to Repair & Upgrades -->
+    <div class="mb-5">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-cogs text-primary me-2"></i> Spare Parts, Right to Repair & Upgrades</h4>
+        <div class="accordion" id="accordionParts">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingP1">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseP1">
+                        Are Surron spare parts compatible with other e-bike brands?
+                    </button>
+                </h2>
+                <div id="collapseP1" class="accordion-collapse collapse show" data-bs-parent="#accordionParts">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Yes! We adhere to open industry standards wherever possible. Our motors utilize standard Bafang 9-pin waterproof motor quick-disconnect cables; our throttles and brake cut-off sensors utilize standard yellow 3-pin and red 2-pin Julet connectors; and our wheel dropouts fit standard 135mm rear and 100mm front spacing. If you are building a custom DIY e-bike or repairing another brand, check the detailed pinout diagram and voltage specs on each product page.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingP2">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseP2">
+                        Can I upgrade my bike to a larger battery capacity later?
+                    </button>
+                </h2>
+                <div id="collapseP2" class="accordion-collapse collapse" data-bs-parent="#accordionParts">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Yes. All Surron frame battery mounting cradles (Shark pack and Hailong mounts) share uniform slide-lock rails. You can effortlessly upgrade from a 48V 14Ah pack to our high-capacity 48V 20Ah or 52V Samsung 21700 pack without modifying wiring or frame geometry.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Topic 6: Warranty & 30-Day Trial -->
+    <div class="mb-5">
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-shield-alt text-primary me-2"></i> Warranty & 30-Day Trial Guarantee</h4>
+        <div class="accordion" id="accordionWarranty">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingW1">
+                    <button class="accordion-button fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW1">
+                        What is covered under the 2-Year Limited Factory Warranty?
+                    </button>
+                </h2>
+                <div id="collapseW1" class="accordion-collapse collapse show" data-bs-parent="#accordionWarranty">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Every Surron bicycle is protected by our full <strong>2-Year Comprehensive Limited Warranty</strong> from the date of delivery. This covers frame structural integrity, motor planetary gears and bearings, motor controller circuitry, LCD display unit, and battery pack capacity retention (&ge;70% capacity over 500 cycles). Normal consumable wear items (brake pads, tire rubber, chains) are excluded from manufacturing warranty but backed by low-cost OEM replacements.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+                <h2 class="accordion-header" id="headingW2">
+                    <button class="accordion-button collapsed fw-bold text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseW2">
+                        How does the 30-Day In-Home Trial work?
+                    </button>
+                </h2>
+                <div id="collapseW2" class="accordion-collapse collapse" data-bs-parent="#accordionWarranty">
+                    <div class="accordion-body text-secondary small lh-lg">
+                        Ride your new Surron on your daily commute, grocery runs, and weekend adventures for 30 days. If you find the bike isn't the perfect fit, you can return it within 30 days of delivery, provided the odometer has logged fewer than 20 total miles and the bike is in like-new condition with all original packaging and accessories. Contact support@surronbikesandparts.shop to receive a return authorization and prepaid freight label.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Still have questions banner -->
+    <div class="card border rounded-4 p-4 p-md-5 text-center bg-light shadow-sm">
+        <h4 class="fw-bold text-dark mb-2">Can't Find Your Question?</h4>
+        <p class="text-secondary small mb-4">Our master mechanics and customer care team are available to help you with technical diagnostics or order inquiries.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'pages:contact' %}" class="btn btn-volt btn-sm fw-bold px-4 rounded-pill">Contact Customer Support</a>
+            <a href="{% url 'blog:post_list' %}" class="btn btn-outline-dark btn-sm fw-bold px-4 rounded-pill">Explore Tech Guides</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

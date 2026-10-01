@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}403 - Permission Denied | Surron{% endblock %}
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="max-w-700 mx-auto py-5 bg-white rounded-4 border shadow-sm p-4 p-md-5 my-4" style="max-width: 600px;">
+        <div class="display-1 fw-extrabold text-danger mb-2">403</div>
+        <h2 class="fw-bold text-dark mb-3">Access Restricted</h2>
+        <p class="text-secondary mb-4">
+            You do not possess the required credentials or permissions to access this administrative section.
+        </p>
+        <a href="{% url 'pages:home' %}" class="btn btn-volt fw-bold px-4"><i class="fas fa-home me-2"></i> Return Home</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy & Data Security | Surron{% endblock %}
+{% block meta_description %}Surron data protection standards, information collection policies, cookie practices, and Personal Information Protection and Electronic Documents Act (PIPEDA) & BC PIPA compliance.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Your Trust Matters</span>
+        <h1 class="display-4 fw-extrabold mb-3">Privacy & Data Security Policy</h1>
+        <p class="lead text-secondary mb-0">How Surron collects, uses, encrypts, and protects your personal and payment data.</p>
+    </div>
+</div>
+
+<div class="container py-5" style="max-width: 900px;">
+    <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm text-secondary lh-lg mb-5">
+        <p class="small text-muted mb-4"><strong>Effective Date:</strong> January 1, 2026 | <strong>Last Updated:</strong> September 2026</p>
+
+        <h4 class="fw-bold text-dark mb-3">1. Information We Collect</h4>
+        <p>When you visit the Surron platform, browse products, save to wishlist, create an account, or complete a guest checkout, we collect several categories of information:</p>
+        <ul>
+            <li><strong>Identity & Contact Information:</strong> Name, billing and delivery address, email address, phone number, and optional company details.</li>
+            <li><strong>Transactional Data:</strong> Items purchased, order dates, subtotal values, and payment status (note: we never store complete raw credit card numbers or CVV codes).</li>
+            <li><strong>Vehicle Registration Information:</strong> Frame serial number, model designation, and warranty registration dates.</li>
+            <li><strong>Technical & Browsing Data:</strong> IP address, device browser type, operating system, and anonymous clickstream analytics.</li>
+        </ul>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">2. How We Use Your Information</h4>
+        <p>Your personal data is utilized strictly for legitimate business purposes:</p>
+        <ul>
+            <li>Fulfilling and tracking your e-bike and spare parts orders.</li>
+            <li>Communicating critical safety updates, firmware enhancements, or service bulletins.</li>
+            <li>Managing our 2-Year Factory Limited Warranty records and crash replacement claims.</li>
+            <li>Preventing fraudulent e-commerce transactions and protecting payment security.</li>
+            <li>Sending our monthly engineering and tech newsletter (only if you deliberately opt in, with one-click unsubscribe always available).</li>
+        </ul>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">3. Payment Security & PCI-DSS Compliance</h4>
+        <p>
+            Surron maintains strict security protocols. All checkout workflows operate under <strong>256-bit SSL/TLS encryption</strong>. Credit card transactions are tokenized and processed via certified PCI-DSS Level 1 compliant financial gateways (such as Stripe). We do not store raw card numbers on our local databases.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">4. Third-Party Sharing Restrictions</h4>
+        <p>
+            <strong>We do not sell, rent, or trade your personal information to third-party data brokers or marketing lists.</strong> We share data strictly with essential logistical partners required to complete your delivery:
+        </p>
+        <ul>
+            <li><strong>Freight Carriers:</strong> FedEx, UPS, and LTL ground freight carriers receive recipient name, address, and phone number for delivery coordination and adult signature verification.</li>
+            <li><strong>Cloud Infrastructure:</strong> Secure AWS cloud hosting facilities with encrypted data stores.</li>
+        </ul>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">5. Cookies & Session Storage</h4>
+        <p>
+            We use functional session cookies to support essential cart and guest wishlist functionality (such as remembering items you saved while shopping without requiring you to log in). Analytics cookies help us monitor site performance and page load speeds to improve your user experience.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">6. Your Rights (CCPA / CPRA & GDPR)</h4>
+        <p>
+            Regardless of your geographical location, Surron honors your individual privacy rights. You have the right to:
+        </p>
+        <ul>
+            <li>Request a copy of the personal information we maintain regarding your account.</li>
+            <li>Request immediate correction of any inaccurate contact or shipping records.</li>
+            <li>Request permanent deletion of your account and customer history ("Right to be Forgotten").</li>
+        </ul>
+        <p>
+            To exercise any of these rights, please email our Data Protection Officer at <a href="mailto:privacy@surronbikesandparts.shop" class="text-primary fw-semibold">privacy@surronbikesandparts.shop</a>. Requests are fulfilled within 30 calendar days.
+        </p>
+    </div>
+</div>
+
+{% endblock %}

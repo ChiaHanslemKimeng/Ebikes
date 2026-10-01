@@ -1,0 +1,64 @@
+{% extends 'emails/email_base.html' %}
+
+{% block email_title %}[ADMIN ALERT] New Inquiry: {{ contact_message.subject }}{% endblock %}
+
+{% block preview_text %}New message from {{ contact_message.name }} ({{ contact_message.email }}): "{{ contact_message.subject }}"{% endblock %}
+
+{% block header_badge %}Admin Alert{% endblock %}
+
+{% block hero_banner %}
+<tr>
+    <td style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 28px 36px; text-align: left; color: #ffffff; border-bottom: 3px solid #38bdf8;" class="mobile-padding">
+        <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: #38bdf8; margin-bottom: 6px;">
+            &#x1F4E9; New Website Contact Submission
+        </div>
+        <div style="font-size: 24px; font-weight: 800; line-height: 1.2; margin-bottom: 6px;">
+            {{ contact_message.subject }}
+        </div>
+        <div style="font-size: 14px; color: #cbd5e1;">
+            From: <strong>{{ contact_message.name }}</strong> &bull; {{ contact_message.created_at|date:"M d, Y @ H:i" }}
+        </div>
+    </td>
+</tr>
+{% endblock %}
+
+{% block email_content %}
+<!-- SENDER DETAILS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 24px;">
+    <tr>
+        <td>
+            <div style="font-size: 12px; font-weight: 700; color: #0284c7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+                Sender Information
+            </div>
+            <div style="font-size: 14px; color: #1e293b; line-height: 22px;">
+                <strong>Name:</strong> {{ contact_message.name }}<br>
+                <strong>Email:</strong> <a href="mailto:{{ contact_message.email }}" style="color: #0284c7; font-weight: 600;">{{ contact_message.email }}</a><br>
+                <strong>Phone:</strong> {% if contact_message.phone %}<a href="tel:{{ contact_message.phone }}" style="color: #0284c7;">{{ contact_message.phone }}</a>{% else %}<em>Not provided</em>{% endif %}<br>
+                <strong>Received:</strong> {{ contact_message.created_at|date:"F d, Y \a\t g:i A" }}
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!-- MESSAGE BODY -->
+<div style="font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">
+    Message Content:
+</div>
+<div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 20px; font-size: 15px; color: #1e293b; line-height: 24px; white-space: pre-wrap; margin-bottom: 28px;">
+{{ contact_message.message }}
+</div>
+
+<!-- ACTIONS -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td align="center">
+            <a href="mailto:{{ contact_message.email }}?subject=Re:%20{{ contact_message.subject|urlencode }}" style="display: inline-block; background-color: #0284c7; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; padding: 12px 28px; border-radius: 8px; margin-right: 12px;">
+                Reply Directly via Email &rarr;
+            </a>
+            <a href="{{ site_url }}/admin/pages/contactmessage/{{ contact_message.id }}/change/" style="display: inline-block; background-color: #0f172a; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; padding: 12px 24px; border-radius: 8px; border: 1px solid #334155;">
+                View in Admin Portal
+            </a>
+        </td>
+    </tr>
+</table>
+{% endblock %}

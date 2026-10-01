@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}404 - Page Not Found | Surron{% endblock %}
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="max-w-700 mx-auto py-5 bg-white rounded-4 border shadow-sm p-4 p-md-5 my-4" style="max-width: 600px;">
+        <div class="display-1 fw-extrabold text-primary mb-2">404</div>
+        <h2 class="fw-bold text-dark mb-3">Road Not Found</h2>
+        <p class="text-secondary mb-4">
+            The page or product you were looking for seems to have drifted off the trail. It may have been moved, renamed, or is temporarily out of service.
+        </p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="{% url 'pages:home' %}" class="btn btn-volt fw-bold px-4"><i class="fas fa-home me-2"></i> Return Home</a>
+            <a href="{% url 'store:shop' %}" class="btn btn-outline-dark fw-bold px-4"><i class="fas fa-bicycle me-2"></i> Browse Shop</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

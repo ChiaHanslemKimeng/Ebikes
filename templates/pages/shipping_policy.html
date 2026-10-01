@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shipping & Freight Logistics Policy | Surron{% endblock %}
+{% block meta_description %}Surron domestic shipping transit times, freight carrier details, Class 9 lithium battery safety handling, packaging specifications, and damage claims.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Logistics & Distribution</span>
+        <h1 class="display-4 fw-extrabold mb-3">Shipping & Freight Policy</h1>
+        <p class="lead text-secondary mb-0">Transparent transit timelines, certified lithium battery ground freight handling, packaging standards, and adult signature protocols.</p>
+    </div>
+</div>
+
+<div class="container py-5" style="max-width: 900px;">
+    
+    <!-- Quick Delivery Highlight Cards -->
+    <div class="row g-4 row-cols-1 row-cols-md-3 mb-5">
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm text-center h-100">
+                <div class="rounded-circle bg-primary-subtle text-primary mx-auto d-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                    <i class="fas fa-truck fs-4"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">Free Freight</h5>
+                <p class="text-secondary small mb-0">Free standard ground freight on all domestic orders of $500 or more across the contiguous USA.</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm text-center h-100">
+                <div class="rounded-circle bg-info-subtle text-info mx-auto d-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                    <i class="fas fa-stopwatch fs-4"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">Fast Dispatch</h5>
+                <p class="text-secondary small mb-0">In-stock e-bikes and parts ordered before 2:00 PM PST are processed and handed to carriers within 24-48 hours.</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm text-center h-100">
+                <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                    <i class="fas fa-shield-alt fs-4"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">100% Insured</h5>
+                <p class="text-secondary small mb-0">Every shipment is fully insured against theft, loss, or transit damage with direct carrier tracking.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm text-secondary lh-lg mb-5">
+        
+        <!-- 1. Regional Transit Matrix -->
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-map-marked-alt text-primary me-2"></i> 1. Regional Transit Estimates (Canada & North America)</h4>
+        <p>All Surron bikes and spare parts are dispatched directly from our primary fulfillment centers in Vancouver, British Columbia (Western Canada Hub), and Toronto, Ontario (Eastern Canada Hub). Typical transit times via our partner freight carriers (FedEx Ground, UPS Ground, and R&L Carriers for palletized shipments):</p>
+        
+        <div class="table-responsive my-3">
+            <table class="table table-bordered table-striped align-middle small mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Destination Zone</th>
+                        <th>States Included</th>
+                        <th>Carrier Transit Window</th>
+                        <th>Freight Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-dark">Zone 1 (Western Canada: BC, AB)</td>
+                        <td>British Columbia, Alberta, Washington State</td>
+                        <td>1 – 2 Business Days</td>
+                        <td><span class="badge bg-success">Free ($500+)</span> / $25 flat</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Zone 2 (Central & Eastern Canada: ON, QC, MB, SK)</td>
+                        <td>Ontario, Quebec, Manitoba, Saskatchewan</td>
+                        <td>2 – 3 Business Days</td>
+                        <td><span class="badge bg-success">Free ($500+)</span> / $25 flat</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Zone 3 (East Coast & South)</td>
+                        <td>NY, NJ, PA, FL, GA, NC, VA, MA, OH</td>
+                        <td>3 – 5 Business Days</td>
+                        <td><span class="badge bg-success">Free ($500+)</span> / $25 flat</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Non-Contiguous (AK, HI)</td>
+                        <td>Alaska, Hawaii, Puerto Rico</td>
+                        <td>7 – 12 Days (Ocean Freight)</td>
+                        <td>Calculated at Checkout</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 2. Lithium Battery Transport -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-battery-three-quarters text-primary me-2"></i> 2. Lithium-Ion Battery Transportation Compliance (UN3480 / UN3481)</h4>
+        <p>
+            Due to strict United States Department of Transportation (DOT), FAA, and IATA hazardous material regulations governing high-capacity lithium-ion power packs (>100 Watt-hours):
+        </p>
+        <ul>
+            <li>All electric bicycles containing lithium packs must travel exclusively via <strong>certified ground surface freight</strong>.</li>
+            <li>Stand-alone replacement battery packs (such as 48V 14Ah or 52V 20Ah packs) cannot be transported via commercial air cargo under any circumstances.</li>
+            <li>All packages bear required DOT Class 9 hazardous warning placards and emergency response contact documentation.</li>
+        </ul>
+
+        <!-- 3. Packaging & Dimensions -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-box text-primary me-2"></i> 3. Box Dimensions & Packaging Protection</h4>
+        <p>To eliminate shipping damage, our bikes are boxed in heavy-duty 7-ply double-walled corrugated cardboard with custom molded recyclable honeycomb bracing and nylon strapping:</p>
+        <ul>
+            <li><strong>Commuter & Cruiser E-Bikes:</strong> 61" L x 12" W x 33" H • Shipping Weight: ~74 lbs (33.5 kg)</li>
+            <li><strong>Fat Tire & Mountain E-Bikes:</strong> 64" L x 13" W x 35" H • Shipping Weight: ~82 lbs (37.2 kg)</li>
+            <li><strong>Individual Spare Parts:</strong> Standard shock-resistant padded parcel cartons.</li>
+        </ul>
+
+        <!-- 4. Adult Signature & Delivery -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-pen-nib text-primary me-2"></i> 4. Adult Signature Requirement & Appointment Scheduling</h4>
+        <p>
+            To protect your investment from doorstep package piracy, all complete electric bicycles require an <strong>adult signature (age 18+)</strong> upon delivery.
+        </p>
+        <p>
+            If you will not be home during standard delivery hours, you can utilize the tracking link provided in your shipment confirmation email to request holding the package at a nearby secure carrier depot (e.g. FedEx Ship Center or UPS Customer Center) for convenient weekend pick-up.
+        </p>
+
+        <!-- 5. Damage During Transit -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-exclamation-triangle text-primary me-2"></i> 5. Transit Damage Protocol</h4>
+        <p>
+            While transit damage occurs on less than 0.4% of our shipments, if your package arrives with visible exterior rips or punctures:
+        </p>
+        <ol>
+            <li>Photograph the exterior box before opening.</li>
+            <li>Accept the package and ask the delivery driver to note <em>"Damaged upon arrival"</em> on their handheld scanner.</li>
+            <li>Open the box and inspect the bike or parts. If any internal component or paint is damaged, email photos and your order number to <strong>support@surronbikesandparts.shop within 48 hours</strong>.</li>
+            <li>We will immediately dispatch replacement components or arrange a full bicycle exchange at zero cost to you.</li>
+        </ol>
+    </div>
+
+    <!-- Quick Help Card -->
+    <div class="card border rounded-4 p-4 bg-light text-center">
+        <h5 class="fw-bold text-dark mb-2">Have a Question About Your Active Order?</h5>
+        <p class="text-secondary small mb-3">Our logistics team can track carrier updates or adjust delivery instructions.</p>
+        <a href="{% url 'pages:contact' %}?subject=Shipping+Inquiry" class="btn btn-volt btn-sm rounded-pill px-4 fw-bold align-self-center">Contact Logistics Support</a>
+    </div>
+</div>
+
+{% endblock %}

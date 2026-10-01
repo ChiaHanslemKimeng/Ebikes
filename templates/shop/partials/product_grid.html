@@ -1,0 +1,150 @@
+{% load static %}
+
+<div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+    <div class="text-secondary small">
+        Showing <strong class="text-dark">{{ products.start_index }}–{{ products.end_index }}</strong> of <strong class="text-dark">{{ total_count }}</strong> products
+    </div>
+
+    <!-- Active Filter Badges -->
+    <div class="d-none d-md-flex align-items-center gap-2">
+        {% if current_category %}
+            <span class="badge bg-secondary-subtle text-dark border">
+                Category: {{ current_category.name }}
+                <a href="?{% for k, v in request.GET.items %}{% if k != 'category' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}" class="text-danger ms-1">&times;</a>
+            </span>
+        {% endif %}
+        {% if current_type %}
+            <span class="badge bg-secondary-subtle text-dark border">
+                Type: {{ current_type|title }}
+                <a href="?{% for k, v in request.GET.items %}{% if k != 'type' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}" class="text-danger ms-1">&times;</a>
+            </span>
+        {% endif %}
+        {% if q %}
+            <span class="badge bg-primary-subtle text-primary border">
+                Search: "{{ q }}"
+                <a href="?{% for k, v in request.GET.items %}{% if k != 'q' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}" class="text-danger ms-1">&times;</a>
+            </span>
+        {% endif %}
+    </div>
+</div>
+
+{% if products %}
+    <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3">
+        {% for product in products %}
+            <div class="col">
+                <div class="product-card">
+                    <div class="product-card-media">
+                        <!-- Badges -->
+                        <div class="product-badge-group">
+                            {% if product.is_on_sale %}
+                                <span class="product-badge badge-sale">-{{ product.discount_percent }}%</span>
+                            {% endif %}
+                            {% if product.bestseller %}
+                                <span class="product-badge badge-bestseller">TOP SELLER</span>
+                            {% elif product.new_arrival %}
+                                <span class="product-badge badge-new">NEW</span>
+                            {% endif %}
+                        </div>
+
+                        <!-- Card Action Buttons -->
+                        <div class="product-card-actions">
+                            <button type="button" class="btn-card-action btn-wishlist-toggle {% if product.id in user_wishlist_ids %}active{% endif %}" data-product-id="{{ product.id }}" title="Save to Wishlist">
+                                <i class="{% if product.id in user_wishlist_ids %}fas{% else %}far{% endif %} fa-heart"></i>
+                            </button>
+                            <button type="button" class="btn-card-action btn-quick-view" data-slug="{{ product.slug }}" title="Quick View">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <!-- Product Image Link -->
+                        <a href="{{ product.get_absolute_url }}">
+                            {% with primary_img=product.get_primary_image %}
+                                {% if primary_img and primary_img.image %}
+                                    <img src="{{ primary_img.image.url }}" alt="{{ product.name }}" loading="lazy">
+                                {% else %}
+                                    <img src="/static/images/placeholder-bike.svg" alt="{{ product.name }}" loading="lazy">
+                                {% endif %}
+                            {% endwith %}
+                        </a>
+                    </div>
+
+                    <div class="product-card-body">
+                        <div class="product-card-category">{{ product.category.name }}</div>
+                        <h3 class="product-card-title">
+                            <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                        </h3>
+
+                        <div class="product-rating">
+                            <div class="stars">
+                                {% for i in "12345" %}
+                                    <i class="fas fa-star {% if forloop.counter <= product.average_rating %}text-warning{% else %}text-muted opacity-25{% endif %}"></i>
+                                {% endfor %}
+                            </div>
+                            <span class="review-count">({{ product.review_count }})</span>
+                        </div>
+
+                        <div class="stock-status-pill {% if product.stock_quantity == 0 %}out-of-stock{% elif product.is_low_stock %}low-stock{% else %}in-stock{% endif %}">
+                            <span class="status-dot"></span>
+                            {{ product.stock_status }}
+                        </div>
+
+                        <div class="product-price-wrapper">
+                            <div class="product-price">${{ product.current_price }}</div>
+                            {% if product.is_on_sale %}
+                                <div class="product-price-old">${{ product.price }}</div>
+                            {% endif %}
+                        </div>
+
+                        <button type="button" class="btn btn-volt w-100 btn-ajax-add-cart mt-2" data-product-id="{{ product.id }}" {% if not product.is_in_stock %}disabled{% endif %}>
+                            <i class="fas fa-shopping-bag me-1"></i>
+                            {% if product.is_in_stock %}Add to Cart{% else %}Out of Stock{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if products.has_other_pages %}
+        <nav class="mt-5" aria-label="Product catalogue pagination">
+            <ul class="pagination justify-content-center">
+                {% if products.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% for k, v in request.GET.items %}{% if k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}page={{ products.previous_page_number }}" aria-label="Previous">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link"><i class="fas fa-chevron-left"></i></span></li>
+                {% endif %}
+
+                {% for num in products.paginator.page_range %}
+                    {% if products.number == num %}
+                        <li class="page-item active"><span class="page-link bg-dark border-dark text-white fw-bold">{{ num }}</span></li>
+                    {% elif num > products.number|add:'-3' and num < products.number|add:'3' %}
+                        <li class="page-item"><a class="page-link text-dark" href="?{% for k, v in request.GET.items %}{% if k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if products.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% for k, v in request.GET.items %}{% if k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}page={{ products.next_page_number }}" aria-label="Next">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled"><span class="page-link"><i class="fas fa-chevron-right"></i></span></li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+
+{% else %}
+    <div class="text-center py-5 bg-white rounded-4 border p-5">
+        <i class="fas fa-search fa-3x text-muted mb-3"></i>
+        <h4 class="fw-bold text-dark">No Products Found</h4>
+        <p class="text-secondary">Try adjusting your filters, price range, or search keywords.</p>
+        <a href="{% url 'store:shop' %}" class="btn btn-volt mt-2">Reset All Filters</a>
+    </div>
+{% endif %}

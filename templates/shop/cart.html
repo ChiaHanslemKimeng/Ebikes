@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shopping Cart | Surron{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-4 text-white border-bottom border-secondary">
+    <div class="container">
+        <h1 class="display-6 fw-extrabold mb-1">Shopping Cart</h1>
+        <p class="text-secondary small mb-0">Review your selected electric bikes, battery packs, and accessories.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    {% if cart|length > 0 %}
+        <div class="row g-5">
+            <!-- CART ITEMS TABLE (LEFT) -->
+            <div class="col-lg-8">
+                <!-- Free Shipping Indicator -->
+                <div class="p-3 bg-white rounded-4 border shadow-sm mb-4">
+                    {% if cart.get_subtotal >= 500 %}
+                        <div class="d-flex align-items-center text-success fw-bold small">
+                            <i class="fas fa-check-circle fa-lg me-2"></i>
+                            <span>Congratulations! Your order qualifies for <strong>FREE Standard Freight Shipping</strong>.</span>
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-between small fw-bold mb-1">
+                            <span>Add <strong>${{ cart.get_amount_to_free_shipping }}</strong> more to unlock Free Ground Shipping</span>
+                            <span class="text-primary">${{ cart.get_subtotal }} / $500</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ cart.get_free_shipping_progress }}%;"></div>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+                    <div class="table-responsive">
+                        <table class="table cart-table align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="rounded-3 overflow-hidden bg-dark p-1 me-3 border" style="width: 64px; height: 64px; flex-shrink: 0;">
+                                                    {% with primary_img=item.product.get_primary_image %}
+                                                        {% if primary_img and primary_img.image %}
+                                                            <img src="{{ primary_img.image.url }}" alt="{{ item.product.name }}" class="w-100 h-100" style="object-fit: cover;">
+                                                        {% else %}
+                                                            <img src="/static/images/placeholder-bike.svg" alt="{{ item.product.name }}" class="w-100 h-100" style="object-fit: cover;">
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                </div>
+                                                <div>
+                                                    <a href="{{ item.product.get_absolute_url }}" class="fw-bold text-dark d-block text-truncate" style="max-width: 260px;">{{ item.product.name }}</a>
+                                                    <span class="text-muted small">SKU: {{ item.product.SKU }}</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="fw-bold text-dark">${{ item.price }}</td>
+                                        <td>
+                                            <form action="{% url 'store:cart_update' item.product.id %}" method="POST" class="d-inline-flex align-items-center">
+                                                {% csrf_token %}
+                                                <div class="qty-control">
+                                                    <button type="submit" name="quantity" value="{{ item.quantity|add:'-1' }}" class="qty-btn" {% if item.quantity <= 1 %}disabled{% endif %}><i class="fas fa-minus small"></i></button>
+                                                    <input type="text" class="qty-input" value="{{ item.quantity }}" readonly>
+                                                    <button type="submit" name="quantity" value="{{ item.quantity|add:'1' }}" class="qty-btn" {% if item.quantity >= item.product.stock_quantity %}disabled{% endif %}><i class="fas fa-plus small"></i></button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td class="fw-extrabold text-dark">${{ item.total_price }}</td>
+                                        <td>
+                                            <form action="{% url 'store:cart_remove' item.product.id %}" method="POST">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-sm btn-link text-danger p-0" title="Remove item">
+                                                    <i class="far fa-trash-alt fa-lg"></i>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-3 bg-light border-top d-flex justify-content-between align-items-center">
+                        <a href="{% url 'store:shop' %}" class="btn btn-outline-dark btn-sm fw-semibold">
+                            <i class="fas fa-arrow-left me-1"></i> Continue Shopping
+                        </a>
+                        <a href="{% url 'store:cart_clear' %}" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to clear your cart?');">
+                            Clear Entire Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER SUMMARY (RIGHT) -->
+            <div class="col-lg-4">
+                <div class="checkout-summary-card">
+                    <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">Order Summary</h5>
+                    <div class="d-flex justify-content-between mb-3 text-secondary">
+                        <span>Items Subtotal</span>
+                        <strong class="text-dark">${{ cart.get_subtotal }}</strong>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3 text-secondary">
+                        <span>Estimated Shipping</span>
+                        {% if cart.get_shipping_cost == 0 %}
+                            <strong class="text-success text-uppercase">FREE</strong>
+                        {% else %}
+                            <strong class="text-dark">${{ cart.get_shipping_cost }}</strong>
+                        {% endif %}
+                    </div>
+
+                    {% if cart.get_coupon %}
+                        <div class="d-flex justify-content-between mb-3 text-success">
+                            <span class="d-flex align-items-center">
+                                <i class="fas fa-tag me-1"></i> Coupon (<strong>{{ cart.get_coupon.code }}</strong>)
+                            </span>
+                            <div class="d-flex align-items-center gap-2">
+                                <strong>-${{ cart.get_discount }}</strong>
+                                <form action="{% url 'orders:remove_coupon' %}" method="POST" class="d-inline m-0">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-link text-danger p-0" title="Remove coupon">
+                                        <i class="fas fa-times-circle"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <!-- Coupon Input Box -->
+                    <div class="card border rounded-3 p-3 bg-light mb-3">
+                        <label class="form-label small fw-bold text-dark mb-2">
+                            <i class="fas fa-ticket-alt text-primary me-1"></i> Have a Promo Code?
+                        </label>
+                        {% if not cart.get_coupon %}
+                            <form action="{% url 'orders:apply_coupon' %}" method="POST" class="input-group">
+                                {% csrf_token %}
+                                <input type="text" name="coupon_code" class="form-control form-control-sm text-uppercase fw-semibold" placeholder="Enter coupon code" required>
+                                <button class="btn btn-dark btn-sm fw-bold px-3" type="submit">Apply</button>
+                            </form>
+                        {% else %}
+                            <div class="d-flex align-items-center justify-content-between bg-success-subtle p-2 rounded-2 small text-success">
+                                <span><i class="fas fa-check-circle me-1"></i> <strong>{{ cart.get_coupon.code }}</strong> applied!</span>
+                                <form action="{% url 'orders:remove_coupon' %}" method="POST" class="m-0">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-sm btn-outline-danger py-0 px-2 small">Remove</button>
+                                </form>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <hr class="my-3">
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="h5 fw-bold text-dark">Estimated Total</span>
+                        <span class="h4 fw-extrabold text-primary mb-0">${{ cart.get_total_price }}</span>
+                    </div>
+
+                    <a href="{% url 'orders:checkout' %}" class="btn btn-volt btn-lg w-100 fw-bold py-3 mb-3">
+                        Proceed to Checkout <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+
+                    <div class="text-center text-muted small">
+                        <i class="fas fa-shield-alt text-success me-1"></i> 100% Risk-Free Guarantee & Safe Checkout
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="text-center py-5 bg-white rounded-4 border p-5 max-w-700 mx-auto shadow-sm">
+            <div class="width-80 height-80 rounded-circle bg-light d-inline-flex align-items-center justify-content-center mb-3 text-secondary" style="width: 80px; height: 80px;">
+                <i class="fas fa-shopping-bag fa-2x"></i>
+            </div>
+            <h3 class="fw-bold text-dark mb-2">Your Shopping Cart is Empty</h3>
+            <p class="text-secondary mb-4">You have not added any electric bikes or replacement spare parts to your cart yet.</p>
+            <a href="{% url 'store:shop' %}" class="btn btn-volt btn-lg px-4 fw-bold">
+                <i class="fas fa-bicycle me-2"></i> Explore Our Catalog
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

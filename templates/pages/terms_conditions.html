@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Terms & Conditions of Service | Surron{% endblock %}
+{% block meta_description %}Surron legal terms and conditions governing purchases, website access, intellectual property, warranties, rider safety, and jurisdictional compliance.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Legal Agreement</span>
+        <h1 class="display-4 fw-extrabold mb-3">Terms & Conditions</h1>
+        <p class="lead text-secondary mb-0">Please review these terms governing your purchase, platform browsing, and rider responsibilities.</p>
+    </div>
+</div>
+
+<div class="container py-5" style="max-width: 900px;">
+    <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm text-secondary lh-lg mb-5">
+        <p class="small text-muted mb-4"><strong>Effective Date:</strong> January 1, 2026 | <strong>Last Updated:</strong> September 2026</p>
+
+        <h4 class="fw-bold text-dark mb-3">1. Agreement to Terms</h4>
+        <p>
+            By accessing, creating an account, browsing, or completing a transaction on the Surron website (<a href="{% url 'pages:home' %}">surronbikesandparts.shop</a>), you explicitly agree to be legally bound by these Terms & Conditions, our Privacy Policy, and any supplemental terms applicable to specific programs. If you do not accept these terms in full, you must discontinue your use of our platform.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">2. Product Specifications, Accuracy & Range Estimates</h4>
+        <p>
+            Surron continuously refines our engineering designs. While we make every attempt to ensure descriptions, dimensions, torque ratings, and specifications are accurate, slight manufacturer variations in color anodization or equivalent component substitutions (e.g. Tektro vs. Shimano brake caliper batches of identical tier) may occur.
+        </p>
+        <p>
+            <strong>Range & Speed Estimates:</strong> Stated battery range (e.g., "up to 65 miles") and maximum speeds (20 mph Class 2 / 28 mph Class 3) are calculated under laboratory baseline conditions (170 lb rider, flat dry pavement, mild ambient temperature, pedal assist Level 2). Actual results will naturally fluctuate based on rider mass, cargo weight, road incline, wind resistance, tire pressure, and throttle usage.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">3. Rider Responsibility, Safety & Local Jurisdictional Laws</h4>
+        <p>
+            Electric bicycles are governed by varying municipal, state, and provincial statutes. You, as the purchaser and rider, are solely responsible for:
+        </p>
+        <ul>
+            <li>Verifying whether Class 1, Class 2, or Class 3 electric bicycles are permitted on your municipal streets, protected bike paths, and multi-use wilderness trails.</li>
+            <li>Adhering to legal helmet requirements (mandatory for all riders under 18 and all Class 3 riders in many jurisdictions).</li>
+            <li>Operating the bicycle with due care and avoiding reckless maneuvers, high-speed stunt riding, or riding while impaired.</li>
+            <li>Performing pre-ride safety inspections (checking brake lever firm pressure, axle nut torque, and tire inflation before every journey).</li>
+        </ul>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">4. Pricing, Payments & Order Acceptance</h4>
+        <p>
+            All listed prices are denominated in Canadian and United States Dollars ($ CAD / $ USD) unless otherwise specified. Surron reserves the right to decline or cancel orders suspected of unauthorized reseller arbitrage, fraudulent credit card activity, or billing discrepancies. In such cases, your payment will be refunded in full immediately.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">5. Intellectual Property & Brand Rights</h4>
+        <p>
+            All trademarks, logos, custom iconography, 3D frame geometry schematics, blog tutorials, and photography published on this website are the proprietary intellectual property of Surron Inc. Unauthorized reproduction, web scraping, or commercial misuse is strictly prohibited without prior written consent.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">6. Limitation of Liability</h4>
+        <p>
+            To the maximum extent permitted by applicable law, Surron, its officers, engineers, and suppliers shall not be liable for indirect, incidental, punitive, or consequential damages resulting from the use or inability to use our vehicles, aftermarket parts, or technical advice, nor for modifications made by third-party mechanics that violate factory wiring schematics.
+        </p>
+
+        <h4 class="fw-bold text-dark mb-3 mt-4">7. Governing Law & Dispute Resolution</h4>
+        <p>
+            These Terms & Conditions are governed by and construed under the laws of the Province of British Columbia and the federal laws of Canada applicable therein. Any dispute arising from these terms or your purchase shall be resolved through binding arbitration in Vancouver, British Columbia, Canada.
+        </p>
+
+        <div class="p-3 bg-light rounded-3 mt-4 small">
+            <strong>Questions Regarding Our Terms?</strong><br>
+            Direct inquiries to: <a href="mailto:legal@surronbikesandparts.shop" class="text-primary fw-semibold">legal@surronbikesandparts.shop</a> or mail Surron Legal Dept, 777 Dunsmuir Street, Suite 1400, Vancouver, BC V7Y 1K4, Canada.
+        </div>
+    </div>
+</div>
+
+{% endblock %}

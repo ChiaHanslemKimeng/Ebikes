@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Confirmed #{{ order.order_number }} | Surron{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="max-w-700 mx-auto">
+        <!-- SUCCESS BANNER -->
+        <div class="card border-0 shadow-sm rounded-4 p-5 text-center bg-white mb-4">
+            <div class="mx-auto width-80 height-80 rounded-circle bg-success-subtle text-success d-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                <i class="fas fa-check fa-2x"></i>
+            </div>
+            <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-2 d-inline-block mx-auto">Order Confirmed</span>
+            <h2 class="fw-extrabold text-dark mb-2">Thank You for Your Order!</h2>
+            <p class="text-secondary mb-3">
+                Your order <strong class="text-dark">#{{ order.order_number }}</strong> has been registered in our system. A confirmation email with receipt and tracking updates has been dispatched to <strong class="text-dark">{{ order.email }}</strong>.
+            </p>
+            <div class="d-flex justify-content-center gap-3 mt-2">
+                <button type="button" class="btn btn-outline-dark btn-sm" onclick="window.print();">
+                    <i class="fas fa-print me-1"></i> Print Receipt
+                </button>
+                <a href="{% url 'store:shop' %}" class="btn btn-volt btn-sm">
+                    <i class="fas fa-shopping-bag me-1"></i> Continue Shopping
+                </a>
+            </div>
+        </div>
+
+        <!-- PAYMENT STATUS & ADMIN CONTACT NOTICE -->
+        {% if order.payment_method == 'credit_debit_card' %}
+            <div class="alert alert-danger border-0 shadow-sm rounded-4 p-4 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="rounded-circle bg-danger text-white p-2 me-3 fs-5 d-inline-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-danger mb-1">Credit/Debit Card Gateway Under Maintenance</h5>
+                        <p class="mb-2 text-dark">
+                            Your order <strong>#{{ order.order_number }}</strong> has been safely created and recorded in our system. However, our credit/debit card payment gateway is currently undergoing scheduled maintenance, and your card was not charged.
+                        </p>
+                        <p class="mb-0 text-dark small">
+                            <strong>Next Step:</strong> Our admin team will contact you directly at <strong>{{ order.email }}</strong> or <strong>{{ order.phone }}</strong> with payment details, or you can contact support at <a href="mailto:support@surronbikesandparts.shop" class="fw-bold text-danger">support@surronbikesandparts.shop</a> to select a different payment method.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="alert alert-info border-0 shadow-sm rounded-4 p-4 mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="rounded-circle bg-info text-white p-2 me-3 fs-5 d-inline-flex align-items-center justify-content-center flex-shrink-0" style="width: 44px; height: 44px;">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-dark mb-1">Payment Instructions: Admin Will Contact You</h5>
+                        <p class="mb-1 text-secondary">
+                            You selected <strong>{{ order.get_payment_method_display }}</strong>{% if order.other_payment_method %} (Preferred: <strong>{{ order.other_payment_method }}</strong>){% endif %}.
+                        </p>
+                        <p class="mb-0 text-secondary small">
+                            Our billing & admin team will contact you shortly at <strong>{{ order.email }}</strong> or <strong>{{ order.phone }}</strong> with the official payment coordinates and verified details to finalize your purchase.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- TRACKING TIMELINE -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
+            <h6 class="fw-bold text-dark mb-3"><i class="fas fa-shipping-fast text-primary me-2"></i> Order Fulfillment Tracking</h6>
+            <div class="d-flex justify-content-between text-center small text-secondary">
+                <div class="fw-bold text-success">
+                    <i class="fas fa-check-circle fa-lg d-block mb-1"></i> Order Placed
+                </div>
+                <div class="{% if order.status in 'confirmed,processing,shipped,delivered' %}fw-bold text-success{% else %}text-muted{% endif %}">
+                    <i class="fas fa-clipboard-check fa-lg d-block mb-1"></i> Confirmed
+                </div>
+                <div class="{% if order.status in 'processing,shipped,delivered' %}fw-bold text-primary{% else %}text-muted{% endif %}">
+                    <i class="fas fa-box-open fa-lg d-block mb-1"></i> Processing
+                </div>
+                <div class="{% if order.status in 'shipped,delivered' %}fw-bold text-primary{% else %}text-muted{% endif %}">
+                    <i class="fas fa-truck fa-lg d-block mb-1"></i> Shipped
+                </div>
+                <div class="{% if order.status == 'delivered' %}fw-bold text-success{% else %}text-muted{% endif %}">
+                    <i class="fas fa-home fa-lg d-block mb-1"></i> Delivered
+                </div>
+            </div>
+        </div>
+
+        <!-- ORDER INVOICE DETAILS -->
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+            <div class="row g-4 mb-4 pb-4 border-bottom">
+                <div class="col-sm-6">
+                    <h6 class="text-uppercase text-secondary small fw-bold mb-2">Delivery Address</h6>
+                    <div class="fw-bold text-dark">{{ order.full_name }}</div>
+                    <div class="text-secondary small">{{ order.address }}</div>
+                    <div class="text-secondary small">{{ order.city }}, {{ order.postal_code }}</div>
+                    <div class="text-secondary small">{{ order.country }}</div>
+                    <div class="text-secondary small mt-1">Phone: {{ order.phone }}</div>
+                </div>
+                <div class="col-sm-6 text-sm-end">
+                    <h6 class="text-uppercase text-secondary small fw-bold mb-2">Payment Details</h6>
+                    <div class="fw-bold text-dark">{{ order.get_payment_method_display }}</div>
+                    <div class="small">Status: <strong class="{% if order.payment_status == 'paid' %}text-success{% else %}text-warning{% endif %}">{{ order.get_payment_status_display }}</strong></div>
+                    <div class="text-muted small mt-1">Date: {{ order.created_at|date:"F d, Y - H:i" }}</div>
+                </div>
+            </div>
+
+            <!-- Ordered Items -->
+            <h6 class="fw-bold text-dark mb-3">Order Items</h6>
+            <div class="table-responsive mb-4">
+                <table class="table align-middle">
+                    <thead>
+                        <tr class="text-secondary small">
+                            <th>Item</th>
+                            <th>Quantity</th>
+                            <th class="text-end">Price</th>
+                            <th class="text-end">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in order.items.all %}
+                            <tr>
+                                <td>
+                                    <div class="fw-bold text-dark">{{ item.product_name }}</div>
+                                    {% if item.product %}
+                                        <span class="text-muted small">SKU: {{ item.product.SKU }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ item.quantity }}</td>
+                                <td class="text-end">${{ item.price }}</td>
+                                <td class="text-end fw-bold text-dark">${{ item.total_price }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Totals -->
+            <div class="border-top pt-3" style="max-width: 320px; margin-left: auto;">
+                <div class="d-flex justify-content-between mb-2 text-secondary small">
+                    <span>Subtotal</span>
+                    <strong class="text-dark">${{ order.subtotal }}</strong>
+                </div>
+                <div class="d-flex justify-content-between mb-2 text-secondary small">
+                    <span>Shipping Freight</span>
+                    {% if order.shipping_cost == 0 %}
+                        <strong class="text-success">FREE</strong>
+                    {% else %}
+                        <strong class="text-dark">${{ order.shipping_cost }}</strong>
+                    {% endif %}
+                </div>
+                {% if order.discount > 0 %}
+                    <div class="d-flex justify-content-between mb-2 text-success small">
+                        <span>Discount {% if order.coupon_code %}({{ order.coupon_code }}){% endif %}</span>
+                        <strong>-${{ order.discount }}</strong>
+                    </div>
+                {% endif %}
+                <hr class="my-2">
+                <div class="d-flex justify-content-between">
+                    <span class="h6 fw-bold text-dark mb-0">Total Paid</span>
+                    <span class="h5 fw-extrabold text-primary mb-0">${{ order.total }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

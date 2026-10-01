@@ -1,0 +1,833 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ product.name }} | Surron Bikes & Parts{% endblock %}
+{% block meta_description %}{{ product.short_description|default:product.description|truncatewords:30 }}{% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumbs -->
+<div class="bg-white py-3 border-bottom">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-secondary">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'store:shop' %}" class="text-secondary">Shop</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'store:shop' %}?category={{ product.category.slug }}" class="text-secondary">{{ product.category.name }}</a></li>
+                <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">{{ product.name }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-5">
+
+        <!-- 1. PRODUCT GALLERY (LEFT COLUMN) -->
+        <div class="col-lg-6">
+            <div class="position-sticky" style="top: 100px;">
+                <!-- Main Image Card (Click to open Fullscreen Lightbox) -->
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-dark mb-3 p-2 text-center position-relative main-image-wrapper" style="max-height: 520px; cursor: pointer;" onclick="openFullscreenLightbox()" title="Click to view full screen">
+                    {% with primary_img=product.get_primary_image %}
+                        {% if primary_img and primary_img.image %}
+                            <img id="mainProductImage" src="{{ primary_img.image.url }}" alt="{{ product.name }}" class="img-fluid rounded-3 mx-auto" style="max-height: 480px; object-fit: contain; width: 100%; transition: transform 0.3s ease;">
+                        {% else %}
+                            <img id="mainProductImage" src="/static/images/placeholder-bike.svg" alt="{{ product.name }}" class="img-fluid rounded-3 mx-auto" style="max-height: 480px; object-fit: contain; width: 100%; transition: transform 0.3s ease;">
+                        {% endif %}
+                    {% endwith %}
+                    <span class="position-absolute top-0 end-0 m-3 badge bg-dark bg-opacity-75 text-white border border-secondary px-3 py-2 rounded-pill shadow-sm d-flex align-items-center gap-2 pointer-events-none">
+                        <i class="fas fa-expand"></i> <span class="small fw-semibold">Full Screen</span>
+                    </span>
+                </div>
+
+                <!-- Thumbnails Gallery -->
+                {% if product.images.count > 1 %}
+                    <div class="d-flex gap-2 overflow-auto py-2">
+                        {% for img in product.images.all %}
+                            <button type="button" class="btn p-0 border rounded-3 overflow-hidden bg-dark thumbnail-btn {% if forloop.first %}border-primary{% endif %}" style="width: 76px; height: 76px; flex-shrink: 0;" onclick="selectGalleryImage('{{ img.image.url }}', {{ forloop.counter0 }})">
+                                <img src="{{ img.image.url }}" alt="{{ img.alt_text|default:product.name }}" class="w-100 h-100" style="object-fit: cover;">
+                            </button>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <!-- Guarantee badges under gallery -->
+                <div class="row g-2 text-center mt-3 text-secondary small">
+                    <div class="col-4 border-end">
+                        <i class="fas fa-truck text-primary d-block mb-1"></i>
+                        <span>Tracked Ground Freight</span>
+                    </div>
+                    <div class="col-4 border-end">
+                        <i class="fas fa-shield-alt text-primary d-block mb-1"></i>
+                        <span>{{ product.warranty|default:'2-Year Warranty' }}</span>
+                    </div>
+                    <div class="col-4">
+                        <i class="fas fa-undo text-primary d-block mb-1"></i>
+                        <span>30-Day Hassle-Free Returns</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. PRODUCT DETAILS & BUY BOX (RIGHT COLUMN) -->
+        <div class="col-lg-6">
+            <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 mb-2">{{ product.category.name }}</span>
+            <h1 class="display-6 fw-extrabold text-dark mb-2">{{ product.name }}</h1>
+
+            <!-- Rating & SKU bar -->
+            <div class="d-flex flex-wrap align-items-center gap-3 mb-3 text-secondary small">
+                <div class="d-flex align-items-center text-warning">
+                    {% for i in "12345" %}
+                        <i class="fas fa-star {% if forloop.counter <= product.average_rating %}text-warning{% else %}text-muted opacity-25{% endif %}"></i>
+                    {% endfor %}
+                    <span class="ms-2 text-dark fw-bold">{{ product.average_rating }}</span>
+                    <a href="#reviewsTab" class="text-secondary ms-1">({{ reviews_count }} customer reviews)</a>
+                </div>
+                <span>•</span>
+                <div>SKU: <strong class="text-dark">{{ product.SKU }}</strong></div>
+                <span>•</span>
+                <div>Brand: <strong class="text-primary">{{ product.brand }}</strong></div>
+            </div>
+
+            <!-- Price & Sale wrapper -->
+            <div class="p-3 rounded-4 bg-light border mb-4 d-flex align-items-baseline gap-3">
+                <div class="display-6 fw-extrabold text-dark mb-0">${{ product.current_price }}</div>
+                {% if product.is_on_sale %}
+                    <div class="h5 text-muted text-decoration-line-through mb-0">${{ product.price }}</div>
+                    <span class="badge bg-danger fw-bold">SAVE {{ product.discount_percent }}%</span>
+                {% endif %}
+            </div>
+
+            <!-- Short description -->
+            <p class="text-secondary mb-4 lead" style="font-size: 1.05rem;">
+                {{ product.short_description|default:product.description|truncatewords:45 }}
+            </p>
+
+            <!-- Stock status pill -->
+            <div class="mb-4">
+                <div class="stock-status-pill {% if product.stock_quantity == 0 %}out-of-stock{% elif product.is_low_stock %}low-stock{% else %}in-stock{% endif %} py-1 px-3 rounded-pill border d-inline-flex">
+                    <span class="status-dot"></span>
+                    <strong class="ms-1">{{ product.stock_status }}</strong>
+                </div>
+            </div>
+
+            <!-- Add to Cart Form (Supports direct guest purchase or add to cart) -->
+            <form action="{% url 'store:cart_add' product.id %}" method="POST" class="mb-4">
+                {% csrf_token %}
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-sm-4">
+                        <label class="small text-secondary fw-bold text-uppercase d-block mb-1">Quantity</label>
+                        <div class="qty-control w-100 justify-content-between p-1">
+                            <button type="button" class="qty-btn" onclick="let input=document.getElementById('productDetailQty'); let val=parseInt(input.value)||1; if(val>1) input.value=val-1;"><i class="fas fa-minus small"></i></button>
+                            <input type="number" name="quantity" id="productDetailQty" class="qty-input" value="1" min="1" max="{{ product.stock_quantity|default:1 }}" readonly>
+                            <button type="button" class="qty-btn" onclick="let input=document.getElementById('productDetailQty'); let val=parseInt(input.value)||1; let max={{ product.stock_quantity }}; if(val<max) input.value=val+1;"><i class="fas fa-plus small"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8">
+                        <label class="small text-transparent d-none d-sm-block mb-1">&nbsp;</label>
+                        <button type="button" class="btn btn-volt btn-lg w-100 btn-ajax-add-cart" data-product-id="{{ product.id }}" id="detailAddToCartBtn" {% if not product.is_in_stock %}disabled{% endif %}>
+                            <i class="fas fa-shopping-bag me-2"></i>
+                            {% if product.is_in_stock %}Add to Shopping Cart{% else %}Out of Stock{% endif %}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Buy Now (Direct to guest checkout) & Wishlist buttons -->
+                <div class="d-flex gap-2">
+                    {% if product.is_in_stock %}
+                        <button type="submit" name="buy_now" value="1" class="btn btn-dark flex-grow-1 py-2 fw-bold">
+                            <i class="fas fa-bolt text-warning me-1"></i> Instant Buy (Guest Checkout)
+                        </button>
+                    {% endif %}
+                    <button type="button" class="btn btn-outline-secondary py-2 px-3 btn-wishlist-toggle {% if is_in_wishlist %}active{% endif %}" data-product-id="{{ product.id }}" title="Wishlist">
+                        <i class="{% if is_in_wishlist %}fas{% else %}far{% endif %} fa-heart text-danger me-1"></i> Wishlist
+                    </button>
+                </div>
+            </form>
+
+            <!-- Key Quick Specs Box -->
+            {% if product.motor_power or product.battery_capacity or product.maximum_speed or product.range %}
+                <div class="card border rounded-4 p-3 bg-white shadow-sm mb-4">
+                    <h6 class="fw-bold text-dark mb-3"><i class="fas fa-microchip text-primary me-2"></i> Performance Highlights</h6>
+                    <div class="row g-2 small">
+                        {% if product.motor_power %}
+                            <div class="col-6"><span class="text-secondary">Motor Output:</span> <strong class="d-block text-dark">{{ product.motor_power }}</strong></div>
+                        {% endif %}
+                        {% if product.battery_capacity %}
+                            <div class="col-6"><span class="text-secondary">Battery Spec:</span> <strong class="d-block text-dark">{{ product.battery_capacity }}</strong></div>
+                        {% endif %}
+                        {% if product.range %}
+                            <div class="col-6"><span class="text-secondary">Max Range:</span> <strong class="d-block text-dark">{{ product.range }}</strong></div>
+                        {% endif %}
+                        {% if product.maximum_speed %}
+                            <div class="col-6"><span class="text-secondary">Top Speed:</span> <strong class="d-block text-dark">{{ product.maximum_speed }}</strong></div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+    <!-- 3. DETAILED INFORMATION TABS -->
+    <div class="mt-5 pt-4">
+        <ul class="nav nav-pills nav-fill bg-white border p-2 rounded-4 shadow-sm mb-4" id="productTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold py-3 text-dark rounded-3" id="desc-tab" data-bs-toggle="tab" data-bs-target="#descTab" type="button" role="tab">Full Description</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold py-3 text-dark rounded-3" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specsTab" type="button" role="tab">Specifications</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold py-3 text-dark rounded-3" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviewsTab" type="button" role="tab">Customer Reviews ({{ reviews_count }})</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold py-3 text-dark rounded-3" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shippingTab" type="button" role="tab">Shipping & Returns</button>
+            </li>
+        </ul>
+
+        <div class="tab-content bg-white p-4 p-md-5 rounded-4 border shadow-sm" id="productTabsContent">
+            <!-- Description Tab -->
+            <div class="tab-pane fade show active" id="descTab" role="tabpanel">
+                <h4 class="fw-bold text-dark mb-3">Product Overview</h4>
+                <div class="text-secondary lh-lg">
+                    {{ product.description|linebreaks }}
+                </div>
+
+                {% if product.compatibility %}
+                    <div class="alert alert-info border-0 rounded-4 mt-4 p-4">
+                        <h6 class="fw-bold text-dark"><i class="fas fa-check-circle me-2"></i> OEM Compatibility & Fitting Notes</h6>
+                        <p class="mb-0 text-secondary small">{{ product.compatibility }}</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Specifications Tab -->
+            <div class="tab-pane fade" id="specsTab" role="tabpanel">
+                <h4 class="fw-bold text-dark mb-3">Technical Specifications</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered align-middle">
+                        <tbody>
+                            <tr><th style="width: 30%;">Brand</th><td>{{ product.brand }}</td></tr>
+                            {% if product.model %}<tr><th>Model</th><td>{{ product.model }}</td></tr>{% endif %}
+                            <tr><th>SKU Identifier</th><td>{{ product.SKU }}</td></tr>
+                            {% if product.motor_power %}<tr><th>Motor Architecture</th><td>{{ product.motor_power }}</td></tr>{% endif %}
+                            {% if product.battery_capacity %}<tr><th>Battery Pack</th><td>{{ product.battery_capacity }}</td></tr>{% endif %}
+                            {% if product.maximum_speed %}<tr><th>Top Assist Speed</th><td>{{ product.maximum_speed }}</td></tr>{% endif %}
+                            {% if product.range %}<tr><th>Estimated Range</th><td>{{ product.range }}</td></tr>{% endif %}
+                            {% if product.charging_time %}<tr><th>Charging Time</th><td>{{ product.charging_time }}</td></tr>{% endif %}
+                            {% if product.weight %}<tr><th>Weight</th><td>{{ product.weight }}</td></tr>{% endif %}
+                            {% if product.dimensions %}<tr><th>Dimensions</th><td>{{ product.dimensions }}</td></tr>{% endif %}
+                            {% if product.material %}<tr><th>Frame / Construction Material</th><td>{{ product.material }}</td></tr>{% endif %}
+                            {% if product.color %}<tr><th>Color Finish</th><td>{{ product.color }}</td></tr>{% endif %}
+                            <tr><th>Warranty Term</th><td>{{ product.warranty|default:'2 Years Factory Limited Warranty' }}</td></tr>
+                            {% if product.compatibility %}<tr><th>System Compatibility</th><td>{{ product.compatibility }}</td></tr>{% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-pane fade" id="reviewsTab" role="tabpanel">
+                <div class="row g-5">
+                    <div class="col-lg-5">
+                        <div class="p-4 bg-light rounded-4 border text-center mb-4">
+                            <h2 class="display-4 fw-extrabold text-dark mb-0">{{ product.average_rating }}</h2>
+                            <div class="text-warning mb-2">
+                                {% for i in "12345" %}
+                                    <i class="fas fa-star {% if forloop.counter <= product.average_rating %}text-warning{% else %}text-muted opacity-25{% endif %}"></i>
+                                {% endfor %}
+                            </div>
+                            <p class="text-secondary small mb-0">Based on {{ reviews_count }} verified rider reviews</p>
+                        </div>
+
+                        <!-- Review Submission Form -->
+                        {% if user.is_authenticated %}
+                            {% if user_has_reviewed %}
+                                <div class="alert alert-info rounded-3">
+                                    <i class="fas fa-check-circle me-1"></i> You have already reviewed this product.
+                                </div>
+                            {% else %}
+                                <div class="card border rounded-4 p-4 shadow-sm">
+                                    <h5 class="fw-bold text-dark mb-3">Leave a Review</h5>
+                                    <form action="{% url 'reviews:add_review' product.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Overall Rating</label>
+                                            <select name="rating" class="form-select" required>
+                                                <option value="5" selected>5 ★★★★★ (Exceptional)</option>
+                                                <option value="4">4 ★★★★☆ (Very Good)</option>
+                                                <option value="3">3 ★★★☆☆ (Average)</option>
+                                                <option value="2">2 ★★☆☆☆ (Below Average)</option>
+                                                <option value="1">1 ★☆☆☆☆ (Poor)</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Review Headline</label>
+                                            <input type="text" name="title" class="form-control" placeholder="e.g. Unstoppable hill climb torque" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label small fw-bold">Your Detailed Review</label>
+                                            <textarea name="comment" class="form-control" rows="4" placeholder="Describe the acceleration, comfort, battery longevity, or installation experience..." required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-volt w-100 fw-bold">Publish Review</button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="card border rounded-4 p-4 text-center bg-light">
+                                <p class="text-secondary mb-3">Have you purchased or tested this product? Sign in to share your review.</p>
+                                <a href="{% url 'accounts:login' %}?next={{ product.get_absolute_url }}" class="btn btn-volt">Sign In to Review</a>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Reviews List -->
+                    <div class="col-lg-7">
+                        <h4 class="fw-bold text-dark mb-4">Customer Reviews</h4>
+                        {% if reviews %}
+                            <div class="d-flex flex-column gap-3">
+                                {% for rev in reviews %}
+                                    <div class="border rounded-4 p-4 shadow-sm bg-white">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <div>
+                                                <h6 class="fw-bold mb-0 text-dark">{{ rev.user.first_name|default:rev.user.username }}</h6>
+                                                {% if rev.verified_purchase %}
+                                                    <span class="badge bg-success-subtle text-success small"><i class="fas fa-check-circle me-1"></i> Verified Owner</span>
+                                                {% endif %}
+                                            </div>
+                                            <span class="text-muted small">{{ rev.created_at|date:"M d, Y" }}</span>
+                                        </div>
+                                        <div class="text-warning small mb-2">
+                                            {% for i in rev.star_range %}<i class="fas fa-star"></i>{% endfor %}
+                                            {% for i in rev.empty_star_range %}<i class="far fa-star"></i>{% endfor %}
+                                        </div>
+                                        <h6 class="fw-bold text-dark mb-2">{{ rev.title }}</h6>
+                                        <p class="text-secondary small mb-0">{{ rev.comment }}</p>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p class="text-secondary">No customer reviews yet. Be the first to review this product!</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping & Returns Tab -->
+            <div class="tab-pane fade" id="shippingTab" role="tabpanel">
+                <h4 class="fw-bold text-dark mb-3">Surron Freight & Warranty Guarantee</h4>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded-3 bg-light">
+                            <h6 class="fw-bold text-dark"><i class="fas fa-box text-primary me-2"></i> Shipping Policies</h6>
+                            <p class="text-secondary small mb-0">
+                                E-bikes ship with specialized heavy freight ground carriers in custom reinforced double-walled protective cartons. Delivery typically completes in 3–5 business days. Free shipping applies automatically to all orders over $500.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded-3 bg-light">
+                            <h6 class="fw-bold text-dark"><i class="fas fa-shield-alt text-primary me-2"></i> 2-Year Limited Warranty</h6>
+                            <p class="text-secondary small mb-0">
+                                Surron electric bikes carry an extensive 2-year warranty covering frame integrity, motor internals, and electronic controllers against manufacturing defects. Battery packs are guaranteed to retain at least 70% capacity through 500 charge cycles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. YOU MAY ALSO NEED (SWIPER SLIDER) -->
+    {% if related_products %}
+        <div class="mt-5 pt-5 border-top">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <span class="text-primary text-uppercase fw-bold small">Component Synergies</span>
+                    <h3 class="fw-extrabold text-dark mb-0">You May Also Need</h3>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-dark btn-sm rounded-circle swiper-prev-related" style="width: 40px; height: 40px;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-outline-dark btn-sm rounded-circle swiper-next-related" style="width: 40px; height: 40px;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Swiper Container for Related Products -->
+            <div class="swiper swiper-related pb-4">
+                <div class="swiper-wrapper">
+                    {% for p in related_products %}
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <div class="product-card-media">
+                                    <div class="product-card-actions">
+                                        <button type="button" class="btn-card-action btn-wishlist-toggle {% if p.id in user_wishlist_ids %}active{% endif %}" data-product-id="{{ p.id }}" title="Wishlist">
+                                            <i class="{% if p.id in user_wishlist_ids %}fas{% else %}far{% endif %} fa-heart"></i>
+                                        </button>
+                                        <button type="button" class="btn-card-action btn-quick-view" data-slug="{{ p.slug }}" title="Quick View">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <a href="{{ p.get_absolute_url }}">
+                                        {% with primary_img=p.get_primary_image %}
+                                            {% if primary_img and primary_img.image %}
+                                                <img src="{{ primary_img.image.url }}" alt="{{ p.name }}" loading="lazy">
+                                            {% else %}
+                                                <img src="/static/images/placeholder-bike.svg" alt="{{ p.name }}" loading="lazy">
+                                            {% endif %}
+                                        {% endwith %}
+                                    </a>
+                                </div>
+                                <div class="product-card-body">
+                                    <div class="product-card-category">{{ p.category.name }}</div>
+                                    <h4 class="product-card-title"><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></h4>
+                                    <div class="product-price-wrapper">
+                                        <div class="product-price">${{ p.current_price }}</div>
+                                    </div>
+                                    <button type="button" class="btn btn-volt w-100 btn-ajax-add-cart mt-2" data-product-id="{{ p.id }}">
+                                        <i class="fas fa-shopping-bag me-1"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination swiper-pagination-related mt-3"></div>
+            </div>
+        </div>
+    {% endif %}
+
+</div>
+
+<!-- FULLSCREEN IMAGE LIGHTBOX MODAL -->
+<div id="productLightbox" class="product-lightbox d-none" role="dialog" aria-modal="true" aria-label="Product Image Gallery Fullscreen">
+    <div class="product-lightbox-backdrop" onclick="closeFullscreenLightbox()"></div>
+    <div class="product-lightbox-content">
+        <!-- Top Toolbar -->
+        <div class="product-lightbox-header">
+            <span class="product-lightbox-counter" id="lightboxCounter">1 / 1</span>
+            <div class="d-flex align-items-center gap-2">
+                <button type="button" class="btn text-white rounded-circle lightbox-action-btn" onclick="toggleLightboxZoom()" title="Zoom Image">
+                    <i class="fas fa-search-plus" id="lightboxZoomIcon"></i>
+                </button>
+                <button type="button" class="btn text-white rounded-circle lightbox-action-btn" onclick="closeFullscreenLightbox()" title="Close (Esc)">
+                    <i class="fas fa-times fa-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Display Area with Left / Right Arrows -->
+        <div class="product-lightbox-stage" id="lightboxStage">
+            <button type="button" class="lightbox-nav-btn prev-btn" id="lightboxPrevBtn" onclick="prevLightboxImage()" aria-label="Previous Image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="product-lightbox-img-wrapper" id="lightboxImgWrapper">
+                <img id="lightboxActiveImg" src="" alt="{{ product.name }}">
+            </div>
+            <button type="button" class="lightbox-nav-btn next-btn" id="lightboxNextBtn" onclick="nextLightboxImage()" aria-label="Next Image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Bottom Thumbnails Strip -->
+        <div class="product-lightbox-thumbnails" id="lightboxThumbnails">
+            <!-- Dynamically populated -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.main-image-wrapper {
+    cursor: zoom-in;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.main-image-wrapper:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+}
+.main-image-wrapper:hover #mainProductImage {
+    transform: scale(1.02);
+}
+.pointer-events-none {
+    pointer-events: none;
+}
+.product-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+.product-lightbox.d-none {
+    display: none !important;
+}
+.product-lightbox-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 29, 0.95);
+    backdrop-filter: blur(8px);
+}
+.product-lightbox-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 20px;
+    box-sizing: border-box;
+    user-select: none;
+}
+.product-lightbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+}
+.product-lightbox-counter {
+    color: #f8fafc;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.lightbox-action-btn {
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lightbox-action-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+    transform: scale(1.08);
+}
+.product-lightbox-stage {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 10px 0;
+}
+.product-lightbox-img-wrapper {
+    max-width: 90vw;
+    max-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.product-lightbox-img-wrapper img {
+    max-width: 88vw;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    transition: transform 0.25s ease;
+}
+.product-lightbox-img-wrapper.zoomed img {
+    transform: scale(1.6);
+    cursor: grab;
+}
+.lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    font-size: 1.25rem;
+}
+.lightbox-nav-btn:hover {
+    background: #0284c7;
+    transform: translateY(-50%) scale(1.1);
+    color: #ffffff;
+}
+.lightbox-nav-btn.prev-btn {
+    left: 20px;
+}
+.lightbox-nav-btn.next-btn {
+    right: 20px;
+}
+.product-lightbox-thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0 6px 0;
+    z-index: 10;
+}
+.lightbox-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.55;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    background: #1e293b;
+    padding: 0;
+}
+.lightbox-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.lightbox-thumb.active {
+    opacity: 1;
+    border-color: #0284c7;
+    transform: scale(1.1);
+}
+@media (max-width: 768px) {
+    .lightbox-nav-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+    .lightbox-nav-btn.prev-btn { left: 8px; }
+    .lightbox-nav-btn.next-btn { right: 8px; }
+    .lightbox-thumb { width: 50px; height: 50px; }
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Gallery Data
+const galleryImages = [
+    {% for img in product.images.all %}
+        "{{ img.image.url }}",
+    {% empty %}
+        {% if product.get_primary_image and product.get_primary_image.image %}
+            "{{ product.get_primary_image.image.url }}",
+        {% else %}
+            "/static/images/placeholder-bike.svg",
+        {% endif %}
+    {% endfor %}
+];
+
+let currentLightboxIndex = 0;
+let isZoomed = false;
+
+function selectGalleryImage(url, index) {
+    const mainImg = document.getElementById('mainProductImage');
+    if (mainImg) mainImg.src = url;
+    currentLightboxIndex = index;
+    
+    // Update thumbnail highlights
+    document.querySelectorAll('.thumbnail-btn').forEach((b, i) => {
+        if (i === index) {
+            b.classList.add('border-primary');
+        } else {
+            b.classList.remove('border-primary');
+        }
+    });
+}
+
+function renderLightboxThumbnails() {
+    const container = document.getElementById('lightboxThumbnails');
+    if (!container) return;
+    if (galleryImages.length <= 1) {
+        container.innerHTML = '';
+        return;
+    }
+    
+    container.innerHTML = galleryImages.map((src, i) => `
+        <button type="button" class="lightbox-thumb ${i === currentLightboxIndex ? 'active' : ''}" onclick="setLightboxIndex(${i})">
+            <img src="${src}" alt="Gallery Thumbnail ${i + 1}">
+        </button>
+    `).join('');
+}
+
+function updateLightboxDisplay() {
+    const activeImg = document.getElementById('lightboxActiveImg');
+    const counter = document.getElementById('lightboxCounter');
+    const wrapper = document.getElementById('lightboxImgWrapper');
+    const zoomIcon = document.getElementById('lightboxZoomIcon');
+    
+    // Reset zoom on slide change
+    isZoomed = false;
+    if (wrapper) wrapper.classList.remove('zoomed');
+    if (zoomIcon) {
+        zoomIcon.classList.remove('fa-search-minus');
+        zoomIcon.classList.add('fa-search-plus');
+    }
+    
+    if (activeImg && galleryImages[currentLightboxIndex]) {
+        activeImg.src = galleryImages[currentLightboxIndex];
+    }
+    if (counter) {
+        counter.textContent = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+    }
+    
+    // Update lightbox thumbs
+    document.querySelectorAll('.lightbox-thumb').forEach((thumb, i) => {
+        if (i === currentLightboxIndex) {
+            thumb.classList.add('active');
+            thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+            thumb.classList.remove('active');
+        }
+    });
+
+    // Update main page thumbnail and main image as well
+    selectGalleryImage(galleryImages[currentLightboxIndex], currentLightboxIndex);
+}
+
+function openFullscreenLightbox() {
+    // Determine active index by main image src
+    const mainImg = document.getElementById('mainProductImage');
+    if (mainImg && mainImg.src) {
+        const foundIdx = galleryImages.findIndex(src => mainImg.src.includes(src) || src.includes(mainImg.src));
+        if (foundIdx !== -1) {
+            currentLightboxIndex = foundIdx;
+        }
+    }
+    
+    renderLightboxThumbnails();
+    updateLightboxDisplay();
+    
+    const lightbox = document.getElementById('productLightbox');
+    if (lightbox) {
+        lightbox.classList.remove('d-none');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeFullscreenLightbox() {
+    const lightbox = document.getElementById('productLightbox');
+    if (lightbox) {
+        lightbox.classList.add('d-none');
+        document.body.style.overflow = '';
+    }
+}
+
+function prevLightboxImage() {
+    if (galleryImages.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateLightboxDisplay();
+}
+
+function nextLightboxImage() {
+    if (galleryImages.length <= 1) return;
+    currentLightboxIndex = (currentLightboxIndex + 1) % galleryImages.length;
+    updateLightboxDisplay();
+}
+
+function setLightboxIndex(idx) {
+    if (idx >= 0 && idx < galleryImages.length) {
+        currentLightboxIndex = idx;
+        updateLightboxDisplay();
+    }
+}
+
+function toggleLightboxZoom() {
+    const wrapper = document.getElementById('lightboxImgWrapper');
+    const zoomIcon = document.getElementById('lightboxZoomIcon');
+    isZoomed = !isZoomed;
+    if (wrapper) wrapper.classList.toggle('zoomed', isZoomed);
+    if (zoomIcon) {
+        if (isZoomed) {
+            zoomIcon.classList.remove('fa-search-plus');
+            zoomIcon.classList.add('fa-search-minus');
+        } else {
+            zoomIcon.classList.remove('fa-search-minus');
+            zoomIcon.classList.add('fa-search-plus');
+        }
+    }
+}
+
+// Keyboard arrow & escape navigation
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('productLightbox');
+    if (!lightbox || lightbox.classList.contains('d-none')) return;
+    
+    if (e.key === 'Escape') {
+        closeFullscreenLightbox();
+    } else if (e.key === 'ArrowLeft') {
+        prevLightboxImage();
+    } else if (e.key === 'ArrowRight') {
+        nextLightboxImage();
+    }
+});
+
+// Touch swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+const stageEl = document.getElementById('lightboxStage');
+if (stageEl) {
+    stageEl.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    stageEl.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+}
+
+function handleSwipe() {
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+            prevLightboxImage();
+        } else {
+            nextLightboxImage();
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Related Products Swiper
+    new Swiper('.swiper-related', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination-related', clickable: true },
+        navigation: { nextEl: '.swiper-next-related', prevEl: '.swiper-prev-related' },
+        breakpoints: {
+            576: { slidesPerView: 2 },
+            992: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 }
+        }
+    });
+});
+</script>
+{% endblock %}

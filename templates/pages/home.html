@@ -1,0 +1,983 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Surron | High-Performance Electric Bikes & OEM Spare Parts{% endblock %}
+{% block meta_description %}Surron is your trusted destination for class 1, 2, and 3 electric bikes, certified Samsung battery packs, high-torque Bafang motors, and OEM spare parts.{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Featured Products: description strictly 2 lines with ellipsis dots */
+.product-card-description {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    min-height: 2.9em !important;
+    max-height: 2.9em !important;
+    line-height: 1.45 !important;
+    margin-bottom: 12px !important;
+    font-size: 0.82rem !important;
+    color: #64748b !important;
+}
+
+/* Featured Products: text below price strictly 1 line with ellipsis dots */
+.product-highlights {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    margin-bottom: 14px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+.product-highlights span,
+.product-highlights .highlight-item {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    line-height: 1.4 !important;
+}
+
+/* Customer Reviews: exactly 4 lines with ellipsis dots */
+.review-card {
+    height: 350px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    padding: 24px !important;
+}
+
+.review-card .review-comment {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.5 !important;
+    font-size: 0.88rem !important;
+    color: #64748b !important;
+    margin-bottom: 12px !important;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- 1. HERO BANNER CAROUSEL (3 IMAGES) -->
+<section class="hero-carousel-section position-relative bg-dark">
+    <div id="heroBannerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <!-- Indicators / Dots -->
+        <div class="carousel-indicators mb-4">
+            <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- SLIDE 1: E-Bikes -->
+            <div class="carousel-item active" style="min-height: 560px; max-height: 640px;">
+                <div class="position-absolute w-100 h-100" style="background: linear-gradient(90deg, rgba(11, 15, 25, 0.92) 0%, rgba(11, 15, 25, 0.65) 50%, rgba(11, 15, 25, 0.25) 100%); z-index: 1;"></div>
+                <img src="{% static 'images/hero-slide-1.webp' %}" class="d-block w-100 h-100" alt="Surron High-Performance Electric Bikes" style="object-fit: cover; object-position: center; min-height: 560px;">
+                
+                <div class="carousel-caption text-start d-flex align-items-center h-100 position-absolute top-0 start-0 w-100 px-3 px-md-5" style="z-index: 2;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-9">
+                                <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">
+                                    <i class="fas fa-bolt me-1"></i> Next-Gen Electric Mobility
+                                </span>
+                                <h1 class="display-4 fw-extrabold text-white mb-3 leading-tight">
+                                    Pure Speed. Unmatched Range.
+                                </h1>
+                                <p class="lead text-light mb-4" style="max-width: 580px;">
+                                    Engineered with high-torque 750W Bafang drivetrains and certified Samsung 48V/52V cell packs. Accelerate past traffic and conquer steep terrain.
+                                </p>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <a href="{% url 'store:shop' %}?type=ebike" class="btn btn-volt btn-lg fw-bold rounded-pill px-4">
+                                        <i class="fas fa-bicycle me-2"></i> Explore E-Bikes
+                                    </a>
+                                    <a href="{% url 'store:shop' %}" class="btn btn-outline-light btn-lg fw-bold rounded-pill px-4">
+                                        Browse Catalog
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: Mountain & All-Terrain -->
+            <div class="carousel-item" style="min-height: 560px; max-height: 640px;">
+                <div class="position-absolute w-100 h-100" style="background: linear-gradient(90deg, rgba(11, 15, 25, 0.92) 0%, rgba(11, 15, 25, 0.65) 50%, rgba(11, 15, 25, 0.25) 100%); z-index: 1;"></div>
+                <img src="{% static 'images/hero-slide-2.webp' %}" class="d-block w-100 h-100" alt="All-Terrain Fat Tire Electric Bikes" style="object-fit: cover; object-position: center; min-height: 560px;">
+                
+                <div class="carousel-caption text-start d-flex align-items-center h-100 position-absolute top-0 start-0 w-100 px-3 px-md-5" style="z-index: 2;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-9">
+                                <span class="badge bg-warning text-dark fw-bold text-uppercase px-3 py-2 mb-3">
+                                    <i class="fas fa-mountain me-1"></i> Rugged Trail Explorers
+                                </span>
+                                <h2 class="display-4 fw-extrabold text-white mb-3 leading-tight">
+                                    Dominate Any Gradient.
+                                </h2>
+                                <p class="lead text-light mb-4" style="max-width: 580px;">
+                                    All-weather 4-inch puncture-resistant fat tires, 4-piston hydraulic stopping power, and full suspension built to handle rock gardens and steep climbs.
+                                </p>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <a href="{% url 'store:shop' %}?type=ebike" class="btn btn-volt btn-lg fw-bold rounded-pill px-4">
+                                        <i class="fas fa-compass me-2"></i> All-Terrain Models
+                                    </a>
+                                    <a href="{% url 'pages:about' %}" class="btn btn-outline-light btn-lg fw-bold rounded-pill px-4">
+                                        Our Engineering
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: Genuine Spare Parts & Upgrades -->
+            <div class="carousel-item" style="min-height: 560px; max-height: 640px;">
+                <div class="position-absolute w-100 h-100" style="background: linear-gradient(90deg, rgba(11, 15, 25, 0.92) 0%, rgba(11, 15, 25, 0.65) 50%, rgba(11, 15, 25, 0.25) 100%); z-index: 1;"></div>
+                <img src="{% static 'images/hero-slide-3.webp' %}" class="d-block w-100 h-100" alt="Genuine OEM Spare Parts and Batteries" style="object-fit: cover; object-position: center; min-height: 560px;">
+                
+                <div class="carousel-caption text-start d-flex align-items-center h-100 position-absolute top-0 start-0 w-100 px-3 px-md-5" style="z-index: 2;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-9">
+                                <span class="badge bg-info text-dark fw-bold text-uppercase px-3 py-2 mb-3">
+                                    <i class="fas fa-tools me-1"></i> Right to Repair Guaranteed
+                                </span>
+                                <h2 class="display-4 fw-extrabold text-white mb-3 leading-tight">
+                                    100% Genuine OEM Parts.
+                                </h2>
+                                <p class="lead text-light mb-4" style="max-width: 580px;">
+                                    Maintain, tune, and upgrade your ride with factory-certified replacement motors, smart BMS battery packs, controllers, throttles, and brakes.
+                                </p>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <a href="{% url 'store:shop' %}?type=spare_part" class="btn btn-volt btn-lg fw-bold rounded-pill px-4">
+                                        <i class="fas fa-cogs me-2"></i> Shop Spare Parts
+                                    </a>
+                                    <a href="{% url 'store:shop' %}?category=batteries" class="btn btn-outline-light btn-lg fw-bold rounded-pill px-4">
+                                        <i class="fas fa-battery-full me-2"></i> Battery Upgrades
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. TRUSTED BY & PRESS BANNER -->
+<section class="py-4 bg-dark border-bottom border-secondary">
+    <div class="container">
+        <div class="row align-items-center g-3 text-center text-md-start">
+            <div class="col-lg-3 col-md-4">
+                <span class="text-uppercase text-light fw-bold small tracking-wider">
+                    <i class="fas fa-award text-primary me-2"></i> Industry Certified
+                </span>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-4 text-light opacity-75 small fw-semibold">
+                    <span class="press-logo-item"><i class="fas fa-newspaper me-1"></i> WIRED</span>
+                    <span class="press-logo-item"><i class="fas fa-bolt me-1"></i> ELECTREK</span>
+                    <span class="press-logo-item"><i class="fas fa-leaf me-1"></i> CLEANTECHNICA</span>
+                    <span class="press-logo-item"><i class="fas fa-bicycle me-1"></i> BICYCLING MAG</span>
+                    <span class="badge bg-secondary-subtle text-light border border-secondary px-3 py-2">
+                        <i class="fas fa-shield-alt text-primary me-1"></i> UL 2849 Electrical Safety
+                    </span>
+                    <span class="badge bg-secondary-subtle text-light border border-secondary px-3 py-2">
+                        <i class="fas fa-check-circle text-success me-1"></i> ISO 9001
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. FEATURED CATEGORIES -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4 text-center">
+        <div class="mb-4">
+            <span class="text-primary text-uppercase fw-bold small">Engineered Systems</span>
+            <h2 class="fw-extrabold text-dark mb-2">Browse by Category</h2>
+            <div>
+                <a href="{% url 'store:shop' %}" class="fw-bold text-primary small">View All Categories <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <div class="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-6 justify-content-center">
+            {% for cat in all_categories %}
+                <div class="col d-flex justify-content-center">
+                    <a href="{% url 'store:shop' %}?category={{ cat.slug }}" class="category-card h-100 w-100">
+                        <div class="category-icon-box">
+                            <i class="fas {{ cat.icon|default:'fa-bicycle' }}"></i>
+                        </div>
+                        <h6>{{ cat.name }}</h6>
+                        <span class="cat-count">{{ cat.products.count }} Products</span>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- 4. FEATURED PRODUCTS (SWIPER) -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="text-primary text-uppercase fw-bold small">Fresh from Engineering</span>
+                <h2 class="fw-extrabold text-dark mb-0">Featured Products</h2>
+                <p class="text-secondary small mb-0">Swipe through our newest electric bikes, high-capacity battery packs, and OEM components.</p>
+            </div>
+            <div class="d-none d-md-flex gap-2">
+                <button class="btn btn-outline-dark btn-sm rounded-circle swiper-prev-products" style="width: 40px; height: 40px;">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm rounded-circle swiper-next-products" style="width: 40px; height: 40px;">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Swiper Container for Products -->
+        <div class="swiper swiper-products pb-5">
+            <div class="swiper-wrapper">
+                {% for product in featured_products %}
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-card-media">
+                                <!-- Badges -->
+                                <div class="product-badge-group">
+                                    {% if product.is_on_sale %}
+                                        <span class="product-badge badge-sale">-{{ product.discount_percent }}% OFF</span>
+                                    {% endif %}
+                                    {% if product.bestseller %}
+                                        <span class="product-badge badge-bestseller">TOP SELLER</span>
+                                    {% else %}
+                                        <span class="product-badge badge-new">LATEST</span>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Card Actions -->
+                                <div class="product-card-actions">
+                                    <button type="button" class="btn-card-action btn-wishlist-toggle {% if product.id in user_wishlist_ids %}active{% endif %}" data-product-id="{{ product.id }}" title="Wishlist">
+                                        <i class="{% if product.id in user_wishlist_ids %}fas{% else %}far{% endif %} fa-heart"></i>
+                                    </button>
+                                    <button type="button" class="btn-card-action btn-quick-view" data-slug="{{ product.slug }}" title="Quick View">
+                                        <i class="far fa-eye"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Product Image Link -->
+                                <a href="{{ product.get_absolute_url }}">
+                                    {% with primary_img=product.get_primary_image %}
+                                        {% if primary_img and primary_img.image %}
+                                            <img src="{{ primary_img.image.url }}" alt="{{ product.name }}" loading="lazy">
+                                        {% else %}
+                                            <img src="/static/images/placeholder-bike.svg" alt="{{ product.name }}" loading="lazy">
+                                        {% endif %}
+                                    {% endwith %}
+                                </a>
+                            </div>
+
+                            <div class="product-card-body">
+                                <div class="product-card-category">{{ product.category.name }}</div>
+                                <h4 class="product-card-title">
+                                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                </h4>
+
+                                <!-- Rating Stars & Count -->
+                                <div class="product-rating">
+                                    <div class="stars">
+                                        {% for i in "12345" %}
+                                            <i class="fas fa-star {% if forloop.counter <= product.average_rating %}text-warning{% else %}text-muted opacity-25{% endif %}"></i>
+                                        {% endfor %}
+                                    </div>
+                                    <span class="count">({{ product.review_count }})</span>
+                                </div>
+
+                                <!-- Product Description (2 lines with ellipsis dots) -->
+                                <p class="product-card-description" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; min-height: 2.9em; max-height: 2.9em; line-height: 1.45; margin-bottom: 12px; font-size: 0.82rem; color: #64748b;">
+                                    {{ product.short_description|default:product.description }}
+                                </p>
+
+                                <!-- Price -->
+                                <div class="product-price-wrapper">
+                                    <div class="product-price">${{ product.current_price }}</div>
+                                    {% if product.compare_at_price and product.compare_at_price > product.price %}
+                                        <div class="product-compare-price">${{ product.compare_at_price }}</div>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Key Highlights (Strictly 1 line with ellipsis dots) -->
+                                <div class="product-highlights" style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; width: 100%; max-width: 100%; overflow: hidden;">
+                                    {% if product.product_type == 'ebike' %}
+                                        {% if product.motor_power %}
+                                            <span class="highlight-item" style="display: block; width: 100%; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.82rem; font-weight: 500; color: #334155; line-height: 1.4;" title="{{ product.motor_power }}">
+                                                <i class="fas fa-bolt text-primary me-1"></i> {{ product.motor_power }}
+                                            </span>
+                                        {% elif product.max_range %}
+                                            <span class="highlight-item" style="display: block; width: 100%; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.82rem; font-weight: 500; color: #334155; line-height: 1.4;" title="{{ product.max_range }}">
+                                                <i class="fas fa-road text-primary me-1"></i> {{ product.max_range }}
+                                            </span>
+                                        {% endif %}
+                                    {% elif product.product_type == 'battery' %}
+                                        {% if product.voltage %}
+                                            <span class="highlight-item" style="display: block; width: 100%; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.82rem; font-weight: 500; color: #334155; line-height: 1.4;" title="{{ product.voltage }}">
+                                                <i class="fas fa-bolt text-primary me-1"></i> {{ product.voltage }}
+                                            </span>
+                                        {% elif product.capacity %}
+                                            <span class="highlight-item" style="display: block; width: 100%; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.82rem; font-weight: 500; color: #334155; line-height: 1.4;" title="{{ product.capacity }}">
+                                                <i class="fas fa-battery-three-quarters text-primary me-1"></i> {{ product.capacity }}
+                                            </span>
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="highlight-item" style="display: block; width: 100%; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.82rem; font-weight: 500; color: #334155; line-height: 1.4;" title="OEM Fit & Tested">
+                                            <i class="fas fa-check text-success me-1"></i> OEM Fit &nbsp;&bull;&nbsp; <i class="fas fa-shield-alt text-primary ms-1 me-1"></i> Tested
+                                        </span>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Add to Cart Button -->
+                                <div class="mt-auto">
+                                    <button type="button" class="btn btn-volt w-100 btn-ajax-add-cart rounded-pill" data-product-id="{{ product.id }}" {% if not product.is_in_stock %}disabled{% endif %}>
+                                        {% if product.is_in_stock %}
+                                            <i class="fas fa-shopping-bag me-1"></i> Add to Cart
+                                        {% else %}
+                                            <i class="fas fa-ban me-1"></i> Out of Stock
+                                        {% endif %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination swiper-pagination-products mt-3"></div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. SURRON PERFORMANCE FLEET & HIGH-VOLTAGE ARCHITECTURE -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-bold text-uppercase px-3 py-2 mb-2">
+                <i class="fas fa-bolt me-1"></i> Canadian High-Voltage Fleet
+            </span>
+            <h2 class="fw-extrabold text-dark mb-2">Race-Bred Electric Dominance</h2>
+            <p class="text-secondary">From the agile 50 kg Light Bee X to the 21 kW Ultra Bee Enduro, explore factory powertrains engineered for extreme Canadian trails, snow, and streets.</p>
+        </div>
+
+        <div class="row g-4 row-cols-1 row-cols-md-3">
+            <!-- Pillar 1: Light Bee Series -->
+            <div class="col">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm d-flex flex-column" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2">Agility Benchmark</span>
+                        <div class="rounded-circle bg-dark text-primary d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                            <i class="fas fa-feather-alt fs-5"></i>
+                        </div>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2">Light Bee Series</h4>
+                    <p class="text-secondary small mb-3">
+                        Ultralight 50 kg forged aluminum chassis paired with an instant-torque mid-drive PMSM powertrain. Built for extreme singletrack agility, jumps, and tight enduro trails.
+                    </p>
+                    
+                    <div class="row g-2 mb-4 text-center">
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">6 kW</div>
+                                <div class="text-muted" style="font-size: 11px;">Peak Power</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">50 kg</div>
+                                <div class="text-muted" style="font-size: 11px;">Total Weight</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">75 km/h</div>
+                                <div class="text-muted" style="font-size: 11px;">Top Speed</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">100 km</div>
+                                <div class="text-muted" style="font-size: 11px;">Max Range</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'store:shop' %}?category=electric-bikes" class="btn btn-outline-dark btn-sm rounded-pill fw-bold mt-auto py-2">
+                        Explore Light Bee Lineup <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pillar 2: Ultra Bee Series -->
+            <div class="col">
+                <div class="card border-primary border-2 rounded-4 p-4 h-100 shadow d-flex flex-column position-relative" style="background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);">
+                    <span class="position-absolute top-0 end-0 translate-middle-y me-4 badge bg-primary text-dark fw-bold px-3 py-1 shadow-sm">
+                        TOP PERFORMANCE
+                    </span>
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-warning-subtle text-warning fw-bold px-3 py-2">21 kW Enduro Beast</span>
+                        <div class="rounded-circle bg-dark text-warning d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                            <i class="fas fa-tachometer-alt fs-5"></i>
+                        </div>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2">Ultra Bee Series</h4>
+                    <p class="text-secondary small mb-3">
+                        Full-size motocross geometry with 440 Nm wheel torque, active SRTC traction control, multi-level electronic braking regen, and sub-zero winter battery optimization.
+                    </p>
+
+                    <div class="row g-2 mb-4 text-center">
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-primary fs-6">21 kW</div>
+                                <div class="text-muted" style="font-size: 11px;">Peak Output</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">440 Nm</div>
+                                <div class="text-muted" style="font-size: 11px;">Wheel Torque</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">90 km/h</div>
+                                <div class="text-muted" style="font-size: 11px;">Top Speed</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">140 km</div>
+                                <div class="text-muted" style="font-size: 11px;">Enduro Range</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'store:shop' %}?category=electric-bikes" class="btn btn-volt btn-sm rounded-pill fw-bold mt-auto py-2">
+                        Explore Ultra Bee Fleet <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pillar 3: Genuine OEM Parts & High-Output Upgrades -->
+            <div class="col">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm d-flex flex-column" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge bg-success-subtle text-success fw-bold px-3 py-2">Factory Upgrades</span>
+                        <div class="rounded-circle bg-dark text-success d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                            <i class="fas fa-cogs fs-5"></i>
+                        </div>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2">Upgrades & Spare Parts</h4>
+                    <p class="text-secondary small mb-3">
+                        Canadian inventory of certified 81.4V battery upgrade packs, 4-piston hydraulic disc brakes, smart 10A fast chargers, and OEM replacement components with priority dispatch.
+                    </p>
+
+                    <div class="row g-2 mb-4 text-center">
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">81.4V</div>
+                                <div class="text-muted" style="font-size: 11px;">EBMX Packs</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">4-Piston</div>
+                                <div class="text-muted" style="font-size: 11px;">Hydraulic Brakes</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">10A Fast</div>
+                                <div class="text-muted" style="font-size: 11px;">Smart Chargers</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-2 rounded-3 bg-white border">
+                                <div class="fw-extrabold text-dark fs-6">100% OEM</div>
+                                <div class="text-muted" style="font-size: 11px;">Direct Fit</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'store:shop' %}?type=spare_part" class="btn btn-outline-dark btn-sm rounded-pill fw-bold mt-auto py-2">
+                        Shop Spare Parts & Accessories <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust & Freight Assurance Banner -->
+        <div class="mt-4 p-4 rounded-4 bg-light border d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <div class="rounded-circle bg-dark text-primary d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; flex-shrink: 0;">
+                    <i class="fas fa-truck-moving fs-5"></i>
+                </div>
+                <div>
+                    <div class="fw-bold text-dark">Tracked Canadian Freight Logistics</div>
+                    <div class="text-secondary small">Every bike is pre-assembled, inspected, and dispatched in steel-reinforced crates with live tracking across all 10 provinces.</div>
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <a href="{% url 'store:shop' %}" class="btn btn-dark btn-sm rounded-pill fw-bold px-4 py-2">
+                    Browse All Inventory <i class="fas fa-arrow-right ms-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. VALUE PROPOSITION PILLARS -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="row g-4 row-cols-2 row-cols-md-3 row-cols-lg-6">
+            <div class="col">
+                <div class="feature-box text-center">
+                    <div class="feature-icon mx-auto"><i class="fas fa-certificate"></i></div>
+                    <h6 class="fw-bold mb-2">100% Genuine</h6>
+                    <p class="text-secondary small mb-0">Original OEM cells, motors, and factory parts.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-box text-center">
+                    <div class="feature-icon mx-auto"><i class="fas fa-lock"></i></div>
+                    <h6 class="fw-bold mb-2">Secure Shopping</h6>
+                    <p class="text-secondary small mb-0">256-bit encrypted checkout and privacy safety.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-box text-center">
+                    <div class="feature-icon mx-auto"><i class="fas fa-shipping-fast"></i></div>
+                    <h6 class="fw-bold mb-2">Fast Delivery</h6>
+                    <p class="text-secondary small mb-0">Tracked ground shipping across nationwide hubs.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-box text-center">
+                    <div class="feature-icon mx-auto"><i class="fas fa-headset"></i></div>
+                    <h6 class="fw-bold mb-2">Expert Support</h6>
+                    <p class="text-secondary small mb-0">Direct technical help from bicycle mechanics.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-box text-center">
+                    <div class="feature-icon mx-auto"><i class="fas fa-shield-alt"></i></div>
+                    <h6 class="fw-bold mb-2">2-Year Warranty</h6>
+                    <p class="text-secondary small mb-0">Comprehensive coverage on frames, motors & batteries.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-box text-center">
+                    <div class="feature-icon mx-auto"><i class="fas fa-undo"></i></div>
+                    <h6 class="fw-bold mb-2">Easy Returns</h6>
+                    <p class="text-secondary small mb-0">30-day hassle-free return and exchange window.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. PROMOTIONAL UPGRADE BANNER -->
+<section class="py-5" style="background-color: #f1f5f9;">
+    <div class="container py-2">
+        <div class="promo-banner shadow-lg">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Power & Performance</span>
+                    <h2 class="display-5 fw-extrabold text-white mb-3">Upgrade Your Ride</h2>
+                    <p class="lead text-light mb-4" style="max-width: 600px;">
+                        Need more range, faster acceleration, or heavy-duty stopping power? Explore our collection of 52V Samsung battery packs, high-torque Bafang motors, and 4-piston hydraulic brakes.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="{% url 'store:shop' %}?type=spare_part" class="btn btn-volt btn-lg fw-bold rounded-pill px-4">
+                            <i class="fas fa-cogs"></i> Shop Spare Parts
+                        </a>
+                        <a href="{% url 'store:shop' %}?category=batteries" class="btn btn-volt-outline btn-lg fw-bold rounded-pill px-4">
+                            <i class="fas fa-battery-full"></i> Batteries & Power
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="{% static 'images/hero-slide-3.webp' %}" alt="Surron Extended Battery" class="img-fluid rounded-4 shadow-lg border border-secondary" style="max-height: 260px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. ENGINEERING & TECHNOLOGY DEEP DIVE -->
+<section class="py-5 bg-white border-top border-bottom">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Zero Compromise</span>
+            <h2 class="fw-extrabold text-dark mb-2">Engineered from the Core</h2>
+            <p class="text-secondary">We integrate only automotive-grade electrical and mechanical components into every bicycle.</p>
+        </div>
+
+        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-light h-100 shadow-sm">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                        <i class="fas fa-microchip fs-5"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Bafang Motors</h5>
+                    <p class="text-secondary small mb-0">High-torque planetary gears providing 85Nm–120Nm climbing authority, encapsulated in waterproof casing with Julet pinouts.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-light h-100 shadow-sm">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                        <i class="fas fa-battery-full fs-5"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Samsung 21700 Cells</h5>
+                    <p class="text-secondary small mb-0">Grade-A certified lithium-ion cells with multi-stage smart thermal BMS boards rated for 800+ full charging cycles.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-light h-100 shadow-sm">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                        <i class="fas fa-hand-paper fs-5"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Hydraulic Brakes</h5>
+                    <p class="text-secondary small mb-0">4-piston calipers utilizing non-toxic mineral oil with automatic 2ms electrical motor cut-off sensors for ultimate emergency stopping.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-light h-100 shadow-sm">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                        <i class="fas fa-wrench fs-5"></i>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Right to Repair</h5>
+                    <p class="text-secondary small mb-0">No proprietary locking software. We publish full electrical schematics and stock replacement gears, throttles, and displays in our warehouse.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. WHAT OUR CUSTOMERS SAY (SWIPER: 9 REVIEWS) -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="text-primary text-uppercase fw-bold small">Verified Rider Experiences</span>
+                <h2 class="fw-extrabold text-dark mb-0">What Our Customers Say</h2>
+                <p class="text-secondary small mb-0">Swipe through 9 authentic customer reviews from verified e-bike and spare parts owners.</p>
+            </div>
+            <div class="d-none d-md-flex gap-2">
+                <button class="btn btn-outline-dark btn-sm rounded-circle swiper-prev-reviews" style="width: 40px; height: 40px;">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm rounded-circle swiper-next-reviews" style="width: 40px; height: 40px;">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Swiper Reviews Container -->
+        <div class="swiper swiper-reviews pb-5">
+            <div class="swiper-wrapper">
+                {% for review in testimonials %}
+                    <div class="swiper-slide">
+                        <div class="review-card" style="height: 350px; min-height: 350px; max-height: 350px; display: flex; flex-direction: column; overflow: hidden; padding: 24px;">
+                            <div class="review-card-header">
+                                <div class="review-avatar">
+                                    {{ review.user.first_name|default:review.user.username|make_list|first|upper }}
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold mb-0 text-dark">{{ review.user.first_name|default:review.user.username }}</h6>
+                                    <div class="verified-badge">
+                                        <i class="fas fa-check-circle"></i> Verified Buyer
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-2 text-warning">
+                                {% for i in review.star_range %}<i class="fas fa-star"></i>{% endfor %}
+                                {% for i in review.empty_star_range %}<i class="far fa-star"></i>{% endfor %}
+                            </div>
+
+                            <h6 class="fw-bold text-dark mb-2 review-title">{{ review.title }}</h6>
+                            <p class="text-secondary small review-comment mb-0" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.5; margin-bottom: 12px;">"{{ review.comment }}"</p>
+
+                            <div class="review-footer border-top pt-2 mt-auto text-muted small d-flex justify-content-between align-items-center">
+                                <span class="text-primary fw-semibold"><i class="fas fa-bicycle me-1"></i> {{ review.product.name|truncatechars:24 }}</span>
+                                <span>{{ review.created_at|date:"M d, Y" }}</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination swiper-pagination-reviews mt-3"></div>
+        </div>
+    </div>
+</section>
+
+<!-- 10. WHY RIDE ELECTRIC COMPARISON TABLE -->
+<section class="py-5 bg-white border-top border-bottom">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Smart Economics</span>
+            <h2 class="fw-extrabold text-dark mb-2">Why Ride Electric with Surron?</h2>
+            <p class="text-secondary">See how a Surron compares against traditional bicycles, gas scooters, and budget generic imports.</p>
+        </div>
+
+        <div class="table-responsive rounded-4 border shadow-sm">
+            <table class="table table-hover comparison-table align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="width: 25%;">Feature / Benefit</th>
+                        <th class="comparison-highlight text-primary fw-bold" style="width: 25%;">
+                            <i class="fas fa-bolt me-1"></i> Surron E-Bike
+                        </th>
+                        <th style="width: 25%;">Traditional Bicycle</th>
+                        <th style="width: 25%;">Gas Moped / Scooter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-dark">Speed & Hill Climbing</td>
+                        <td class="comparison-highlight fw-bold text-dark">28 mph assist • 85Nm torque</td>
+                        <td class="text-secondary">10–12 mph • High physical strain</td>
+                        <td class="text-secondary">25–30 mph • Noisy gas engine</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Annual Operating Cost</td>
+                        <td class="comparison-highlight fw-bold text-success">&lt; $25 / year electricity</td>
+                        <td class="text-secondary">$0 fuel • High tire/chain wear</td>
+                        <td class="text-secondary">$650+ gas & insurance / yr</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Sweat-Free Commute</td>
+                        <td class="comparison-highlight fw-bold text-success"><i class="fas fa-check-circle me-1"></i> Yes, arrive office-ready</td>
+                        <td class="text-secondary"><i class="fas fa-times-circle text-danger me-1"></i> Requires shower / change</td>
+                        <td class="text-secondary"><i class="fas fa-check-circle text-success me-1"></i> Yes, but smell of exhaust</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Bike Path / Trail Legal</td>
+                        <td class="comparison-highlight fw-bold text-success"><i class="fas fa-check-circle me-1"></i> 100% Legal (Class 1 & 2)</td>
+                        <td class="text-secondary"><i class="fas fa-check-circle text-success me-1"></i> 100% Legal</td>
+                        <td class="text-secondary"><i class="fas fa-times-circle text-danger me-1"></i> Prohibited on bike lanes</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Driver's License & Plates</td>
+                        <td class="comparison-highlight fw-bold text-success">None required</td>
+                        <td class="text-secondary">None required</td>
+                        <td class="text-secondary">DMV plates, license & insurance</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Spare Parts Availability</td>
+                        <td class="comparison-highlight fw-bold text-primary">In-Stock OEM parts direct</td>
+                        <td class="text-secondary">Standard bike parts</td>
+                        <td class="text-secondary">Specialty mechanic required</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 11. FROM THE TECH BLOG (SWIPER: 9 ARTICLES) -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <span class="text-primary text-uppercase fw-bold small">Knowledge & Insights</span>
+                <h2 class="fw-extrabold text-dark mb-0">From the Tech Blog</h2>
+                <p class="text-secondary small mb-0">Explore 9 comprehensive technical guides on maintenance, lithium batteries, and road safety.</p>
+            </div>
+            <div class="d-none d-md-flex gap-2">
+                <button class="btn btn-outline-dark btn-sm rounded-circle swiper-prev-blogs" style="width: 40px; height: 40px;">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="btn btn-outline-dark btn-sm rounded-circle swiper-next-blogs" style="width: 40px; height: 40px;">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Swiper Blog Container -->
+        <div class="swiper swiper-blogs pb-5">
+            <div class="swiper-wrapper">
+                {% for post in recent_blogs %}
+                    <div class="swiper-slide">
+                        <article class="blog-card">
+                            <div class="blog-card-media">
+                                <a href="{{ post.get_absolute_url }}">
+                                    {% if post.featured_image %}
+                                        <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy">
+                                    {% else %}
+                                        <img src="/static/images/placeholder-bike.svg" alt="{{ post.title }}" loading="lazy">
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="blog-card-body">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar-alt me-1 text-primary"></i> {{ post.published_at|date:"M d, Y" }}</span>
+                                    <span><i class="far fa-folder me-1 text-info"></i> {{ post.category.name }}</span>
+                                </div>
+                                <h4 class="blog-title">
+                                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                </h4>
+                                <p class="text-secondary small mb-4 flex-grow-1">{{ post.excerpt|truncatewords:20 }}</p>
+                                <a href="{{ post.get_absolute_url }}" class="fw-bold text-primary small mt-auto">
+                                    Read Guide <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination swiper-pagination-blogs mt-3"></div>
+        </div>
+    </div>
+</section>
+
+<!-- 12. HOW IT WORKS: UNBOX TO RIDE IN 15 MINUTES -->
+<section class="py-5 bg-white border-top">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Zero Friction</span>
+            <h2 class="fw-extrabold text-dark mb-2">Unbox to Ride in 15 Minutes</h2>
+            <p class="text-secondary">We assemble 85% of your bicycle at our factory so you can hit the road right away.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        1
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Unbox & Inspect</h5>
+                    <p class="text-secondary small mb-0">Open the heavy-duty carton. Remove the biodegradable protective honeycomb bracing and set the bike upright.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        2
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Quick 15-Min Setup</h5>
+                    <p class="text-secondary small mb-0">Attach the quick-release front wheel, insert the handlebars, screw on the pedals, and adjust the seatpost with the included toolkit.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        3
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Turn On & Test</h5>
+                    <p class="text-secondary small mb-0">Insert the battery key, press the power button on the color LCD display, and confirm your preferred pedal assist level.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        4
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Pure Electric Joy</h5>
+                    <p class="text-secondary small mb-0">Twist the throttle or begin pedaling to feel instant, whisper-quiet acceleration. Zero gas, zero traffic, zero emissions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 13. NEWSLETTER CALL TO ACTION -->
+<section class="py-5 bg-dark text-white border-top border-secondary">
+    <div class="container py-4 text-center">
+        <div class="max-w-700 mx-auto">
+            <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Join the E-Mobility Movement</span>
+            <h2 class="fw-extrabold mb-3">Get 10% Off Your First Spare Parts Order</h2>
+            <p class="text-light opacity-75 mb-4">
+                Subscribe to Surron Dispatch for exclusive member discounts, battery care guides, firmware release notes, and product restock alerts.
+            </p>
+
+            <form class="newsletter-form-ajax mx-auto" style="max-width: 520px;">
+                <div class="input-group input-group-lg">
+                    <input type="email" name="email" class="form-control bg-black border-secondary text-white" placeholder="Enter your email address" required>
+                    <button class="btn btn-volt fw-bold rounded-end-pill px-4" type="submit">Subscribe</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Featured Products Swiper
+    new Swiper('.swiper-products', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 4500, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination-products', clickable: true },
+        navigation: { nextEl: '.swiper-next-products', prevEl: '.swiper-prev-products' },
+        breakpoints: {
+            576: { slidesPerView: 2 },
+            992: { slidesPerView: 3 },
+            1200: { slidesPerView: 4 }
+        }
+    });
+
+    // 2. Reviews Swiper (9 reviews)
+    new Swiper('.swiper-reviews', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 5000, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination-reviews', clickable: true },
+        navigation: { nextEl: '.swiper-next-reviews', prevEl: '.swiper-prev-reviews' },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1200: { slidesPerView: 3 }
+        }
+    });
+
+    // 3. Blog Swiper (9 blogs)
+    new Swiper('.swiper-blogs', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoplay: { delay: 5500, disableOnInteraction: false },
+        pagination: { el: '.swiper-pagination-blogs', clickable: true },
+        navigation: { nextEl: '.swiper-next-blogs', prevEl: '.swiper-prev-blogs' },
+        breakpoints: {
+            768: { slidesPerView: 2 },
+            1200: { slidesPerView: 3 }
+        }
+    });
+});
+</script>
+{% endblock %}

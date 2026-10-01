@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us & Technical Support | Surron Bikes & Parts Canada{% endblock %}
+{% block meta_description %}Contact Surron Bikes & Parts Canada. Inquire about electric dirt bikes, genuine spare parts, Canadian warranty coverage, or technical troubleshooting.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Customer & Dealer Inquiries</span>
+        <h1 class="display-4 fw-extrabold mb-3">Get in Touch with Surron Canada</h1>
+        <p class="lead text-secondary mb-0">Speak directly with our factory-trained master technicians for technical guidance, spare part compatibility verification, or custom fleet requirements.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-5">
+        <!-- CONTACT FORM (LEFT) -->
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h4 class="fw-bold text-dark mb-0">Send Us a Direct Message</h4>
+                    <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 small"><i class="fas fa-clock me-1"></i> Responds &lt; 24h</span>
+                </div>
+                <p class="text-secondary small mb-4">Have questions about bike dimensions, battery range, or component fitment? Fill out the details below and an engineer will reply directly.</p>
+
+                <form method="POST" action="{% url 'pages:contact' %}">
+                    {% csrf_token %}
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Your Full Name *</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Email Address *</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Phone Number</label>
+                            {{ form.phone }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Subject / Inquiry Topic *</label>
+                            {{ form.subject }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Message Details *</label>
+                            {{ form.message }}
+                            <div class="form-text small text-muted">Please include your bike model and order number if inquiring about an existing purchase.</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-volt btn-lg w-100 fw-bold py-3 rounded-pill">
+                        <i class="fas fa-paper-plane me-2"></i> Submit Inquiry
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- CONTACT DETAILS & DEPOTS (RIGHT) -->
+        <div class="col-lg-5">
+            <!-- Business Details Card -->
+            <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm mb-4">
+                <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">Canadian Headquarters & Support</h5>
+                
+                <div class="d-flex align-items-start mb-4">
+                    <div class="rounded-3 bg-primary-subtle p-3 text-primary me-3 fs-5"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <strong class="d-block text-dark">Surron Canada Distribution & HQ</strong>
+                        <span class="text-secondary small">777 Dunsmuir Street, Suite 1400<br>Vancouver, BC V7Y 1K4, Canada</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+                    <div class="rounded-3 bg-info-subtle p-3 text-info me-3 fs-5"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <strong class="d-block text-dark">Canada & Toll-Free Support</strong>
+                        <span class="text-secondary small">+1 (888) 787-7661 &bull; Local BC: +1 (604) 330-8820</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+                    <div class="rounded-3 bg-success-subtle p-3 text-success me-3 fs-5"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <strong class="d-block text-dark">Official Support Email</strong>
+                        <span class="text-secondary small">support@surronbikesandparts.shop</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+                    <div class="rounded-3 bg-warning-subtle p-3 text-warning me-3 fs-5"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <strong class="d-block text-dark">Operating Hours (Pacific Time)</strong>
+                        <span class="text-secondary small">Monday – Friday: 8:00 AM – 6:00 PM PST<br>Saturday: 9:00 AM – 4:00 PM PST<br>Sunday: Closed for trail testing</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start pt-3 border-top">
+                    <div class="rounded-3 bg-danger-subtle p-3 text-danger me-3 fs-5"><i class="fas fa-truck-moving"></i></div>
+                    <div>
+                        <strong class="d-block text-dark">Nationwide Canada Dispatch</strong>
+                        <span class="text-secondary small">Fast daily courier dispatch via Canada Post Expedited &amp; Purolator across BC, Alberta, Ontario, Quebec &amp; all provinces.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

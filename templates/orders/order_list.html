@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}My Orders | Surron Account{% endblock %}
+
+{% block content %}
+
+<div class="bg-dark py-4 text-white border-bottom border-secondary">
+    <div class="container">
+        <h1 class="display-6 fw-extrabold mb-1">Order History</h1>
+        <p class="text-secondary small mb-0">Track shipments, view detailed invoices, and access purchase history.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3">
+            <div class="card border rounded-4 shadow-sm p-3 bg-white">
+                <div class="text-center p-3 border-bottom mb-3">
+                    <div class="width-60 height-60 rounded-circle bg-dark text-primary mx-auto d-flex align-items-center justify-content-center fw-bold fs-4 mb-2" style="width: 60px; height: 60px;">
+                        {{ user.first_name|default:user.username|make_list|first|upper }}
+                    </div>
+                    <h6 class="fw-bold mb-0 text-dark">{{ user.get_full_name|default:user.username }}</h6>
+                    <span class="text-muted small">{{ user.email }}</span>
+                </div>
+                <div class="nav flex-column gap-1">
+                    <a href="{% url 'accounts:dashboard' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-columns me-2 text-primary"></i> Dashboard</a>
+                    <a href="{% url 'orders:order_list' %}" class="nav-link py-2 px-3 rounded bg-primary-subtle text-primary fw-bold"><i class="fas fa-box me-2"></i> My Orders</a>
+                    <a href="{% url 'store:wishlist' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-heart me-2 text-danger"></i> Wishlist</a>
+                    <a href="{% url 'accounts:profile_edit' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-user-cog me-2 text-info"></i> Edit Profile</a>
+                    <a href="{% url 'accounts:password_change' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-key me-2 text-warning"></i> Password</a>
+                    <hr class="my-2">
+                    <a href="{% url 'accounts:logout' %}" class="nav-link py-2 px-3 rounded text-danger"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order List Content -->
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4 bg-white overflow-hidden">
+                <div class="card-header bg-white py-3 px-4 border-bottom">
+                    <h5 class="fw-bold mb-0 text-dark">Past Orders ({{ orders.count }})</h5>
+                </div>
+                {% if orders %}
+                    <div class="table-responsive">
+                        <table class="table align-middle mb-0">
+                            <thead class="bg-light text-secondary small">
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ord in orders %}
+                                    <tr>
+                                        <td><strong class="text-dark">{{ ord.order_number }}</strong></td>
+                                        <td class="text-secondary small">{{ ord.created_at|date:"M d, Y" }}</td>
+                                        <td>
+                                            <span class="small">{{ ord.items.count }} item{{ ord.items.count|pluralize }}</span>
+                                        </td>
+                                        <td class="fw-bold text-dark">${{ ord.total }}</td>
+                                        <td>
+                                            <span class="badge {% if ord.status == 'delivered' %}bg-success{% elif ord.status == 'shipped' %}bg-info{% elif ord.status == 'cancelled' %}bg-danger{% else %}bg-warning text-dark{% endif %}">
+                                                {{ ord.get_status_display }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'orders:order_detail' ord.order_number %}" class="btn btn-outline-dark btn-sm">
+                                                View Invoice
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="p-5 text-center text-secondary">
+                        <i class="fas fa-box-open fa-3x mb-3 text-muted"></i>
+                        <p class="mb-3">You have not placed any orders yet.</p>
+                        <a href="{% url 'store:shop' %}" class="btn btn-volt btn-sm">Start Shopping</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,518 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Surron Bikes &amp; Parts Canada | High-Performance Electric Dirt Bikes &amp; OEM Parts{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Surron Bikes &amp; Parts Canada - Official Canadian source for high-performance Surron electric dirt bikes, genuine battery packs, controllers, and OEM replacement parts. Fast nationwide shipping across British Columbia, Alberta, Ontario, Quebec &amp; all Canadian provinces. Official shop: surronbikesandparts.shop{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}Surron Bikes &amp; Parts Canada | Official Electric Dirt Bikes &amp; Spare Parts{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Buy authentic Surron Light Bee X, Ultra Bee, Storm Bee electric bikes and factory parts in Canada. Fast insured delivery across all provinces from Vancouver, BC.{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:site_name" content="Surron Bikes &amp; Parts Canada">
+    <meta property="og:image" content="{% static 'images/surron-logo.jpg' %}">
+
+    <!-- Canadian Geo & SEO Targeting -->
+    <meta name="geo.region" content="CA-BC">
+    <meta name="geo.placename" content="Vancouver, British Columbia, Canada">
+    <meta name="geo.position" content="49.2827;-123.1207">
+    <meta name="ICBM" content="49.2827, -123.1207">
+
+    <link rel="canonical" href="{% block canonical_url %}{{ request.build_absolute_uri }}{% endblock %}">
+    
+    <!-- URL Bar Favicon: Exactly matching the navigation logo -->
+    <link rel="icon" type="image/jpeg" href="{% static 'images/surron-logo.jpg' %}">
+    <link rel="shortcut icon" href="{% static 'images/surron-logo.jpg' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/surron-logo.jpg' %}">
+
+    <!-- Schema.org Canadian MotorcycleDealer / LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MotorcycleDealer",
+      "name": "Surron Bikes & Parts Canada",
+      "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/surron-logo.jpg' %}",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}/#store",
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "telephone": "+1-888-787-7661",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "777 Dunsmuir Street, Suite 1400",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "postalCode": "V7Y 1K4",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.2827,
+        "longitude": -123.1207
+      },
+      "currenciesAccepted": "CAD, USD",
+      "paymentAccepted": "Credit Card, Interac E-Transfer, Crypto, Cash App, Zelle, Bank Wire",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Canada"
+      }
+    }
+    </script>
+
+    <!-- Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 & FontAwesome 6 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Swiper 11 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Custom Theme CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.5">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- 1. TOP PROMOTIONAL MARQUEE BAR -->
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            {% for msg in MARQUEE_MESSAGES %}
+                <span class="marquee-item"><span class="badge-dot"></span>{{ msg }}</span>
+            {% endfor %}
+            <!-- Duplicate for continuous looping -->
+            {% for msg in MARQUEE_MESSAGES %}
+                <span class="marquee-item"><span class="badge-dot"></span>{{ msg }}</span>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- 2. STICKY MAIN NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-voltride">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand navbar-brand-logo d-flex align-items-center gap-2 py-1" href="{% url 'pages:home' %}">
+                <img src="{% static 'images/surron-logo.jpg' %}" alt="Surron Bikes &amp; Parts Logo" class="rounded-2 shadow-sm" style="height: 48px; width: auto; object-fit: contain;">
+                <div class="d-none d-md-flex flex-column justify-content-center text-start lh-1">
+                    <span class="fw-extrabold text-white tracking-wider fs-5" style="letter-spacing: 1.5px; line-height: 1;">SURRON</span>
+                    <span class="text-primary fw-bold text-uppercase" style="font-size: 0.65rem; letter-spacing: 2px; margin-top: 3px; line-height: 1;">BIKES &amp; PARTS</span>
+                </div>
+            </a>
+
+            <!-- Mobile Offcanvas Toggle Button -->
+            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+                <i class="fas fa-bars fa-lg text-white"></i>
+            </button>
+
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse" id="desktopNavbar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.view_name == 'pages:home' %}active{% endif %}" href="{% url 'pages:home' %}">Home</a>
+                    </li>
+
+                    <!-- Unified Shop Dropdown (Shop All, Electric-Bikes, Spare Parts, Accessories) -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {% if 'store' in request.resolver_match.app_names and request.resolver_match.view_name != 'pages:home' %}active{% endif %}" href="{% url 'store:shop' %}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark border-0 shadow-lg rounded-3 py-2">
+                            <li>
+                                <a class="dropdown-item py-2 fw-bold text-white d-flex align-items-center" href="{% url 'store:shop' %}">
+                                    <i class="fas fa-th-large text-primary me-2"></i> Shop All
+                                </a>
+                            </li>
+                            <li><hr class="dropdown-divider border-secondary my-1"></li>
+                            <li>
+                                <a class="dropdown-item py-2 d-flex align-items-center" href="{% url 'store:shop' %}?type=ebike">
+                                    <i class="fas fa-bicycle text-info me-2"></i> Electric Bikes
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 d-flex align-items-center" href="{% url 'store:shop' %}?type=spare_part">
+                                    <i class="fas fa-cogs text-warning me-2"></i> Spare Parts
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item py-2 d-flex align-items-center" href="{% url 'store:shop' %}?type=accessory">
+                                    <i class="fas fa-shield-alt text-success me-2"></i> Accessories
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.view_name == 'pages:about' %}active{% endif %}" href="{% url 'pages:about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.view_name == 'pages:services' %}active{% endif %}" href="{% url 'pages:services' %}">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'reviews' in request.resolver_match.app_names %}active{% endif %}" href="{% url 'reviews:review_list' %}">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.view_name == 'pages:faq' %}active{% endif %}" href="{% url 'pages:faq' %}">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'blog' in request.resolver_match.app_names %}active{% endif %}" href="{% url 'blog:post_list' %}">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.view_name == 'pages:contact' %}active{% endif %}" href="{% url 'pages:contact' %}">Contact</a>
+                    </li>
+                </ul>
+
+                <!-- Right Action Icons -->
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Search Dropdown Button -->
+                    <div class="dropdown">
+                        <button class="nav-icon-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Search catalog">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end p-3 shadow-lg border-0 rounded-4" style="min-width: 320px; background: #0f172a;">
+                            <form action="{% url 'pages:search' %}" method="GET" class="position-relative">
+                                <div class="input-group">
+                                    <input type="text" name="q" class="form-control bg-dark border-secondary text-white site-search-input" placeholder="Search bikes, parts, blog..." autocomplete="off">
+                                    <button class="btn btn-volt" type="submit"><i class="fas fa-search"></i></button>
+                                </div>
+                                <div class="search-autocomplete-results d-none position-absolute w-100 mt-2 z-3"></div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- User Account Dropdown -->
+                    <div class="dropdown">
+                        <button class="nav-icon-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" title="Account">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark border-0 shadow-lg rounded-3">
+                            {% if user.is_authenticated %}
+                                <li class="px-3 py-2 border-bottom border-secondary">
+                                    <div class="fw-bold text-white">{{ user.first_name|default:user.username }}</div>
+                                    <div class="text-muted small">{{ user.email }}</div>
+                                </li>
+                                <li><a class="dropdown-item py-2" href="{% url 'accounts:dashboard' %}"><i class="fas fa-columns text-primary me-2"></i> Account Dashboard</a></li>
+                                <li><a class="dropdown-item py-2" href="{% url 'orders:order_list' %}"><i class="fas fa-box text-primary me-2"></i> My Orders</a></li>
+                                <li><a class="dropdown-item py-2" href="{% url 'store:wishlist' %}"><i class="fas fa-heart text-danger me-2"></i> Wishlist</a></li>
+                                <li><a class="dropdown-item py-2" href="{% url 'accounts:profile_edit' %}"><i class="fas fa-user-cog text-info me-2"></i> Edit Profile</a></li>
+                                {% if user.is_staff %}
+                                    <li><hr class="dropdown-divider border-secondary"></li>
+                                    <li><a class="dropdown-item py-2 text-warning" href="/admin/" target="_blank"><i class="fas fa-shield-alt me-2"></i> Admin Portal</a></li>
+                                    <li><a class="dropdown-item py-2 text-warning" href="/admin/orders/order/analytics-dashboard/" target="_blank"><i class="fas fa-chart-line me-2"></i> Admin Analytics</a></li>
+                                {% endif %}
+                                <li><hr class="dropdown-divider border-secondary"></li>
+                                <li><a class="dropdown-item py-2 text-danger" href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item py-2" href="{% url 'accounts:login' %}"><i class="fas fa-sign-in-alt text-primary me-2"></i> Sign In</a></li>
+                                <li><a class="dropdown-item py-2" href="{% url 'accounts:register' %}"><i class="fas fa-user-plus text-primary me-2"></i> Create Account</a></li>
+                                <li><a class="dropdown-item py-2" href="{% url 'store:wishlist' %}"><i class="fas fa-heart text-danger me-2"></i> Guest Wishlist</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <!-- Wishlist Icon (Accessible to Guests and Users alike) -->
+                    <a href="{% url 'store:wishlist' %}" class="nav-icon-btn" title="Saved Wishlist">
+                        <i class="far fa-heart"></i>
+                        <span class="badge-count wishlist-count-badge">{{ wishlist_count }}</span>
+                    </a>
+
+                    <!-- Shopping Cart Icon -->
+                    <a href="{% url 'store:cart_detail' %}" class="nav-icon-btn" title="Shopping Cart">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="badge-count cart-count-badge">{{ cart_count }}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE OFFCANVAS NAVIGATION -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="mobileMenuOffcanvas" aria-labelledby="mobileMenuLabel">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <div class="d-flex align-items-center gap-2" id="mobileMenuLabel">
+                <img src="{% static 'images/surron-logo.jpg' %}" alt="Surron Bikes &amp; Parts" class="rounded-2" style="height: 38px; width: auto; object-fit: contain;">
+                <div class="d-flex flex-column justify-content-center text-start lh-1">
+                    <span class="fw-extrabold text-white tracking-wider fs-6" style="letter-spacing: 1px; line-height: 1;">SURRON</span>
+                    <span class="text-primary fw-bold text-uppercase" style="font-size: 0.58rem; letter-spacing: 1.5px; margin-top: 2px; line-height: 1;">BIKES &amp; PARTS</span>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Mobile Search -->
+            <form action="{% url 'pages:search' %}" method="GET" class="mb-4">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control bg-black border-secondary text-white" placeholder="Search bikes, parts, blog...">
+                    <button class="btn btn-volt" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+
+            <ul class="nav flex-column gap-2 mb-4">
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:home' %}"><i class="fas fa-home me-2 text-primary"></i> Home</a></li>
+                
+                <!-- Shop Dropdown for Mobile -->
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-semibold d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#mobileShopCollapse" role="button">
+                        <span><i class="fas fa-th-large me-2 text-primary"></i> Shop</span>
+                        <i class="fas fa-chevron-down small"></i>
+                    </a>
+                    <div class="collapse ps-3 mt-1" id="mobileShopCollapse">
+                        <ul class="nav flex-column gap-1">
+                            <li class="nav-item"><a class="nav-link text-light small py-1" href="{% url 'store:shop' %}">Shop All</a></li>
+                            <li class="nav-item"><a class="nav-link text-light small py-1" href="{% url 'store:shop' %}?type=ebike">Electric Bikes</a></li>
+                            <li class="nav-item"><a class="nav-link text-light small py-1" href="{% url 'store:shop' %}?type=spare_part">Spare Parts</a></li>
+                            <li class="nav-item"><a class="nav-link text-light small py-1" href="{% url 'store:shop' %}?type=accessory">Accessories</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:about' %}"><i class="fas fa-info-circle me-2 text-primary"></i> About Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:services' %}"><i class="fas fa-wrench me-2 text-primary"></i> Services</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'reviews:review_list' %}"><i class="fas fa-star me-2 text-warning"></i> Reviews</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:faq' %}"><i class="fas fa-question-circle me-2 text-info"></i> FAQ</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'blog:post_list' %}"><i class="fas fa-newspaper me-2 text-primary"></i> Blog</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:contact' %}"><i class="fas fa-envelope me-2 text-primary"></i> Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'store:wishlist' %}"><i class="fas fa-heart me-2 text-danger"></i> Wishlist ({{ wishlist_count }})</a></li>
+            </ul>
+
+            <div class="border-top border-secondary pt-3">
+                {% if user.is_authenticated %}
+                    <div class="mb-3 text-muted small">Signed in as <strong class="text-white">{{ user.username }}</strong></div>
+                    <a href="{% url 'accounts:dashboard' %}" class="btn btn-volt-outline w-100 mb-2 text-center"><i class="fas fa-columns me-2"></i> Account Dashboard</a>
+                    <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger w-100 text-center"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a>
+                {% else %}
+                    <a href="{% url 'accounts:login' %}" class="btn btn-volt w-100 mb-2 text-center">Sign In</a>
+                    <a href="{% url 'accounts:register' %}" class="btn btn-volt-outline w-100 text-center">Create Account</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- FLASH MESSAGES NOTIFICATION CONTAINER -->
+    <div class="container mt-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm rounded-3" role="alert">
+                    <div class="d-flex align-items-center">
+                        {% if message.tags == 'success' %}
+                            <i class="fas fa-check-circle me-2 fa-lg"></i>
+                        {% elif message.tags == 'danger' or message.tags == 'error' %}
+                            <i class="fas fa-exclamation-circle me-2 fa-lg"></i>
+                        {% elif message.tags == 'warning' %}
+                            <i class="fas fa-exclamation-triangle me-2 fa-lg"></i>
+                        {% else %}
+                            <i class="fas fa-info-circle me-2 fa-lg"></i>
+                        {% endif %}
+                        <div>{{ message }}</div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- TOAST CONTAINER FOR DYNAMIC NOTIFICATIONS -->
+    <div class="toast-container-custom" id="voltToastContainer"></div>
+
+    <!-- 3. MAIN CONTENT BLOCK -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- 4. QUICK VIEW MODAL (AJAX TRIGGERED) -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 p-md-5 pt-0">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-6 text-center">
+                            <div class="rounded-4 overflow-hidden bg-dark p-2 border">
+                                <img id="qvImage" src="" alt="Product preview" class="img-fluid rounded-3" style="max-height: 320px; object-fit: contain;">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase mb-2" id="qvCategory"></span>
+                            <h4 class="fw-bold mb-2 text-dark" id="qvTitle"></h4>
+                            <div class="text-muted small mb-2" id="qvSku"></div>
+                            
+                            <div class="d-flex align-items-baseline gap-2 mb-3">
+                                <h3 class="fw-extrabold text-dark mb-0" id="qvPrice"></h3>
+                                <span class="text-muted text-decoration-line-through small" id="qvPriceOld"></span>
+                            </div>
+
+                            <p class="text-secondary small mb-3" id="qvDescription"></p>
+
+                            <ul class="list-unstyled small text-muted mb-4 border-top border-bottom py-2" id="qvSpecsList"></ul>
+
+                            <div class="d-flex gap-2">
+                                <button type="button" class="btn btn-volt flex-grow-1 btn-ajax-add-cart" id="qvAddToCartBtn" data-product-id="">
+                                    <i class="fas fa-shopping-bag me-1"></i> Add to Cart
+                                </button>
+                                <a href="" class="btn btn-outline-secondary" id="qvDetailLink">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. GLOBAL FOOTER -->
+    <footer class="footer-voltride">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <!-- Brand & Mission -->
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand navbar-brand-logo mb-3 d-inline-flex align-items-center gap-2" href="{% url 'pages:home' %}">
+                        <img src="{% static 'images/surron-logo.jpg' %}" alt="Surron Bikes &amp; Parts" class="rounded-2 shadow-sm" style="height: 52px; width: auto; object-fit: contain;">
+                        <div class="d-flex flex-column justify-content-center text-start lh-1">
+                            <span class="fw-extrabold text-white tracking-wider fs-5" style="letter-spacing: 1.5px; line-height: 1;">SURRON</span>
+                            <span class="text-primary fw-bold text-uppercase" style="font-size: 0.68rem; letter-spacing: 2px; margin-top: 3px; line-height: 1;">BIKES &amp; PARTS</span>
+                        </div>
+                    </a>
+                    <p class="text-secondary small pe-lg-4">
+                        Canada's authorized distributor for high-performance Surron electric dirt bikes, Light Bee X, Ultra Bee, Storm Bee, and genuine OEM powertrain parts. Canadian headquarters &amp; warehouse based in Vancouver, BC. Official store at <strong class="text-light">surronbikesandparts.shop</strong>.
+                    </p>
+                    <div class="d-flex mt-3">
+                        <a href="https://facebook.com" target="_blank" class="footer-social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="footer-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="footer-social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="footer-social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Shop Navigation -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6>Shop</h6>
+                    <ul>
+                        <li><a href="{% url 'store:shop' %}">Shop All Products</a></li>
+                        <li><a href="{% url 'store:shop' %}?type=ebike">Electric Bikes</a></li>
+                        <li><a href="{% url 'store:shop' %}?type=spare_part">Spare Parts</a></li>
+                        <li><a href="{% url 'store:shop' %}?category=batteries">Batteries & Power</a></li>
+                        <li><a href="{% url 'store:shop' %}?type=accessory">Accessories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6>Company</h6>
+                    <ul>
+                        <li><a href="{% url 'pages:about' %}">About Us</a></li>
+                        <li><a href="{% url 'pages:services' %}">Our Services</a></li>
+                        <li><a href="{% url 'blog:post_list' %}">Knowledge Blog</a></li>
+                        <li><a href="{% url 'pages:contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'pages:faq' %}">Customer FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support & Legal -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6>Support & Legal</h6>
+                    <ul>
+                        <li><a href="{% url 'pages:shipping_policy' %}">Shipping Policy</a></li>
+                        <li><a href="{% url 'pages:returns_policy' %}">Returns & Warranty</a></li>
+                        <li><a href="{% url 'pages:privacy_policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'pages:terms_conditions' %}">Terms & Conditions</a></li>
+                        <li><a href="{% url 'store:wishlist' %}">My Wishlist</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Column -->
+                <div class="col-lg-2 col-md-6 col-12">
+                    <h6>Stay Charged</h6>
+                    <p class="small text-secondary mb-3">Subscribe for firmware releases, technical maintenance guides, and VIP promos.</p>
+                    <form class="newsletter-form-ajax">
+                        <div class="mb-2">
+                            <input type="email" name="email" class="form-control form-control-sm bg-dark border-secondary text-white" placeholder="Your email address" required>
+                        </div>
+                        <button type="submit" class="btn btn-volt btn-sm w-100 fw-bold">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- PAYMENT METHODS ACCEPTED -->
+            <div class="row align-items-center py-3 border-top border-secondary mt-4 mb-2">
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <span class="text-light opacity-75 small fw-bold text-uppercase tracking-wider">
+                        <i class="fas fa-shield-alt text-primary me-2"></i> Accepted Payments
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2">
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Visa">
+                            <i class="fab fa-cc-visa text-primary fa-lg"></i> <span class="small fw-semibold">Visa</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Mastercard">
+                            <i class="fab fa-cc-mastercard text-danger fa-lg"></i> <span class="small fw-semibold">Mastercard</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="American Express">
+                            <i class="fab fa-cc-amex text-info fa-lg"></i> <span class="small fw-semibold">Amex</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Apple Pay">
+                            <i class="fab fa-apple text-white fa-lg"></i> <span class="small fw-semibold">Apple Pay</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Cash App">
+                            <i class="fas fa-dollar-sign text-success fa-lg"></i> <span class="small fw-semibold">Cash App</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Zelle">
+                            <i class="fas fa-bolt text-primary"></i> <span class="small fw-semibold">Zelle</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="E Transfer">
+                            <i class="fas fa-exchange-alt text-info"></i> <span class="small fw-semibold">E Transfer</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Crypto (BTC/ETH/USDT)">
+                            <i class="fab fa-bitcoin text-warning fa-lg"></i> <span class="small fw-semibold">Crypto</span>
+                        </span>
+                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Bank Wire">
+                            <i class="fas fa-university text-light opacity-75"></i> <span class="small fw-semibold">Bank Wire</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-3">
+
+            <div class="row align-items-center small text-light opacity-75">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    &copy; 2026 Surron Bikes &amp; Parts Inc. (surronbikesandparts.shop). All rights reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <span class="me-3"><i class="fas fa-lock text-success me-1"></i> 256-Bit SSL Encrypted Checkout</span>
+                    <span><i class="fas fa-shield-alt text-primary me-1"></i> Official Warranty Certified</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper 11 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS (Animate on Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 350,
+                    easing: 'ease-out',
+                    once: true,
+                    offset: 0,
+                    anchorPlacement: 'top-bottom'
+                });
+            }
+        });
+    </script>
+    <!-- Surron Master JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}500 - Server Error | Surron{% endblock %}
+{% block content %}
+<div class="container py-5 text-center">
+    <div class="max-w-700 mx-auto py-5 bg-white rounded-4 border shadow-sm p-4 p-md-5 my-4" style="max-width: 600px;">
+        <div class="display-1 fw-extrabold text-warning mb-2">500</div>
+        <h2 class="fw-bold text-dark mb-3">Power Interruption</h2>
+        <p class="text-secondary mb-4">
+            An unexpected server error occurred while processing your request. Our engineering team has been notified.
+        </p>
+        <a href="{% url 'pages:home' %}" class="btn btn-volt fw-bold px-4"><i class="fas fa-home me-2"></i> Return Home</a>
+    </div>
+</div>
+{% endblock %}

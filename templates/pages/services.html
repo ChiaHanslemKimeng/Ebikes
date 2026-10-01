@@ -1,0 +1,346 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Professional Services & Maintenance | Surron Bikes & Parts{% endblock %}
+{% block meta_description %}Surron certified e-bike service packages, battery cell diagnostics, motor rebuilds, commercial fleet maintenance, and genuine OEM parts installations.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Comprehensive Rider Support</span>
+        <h1 class="display-4 fw-extrabold mb-3">Professional E-Mobility Services</h1>
+        <p class="lead text-secondary mb-0">From factory direct sales to battery diagnostics, certified repairs, and fleet consultation, our master technicians keep your wheels turning safely.</p>
+    </div>
+</div>
+
+<!-- 1. CORE SERVICES GRID -->
+<div class="container py-5">
+    <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="text-primary text-uppercase fw-bold small">What We Do</span>
+        <h2 class="fw-extrabold text-dark mb-2">Full-Spectrum Electric Bicycle Services</h2>
+        <p class="text-secondary">Whether you ride daily in the city or manage a commercial courier fleet, we have specialized engineering solutions for every requirement.</p>
+    </div>
+
+    <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-4 mb-5">
+        <!-- 1. E-Bike Sales -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-bicycle fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">E-Bike Direct Sales</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Factory-direct distribution of Class 1, 2, and 3 electric bicycles. Every bike is fully assembled, calibrated, and road-tested prior to dispatch.</p>
+                <a href="{% url 'store:shop' %}?type=ebike" class="fw-bold text-primary small text-decoration-none">Browse E-Bikes <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 2. Spare Parts Sales -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-cogs fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Genuine Spare Parts</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Over 2,400 OEM replacement gears, sine-wave controllers, thumb throttles, hydraulic calipers, and displays with 100% fitment guarantee.</p>
+                <a href="{% url 'store:shop' %}?type=spare_part" class="fw-bold text-primary small text-decoration-none">Shop Parts <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 3. Battery Support & Diagnostics -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-battery-full fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Battery Diagnostics</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Cell-level impedance testing, smart BMS health checks, capacity restoration cycles, and high-safety cell balancing protocols.</p>
+                <a href="{% url 'pages:contact' %}" class="fw-bold text-primary small text-decoration-none">Request Test <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 4. Repairs & Servicing -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-wrench fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Certified Repair Depot</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Motor stator replacements, hydraulic mineral oil brake bleeds, laser wheel truing, and waterproof electrical harness repairs.</p>
+                <a href="{% url 'pages:contact' %}" class="fw-bold text-primary small text-decoration-none">Book Service <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 5. Technical Consultation -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-user-tie fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Technical Consultation</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Personalized advice from certified electrical technicians to match torque, gear ratios, and battery watt-hours to your daily commute.</p>
+                <a href="{% url 'pages:contact' %}" class="fw-bold text-primary small text-decoration-none">Ask an Engineer <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 6. Delivery & Nationwide Logistics -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-shipping-fast fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Specialized Freight</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Full door-to-door insured freight transport via ground carriers certified in safe hazardous Class 9 lithium battery handling.</p>
+                <a href="{% url 'pages:shipping_policy' %}" class="fw-bold text-primary small text-decoration-none">Shipping Info <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 7. Custom Fleet Sourcing -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-building fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Commercial Fleet Sourcing</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Custom electric cargo fleets for last-mile delivery couriers, hotel guest rentals, and campus security patrols with volume pricing.</p>
+                <a href="{% url 'pages:contact' %}" class="fw-bold text-primary small text-decoration-none">Fleet Inquiries <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+
+        <!-- 8. Maintenance Programs -->
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                    <i class="fas fa-calendar-check fs-5"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Seasonal Care Plans</h5>
+                <p class="text-secondary small mb-3 flex-grow-1">Pre-winter winterization and spring revitalization checkups ensuring your drivetrain, bearings, and battery survive harsh conditions.</p>
+                <a href="{% url 'blog:post_list' %}" class="fw-bold text-primary small text-decoration-none">Read Care Guides <i class="fas fa-arrow-right ms-1"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 2. SERVICE PRICING PACKAGES MATRIX -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Transparent Pricing</span>
+            <h2 class="fw-extrabold text-dark mb-2">Factory Service Packages</h2>
+            <p class="text-secondary">Fixed, honest pricing with zero surprise charges. All repairs performed by factory-certified master technicians with a 1-year warranty.</p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+            <!-- Package 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                    <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill align-self-start fw-bold small mb-3">24h Turnaround</span>
+                    <h5 class="fw-bold text-dark mb-1">Express Tune-Up</h5>
+                    <p class="text-secondary small mb-3">Essential routine tune-up for active commuters.</p>
+                    <div class="mb-4">
+                        <span class="display-6 fw-extrabold text-dark">$79</span>
+                        <span class="text-muted small">/ bike</span>
+                    </div>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary mb-4 flex-grow-1">
+                        <li><i class="fas fa-check text-success me-2"></i> 32-point safety torque audit</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Hydraulic brake alignment & pad check</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Chain ultrasonic clean & lubrication</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Tire pressure & tread inspection</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Spoke tension & wheel alignment check</li>
+                    </ul>
+                    <a href="{% url 'pages:contact' %}?subject=Express+Tune-Up" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Book Tune-Up</a>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-primary border-2 rounded-4 p-4 bg-white shadow h-100 d-flex flex-column position-relative">
+                    <span class="badge bg-primary text-dark px-3 py-2 rounded-pill align-self-start fw-bold small mb-3">Most Popular • 48h</span>
+                    <h5 class="fw-bold text-dark mb-1">Electrical Diagnostic</h5>
+                    <p class="text-secondary small mb-3">Full electronic health & controller analysis.</p>
+                    <div class="mb-4">
+                        <span class="display-6 fw-extrabold text-primary">$149</span>
+                        <span class="text-muted small">/ bike</span>
+                    </div>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary mb-4 flex-grow-1">
+                        <li><i class="fas fa-check text-success me-2"></i> Complete Express Tune-Up included</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Battery cell balance & capacity readout</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Motor phase wire & Hall sensor scope</li>
+                        <li><i class="fas fa-check text-success me-2"></i> PAS torque sensor calibration</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Firmware update & error log clearing</li>
+                    </ul>
+                    <a href="{% url 'pages:contact' %}?subject=Electrical+Diagnostic" class="btn btn-volt rounded-pill w-100 fw-bold">Book Diagnostic</a>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                    <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill align-self-start fw-bold small mb-3">3-5 Business Days</span>
+                    <h5 class="fw-bold text-dark mb-1">Battery Recondition</h5>
+                    <p class="text-secondary small mb-3">Restore lost battery range & cell vitality.</p>
+                    <div class="mb-4">
+                        <span class="display-6 fw-extrabold text-dark">$229</span>
+                        <span class="text-muted small">/ pack</span>
+                    </div>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary mb-4 flex-grow-1">
+                        <li><i class="fas fa-check text-success me-2"></i> Deep dynamic load cycle testing</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Defective cell identification & replacement</li>
+                        <li><i class="fas fa-check text-success me-2"></i> BMS board recalibration & thermal reset</li>
+                        <li><i class="fas fa-check text-success me-2"></i> IP65 silicone water-seal renewal</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Comprehensive capacity certificate</li>
+                    </ul>
+                    <a href="{% url 'pages:contact' %}?subject=Battery+Recondition" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Book Battery Service</a>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100 d-flex flex-column">
+                    <span class="badge bg-light text-secondary border px-3 py-2 rounded-pill align-self-start fw-bold small mb-3">3-5 Business Days</span>
+                    <h5 class="fw-bold text-dark mb-1">Master Overhaul</h5>
+                    <p class="text-secondary small mb-3">Complete teardown and mechanical rebirth.</p>
+                    <div class="mb-4">
+                        <span class="display-6 fw-extrabold text-dark">$349</span>
+                        <span class="text-muted small">/ bike</span>
+                    </div>
+                    <ul class="list-unstyled small d-flex flex-column gap-2 text-secondary mb-4 flex-grow-1">
+                        <li><i class="fas fa-check text-success me-2"></i> Full teardown of motor & planetary gears</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Complete hydraulic brake fluid flush</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Bottom bracket & headset bearing repack</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Full harness re-pinning & shrink-wrap</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Extended 12-month service warranty</li>
+                    </ul>
+                    <a href="{% url 'pages:contact' %}?subject=Master+Overhaul" class="btn btn-outline-dark rounded-pill w-100 fw-bold">Book Overhaul</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. HOW SERVICE WORKS - 4 STEP WORKFLOW -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Seamless Process</span>
+            <h2 class="fw-extrabold text-dark mb-2">How Our Service Depot Works</h2>
+            <p class="text-secondary">Getting your electric bike serviced or repaired is transparent, fast, and stress-free.</p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        1
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Submit Online Request</h5>
+                    <p class="text-secondary small mb-0">Fill out our quick service booking form with your bike model, symptoms, or error codes. You will receive a diagnostic ticket number within 2 hours.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        2
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Depot Drop-Off or Ship</h5>
+                    <p class="text-secondary small mb-0">Drop off your bike or battery at one of our regional hub locations, or request a prepaid insured freight shipping carton right to your front door.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        3
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Certified Diagnostic & Repair</h5>
+                    <p class="text-secondary small mb-0">Our certified mechanics perform multi-point diagnostics. We send you an itemized report before performing any repair work with genuine OEM parts.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center fw-bold fs-4 mb-3" style="width: 64px; height: 64px;">
+                        4
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Road Test & Return</h5>
+                    <p class="text-secondary small mb-0">Every serviced bike undergoes a strict 5-mile real-world dynamometer and road test before being cleaned and safely returned to your garage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. FLEET COMMERCIAL SOLUTIONS -->
+<section class="py-5" style="background-color: #f1f5f9;">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Enterprise Solutions</span>
+                <h2 class="display-6 fw-extrabold text-dark mb-3">Commercial Fleet Maintenance Programs</h2>
+                <p class="text-secondary leading-relaxed">
+                    Surron supports corporate delivery fleets, campus security, courier organizations, and luxury hospitality resorts with turnkey electric fleet operations.
+                </p>
+                <div class="d-flex flex-column gap-3 mb-4">
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3 fs-5"></i>
+                        <div>
+                            <strong class="text-dark d-block">Scheduled Preventative Maintenance:</strong>
+                            <span class="text-secondary small">On-site monthly mobile technician visits to conduct preventative safety checks and firmware updates across your entire fleet.</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3 fs-5"></i>
+                        <div>
+                            <strong class="text-dark d-block">Hot-Swappable Battery Banks:</strong>
+                            <span class="text-secondary small">Keep your delivery couriers running 24/7 with our multi-bay fast chargers and swappable 52V Samsung commercial packs.</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-check-circle text-primary mt-1 me-3 fs-5"></i>
+                        <div>
+                            <strong class="text-dark d-block">Dedicated Priority Support Line:</strong>
+                            <span class="text-secondary small">Direct SLA access to senior mechanics with guaranteed 24-hour spare parts replacement dispatch.</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'pages:contact' %}?subject=Commercial+Fleet+Inquiry" class="btn btn-dark rounded-pill px-4 fw-bold">Inquire About Fleet Pricing</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden bg-dark text-white p-4 p-md-5">
+                    <h4 class="fw-bold text-primary mb-3">Authorized Service Hubs</h4>
+                    <p class="text-light opacity-75 small mb-4">Visit our certified diagnostic centers for same-day walk-in service and parts collection:</p>
+                    
+                    <div class="d-flex flex-column gap-3 small">
+                        <div class="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-25">
+                            <strong class="d-block text-white mb-1">Vancouver Canadian Tech Hub (HQ & Lab)</strong>
+                            <span class="text-light opacity-75">777 Dunsmuir Street, Suite 1400, Vancouver, BC, Canada • Mon-Sat 8am-6pm</span>
+                        </div>
+                        <div class="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-25">
+                            <strong class="d-block text-white mb-1">Denver Mountain & Alpine Depot</strong>
+                            <span class="text-light opacity-75">450 Rocky Mountain Blvd, Denver, CO • Mon-Fri 9am-5pm</span>
+                        </div>
+                        <div class="p-3 bg-secondary bg-opacity-25 rounded-3 border border-secondary border-opacity-25">
+                            <strong class="d-block text-white mb-1">Austin Metro Urban Service Station</strong>
+                            <span class="text-light opacity-75">880 South Congress Ave, Austin, TX • Mon-Sat 9am-6pm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. CALL TO ACTION -->
+<section class="py-5 bg-white">
+    <div class="container py-4 text-center">
+        <div class="max-w-700 mx-auto">
+            <h2 class="display-6 fw-extrabold text-dark mb-3">Need Service for Your Surron?</h2>
+            <p class="text-secondary mb-4">Our friendly support engineers are available Monday through Saturday to answer technical questions and arrange service.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="{% url 'pages:contact' %}" class="btn btn-volt btn-lg rounded-pill px-4 fw-bold">Book a Service Ticket</a>
+                <a href="{% url 'pages:faq' %}" class="btn btn-outline-dark btn-lg rounded-pill px-4">Read Service FAQ</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

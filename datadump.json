@@ -1,0 +1,3727 @@
+[
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$G5Whope6wTMzZqqeeF2x2b$PqtbYyWtN+yl3KRyJINf+iLHCcsZwkX84GKSMAbJS30=",
+    "last_login": "2026-09-30T14:13:30.058Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "Marcus",
+    "last_name": "Vance",
+    "email": "admin@voltride.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:31.069Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$iSbildcHozNj5GbeqkFGQY$IFL+a3zZ61EZT66pfUPrlF6RtR6yJm7CQ0neXTPriRM=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alex_rider",
+    "first_name": "Alex",
+    "last_name": "Rider",
+    "email": "alex.rider@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:32.207Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$Wn8g1bKVMb1kAKjGTgRwSm$ce/RT1tXsDC1YXzIa7vcQduJqTX2U3KFohDC3k6ih1E=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sarah_connor",
+    "first_name": "Sarah",
+    "last_name": "Connor",
+    "email": "sarah.c@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:33.286Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$jr2DfGZuGQjvKe5JoP7hnY$GxwlAFvIBIQnTTUBpA5eJfcfgYJE/9GcGdjDRK5Xp/4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "david_chen",
+    "first_name": "David",
+    "last_name": "Chen",
+    "email": "david.chen@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:34.371Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$ie6zrdMaTKRw4FFYfpkBai$tixU6cgLG1RyOWohq+MQ7HrQ3gi49MI6odpQJPKd0S0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "elena_rostova",
+    "first_name": "Elena",
+    "last_name": "Rostova",
+    "email": "elena.r@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:35.539Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$xsqw1ON0DiNzZhbMNrmeXa$oWc+esn7/heoBDyDwZr5rdcV2uODhnhnAGayhwerufs=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "marcus_bell",
+    "first_name": "Marcus",
+    "last_name": "Bell",
+    "email": "marcus.b@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:36.618Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$GIFiu0RXGx9mTDCWPKmhvh$XA/P3FLDdz4JQvvjjGE6FTVKPWQvUqjUvYek2DOsH2o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "olivia_taylor",
+    "first_name": "Olivia",
+    "last_name": "Taylor",
+    "email": "olivia.t@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:37.713Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$0fqHNK4cHq3lrPTiM1Wffs$XFU7vWMstP2RCWJ8UDJnKwicKDj7xRVMV4dBsXE6+8E=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "james_wilson",
+    "first_name": "James",
+    "last_name": "Wilson",
+    "email": "james.w@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:38.786Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$XZDYOU4JPzYizU6dJf2Lwn$5hb8U/REqnc2S/keNrxUTT5Jzb5LY2wnbfDWgrb1fxE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "maya_patel",
+    "first_name": "Maya",
+    "last_name": "Patel",
+    "email": "maya.p@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-09-29T16:43:39.989Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "bcrider99",
+    "first_name": "",
+    "last_name": "",
+    "email": "bcrider99@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:45:37.807Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "emoto_rider",
+    "first_name": "",
+    "last_name": "",
+    "email": "emoto_rider@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:45:37.846Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "urban_moto",
+    "first_name": "",
+    "last_name": "",
+    "email": "urban_moto@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:45:52.442Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dave_ontario",
+    "first_name": "",
+    "last_name": "",
+    "email": "dave_ontario@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:45:52.468Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "trailblazer_ca",
+    "first_name": "",
+    "last_name": "",
+    "email": "trailblazer_ca@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:46:07.281Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "whistler_rider",
+    "first_name": "",
+    "last_name": "",
+    "email": "whistler_rider@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:46:07.368Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "alex_toronto",
+    "first_name": "",
+    "last_name": "",
+    "email": "alex_toronto@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:46:23.512Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "mark_bc",
+    "first_name": "",
+    "last_name": "",
+    "email": "mark_bc@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:46:23.551Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "speed_demon",
+    "first_name": "",
+    "last_name": "",
+    "email": "speed_demon@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:46:28.704Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "pro_tuner",
+    "first_name": "",
+    "last_name": "",
+    "email": "pro_tuner@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T08:46:28.732Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "rider_demo",
+    "first_name": "Devon",
+    "last_name": "",
+    "email": "devon@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T10:36:58.175Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nathan_kelowna",
+    "first_name": "Nathan",
+    "last_name": "Fraser",
+    "email": "nathan.fraser@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.092Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "julien_quebec",
+    "first_name": "Julien",
+    "last_name": "Tremblay",
+    "email": "julien.tremblay@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.120Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "derek_calgary",
+    "first_name": "Derek",
+    "last_name": "Henderson",
+    "email": "derek.h@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.154Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "maya_vancouver",
+    "first_name": "Maya",
+    "last_name": "Lin",
+    "email": "maya.lin@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.175Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "liam_ottawa",
+    "first_name": "Liam",
+    "last_name": "Gallagher",
+    "email": "liam.g@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.195Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sarah_edmonton",
+    "first_name": "Sarah",
+    "last_name": "Kowalski",
+    "email": "sarah.k@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.216Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "brandon_victoria",
+    "first_name": "Brandon",
+    "last_name": "Scott",
+    "email": "brandon.s@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.237Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "chloe_halifax",
+    "first_name": "Chloe",
+    "last_name": "MacLeod",
+    "email": "chloe.m@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.260Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "owen_saskatoon",
+    "first_name": "Owen",
+    "last_name": "Wiebe",
+    "email": "owen.w@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.281Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "gabriel_toronto",
+    "first_name": "Gabriel",
+    "last_name": "Rossi",
+    "email": "gabriel.r@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-01T13:20:46.300Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1018xaiahcjvc5thr9w6e3d7pltz7bom",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCENb:vxE3448EvqX8s1EWx5k7r_aoay_A0mWtZjrAEcgJGvM",
+    "expire_date": "2026-10-15T10:51:11.210Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1xto4cw6cq90aejqfj32lhivzixrgq76",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCH2w:vGx5h--lN1oTj4UFOrxhZpieKdiuyoWk3gLGLBID7SY",
+    "expire_date": "2026-10-15T13:42:02.214Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3hi5dzgj8j7131ck596il4edkqezb70b",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEY0:WzkGmzxE0B4aS47XxH_75Uz5Zgffjx7BVkceI13GVAQ",
+    "expire_date": "2026-10-15T11:01:56.276Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3zh7ragu0bxener3r1usy82oa1fwjnar",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCGBR:ORVaUxaCt4lPRIAq8yNeRLFuwVxT3-whgoG3MQN5hDs",
+    "expire_date": "2026-10-15T12:46:45.388Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4kh14i1g03x5qyymuisdx0fjzemmb8ls",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEUf:3I88p3jprnSNbivw_ijRnzNPgPkds5SuqY5N-CHia2w",
+    "expire_date": "2026-10-15T10:58:29.144Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7oaf99kr4fhf5bompo89qjqh4d7rylqh",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEX9:jq6y2M_OIGAZLUmHvLRcQitmoAa-QpVm46sst6PmM8g",
+    "expire_date": "2026-10-15T11:01:03.803Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8ho4fg914v3nyzo1hkn8kj0h9lg8b5nk",
+  "fields": {
+    "session_data": ".eJxVjb0OgzAQg98lcxXl7wJh7N5niA4uaWhRIgXognj3gsTQerQ_2xvzuC7Jr3OofiTWMcluv16PwzvkM6AX5mfhQ8lLHXt-IvxKZ_4oFKb7xf4NJJzT2VYGtJUB0TbRWCWUcERSgG5ka6RDA0JgpBjBujYecq2G4MCAQhXNMfop0_FMwQ9YF9Zt-_4FGTk-Mw:1xBsuX:ie8CJilSE-kIyEpt2_Qy415-8BTUmjHAvpFaiC87eGk",
+    "expire_date": "2026-10-14T11:55:45.161Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8qjq2fub7qmud82dwisu97tvti6q3wzl",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCGnf:AjOW_q8oZwy281W4UVmzP2s3PUxTLoN2VL0Nb8L3X9w",
+    "expire_date": "2026-10-15T13:26:15.298Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "a9rjkk00gxmr9se6ldqqgl3i9dzih785",
+  "fields": {
+    "session_data": ".eJxVjcEOgyAQRP-Fc0NARNBj7_0GsstCsTWSiPZi_Pdi4qG9zc6bndmZg21NbithcSOxgUl2-_UQ_DvMJ6AXzM_MfZ7XZUR-RvhFC39kCtP9yv4VJCipfltCVEr3JG2Mwja97ZsQdWs6QSTqBbppVZUqYtcKtDKi1AYwmqAqqqWfPNVlCs7DsrJhP44vOCw-lg:1xCIBj:929xNXkSwhCztXOUm3GJNYLSgK-uvO5Fu0oVfx-gDmI",
+    "expire_date": "2026-10-15T14:55:11.286Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bjt1v8xknfn1r99qzbh15moxuurw10vd",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCFG1:B6vomeeEJaaBztTPXHj3RSLDuHpQzOly7KCXa3cD9HU",
+    "expire_date": "2026-10-15T11:47:25.766Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "chat1q89fq13lj7n1i4z35b1kh0uocfr",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEVC:4-6wLZ8JM_EfeZKTh9kJ47trjBd4URTT0xKCVm8xHtI",
+    "expire_date": "2026-10-15T10:59:02.152Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "els8y1e21ptyigx35ky7zltffewsjoo6",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7IjI1Ijp7InF1YW50aXR5IjoxLCJwcmljZSI6IjI5LjAwIn19fQ:1xBsum:ffzQbgnhIlHVXqOqKM5AEBHgOOv96AUqttJUMg6t6kE",
+    "expire_date": "2026-10-14T11:56:00.466Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "japnk1god3gj57uaaed0ag3uf15qi73f",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCHDI:1pKV8MgKPstp-DZwyqeY-pEG-gvVTvKgbVJSlCeb_2w",
+    "expire_date": "2026-10-15T13:52:44.192Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qsfr73mxp0q3vz20xu99q9p0a12lzrm2",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xBxPW:OVRWC7W0whRf7eI-xPAwrNuWlYO_abYf03jcsCy8EEI",
+    "expire_date": "2026-10-14T16:44:02.304Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "r44orqi9sq2s50rwu31fv1kus4z4u8d8",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCIDE:RGJ6SwO6kbGbXA8tVIH6cTBYCdNt9hpftgaLzm7f_XI",
+    "expire_date": "2026-10-15T14:56:44.312Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "r8jwgjoc4qfp9mmoqmtdb8m91yra98g2",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCGBe:OYYUgwl7doFqU6877K-SR7ooxVFYeDvhFSll26PiWTE",
+    "expire_date": "2026-10-15T12:46:58.653Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ryinj6n8sx12mlyfxozvf53xpmtjla50",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7IjMwIjp7InF1YW50aXR5IjoxLCJwcmljZSI6IjU1ODkuOTgifX19:1xCCZ2:XPRz5TDZkuFWfEL1eTYuKEk1loHxW3197jQ-R6pLdyk",
+    "expire_date": "2026-10-15T08:54:52.013Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "s3yt2o7ionim7rrvq86n3lqld9rp070c",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEKT:nF5SfjEoJPim93oE06_N_CGhiDBhjL4uveSGxVw5xSI",
+    "expire_date": "2026-10-15T10:47:57.637Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u0z4unswzdascfjpvmm7bp9umgzz6uop",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCGmv:xLXkknkOJtXX1pT8hQABioS6HEol7x5xYibio0oGN-c",
+    "expire_date": "2026-10-15T13:25:29.908Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "un59rw8avxdzgngxm984rm5l8deuhmt1",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEK7:aldicrGfU_6l_O1dGJwH4pcPtnRvEB4bQ80DNpsujpo",
+    "expire_date": "2026-10-15T10:47:35.668Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vsr988g0gu5hoei582kvvg6j4i23d9rx",
+  "fields": {
+    "session_data": "eyJ2b2x0cmlkZV9jYXJ0Ijp7fX0:1xCEMT:zqUn1GAVd52pfTPSZKaEmUI_IR_yJ_T6J1zctzp282M",
+    "expire_date": "2026-10-15T10:50:01.421Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 1,
+  "fields": {
+    "name": "Electric Bikes",
+    "slug": "electric-bikes",
+    "description": "High-performance electric bicycles engineered for city streets, rugged mountains, and daily commutes.",
+    "image": "",
+    "icon": "fa-bicycle",
+    "is_featured": true,
+    "order": 1
+  }
+},
+{
+  "model": "store.category",
+  "pk": 2,
+  "fields": {
+    "name": "Spare Parts",
+    "slug": "spare-parts",
+    "description": "OEM replacement components, upgrade kits, and high-spec mechanical parts.",
+    "image": "",
+    "icon": "fa-cogs",
+    "is_featured": true,
+    "order": 2
+  }
+},
+{
+  "model": "store.category",
+  "pk": 6,
+  "fields": {
+    "name": "Accessories & Gear",
+    "slug": "accessories",
+    "description": "Rider safety gear, smart helmets, heavy-duty locks, and ergonomic cargo bags.",
+    "image": "",
+    "icon": "fa-shield-alt",
+    "is_featured": true,
+    "order": 6
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "City E-Bikes",
+    "slug": "city-e-bikes",
+    "description": "Genuine City E-Bikes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "Mountain E-Bikes",
+    "slug": "mountain-e-bikes",
+    "description": "Genuine Mountain E-Bikes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "Folding E-Bikes",
+    "slug": "folding-e-bikes",
+    "description": "Genuine Folding E-Bikes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 4,
+  "fields": {
+    "category": 1,
+    "name": "Commuter E-Bikes",
+    "slug": "commuter-e-bikes",
+    "description": "Genuine Commuter E-Bikes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "name": "Fat Tire E-Bikes",
+    "slug": "fat-tire-e-bikes",
+    "description": "Genuine Fat Tire E-Bikes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "name": "Cargo E-Bikes",
+    "slug": "cargo-e-bikes",
+    "description": "Genuine Cargo E-Bikes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "name": "Motors",
+    "slug": "motors",
+    "description": "Genuine Motors for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 8,
+  "fields": {
+    "category": 2,
+    "name": "Controllers",
+    "slug": "controllers",
+    "description": "Genuine Controllers for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 9,
+  "fields": {
+    "category": 2,
+    "name": "Brakes",
+    "slug": "brakes",
+    "description": "Genuine Brakes for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 10,
+  "fields": {
+    "category": 2,
+    "name": "Tires & Wheels",
+    "slug": "tires-wheels",
+    "description": "Genuine Tires & Wheels for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 11,
+  "fields": {
+    "category": 2,
+    "name": "Displays",
+    "slug": "displays",
+    "description": "Genuine Displays for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 12,
+  "fields": {
+    "category": 2,
+    "name": "Throttles",
+    "slug": "throttles",
+    "description": "Genuine Throttles for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 13,
+  "fields": {
+    "category": 2,
+    "name": "Chains & Pedals",
+    "slug": "chains-pedals",
+    "description": "Genuine Chains & Pedals for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 14,
+  "fields": {
+    "category": 2,
+    "name": "Suspension",
+    "slug": "suspension",
+    "description": "Genuine Suspension for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 26,
+  "fields": {
+    "category": 6,
+    "name": "Helmets",
+    "slug": "helmets",
+    "description": "Genuine Helmets for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 27,
+  "fields": {
+    "category": 6,
+    "name": "Locks & Security",
+    "slug": "locks-security",
+    "description": "Genuine Locks & Security for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 28,
+  "fields": {
+    "category": 6,
+    "name": "Panniers & Bags",
+    "slug": "panniers-bags",
+    "description": "Genuine Panniers & Bags for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 29,
+  "fields": {
+    "category": 6,
+    "name": "Phone Mounts",
+    "slug": "phone-mounts",
+    "description": "Genuine Phone Mounts for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.subcategory",
+  "pk": 30,
+  "fields": {
+    "category": 6,
+    "name": "Pumps & Tools",
+    "slug": "pumps-tools",
+    "description": "Genuine Pumps & Tools for VoltRide e-bikes."
+  }
+},
+{
+  "model": "store.product",
+  "pk": 59,
+  "fields": {
+    "name": "Stark VARG SM ALPHA 80HP - ARRIVING END OF 2025",
+    "slug": "stark-varg-sm-alpha-80hp-arriving-end-of-2025",
+    "SKU": "SR-STARK-VARG-3217",
+    "category": 1,
+    "subcategory": null,
+    "product_type": "ebike",
+    "description": "The World’s most Powerful Super Moto Bike!\nOur goal: build the world’s fastest enduro bike. For the ultimate thrill and to prove electric technology is superior to gas.\nWe push the boundaries of technology to reshape the future of motorcycling, by building electric motorcycles that outperform traditional technology we will inspire the world to sustainability. Stark VARG EX is easier to ride, requires less maintenance, can be ridden anywhere without disturbing neighbors and has higher performance than traditional gas bikes.\nPower that is also fully adjustable, with customized power curves between 10 and 80 HP.\nINCREDIBLE HANDLING, LIGHTWEIGHT\nWeighing in at just 120 kg, the VARG EX feels exceptionally light and agile on the trails. With a drastic reduction in rotational mass, the electric-powered VARG delivers an impressively lightweight experience. “Feels lighter than a 125” is a common feedback.\nThe chassis are carefully crafted not just to save weight and provide flex, but to perfect the center of gravity and weight distribution. Minimized rotational mass and the great chassis engineering allows for full control and comfort, making you a better, more efficient and faster rider.\nCategory\nSpecification\nMotor\nCarbon fiber housing, 360V\nBattery\n7.2 kWh, 420 V\nCharger\n3.3 kW, 16 A, 120/240 V\nCharge Time\n3.5 hrs @ 120 V / 2 hrs @ 240 V\nDrive\nRK MXU UW-ring Gold 520 chain & 7075-T6 rear sprocket\nPower\n60 / 80 hp\nTorque\n914 Nm (rear wheel)\nFrame\nHigh-strength steel\nFront Suspension\nKYB 48 mm closed-cartridge coil-spring fork; adjustable compression & rebound; 290 mm travel\nRear Suspension\nKYB shock triple adjuster; spring preload + high/low-speed compression & rebound; 303 mm travel\nFront Brake\nBrembo 4-piston radial caliper, 320 mm disc\nRear Brake\nBrembo 1-piston caliper, 220 mm disc\nFront Tire\n120/70-17\nRear Tire\n140/70-17\nRake\n26.1°\nWheelbase\n147.1 cm\nGround Clearance\n31.2 cm\nSeat Height\n93.5 cm\nWeight\n124 kg",
+    "short_description": "The World’s most Powerful Super Moto Bike!",
+    "price": "11900.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Stark Future",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "60V 38Ah Quick-Swap Pack",
+    "motor_power": "80 Hp",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:16.248Z",
+    "updated_at": "2026-10-01T14:55:16.248Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 60,
+  "fields": {
+    "name": "Electro & Co. ETM RTR 35ah UPGRADED BATTERY",
+    "slug": "electro-co-etm-rtr-35ah-upgraded-battery",
+    "SKU": "SR-ELECTRO-CO-7373",
+    "category": 2,
+    "subcategory": null,
+    "product_type": "spare_part",
+    "description": "Upgrade your Ready to Rip Electric Trail Machine with a larger and more powerful battery! Utilising Samsung Cells, the Mod pack delivers plenty of power for a full blown mod build while being lighter weight than the Touring pack which provides maximum range and the expense of more weight.\n72v (84v Max)\n35ah\n2.5kWh\n250A Rated Discharge\n400A Peak Rated ANT BMS\nQS8 Discharge Port (replaceable)\nXT90 Charge Port (replaceable)\nup to 35 AMP Fast Charge Capable\nWeight: ~17kgs\nSamsung Cells",
+    "short_description": "Upgrade your Ready to Rip Electric Trail Machine with a larger and more powerful battery! Utilising Samsung Cells, the Mod pack delivers plenty of power for a full blown mod build while being lighter weight than the Touring pack which provides maximum range and the expense of more weight.",
+    "price": "949.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Surron",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "",
+    "motor_power": "",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:21.068Z",
+    "updated_at": "2026-10-01T14:55:21.068Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 61,
+  "fields": {
+    "name": "E-RIDE PRO MINI NIKE TN GRAPHICS KIT",
+    "slug": "e-ride-pro-mini-nike-tn-graphics-kit",
+    "SKU": "SR-E-RIDE-PRO-2686",
+    "category": 6,
+    "subcategory": null,
+    "product_type": "accessory",
+    "description": "Full coverage Nike TN graphics kits for E-Ride Pro mini bikes.\nThis is a two tone kit – 1 side is blue and purple the other side is pink and red\nBIKE NOT INCLUDED",
+    "short_description": "Full coverage Nike TN graphics kits for E-Ride Pro mini bikes.",
+    "price": "140.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "E-Ride Pro",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "",
+    "motor_power": "",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:26.367Z",
+    "updated_at": "2026-10-01T14:55:26.367Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 62,
+  "fields": {
+    "name": "Go Off-Road Gift Card",
+    "slug": "go-off-road-gift-card",
+    "SKU": "SR-GO-OFF-ROA-9953",
+    "category": 2,
+    "subcategory": null,
+    "product_type": "spare_part",
+    "description": "Select A Gift Card Value To Surprise A Loved One!\nNote: This is not a physical gift card. The amount will be added to your account if not sent as a gift to someone else. Can be used for online purchases only.",
+    "short_description": "Select A Gift Card Value To Surprise A Loved One!",
+    "price": "10.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Surron",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "",
+    "motor_power": "",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:32.402Z",
+    "updated_at": "2026-10-01T14:55:32.402Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 63,
+  "fields": {
+    "name": "Electron Cycles Sur Ron Battery 60v 65Ah Trail V3 Long Range 12KW + Charger",
+    "slug": "electron-cycles-sur-ron-battery-60v-65ah-trail-v3-long-range-12kw-charger",
+    "SKU": "SR-ELECTRON-C-2400",
+    "category": 2,
+    "subcategory": null,
+    "product_type": "spare_part",
+    "description": "Sur Ron Battery 60v 65Ah Trail V3 Long Range 12KW\nIncludes Charger\nASI, EBMX, VTB, Torp & KO Controllers Compatible\nFull Function Bluetooth BMS\nLightweight Powerful and only 15.3 KG!\nFully Protected by ANT BMS\nStainless Steel 316 Powder Coated Casing\nUK Warranty\nSur Ron Battery 60v 65Ah Trail V3 Long Range 12KW  is designed to run on a standard Sur Ron bike as a direct swap in battery, increasing the range by over 200%.\nYou can use your standard Sur Ron controller (no real power increase – just range) or you swap out your controller for an aftermarket controller and set it to 200A DC (for ASI it can be set at 12000W) and phase maximum at 460A.\nCan be used with an ASI BAC4000, ASI BAC8000, VTB, EBMX X-9000 or Torp controller (and any other 60v capable controller).  This will give you a safe and genuine fast bike that will give heaps of range and  fun.  This battery is very similar in design to its fast brother (the 72v Race Battery) but uses a different cell and different configuration to give it maximum range without being crazy tall.\nOn delivery, please contact Electron Cycles for activation of your battery.\nPower\nThis battery will work perfectly with the original Sur Ron standard Controller to give you range which is approximately 200% more than the OEM battery. If you want more power you will need a bigger controller and we recommend the EBMX X9000V3 available here:\nhttps://electroncycles.com/product/ebmx-x-9000-v3-sur-ron-light-bee-motor-controller/\nIf this battery is to be used with an aftermarket controller, the maximum setting is 200A. DC Phase 500PhA and 12000W.\nExoskeleton /Casing\nWe have upgraded the casing to marine grade 316 stainless steel, so absolutely no rust issues here! Super tough and powder coated inside and out.\nConnectors\nThe main battery to controller connectors we use are the same type as used by Sur Ron to keep everything compatible. This allows you to swap your standard battery back should you wish.\nIf you have a 2024 Sur Ron\nwith the newer round connector, you may have to retro fit the original Sur Ron battery loom (this is easy and cheap to do).\n2024 Sur Ron Bikes\nSur Ron in their wisdom have changed the battery connector for the 2024 model. It does not take as much  power and is very difficult to obtain. These connectors are not compatible with our batteries (or anyone else’s battery). The simple work around is to install a pre 2024 loom. This takes about 30 minutes and is simple to do.  If you then want to run your OEM 2024 battery, you will need to purchase an adapter. Most people sell their OEM battery to offset the cost of this much longer range and more powerful battery upgrade.\nSome versions of the Sur Ron standard controller may go into limp mode if using this battery with no communication port (not using an aftermarket controller). This will need a very simple modification to the plug that normally connects to the battery. Please see the photo of the battery communication connector we supply.  This is effectively two pins that are crossed with a simple piece of wire with a spade connector.  Note the area circled in red in the photo.\nVoltmeter\nThis Sur Ron Battery does not have an integrated voltmeter.  We supply a voltmeter that nestles in your battery lid.\nDomestic Electrics\nAll your bike accessories are still powered. Some believe that not using the circuit breaker direct to the controller removes the safety of the circuit breaker. However, all our batteries have a full working BMS. Any power shorts or irregular current and the BMS shuts down.  This is much more sensitive and accurate than a mechanical breaker (you may note that the Sur Ron Ultra Bee does not use a circuit breaker and relies on the BMS alone).\nPlease note that on L1e Bikes an orange warning light may flicker on the main display and a small error code may appear.  There is no fix for this and a consequence of using an aftermarket battery.  Use the voltmeter we supply with your battery to keep track of the batteries state of charge – empty at 48V.\nSpecifications\n208 x 21700 Lithium cells\nBluetooth ANT BMS.\nEach cell with additional individual wrapping for added protection.\nAdditional layers of fiber board, Kapton tape, heat shrink.\nStainless steel 316 grade sealed casing/exoskeleton with internal/external powder coated  to give maximum protection and insulation.\nDouble sandwich configuration using 0.2mm pure welded Nickel sheet.\nBluetooth BMS giving individual series condition with balanced charging and on/off function via a mobile device (we recommend always leaving on – never use SHUTDOWN)\nAn integrated cord handle for lowering the battery in and out.\nBattery gauge – not need if buying an aftermarket controller with a volt display.\nWeight 15.3Kg\nHeight 353mm\nFitting\nThis battery is designed to fit straight into the bike and maximize the whole battery compartment.  The hatch bolts will need swapping out with slightly longer bolts and a lid lifting kit that we supply free of charge.\nConnecting To Bike\nWhen connecting the battery to the bike and to avoid a spark, turn the red trip switch on the bike to off. Connect the older original power cable and then turn the red trip to on. Then connect the new power leads. Removing the battery has no special order.\nBattery Charging\nOur 60v 10A charger is included. Just turn it on at the wall first, plug it and forget!\nFirst time charging is VERY important. Always connect the charger to the battery with the charger powered up at the mains first. This will stop a “Connection Spark”. The battery needs a “Balance Charge” on first charge. Please charge for 12 hours first time.  Always charge your battery in a safe place and never unsupervised.\nBike Not Included",
+    "short_description": "Sur Ron Battery 60v 65Ah Trail V3 Long Range 12KW",
+    "price": "1899.00",
+    "sale_price": "1599.00",
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Surron",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "60V 65AH",
+    "motor_power": "12Kw Sur Ron Battery 60V 65Ah Trail V3 Long Range 12Kw",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:34.378Z",
+    "updated_at": "2026-10-01T14:55:34.378Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 64,
+  "fields": {
+    "name": "Stark VARG EX ALPHA 80HP ROAD LEGAL",
+    "slug": "stark-varg-ex-alpha-80hp-road-legal",
+    "SKU": "SR-STARK-VARG-0923",
+    "category": 1,
+    "subcategory": null,
+    "product_type": "ebike",
+    "description": "OUTPERFORMING THE COMPETITION, SILENTLY\nOur goal: build the world’s fastest enduro bike. For the ultimate thrill and to prove electric technology is superior to gas.\nWe push the boundaries of technology to reshape the future of motorcycling, by building electric motorcycles that outperform traditional technology we will inspire the world to sustainability. Stark VARG EX is easier to ride, requires less maintenance, can be ridden anywhere without disturbing neighbors and has higher performance than traditional gas bikes.\nPower that is also fully adjustable, with customized power curves between 10 and 80 HP.\nINCREDIBLE HANDLING, LIGHTWEIGHT\nWeighting in at just 120 kg, the VARG EX feels exceptionally light and agile on the trails. With a drastic reduction in rotational mass, the electric-powered VARG delivers an impressively lightweight experience. “Feels lighter than a 125” is a common feedback.\nThe chassis are carefully crafted not just to save weight and provide flex, but to perfect the center of gravity and weight distribution. Minimized rotational mass and the great chassis engineering allows for full control and comfort, making you a better, more efficient and faster rider.\nCategory\nSpecification\nMotor\nCarbon fiber housing, 360V\nCharger\n3.3 kW, 16 A, 120/240 V\nCharge Time\n3.5 hrs @ 120 V / 2 hrs @ 240 V\nDrive\nRK MXU UW-ring Gold 520 chain & 7075-T6 rear sprocket\nPower\n60 / 80 hp\nTorque\n1036 Nm (rear wheel)\nFrame\nChromoly steel\nFront Suspension\nKYB 48 mm closed-cartridge coil-spring fork; adjustable compression & rebound; 300 mm travel\nRear Suspension\nKYB shock triple adjuster; spring preload + high/low-speed compression & rebound; 303 mm travel\nFront Brake\nBrembo 2-piston caliper, 260 mm disc\nRear Brake\nBrembo 1-piston caliper, 220 mm disc\nFront Tire\n90/90-21\nRear Tire\n140/80-18\nRake\n26.1°\nWheelbase\n148.8 cm\nGround Clearance\n36.8 cm (fully extended) / 34.5 cm (static sag)\nSeat Height\n99.0 cm (fully extended) / 96.6 cm (static sag)\nWeight\n120 kg",
+    "short_description": "OUTPERFORMING THE COMPETITION, SILENTLY",
+    "price": "11900.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Stark Future",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "60V 38Ah Quick-Swap Pack",
+    "motor_power": "80 Hp",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:36.963Z",
+    "updated_at": "2026-10-01T14:55:36.963Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 65,
+  "fields": {
+    "name": "FastAce Front Forks for Sur-Ron Ultra Bee",
+    "slug": "fastace-front-forks-for-sur-ron-ultra-bee",
+    "SKU": "SR-FASTACE-FR-8716",
+    "category": 2,
+    "subcategory": null,
+    "product_type": "spare_part",
+    "description": "FastAce front forks are a popular suspension upgrade for the Sur-Ron Ultra Bee, designed to improve front-end control, comfort, and overall ride quality. Compared to the stock forks, they deliver smoother damping, better small-bump compliance, and increased stability when riding off-road.\nThese forks are well suited to riders who spend time on trails, ride aggressively, or simply want more confidence from the front suspension. The improved damping characteristics help keep the front wheel planted while reducing harsh feedback through the bars.\nFitment:\nSur Ron Ultra Bee (all models)\nDetails:\nSuspension upgrade over the OEM forks\nImproved damping and front-end feel\nBetter control on rough and uneven terrain\nDesigned for off-road and trail use\nDirect fit replacement with no modifications required\nA solid suspension upgrade that transforms how the Ultra Bee feels on the front end, especially when riding harder or tackling more demanding terrain.",
+    "short_description": "FastAce front forks are a popular suspension upgrade for the Sur-Ron Ultra Bee, designed to improve front-end control, comfort, and overall ride quality. Compared to the stock forks, they deliver smoother damping, better small-bump compliance, and increased stability when riding off-road.",
+    "price": "749.99",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Surron",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "74V 55Ah High-Output Pack",
+    "motor_power": "21 kW Peak Power PMSM Mid-Drive",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:43.610Z",
+    "updated_at": "2026-10-01T14:55:43.610Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 66,
+  "fields": {
+    "name": "Guts Complete Seat Assembly Medium Foam For TALARIA X3",
+    "slug": "guts-complete-seat-assembly-medium-foam-for-talaria-x3",
+    "SKU": "SR-GUTS-COMPL-6045",
+    "category": 6,
+    "subcategory": null,
+    "product_type": "accessory",
+    "description": "Has your old seat seen better days? Are you sick of sliding off when pulling a wheelie?\nGet this complete excellent quality Talaria X3 Guts seat with an extremely comfortable medium seat cushion.\nComes already fitted with a high quality Guts ribbed seat cover for extra durability and grip.\nFits Talaria XXX/X3 Bikes only",
+    "short_description": "Has your old seat seen better days? Are you sick of sliding off when pulling a wheelie?",
+    "price": "109.99",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Talaria",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "",
+    "motor_power": "",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:50.229Z",
+    "updated_at": "2026-10-01T14:55:50.229Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 67,
+  "fields": {
+    "name": "STARK VARG MX 1.2 ALPHA 80HP",
+    "slug": "stark-varg-mx-12-alpha-80hp",
+    "SKU": "SR-STARK-VARG-0094",
+    "category": 1,
+    "subcategory": null,
+    "product_type": "ebike",
+    "description": "The Worlds most powerful dirt bike just got even better!\nWith VARG MX 1.2 we take a leap forwards with an upgraded, lighter and more flexible chassis, wiring routed internally in the handlebar, the Arkenstone phone included and most importantly – the 7.2kWh battery giving an 20% increase in capacity.\nWe keep pushing the boundaries of technology to reshape the future of motorcycling. By building electric motorcycles that outperform traditional technology we will inspire the world to sustainability. Stark VARG 1.2 is easier to ride, requires less maintenance, can be ridden anywhere without disturbing neighbours and outperforms traditional gas bikes.\nThis bike features the new Arkenstone phone for fully adjustable power with customisable power curves between 10 and 80 HP – at the tip of your finger.\nWeighing in at just 118 kg, the VARG MX 1.2 feels exceptionally light and agile. With a drastic reduction in rotational mass, the electric-powered VARG delivers an impressively lightweight experience. “Feels lighter than a 125” is a common feedback.\nThe VARG MX 1.2 features a significantly improved chassis compared to the original VARG MX, leading to a substantial increase in performance. The design continues to prioritize weight saving and flex. Through minimized rotational mass and superior chassis engineering, the bike offers exceptional control and comfort – making you a better, more efficient and faster rider.\nCategory\nSpecification\nMotor\nCarbon fiber housing, 360V\nBattery\n7.2 kWh, 420 V\nCharger\n3.3 kW, 16 A, 120/240 V\nCharge Time\n3.5 hrs @ 120 V / 2 hrs @ 240 V\nDrive\nRK MXU UW-ring Gold 520 chain & 7075-T6 rear sprocket\nPower\n60 / 80 hp\nTorque\n978 Nm (rear wheel)\nFrame\nHigh-strength steel\nFront Suspension\nKYB 48 mm closed-cartridge coil-spring fork; adjustable compression & rebound; 310 mm travel\nRear Suspension\nKYB shock triple adjuster; spring preload + high/low-speed compression & rebound; 303 mm travel\nFront Brake\nBrembo 2-piston caliper, 260 mm Galfer disc\nRear Brake\nBrembo 1-piston caliper, 220 mm Galfer disc\nTires (18” Configuration)\nFront: 90/90-21 • Rear: 140/80-18\nTires (19” Configuration)\nFront: 80/100-21 • Rear: 110/90-19\nRake\n27.3°\nWheelbase\n148.7 cm\nGround Clearance\n33.9 cm\nSeat Height\n96.0 cm\nWeight\n118 kg",
+    "short_description": "The Worlds most powerful dirt bike just got even better!",
+    "price": "10299.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Stark Future",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "60V 38Ah Quick-Swap Pack",
+    "motor_power": "80 Hp – At The Tip Of Your Finger",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:55:59.910Z",
+    "updated_at": "2026-10-01T14:55:59.910Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 68,
+  "fields": {
+    "name": "USED SUR RON LIGHT BEE BATTERY 60v Green",
+    "slug": "used-sur-ron-light-bee-battery-60v-green",
+    "SKU": "SR-USED-SUR-R-2769",
+    "category": 2,
+    "subcategory": null,
+    "product_type": "spare_part",
+    "description": "Used Sur Ron Light Bee battery with green graphics",
+    "short_description": "Used Sur Ron Light Bee battery with green graphics",
+    "price": "600.00",
+    "sale_price": null,
+    "cost_price": null,
+    "stock_quantity": 50,
+    "low_stock_threshold": 5,
+    "brand": "Surron",
+    "model": "",
+    "weight": "",
+    "dimensions": "",
+    "warranty": "2 Years Limited Warranty",
+    "battery_capacity": "60V 38Ah Quick-Swap Pack",
+    "motor_power": "6 kW Peak Power Mid-Drive Motor",
+    "maximum_speed": "",
+    "range": "",
+    "charging_time": "",
+    "color": "",
+    "material": "",
+    "compatibility": "",
+    "featured": true,
+    "bestseller": false,
+    "new_arrival": true,
+    "active": true,
+    "created_at": "2026-10-01T14:56:04.971Z",
+    "updated_at": "2026-10-01T14:56:04.971Z"
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 85,
+  "fields": {
+    "product": 59,
+    "image": "products/stark-varg-sm-alpha-80hp-arriving-end-of-2025_1.jpg",
+    "alt_text": "Stark VARG SM ALPHA 80HP - ARRIVING END OF 2025 - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 86,
+  "fields": {
+    "product": 59,
+    "image": "products/stark-varg-sm-alpha-80hp-arriving-end-of-2025_2.jpg",
+    "alt_text": "Stark VARG SM ALPHA 80HP - ARRIVING END OF 2025 - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 87,
+  "fields": {
+    "product": 59,
+    "image": "products/stark-varg-sm-alpha-80hp-arriving-end-of-2025_3.jpg",
+    "alt_text": "Stark VARG SM ALPHA 80HP - ARRIVING END OF 2025 - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 88,
+  "fields": {
+    "product": 59,
+    "image": "products/stark-varg-sm-alpha-80hp-arriving-end-of-2025_4.jpg",
+    "alt_text": "Stark VARG SM ALPHA 80HP - ARRIVING END OF 2025 - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 89,
+  "fields": {
+    "product": 60,
+    "image": "products/electro-co-etm-rtr-35ah-upgraded-battery_1.jpg",
+    "alt_text": "Electro & Co. ETM RTR 35ah UPGRADED BATTERY - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 90,
+  "fields": {
+    "product": 60,
+    "image": "products/electro-co-etm-rtr-35ah-upgraded-battery_2.jpg",
+    "alt_text": "Electro & Co. ETM RTR 35ah UPGRADED BATTERY - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 91,
+  "fields": {
+    "product": 60,
+    "image": "products/electro-co-etm-rtr-35ah-upgraded-battery_3.jpg",
+    "alt_text": "Electro & Co. ETM RTR 35ah UPGRADED BATTERY - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 92,
+  "fields": {
+    "product": 60,
+    "image": "products/electro-co-etm-rtr-35ah-upgraded-battery_4.jpg",
+    "alt_text": "Electro & Co. ETM RTR 35ah UPGRADED BATTERY - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 93,
+  "fields": {
+    "product": 61,
+    "image": "products/e-ride-pro-mini-nike-tn-graphics-kit_1.jpg",
+    "alt_text": "E-RIDE PRO MINI NIKE TN GRAPHICS KIT - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 94,
+  "fields": {
+    "product": 61,
+    "image": "products/e-ride-pro-mini-nike-tn-graphics-kit_2.jpg",
+    "alt_text": "E-RIDE PRO MINI NIKE TN GRAPHICS KIT - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 95,
+  "fields": {
+    "product": 61,
+    "image": "products/e-ride-pro-mini-nike-tn-graphics-kit_3.jpg",
+    "alt_text": "E-RIDE PRO MINI NIKE TN GRAPHICS KIT - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 96,
+  "fields": {
+    "product": 61,
+    "image": "products/e-ride-pro-mini-nike-tn-graphics-kit_4.jpg",
+    "alt_text": "E-RIDE PRO MINI NIKE TN GRAPHICS KIT - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 97,
+  "fields": {
+    "product": 62,
+    "image": "products/go-off-road-gift-card_1.jpg",
+    "alt_text": "Go Off-Road Gift Card - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 98,
+  "fields": {
+    "product": 63,
+    "image": "products/electron-cycles-sur-ron-battery-60v-65ah-trail-v3-long-range-12kw-charger_1.png",
+    "alt_text": "Electron Cycles Sur Ron Battery 60v 65Ah Trail V3 Long Range 12KW + Charger - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 99,
+  "fields": {
+    "product": 64,
+    "image": "products/stark-varg-ex-alpha-80hp-road-legal_1.jpg",
+    "alt_text": "Stark VARG EX ALPHA 80HP ROAD LEGAL - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 100,
+  "fields": {
+    "product": 64,
+    "image": "products/stark-varg-ex-alpha-80hp-road-legal_2.jpg",
+    "alt_text": "Stark VARG EX ALPHA 80HP ROAD LEGAL - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 101,
+  "fields": {
+    "product": 64,
+    "image": "products/stark-varg-ex-alpha-80hp-road-legal_3.jpg",
+    "alt_text": "Stark VARG EX ALPHA 80HP ROAD LEGAL - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 102,
+  "fields": {
+    "product": 64,
+    "image": "products/stark-varg-ex-alpha-80hp-road-legal_4.jpg",
+    "alt_text": "Stark VARG EX ALPHA 80HP ROAD LEGAL - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 103,
+  "fields": {
+    "product": 65,
+    "image": "products/fastace-front-forks-for-sur-ron-ultra-bee_1.jpg",
+    "alt_text": "FastAce Front Forks for Sur-Ron Ultra Bee - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 104,
+  "fields": {
+    "product": 65,
+    "image": "products/fastace-front-forks-for-sur-ron-ultra-bee_2.jpg",
+    "alt_text": "FastAce Front Forks for Sur-Ron Ultra Bee - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 105,
+  "fields": {
+    "product": 65,
+    "image": "products/fastace-front-forks-for-sur-ron-ultra-bee_3.jpg",
+    "alt_text": "FastAce Front Forks for Sur-Ron Ultra Bee - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 106,
+  "fields": {
+    "product": 65,
+    "image": "products/fastace-front-forks-for-sur-ron-ultra-bee_4.jpg",
+    "alt_text": "FastAce Front Forks for Sur-Ron Ultra Bee - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 107,
+  "fields": {
+    "product": 66,
+    "image": "products/guts-complete-seat-assembly-medium-foam-for-talaria-x3_1.jpg",
+    "alt_text": "Guts Complete Seat Assembly Medium Foam For TALARIA X3 - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 108,
+  "fields": {
+    "product": 66,
+    "image": "products/guts-complete-seat-assembly-medium-foam-for-talaria-x3_2.jpg",
+    "alt_text": "Guts Complete Seat Assembly Medium Foam For TALARIA X3 - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 109,
+  "fields": {
+    "product": 66,
+    "image": "products/guts-complete-seat-assembly-medium-foam-for-talaria-x3_3.jpg",
+    "alt_text": "Guts Complete Seat Assembly Medium Foam For TALARIA X3 - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 110,
+  "fields": {
+    "product": 66,
+    "image": "products/guts-complete-seat-assembly-medium-foam-for-talaria-x3_4.jpg",
+    "alt_text": "Guts Complete Seat Assembly Medium Foam For TALARIA X3 - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 111,
+  "fields": {
+    "product": 67,
+    "image": "products/stark-varg-mx-12-alpha-80hp_1.jpg",
+    "alt_text": "STARK VARG MX 1.2 ALPHA 80HP - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 112,
+  "fields": {
+    "product": 67,
+    "image": "products/stark-varg-mx-12-alpha-80hp_2.jpg",
+    "alt_text": "STARK VARG MX 1.2 ALPHA 80HP - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 113,
+  "fields": {
+    "product": 67,
+    "image": "products/stark-varg-mx-12-alpha-80hp_3.jpg",
+    "alt_text": "STARK VARG MX 1.2 ALPHA 80HP - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 114,
+  "fields": {
+    "product": 67,
+    "image": "products/stark-varg-mx-12-alpha-80hp_4.jpg",
+    "alt_text": "STARK VARG MX 1.2 ALPHA 80HP - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 115,
+  "fields": {
+    "product": 68,
+    "image": "products/used-sur-ron-light-bee-battery-60v-green_1.jpg",
+    "alt_text": "USED SUR RON LIGHT BEE BATTERY 60v Green - View 1",
+    "is_primary": true,
+    "order": 0
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 116,
+  "fields": {
+    "product": 68,
+    "image": "products/used-sur-ron-light-bee-battery-60v-green_2.jpg",
+    "alt_text": "USED SUR RON LIGHT BEE BATTERY 60v Green - View 2",
+    "is_primary": false,
+    "order": 1
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 117,
+  "fields": {
+    "product": 68,
+    "image": "products/used-sur-ron-light-bee-battery-60v-green_3.jpg",
+    "alt_text": "USED SUR RON LIGHT BEE BATTERY 60v Green - View 3",
+    "is_primary": false,
+    "order": 2
+  }
+},
+{
+  "model": "store.productimage",
+  "pk": 118,
+  "fields": {
+    "product": 68,
+    "image": "products/used-sur-ron-light-bee-battery-60v-green_4.jpg",
+    "alt_text": "USED SUR RON LIGHT BEE BATTERY 60v Green - View 4",
+    "is_primary": false,
+    "order": 3
+  }
+},
+{
+  "model": "orders.coupon",
+  "pk": 1,
+  "fields": {
+    "code": "VOLTRIDE10",
+    "discount_percent": 10,
+    "discount_amount": "0.00",
+    "min_purchase": "0.00",
+    "active": true,
+    "created_at": "2026-09-30T14:31:10.264Z"
+  }
+},
+{
+  "model": "orders.coupon",
+  "pk": 2,
+  "fields": {
+    "code": "SAVE50",
+    "discount_percent": 0,
+    "discount_amount": "50.00",
+    "min_purchase": "300.00",
+    "active": true,
+    "created_at": "2026-09-30T14:31:10.274Z"
+  }
+},
+{
+  "model": "orders.coupon",
+  "pk": 3,
+  "fields": {
+    "code": "WELCOME20",
+    "discount_percent": 0,
+    "discount_amount": "20.00",
+    "min_purchase": "100.00",
+    "active": true,
+    "created_at": "2026-09-30T14:31:10.283Z"
+  }
+},
+{
+  "model": "orders.coupon",
+  "pk": 4,
+  "fields": {
+    "code": "FREESHIP",
+    "discount_percent": 0,
+    "discount_amount": "25.00",
+    "min_purchase": "50.00",
+    "active": true,
+    "created_at": "2026-09-30T14:31:10.291Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "order_number": "VR-713645",
+    "user": [
+      "alex_rider"
+    ],
+    "first_name": "Alex",
+    "last_name": "Rider",
+    "email": "alex.rider@example.com",
+    "phone": "+1 555-0192",
+    "address": "742 Evergreen Terrace",
+    "city": "Springfield",
+    "postal_code": "97477",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "1794.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "1794.00",
+    "status": "delivered",
+    "payment_method": "cod",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-29T16:43:42.952Z",
+    "updated_at": "2026-09-29T16:43:42.952Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "order_number": "VR-153297",
+    "user": [
+      "sarah_connor"
+    ],
+    "first_name": "Sarah",
+    "last_name": "Connor",
+    "email": "sarah.c@example.com",
+    "phone": "+1 555-0842",
+    "address": "1200 Techwood Drive",
+    "city": "Atlanta",
+    "postal_code": "30318",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "2524.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "2524.00",
+    "status": "shipped",
+    "payment_method": "online_placeholder",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-29T16:43:43.003Z",
+    "updated_at": "2026-09-29T16:43:43.003Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "order_number": "VR-570279",
+    "user": [
+      "david_chen"
+    ],
+    "first_name": "David",
+    "last_name": "Chen",
+    "email": "david.chen@example.com",
+    "phone": "+1 555-0329",
+    "address": "88 Market St Suite 400",
+    "city": "San Francisco",
+    "postal_code": "94105",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "584.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "584.00",
+    "status": "processing",
+    "payment_method": "bank_transfer",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-29T16:43:43.039Z",
+    "updated_at": "2026-09-29T16:43:43.039Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "order_number": "VR-306431",
+    "user": [
+      "elena_rostova"
+    ],
+    "first_name": "Elena",
+    "last_name": "Rostova",
+    "email": "elena.r@example.com",
+    "phone": "+1 555-0451",
+    "address": "350 5th Avenue",
+    "city": "New York",
+    "postal_code": "10118",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "1249.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "1249.00",
+    "status": "confirmed",
+    "payment_method": "online_placeholder",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-29T16:43:43.075Z",
+    "updated_at": "2026-09-29T16:43:43.075Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "order_number": "VR-771192",
+    "user": [
+      "marcus_bell"
+    ],
+    "first_name": "Marcus",
+    "last_name": "Bell",
+    "email": "marcus.b@example.com",
+    "phone": "+1 555-0773",
+    "address": "200 E Randolph St",
+    "city": "Chicago",
+    "postal_code": "60601",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "508.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "508.00",
+    "status": "pending",
+    "payment_method": "cod",
+    "other_payment_method": "",
+    "payment_status": "unpaid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-29T16:43:43.102Z",
+    "updated_at": "2026-09-29T16:43:43.102Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 6,
+  "fields": {
+    "order_number": "VR-626222",
+    "user": [
+      "alex_rider"
+    ],
+    "first_name": "Alex",
+    "last_name": "Rider",
+    "email": "alex.rider@example.com",
+    "phone": "+1 555-0192",
+    "address": "742 Evergreen Terrace",
+    "city": "Springfield",
+    "postal_code": "97477",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "1794.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "1794.00",
+    "status": "delivered",
+    "payment_method": "cod",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-30T12:24:15.558Z",
+    "updated_at": "2026-09-30T12:24:15.558Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 7,
+  "fields": {
+    "order_number": "VR-766058",
+    "user": [
+      "sarah_connor"
+    ],
+    "first_name": "Sarah",
+    "last_name": "Connor",
+    "email": "sarah.c@example.com",
+    "phone": "+1 555-0842",
+    "address": "1200 Techwood Drive",
+    "city": "Atlanta",
+    "postal_code": "30318",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "2524.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "2524.00",
+    "status": "shipped",
+    "payment_method": "online_placeholder",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-30T12:24:15.606Z",
+    "updated_at": "2026-09-30T12:24:15.606Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 8,
+  "fields": {
+    "order_number": "VR-149281",
+    "user": [
+      "david_chen"
+    ],
+    "first_name": "David",
+    "last_name": "Chen",
+    "email": "david.chen@example.com",
+    "phone": "+1 555-0329",
+    "address": "88 Market St Suite 400",
+    "city": "San Francisco",
+    "postal_code": "94105",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "584.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "584.00",
+    "status": "processing",
+    "payment_method": "bank_transfer",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-30T12:24:15.653Z",
+    "updated_at": "2026-09-30T12:24:15.653Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 9,
+  "fields": {
+    "order_number": "VR-541772",
+    "user": [
+      "elena_rostova"
+    ],
+    "first_name": "Elena",
+    "last_name": "Rostova",
+    "email": "elena.r@example.com",
+    "phone": "+1 555-0451",
+    "address": "350 5th Avenue",
+    "city": "New York",
+    "postal_code": "10118",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "1249.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "1249.00",
+    "status": "confirmed",
+    "payment_method": "online_placeholder",
+    "other_payment_method": "",
+    "payment_status": "paid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-30T12:24:15.705Z",
+    "updated_at": "2026-09-30T12:24:15.705Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 10,
+  "fields": {
+    "order_number": "VR-456176",
+    "user": [
+      "marcus_bell"
+    ],
+    "first_name": "Marcus",
+    "last_name": "Bell",
+    "email": "marcus.b@example.com",
+    "phone": "+1 555-0773",
+    "address": "200 E Randolph St",
+    "city": "Chicago",
+    "postal_code": "60601",
+    "country": "United States",
+    "delivery_notes": "",
+    "subtotal": "508.00",
+    "shipping_cost": "0.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "508.00",
+    "status": "pending",
+    "payment_method": "cod",
+    "other_payment_method": "",
+    "payment_status": "unpaid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-30T12:24:15.737Z",
+    "updated_at": "2026-09-30T12:24:15.737Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 11,
+  "fields": {
+    "order_number": "VR-47F4762A",
+    "user": [
+      "admin"
+    ],
+    "first_name": "Marcus",
+    "last_name": "Vance",
+    "email": "admin@voltride.com",
+    "phone": "676408300",
+    "address": "Mendong",
+    "city": "Yaounde",
+    "postal_code": "00237",
+    "country": "Cameroon",
+    "delivery_notes": "",
+    "subtotal": "28.00",
+    "shipping_cost": "25.00",
+    "coupon_code": "",
+    "discount": "0.00",
+    "total": "53.00",
+    "status": "pending",
+    "payment_method": "credit_debit_card",
+    "other_payment_method": "",
+    "payment_status": "unpaid",
+    "card_number": "",
+    "card_expiry": "",
+    "card_cvv": "",
+    "created_at": "2026-09-30T15:56:28.051Z",
+    "updated_at": "2026-09-30T15:56:28.051Z"
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": null,
+    "product_name": "VoltRide City Pro Electric Bike",
+    "price": "1699.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "product": null,
+    "product_name": "VoltRide Aero Smart Commuter Helmet with Rear Brake Light",
+    "price": "95.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 2,
+    "product": null,
+    "product_name": "VoltRide Mountain X All-Terrain E-Bike",
+    "price": "2449.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 2,
+    "product": null,
+    "product_name": "VoltRide Heavy-Duty Hardened Steel Folding Lock",
+    "price": "75.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 3,
+    "product": null,
+    "product_name": "VoltRide 48V 15Ah Samsung Cell Battery Pack",
+    "price": "499.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 3,
+    "product": null,
+    "product_name": "VoltRide 48V 3A Smart Fast Charger",
+    "price": "85.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 4,
+    "product": null,
+    "product_name": "VoltRide Urban Lite Commuter",
+    "price": "1249.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 5,
+    "product": null,
+    "product_name": "VoltRide 750W High-Torque Brushless Rear Hub Motor",
+    "price": "349.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 5,
+    "product": null,
+    "product_name": "VoltRide Dual Hydraulic Disc Brake Set Front & Rear",
+    "price": "159.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 6,
+    "product": null,
+    "product_name": "VoltRide City Pro Electric Bike",
+    "price": "1699.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 11,
+  "fields": {
+    "order": 6,
+    "product": null,
+    "product_name": "VoltRide Aero Smart Commuter Helmet with Rear Brake Light",
+    "price": "95.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 12,
+  "fields": {
+    "order": 7,
+    "product": null,
+    "product_name": "VoltRide Mountain X All-Terrain E-Bike",
+    "price": "2449.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 13,
+  "fields": {
+    "order": 7,
+    "product": null,
+    "product_name": "VoltRide Heavy-Duty Hardened Steel Folding Lock",
+    "price": "75.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 14,
+  "fields": {
+    "order": 8,
+    "product": null,
+    "product_name": "VoltRide 48V 15Ah Samsung Cell Battery Pack",
+    "price": "499.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 15,
+  "fields": {
+    "order": 8,
+    "product": null,
+    "product_name": "VoltRide 48V 3A Smart Fast Charger",
+    "price": "85.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 16,
+  "fields": {
+    "order": 9,
+    "product": null,
+    "product_name": "VoltRide Urban Lite Commuter",
+    "price": "1249.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 17,
+  "fields": {
+    "order": 10,
+    "product": null,
+    "product_name": "VoltRide 750W High-Torque Brushless Rear Hub Motor",
+    "price": "349.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 18,
+  "fields": {
+    "order": 10,
+    "product": null,
+    "product_name": "VoltRide Dual Hydraulic Disc Brake Set Front & Rear",
+    "price": "159.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 19,
+  "fields": {
+    "order": 11,
+    "product": null,
+    "product_name": "VoltRide Waterproof Universal Thumb Throttle",
+    "price": "28.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "transaction_id": "TXN-96178997",
+    "payment_method": "cod",
+    "amount": "1794.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-29T16:43:42.986Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "transaction_id": "TXN-72992921",
+    "payment_method": "online_placeholder",
+    "amount": "2524.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-29T16:43:43.027Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 3,
+  "fields": {
+    "order": 3,
+    "transaction_id": "TXN-95188470",
+    "payment_method": "bank_transfer",
+    "amount": "584.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-29T16:43:43.063Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 4,
+  "fields": {
+    "order": 4,
+    "transaction_id": "TXN-97797352",
+    "payment_method": "online_placeholder",
+    "amount": "1249.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-29T16:43:43.090Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 5,
+  "fields": {
+    "order": 6,
+    "transaction_id": "TXN-47570236",
+    "payment_method": "cod",
+    "amount": "1794.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-30T12:24:15.588Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 6,
+  "fields": {
+    "order": 7,
+    "transaction_id": "TXN-85566133",
+    "payment_method": "online_placeholder",
+    "amount": "2524.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-30T12:24:15.635Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 7,
+  "fields": {
+    "order": 8,
+    "transaction_id": "TXN-61976977",
+    "payment_method": "bank_transfer",
+    "amount": "584.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-30T12:24:15.689Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 8,
+  "fields": {
+    "order": 9,
+    "transaction_id": "TXN-21609807",
+    "payment_method": "online_placeholder",
+    "amount": "1249.00",
+    "status": "completed",
+    "notes": "Simulated payment transaction",
+    "created_at": "2026-09-30T12:24:15.722Z"
+  }
+},
+{
+  "model": "orders.payment",
+  "pk": 9,
+  "fields": {
+    "order": 11,
+    "transaction_id": "TXN-9CBDB5F01F",
+    "payment_method": "Credit/Debit card",
+    "amount": "53.00",
+    "status": "pending",
+    "notes": "Credit/Debit card payment gateway is currently under maintenance. Awaiting admin contact or alternative payment.",
+    "created_at": "2026-09-30T15:56:28.072Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:31.072Z",
+    "updated_at": "2026-09-30T14:13:30.065Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "alex_rider"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:32.210Z",
+    "updated_at": "2026-09-30T12:23:58.875Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "sarah_connor"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:33.289Z",
+    "updated_at": "2026-09-30T12:24:01.392Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "david_chen"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:34.374Z",
+    "updated_at": "2026-09-30T12:24:03.603Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "elena_rostova"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:35.541Z",
+    "updated_at": "2026-09-30T12:24:05.854Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "marcus_bell"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:36.622Z",
+    "updated_at": "2026-09-30T12:24:08.246Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "olivia_taylor"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:37.715Z",
+    "updated_at": "2026-09-30T12:24:10.512Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "james_wilson"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:38.790Z",
+    "updated_at": "2026-09-30T12:24:12.966Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "maya_patel"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-09-29T16:43:39.992Z",
+    "updated_at": "2026-09-30T12:24:15.249Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "bcrider99"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:45:37.813Z",
+    "updated_at": "2026-10-01T08:45:37.813Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "emoto_rider"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:45:37.857Z",
+    "updated_at": "2026-10-01T08:45:37.857Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "urban_moto"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:45:52.446Z",
+    "updated_at": "2026-10-01T08:45:52.446Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "dave_ontario"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:45:52.473Z",
+    "updated_at": "2026-10-01T08:45:52.473Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "trailblazer_ca"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:46:07.287Z",
+    "updated_at": "2026-10-01T08:46:07.287Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "whistler_rider"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:46:07.373Z",
+    "updated_at": "2026-10-01T08:46:07.373Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "alex_toronto"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:46:23.518Z",
+    "updated_at": "2026-10-01T08:46:23.518Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 17,
+  "fields": {
+    "user": [
+      "mark_bc"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:46:23.558Z",
+    "updated_at": "2026-10-01T08:46:23.558Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 18,
+  "fields": {
+    "user": [
+      "speed_demon"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:46:28.709Z",
+    "updated_at": "2026-10-01T08:46:28.709Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "pro_tuner"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T08:46:28.737Z",
+    "updated_at": "2026-10-01T08:46:28.737Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "rider_demo"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T10:36:58.178Z",
+    "updated_at": "2026-10-01T10:36:58.178Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "nathan_kelowna"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.096Z",
+    "updated_at": "2026-10-01T13:20:46.096Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "julien_quebec"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.122Z",
+    "updated_at": "2026-10-01T13:20:46.122Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "derek_calgary"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.156Z",
+    "updated_at": "2026-10-01T13:20:46.156Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "maya_vancouver"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.178Z",
+    "updated_at": "2026-10-01T13:20:46.178Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "liam_ottawa"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.198Z",
+    "updated_at": "2026-10-01T13:20:46.198Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 26,
+  "fields": {
+    "user": [
+      "sarah_edmonton"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.218Z",
+    "updated_at": "2026-10-01T13:20:46.218Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 27,
+  "fields": {
+    "user": [
+      "brandon_victoria"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.240Z",
+    "updated_at": "2026-10-01T13:20:46.240Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 28,
+  "fields": {
+    "user": [
+      "chloe_halifax"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.264Z",
+    "updated_at": "2026-10-01T13:20:46.264Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 29,
+  "fields": {
+    "user": [
+      "owen_saskatoon"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.283Z",
+    "updated_at": "2026-10-01T13:20:46.283Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 30,
+  "fields": {
+    "user": [
+      "gabriel_toronto"
+    ],
+    "phone": "",
+    "avatar": "",
+    "address": "",
+    "city": "",
+    "postal_code": "",
+    "country": "United States",
+    "created_at": "2026-10-01T13:20:46.302Z",
+    "updated_at": "2026-10-01T13:20:46.302Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 79,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "product": 59,
+    "rating": 5,
+    "title": "Sensational performance and torque",
+    "comment": "The power delivery is instantaneous. Built like a tank, completely silent, and climbs steep grades with zero hesitation. Best purchase this year.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.117Z",
+    "updated_at": "2026-10-01T14:56:10.117Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 80,
+  "fields": {
+    "user": [
+      "alex_rider"
+    ],
+    "product": 60,
+    "rating": 5,
+    "title": "Genuine OEM factory quality",
+    "comment": "Exact fit, precision tolerances, and exceptional packaging. Arrived in Alberta in 3 business days via tracked freight.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.127Z",
+    "updated_at": "2026-10-01T14:56:10.127Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 81,
+  "fields": {
+    "user": [
+      "sarah_connor"
+    ],
+    "product": 61,
+    "rating": 5,
+    "title": "Smooth throttle modulation and range",
+    "comment": "Battery holds charge exceptionally well even in sub-zero morning temperatures. Highly recommend this store.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.140Z",
+    "updated_at": "2026-10-01T14:56:10.140Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 82,
+  "fields": {
+    "user": [
+      "david_chen"
+    ],
+    "product": 62,
+    "rating": 5,
+    "title": "Rugged and reliable",
+    "comment": "Took it out on rocky singletracks this weekend and it took all the abuse with ease. High-quality craftsmanship throughout.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.151Z",
+    "updated_at": "2026-10-01T14:56:10.151Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 83,
+  "fields": {
+    "user": [
+      "elena_rostova"
+    ],
+    "product": 63,
+    "rating": 5,
+    "title": "Sensational performance and torque",
+    "comment": "The power delivery is instantaneous. Built like a tank, completely silent, and climbs steep grades with zero hesitation. Best purchase this year.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.161Z",
+    "updated_at": "2026-10-01T14:56:10.161Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 84,
+  "fields": {
+    "user": [
+      "marcus_bell"
+    ],
+    "product": 64,
+    "rating": 5,
+    "title": "Genuine OEM factory quality",
+    "comment": "Exact fit, precision tolerances, and exceptional packaging. Arrived in Alberta in 3 business days via tracked freight.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.171Z",
+    "updated_at": "2026-10-01T14:56:10.171Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 85,
+  "fields": {
+    "user": [
+      "olivia_taylor"
+    ],
+    "product": 65,
+    "rating": 5,
+    "title": "Smooth throttle modulation and range",
+    "comment": "Battery holds charge exceptionally well even in sub-zero morning temperatures. Highly recommend this store.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.180Z",
+    "updated_at": "2026-10-01T14:56:10.180Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 86,
+  "fields": {
+    "user": [
+      "james_wilson"
+    ],
+    "product": 66,
+    "rating": 5,
+    "title": "Rugged and reliable",
+    "comment": "Took it out on rocky singletracks this weekend and it took all the abuse with ease. High-quality craftsmanship throughout.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.190Z",
+    "updated_at": "2026-10-01T14:56:10.190Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 87,
+  "fields": {
+    "user": [
+      "maya_patel"
+    ],
+    "product": 67,
+    "rating": 5,
+    "title": "Sensational performance and torque",
+    "comment": "The power delivery is instantaneous. Built like a tank, completely silent, and climbs steep grades with zero hesitation. Best purchase this year.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.199Z",
+    "updated_at": "2026-10-01T14:56:10.199Z"
+  }
+},
+{
+  "model": "reviews.productreview",
+  "pk": 88,
+  "fields": {
+    "user": [
+      "bcrider99"
+    ],
+    "product": 68,
+    "rating": 5,
+    "title": "Genuine OEM factory quality",
+    "comment": "Exact fit, precision tolerances, and exceptional packaging. Arrived in Alberta in 3 business days via tracked freight.",
+    "verified_purchase": true,
+    "approved": true,
+    "created_at": "2026-10-01T14:56:10.207Z",
+    "updated_at": "2026-10-01T14:56:10.207Z"
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 1,
+  "fields": {
+    "name": "Buying Guides",
+    "slug": "buying-guides",
+    "description": "Expert recommendations on choosing electric bikes and matching specs to your lifestyle."
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 2,
+  "fields": {
+    "name": "Maintenance & Care",
+    "slug": "maintenance-care",
+    "description": "Practical maintenance schedules, cleaning tips, and DIY service guides."
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Battery & Electrical",
+    "slug": "battery-electrical",
+    "description": "Technical deep-dives into lithium battery longevity, chargers, and motor controllers."
+  }
+},
+{
+  "model": "blog.blogcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Safety & Commuting",
+    "slug": "safety-commuting",
+    "description": "Urban safety strategies, rules of the road, and defensive cycling techniques."
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 1,
+  "fields": {
+    "title": "How to Choose the Right Electric Bike: Complete Buyer’s Guide",
+    "slug": "how-to-choose-the-right-electric-bike",
+    "excerpt": "A comprehensive engineering and rider roadmap to choosing the ideal e-bike geometry, motor architecture, battery voltage, and suspension setup tailored to Canadian terrain and riding styles.",
+    "content": "<h3>Finding the Perfect Balance of Torque, Agility, and Range</h3>\r\n<p>Electric bikes have evolved far beyond basic pedal-assisted commuters. Today’s electric dirt bikes and high-torque cross-over machines represent advanced lightweight engineering, delivering performance that bridges the gap between traditional mountain bikes and combustion enduro motorcycles. Whether you are navigating urban streets in Vancouver, exploring backcountry logging trails in the Okanagan, or commuting across Toronto, choosing the right platform requires a clear understanding of four critical pillars: frame architecture, powertrain configuration, battery chemistry, and intended riding discipline.</p>\r\n\r\n<h3>1. Identifying Your Primary Riding Environment</h3>\r\n<p>Before looking at specs, honestly assess where you spend 80% of your saddle time:</p>\r\n<ul>\r\n    <li><strong>Dedicated Off-Road & Motocross Singletracks:</strong> If your goals involve steep vertical ascents, rocky forestry service roads, and motocross jumps, look for purpose-built platforms like the Surron Ultra Bee X or Light Bee X. These offer heavy-duty forged aluminum frames, inverted long-travel forks, and instant torque without pedals or chain derailleurs getting caught in branches.</li>\r\n    <li><strong>Dual-Sport & Street Legal Commuters:</strong> If you need road legality to commute across paved roads before cutting onto gravel paths, road-homologated models like the Surron Light Bee L1E or Ultra Bee T provide turn signals, mirrors, high/low beam headlights, and digital speedometers compliant with provincial low-speed motorcycle regulations.</li>\r\n    <li><strong>Urban Utility & Mixed Pavement:</strong> Lightweight platforms with lower seat heights and agile steering allow riders to maneuver through city traffic, store bikes in tighter spaces, and carry them on standard hitch-mounted bike racks.</li>\r\n</ul>\r\n\r\n<h3>2. Motor Configurations: Mid-Drive vs. Hub Motors</h3>\r\n<p>When selecting a performance e-bike, motor placement dictates handling and hill-climbing prowess:</p>\r\n<ul>\r\n    <li><strong>Permanent Magnet Synchronous Mid-Drive Motors (PMSM):</strong> Found on all authentic Surron models, mid-drive motors position weight directly at the machine’s center of gravity. This lowers rotational unsprung mass at the wheels, providing plush suspension action and allowing torque multiplication through primary and secondary reduction drives. For steep Canadian inclines, mid-drive motors deliver unmatched torque without overheating.</li>\r\n    <li><strong>Direct-Drive Hub Motors:</strong> Common on entry-level bicycles, hub motors place heavy rotating mass directly inside the rear wheel. While simpler for flat city streets, they suffer under steep climbs and add unsprung weight that compromises off-road handling.</li>\r\n</ul>\r\n\r\n<h3>3. Battery Chemistry, Voltage, and Real-World Range</h3>\r\n<p>Battery specs can sometimes be confusing. Always look at total Watt-hours (Wh), which is calculated as Voltage (V) &times; Amp-hours (Ah):</p>\r\n<ul>\r\n    <li><strong>60V / 38.5Ah (2,310 Wh):</strong> Standard on the Light Bee X, offering an exceptional strength-to-weight ratio, allowing 50–85 km of trail riding on a single charge while keeping the total machine under 56 kg.</li>\r\n    <li><strong>74V / 60Ah (4,440 Wh):</strong> Standard on the Ultra Bee, delivering immense peak discharge current to sustain 12.5 kW+ bursts and up to 115 km of trail distance.</li>\r\n    <li><strong>Cell Quality Matters:</strong> High-grade Samsung, LG, and Panasonic cylindrical 21700 or 18650 cells ensure steady discharge curves, minimal voltage sag under load, and over 1,000 charge cycles before noticeable capacity reduction.</li>\r\n</ul>\r\n\r\n<h3>4. Suspension, Braking, and Chassis Architecture</h3>\r\n<p>High speed requires equally capable stopping power and impact absorption. Look for 4-piston hydraulic disc brakes paired with 203mm or 220mm oversized rotors. Inverted air-oil or coil-sprung forks with adjustable preload, compression, and rebound damping allow you to dial in your suspension for your exact body weight and riding aggression.</p>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-lightbulb text-warning me-2\"></i> Pro Tip from Our Tech Team</h5>\r\n    <p class=\"mb-0 text-secondary\">Always factor in rider weight plus riding gear (helmet, boots, hydration pack). A bike tuned for an unladen 160-lb rider may require higher spring preload and damping adjustments when carrying full gear. Check our official suspension tuning charts or message our support engineers for personalized setup recommendations.</p>\r\n</div>\r\n\r\n<h3>Summary Checklist Before Purchasing</h3>\r\n<p>Prioritize verified dealer support, warranty backed components, readily available OEM spare parts, and cold-weather battery management systems. Investing in a proven brand ensures long-term reliability and exceptional resale value across the Canadian market.</p>",
+    "featured_image": "blog/images_10.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 1,
+    "tags": "Electric Bikes, Buyer Guide, Trail Riding, Commuting, Surron, E-Bikes Canada, Motor Power, Battery Capacity, Suspension Tuning, Dual Sport",
+    "published": true,
+    "published_at": "2026-08-16T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.593Z",
+    "updated_at": "2026-10-01T14:11:20.589Z",
+    "views": 1285
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 2,
+  "fields": {
+    "title": "The Ultimate E-Bike Battery Care & Cold-Weather Maintenance Guide",
+    "slug": "e-bike-battery-care-guide",
+    "excerpt": "Master the science of lithium-ion cell longevity. Discover practical storage protocols, smart charging cycles, and temperature management strategies to keep your pack performing at peak capacity.",
+    "content": "<h3>Maximizing Cell Lifespan and Maintaining Peak Discharge Rates</h3>\r\n<p>The lithium-ion battery pack is the single most valuable component of your electric dirt bike. Whether you run a 60V LG pack on a Light Bee or an upgraded 81.4V EBMX monster battery on an Ultra Bee, proper charge management and thermal discipline directly dictate whether your battery will last three years or eight years. With Canadian seasonal temperature swings ranging from +35&deg;C in July to -25&deg;C in January, proactive battery maintenance is essential.</p>\r\n\r\n<h3>1. Understanding Lithium-Ion Degradation Mechanics</h3>\r\n<p>Lithium-ion cells degrade primarily through three vectors: heat, high continuous state-of-charge (SoC), and deep over-discharge. Here is how to prevent all three:</p>\r\n<ul>\r\n    <li><strong>The 20% to 80% Sweet Spot:</strong> Lithium cobalt / nickel oxide chemistry experiences the least mechanical stress between 20% and 80% state of charge. If you are doing short daily practice sessions, keeping your battery within this window can more than double total cycle life (from 500 cycles to over 1,200 cycles).</li>\r\n    <li><strong>Cell Balancing Cycles:</strong> Once every 5 to 10 charges, plug your battery into the smart fast charger and allow it to sit at 100% for 1 to 2 hours after the green LED illuminates. This activates the internal Battery Management System (BMS) passive balancing circuit, equalizing voltage across all parallel cell banks down to within 5 millivolts.</li>\r\n    <li><strong>Never Store at Zero:</strong> Leaving a battery at 0% for more than a few days can cause individual cells to drop below their copper dissolution threshold (approx 2.5V per cell), permanently bricking the pack or tripping safety cutoffs.</li>\r\n</ul>\r\n\r\n<h3>2. Winter Riding and Cold Weather Protocols</h3>\r\n<p>Canadian winters present unique challenges for electric mobility enthusiasts. Chemical reactions inside lithium cells slow down significantly below 0&deg;C:</p>\r\n<ul>\r\n    <li><strong>NEVER Charge a Frozen Battery:</strong> This is rule number one. Charging a lithium battery below 0&deg;C (32&deg;F) causes permanent lithium metal plating on the graphite anode, permanently ruining capacity and creating short-circuit risks. Always bring your battery indoors and allow it to reach room temperature (+15&deg;C to +20&deg;C) for at least 3 hours before plugging in the charger.</li>\r\n    <li><strong>Discharging in the Cold is Safe:</strong> You can safely ride your bike in sub-zero temperatures (-10&deg;C or even -20&deg;C). The internal resistance of the battery during discharge generates its own gentle warmth. However, expect a 15% to 25% temporary reduction in available range due to increased electrolyte viscosity.</li>\r\n</ul>\r\n\r\n<h3>3. Off-Season Long-Term Storage (Winterizing)</h3>\r\n<p>If you put your machine away during deep snow months, follow this exact checklist:</p>\r\n<ol>\r\n    <li>Charge or discharge the battery to approximately <strong>50% to 60%</strong> capacity (approx 58V on a 60V system, 72V on a 74V system).</li>\r\n    <li>Disconnect the main power breaker under the seat and unplug the primary high-voltage connector to eliminate phantom BMS drain.</li>\r\n    <li>Store the battery in a dry, climate-controlled room between 10&deg;C and 20&deg;C. Avoid damp basements, unheated detached sheds, or direct sunlight.</li>\r\n    <li>Check voltage once every 60 days. If capacity drops below 40%, top it back up to 55%–60%.</li>\r\n</ol>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-shield-alt text-success me-2\"></i> Safety First: Charging Environment</h5>\r\n    <p class=\"mb-0 text-secondary\">Always place your charger on a hard, non-flammable surface (such as concrete, brick, or steel shelving) in a well-ventilated area. Never cover the cooling fans of the charger, and inspect power cords and connectors regularly for any signs of wear, dust, or moisture buildup.</p>\r\n</div>\r\n\r\n<h3>Conclusion</h3>\r\n<p>Consistent care transforms your battery into a dependable, high-output power station that delivers crisp throttle snaps, predictable hill climbing, and maximum range year after year.</p>",
+    "featured_image": "blog/images_6.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 3,
+    "tags": "Battery Care, Lithium-Ion, Charging, Winter Storage, BMS, Maintenance, Cold Weather, Range Optimization, Canadian Winter, Cell Balance",
+    "published": true,
+    "published_at": "2026-09-05T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.622Z",
+    "updated_at": "2026-10-01T13:31:50.873Z",
+    "views": 774
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 3,
+  "fields": {
+    "title": "How Far Can an Electric Dirt Bike Travel? Real-World Range Unveiled",
+    "slug": "how-far-can-an-electric-bike-travel",
+    "excerpt": "Unraveling the mystery of electric bike mileage. Discover how terrain elevation, tire tread, rider weight, ambient weather, and throttle habits determine real-world distance.",
+    "content": "<h3>Beyond Factory Estimates: Understanding Real-World Mileage</h3>\r\n<p>When you inspect the spec sheet of an electric dirt bike, you will often encounter figures like \"Up to 100 km (62 miles) range.\" But what does that mean on steep mountain singletracks, deep sandy berms, or cold pavement? The truth is that range is dynamic and heavily influenced by physics: rolling resistance, elevation gain, rider weight, aerodynamic drag, and throttle modulation. Let's break down the real-world metrics based on hundreds of hours of Canadian trail testing.</p>\r\n\r\n<h3>1. Benchmarks: Light Bee X vs. Ultra Bee on Mixed Terrain</h3>\r\n<p>Here are typical real-world ranges verified by our technical testing team under average rider conditions (75 kg / 165 lbs with safety gear, 18&deg;C ambient temperature):</p>\r\n<ul>\r\n    <li><strong>Surron Light Bee X (60V 38.5Ah Pack):</strong>\r\n        <ul>\r\n            <li>Aggressive Hard Enduro (rock scrambles, hillclimbs, deep mud): <strong>40 – 50 km</strong></li>\r\n            <li>Moderate Cross-Country Forest Singletrack (mixed eco/sport mode): <strong>60 – 75 km</strong></li>\r\n            <li>Smooth Gravel & Paved Commuting @ 35 km/h steady speed: <strong>80 – 95 km</strong></li>\r\n        </ul>\r\n    </li>\r\n    <li><strong>Surron Ultra Bee X & T (74V 60Ah Pack):</strong>\r\n        <ul>\r\n            <li>Aggressive Motocross Track & Mountain Climbs: <strong>60 – 70 km</strong></li>\r\n            <li>Fast Forest Trails & Open Backcountry Exploration: <strong>85 – 105 km</strong></li>\r\n            <li>Paved / Mixed Road Legal Commuting @ 45 km/h: <strong>110 – 125 km</strong></li>\r\n        </ul>\r\n    </li>\r\n</ul>\r\n\r\n<h3>2. The Biggest Factors Influencing Battery Consumption</h3>\r\n<p>Understanding where your energy goes allows you to conserve power when you're 30 kilometers deep in the backcountry:</p>\r\n<ol>\r\n    <li><strong>Elevation Gain:</strong> Lifting a 60–90 kg machine plus rider against gravity consumes massive amounts of energy. Climbing 1,000 meters of elevation in under an hour can consume up to 40% of a battery pack. However, regenerative braking systems on modern controllers recover 5%–10% of that energy during the descent.</li>\r\n    <li><strong>Tire Pressure & Tread Compound:</strong> Low tire pressure (e.g. 10 PSI) gives phenomenal traction on slippery roots and wet rocks, but creates significant rolling resistance. On hard-pack gravel and pavement, raising pressure to 16–20 PSI instantly gains 10%–15% more rolling efficiency.</li>\r\n    <li><strong>Throttle Smoothness:</strong> Snapping the throttle wide open from a dead stop pulls peak amperage (up to 400+ battery phase amps). Rolling on the throttle progressively allows the motor to build RPMs efficiently without dumping excess energy as heat into the controller.</li>\r\n</ol>\r\n\r\n<h3>3. Five Practical Field Strategies to Extend Your Reach</h3>\r\n<ul>\r\n    <li><strong>Use Eco Mode for Easy Sections:</strong> Switch to Eco mode on flat connecting roads or gentle descents, saving Sport or Turbo mode for technical hill scrambles.</li>\r\n    <li><strong>Regenerative Braking Calibration:</strong> Ensure your electronic regen braking is configured. On long downhill descents, gentle lever pull recharges your battery while simultaneously reducing brake rotor wear and brake fade.</li>\r\n    <li><strong>Keep Your Drivetrain Clean and Lubricated:</strong> A dirty, dry chain or misaligned primary belt can rob 3% to 6% of motor output purely through frictional drag. Clean your chain with dedicated O-ring cleaner and apply high-viscosity synthetic chain lubricant every two rides.</li>\r\n    <li><strong>Carry a Compact Trail Charger:</strong> Many Canadian provincial parks, campgrounds, and rural cafes offer accessible 120V outlets. A 45-minute lunch break on a high-amp fast charger can add 30–40 km of fresh range.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-compass text-primary me-2\"></i> The \"Rule of Thirds\" for Trail Explorers</h5>\r\n    <p class=\"mb-0 text-secondary\">Always follow the Rule of Thirds on unfamiliar trails: use one-third of your battery exploring outward, one-third for the return journey, and maintain one-third in reserve for unexpected detours, trail blockages, or rescue assistance.</p>\r\n</div>",
+    "featured_image": "blog/images_1.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 1,
+    "tags": "Range, Efficiency, Battery Life, Riding Tips, Ultra Bee, Light Bee, Trail Distance, Elevation Gain, Riding Techniques, Aerodynamics",
+    "published": true,
+    "published_at": "2026-09-26T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.650Z",
+    "updated_at": "2026-10-01T13:22:03.354Z",
+    "views": 1030
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 4,
+  "fields": {
+    "title": "E-Bike Maintenance Master Checklist: Weekly, Monthly & Seasonal",
+    "slug": "e-bike-maintenance-checklist",
+    "excerpt": "Keep your electric dirt bike operating in peak mechanical condition with this authoritative maintenance schedule covering chain tension, spoke torque, brake bleeding, and suspension service.",
+    "content": "<h3>Preventative Care: Zero Downtime and Maximum Trail Safety</h3>\r\n<p>High-torque electric dirt bikes deliver instantaneous mechanical force that puts unique demands on chassis components, spokes, bearings, and drivetrains. Unlike combustion bikes, there are no spark plugs, carburetors, or oil filters to change—making maintenance vastly simpler. However, neglecting periodic mechanical checks can lead to premature wear or trailside breakdowns. Follow this battle-tested maintenance schedule to keep your machine whisper-quiet and race-ready.</p>\r\n\r\n<h3>1. The 5-Minute Pre-Ride Inspection (Every Single Ride)</h3>\r\n<p>Before turning the key and twisting the throttle, run through the \"M-Check\":</p>\r\n<ul>\r\n    <li><strong>Tire Pressure:</strong> Check front and rear pressures. Target 12–14 PSI for soft loamy singletrack, or 16–18 PSI for rocky trails to prevent pinch flats and rim dings.</li>\r\n    <li><strong>Axle Nut & Pinch Bolts:</strong> Verify front 20mm thru-axle and rear 15mm axle nuts are torqued down. Loose axles compromise handling and damage dropouts.</li>\r\n    <li><strong>Brake Lever Feel:</strong> Squeeze both levers firmly. The levers should feel rock-solid with minimal travel and zero sponginess. If a lever pulls to the grip, air is in the line and bleeding is required.</li>\r\n    <li><strong>Throttle Return:</strong> Ensure the electronic twist throttle snaps cleanly back to zero position without hesitation or friction from handguards or grips.</li>\r\n    <li><strong>Steering Headset Play:</strong> Hold the front brake and rock the handlebars forward and back. If you feel clunking or play in the headset bearings, loosen the stem pinch bolts and tighten the top cap preload bolt.</li>\r\n</ul>\r\n\r\n<h3>2. Weekly Maintenance (After 3–5 Rides)</h3>\r\n<p>Perform these tasks in your garage with standard hex and torque wrenches:</p>\r\n<ol>\r\n    <li><strong>Drivetrain Cleaning & Tensioning:</strong> Wash away accumulated mud, sand, and grit with low-pressure water. Never spray high-pressure pressure washers directly into wheel bearings, motor seals, or controller harnesses. Measure chain slack midway between the front jackshaft sprocket and rear wheel sprocket; ideal slack is 15–20mm.</li>\r\n    <li><strong>Primary Belt Inspection (for Light Bee):</strong> Check the Gates carbon or HTD primary belt for correct tension, missing teeth, or small stones wedged in the grooves.</li>\r\n    <li><strong>Brake Pad Thickness:</strong> Inspect brake pad friction material through the caliper inspection window. Replace pads immediately if the friction material drops below 1.0mm thickness.</li>\r\n    <li><strong>Spoke Tension Verification:</strong> Tap each wheel spoke with a small wrench. A properly tensioned spoke rings with a clear musical ping; a loose spoke makes a dull thud. Tighten loose spokes incrementally (1/4 turn at a time) with a dedicated spoke wrench.</li>\r\n</ol>\r\n\r\n<h3>3. Monthly Deep-Clean and Electrical Audit</h3>\r\n<ul>\r\n    <li><strong>Electrical Connection Inspection:</strong> Remove the battery and inspect the main high-current terminals (Supra or Anderson connectors). Ensure terminals are clean, shiny, and free of carbon pitting, corrosion, or burnt plastic. Apply dielectric grease to prevent water intrusion.</li>\r\n    <li><strong>Suspension Stanchion Care:</strong> Wipe front fork stanchions and rear shock shafts with a microfiber towel and apply a few drops of silicone suspension lubricant. Cycle the suspension to bring trapped grit out past the dust seals.</li>\r\n    <li><strong>Torque Check Key Fasteners:</strong> Verify subframe bolts, motor mount bolts, footpeg brackets, and swingarm pivot bolts with a calibrated torque wrench according to factory service specifications.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-wrench text-warning me-2\"></i> Critical Torque Specs Quick Reference</h5>\r\n    <ul class=\"mb-0 text-secondary small\">\r\n        <li>Front Axle Pinch Bolts: <strong>10–12 Nm</strong></li>\r\n        <li>Rear Axle Nut: <strong>55–60 Nm</strong></li>\r\n        <li>Brake Caliper Mounting Bolts: <strong>9–10 Nm</strong> with blue threadlocker</li>\r\n        <li>Brake Rotor Torx Bolts: <strong>6 Nm</strong> (cross pattern with threadlocker)</li>\r\n        <li>Handlebar Stem Clamp: <strong>6–8 Nm</strong> evenly spaced</li>\r\n    </ul>\r\n</div>\r\n\r\n<h3>Seasonal Overhaul</h3>\r\n<p>Once per season (or every 100 hours of aggressive riding), perform a full hydraulic brake fluid flush using fresh DOT 4 or high-boiling mineral oil (depending on your caliper spec), service front fork damping oil, and inspect swingarm needle bearings. A well-maintained electric dirt bike retains over 80% of its initial value and provides years of flawless performance.</p>",
+    "featured_image": "blog/images_8.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 2,
+    "tags": "Maintenance, DIY, Brake Bleed, Chain Tension, Suspension, Pre-Ride Inspection, Spoke Tuning, Torque Specs, Safety Check, Workshop",
+    "published": true,
+    "published_at": "2026-09-02T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.681Z",
+    "updated_at": "2026-10-01T13:49:35.869Z",
+    "views": 1246
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 5,
+  "fields": {
+    "title": "Understanding Motor Power: Watts, Amps, Volts & Peak Torque Explained",
+    "slug": "understanding-motor-power",
+    "excerpt": "Cut through the marketing jargon. Learn the physics of continuous vs peak wattage, why Newton-meters of torque dictate hill climbs, and how controller tuning unlocks hidden performance.",
+    "content": "<h3>Demystifying Electric Powertrain Specifications</h3>\r\n<p>When shopping for electric dirt bikes, you will see numbers like \"3,000 Watts Nominal\", \"6 kW Peak\", \"12.5 kW\", or \"440 Nm Rear Wheel Torque.\" But what do these ratings actually mean on the trail? How does voltage relate to speed, and why is torque the true king of off-road hill climbing? Let’s dissect the engineering behind modern electric propulsion systems so you can make informed decisions when upgrading or purchasing your next ride.</p>\r\n\r\n<h3>1. The Fundamental Formula: Power = Volts &times; Amps</h3>\r\n<p>Electrical power in Watts (W) or Kilowatts (kW, where 1 kW = 1,000 W) is the product of electrical pressure (Voltage) and electrical flow (Current in Amps):</p>\r\n<p class=\"text-center fw-bold fs-5 text-primary my-3\">Power (Watts) = Voltage (Volts) &times; Current (Amperes)</p>\r\n<p>For example, if your battery is fully charged at 67.2 Volts and your motor controller draws 90 Amps from the pack:</p>\r\n<p class=\"text-center font-monospace bg-light p-2 rounded border\">67.2 V &times; 90 A = 6,048 Watts = 6.05 kW Peak Power</p>\r\n<p>Notice that you can achieve higher power either by raising the voltage (moving from a 60V pack to a 74V or 81.4V pack) or by increasing the amperage drawn through an upgraded controller (such as an EBMX X-9000 or Torp TC500).</p>\r\n\r\n<h3>2. Nominal vs. Peak Power: Don't Be Misled</h3>\r\n<ul>\r\n    <li><strong>Nominal (Continuous) Rating:</strong> The amount of power the motor can sustain indefinitely without its internal copper windings exceeding safe thermal limits (typically 120&deg;C to 140&deg;C). A motor rated for 3,000W nominal can run continuously uphill at that level with adequate airflow.</li>\r\n    <li><strong>Peak Rating:</strong> The maximum electrical burst power delivered during hard acceleration for 10 to 30 seconds. The same 3,000W nominal motor might safely produce 6,000W to 8,000W peak in short bursts before thermal protection throttles it back.</li>\r\n</ul>\r\n\r\n<h3>3. Torque vs. Horsepower: Why Torque Wins on Singletracks</h3>\r\n<p>While horsepower determines top speed on long open straights, <strong>torque</strong> (measured in Newton-meters, Nm) is the rotational twisting force that launches you over logs, out of deep ruts, and up 45-degree rock faces:</p>\r\n<ul>\r\n    <li><strong>Instantaneous Torque Delivery:</strong> Unlike a 2-stroke or 4-stroke gas engine that must rev to 7,000+ RPM to reach its powerband, a Permanent Magnet Synchronous Motor (PMSM) generates 100% of its rated torque from <strong>zero RPM</strong>.</li>\r\n    <li><strong>Gear Reduction Multiplier:</strong> Mid-drive motors utilize a primary reduction (belt or gear) and a secondary reduction (chain and sprocket). A motor producing 35 Nm of shaft torque through an 8:1 total reduction ratio delivers an astonishing <strong>280 Nm of torque directly to the rear wheel</strong>.</li>\r\n</ul>\r\n\r\n<h3>4. The Brain of the Machine: Field Oriented Controllers (FOC)</h3>\r\n<p>A high-performance motor is only as good as the computer controlling it. Sine-wave Field Oriented Controllers (FOC) use advanced mathematical vector algorithms to measure rotor position hundreds of times per millisecond. This ensures:</p>\r\n<ul>\r\n    <li>Silky smooth throttle control with zero jerkiness at low crawling speeds.</li>\r\n    <li>Whisper-quiet acoustic operation (no harsh square-wave electrical buzzing).</li>\r\n    <li>Higher electrical efficiency (less battery energy wasted as useless winding heat).</li>\r\n    <li>Active thermal rollback protection that monitors motor and controller thermistors to prevent burnouts.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-microchip text-primary me-2\"></i> Field Tuning Insights</h5>\r\n    <p class=\"mb-0 text-secondary\">Upgrading to an aftermarket controller allows customizable throttle curves, dynamic regenerative braking, and variable traction control (SRTC). Always ensure your battery's continuous discharge rating (C-rate) matches your controller's tuned phase amps to avoid voltage sag and premature cell wear.</p>\r\n</div>",
+    "featured_image": "blog/images_4.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 3,
+    "tags": "Electric Motors, PMSM, Wattage, Torque, Amperage, Controllers, FOC Tuning, Phase Amps, Mid-Drive, Engineering",
+    "published": true,
+    "published_at": "2026-09-08T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.711Z",
+    "updated_at": "2026-10-01T13:29:09.266Z",
+    "views": 241
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 6,
+  "fields": {
+    "title": "City Commuter E-Bikes vs. Electric Dirt Bikes: Complete Comparison",
+    "slug": "city-e-bikes-vs-mountain-e-bikes",
+    "excerpt": "Navigating the differences between urban electric bicycles and high-torque off-road machines. Compare frame geometries, legal classifications, maintenance routines, and riding dynamics.",
+    "content": "<h3>Choosing the Right Platform for Your Lifestyle</h3>\r\n<p>With electric two-wheeled transportation booming across Canada, riders often find themselves cross-shopping between traditional pedal-assist commuter e-bikes and high-performance electric dirt bikes. While both run on clean lithium battery power, they are designed with completely distinct engineering philosophies, structural tolerances, suspension travel, and legal classifications. Let’s break down every major aspect to help you choose the ideal machine.</p>\r\n\r\n<h3>1. Structural Frame Geometry and Suspension Differences</h3>\r\n<ul>\r\n    <li><strong>Traditional City Commuters:</strong> Feature lightweight aluminum or carbon step-through or diamond frames optimized for pedaling ergonomics. Suspension is typically modest (50mm–80mm travel) or rigid, tuned purely to absorb small pavement seams and sidewalk bumps. Curb weights hover around 18–26 kg.</li>\r\n    <li><strong>Electric Dirt Bikes (Surron Class):</strong> Built around aerospace-grade forged aluminum double-cradle frames engineered to withstand motocross jumps, heavy root strikes, and aggressive downhill drops. Suspension travel ranges from 200mm to 240mm with fully adjustable inverted forks and piggyback reservoir rear shocks. Machine weight ranges from 50 kg to 88 kg, providing high-speed stability and durability.</li>\r\n</ul>\r\n\r\n<h3>2. Legal Classifications and Road Regulations Across Canada</h3>\r\n<p>Understanding provincial transport regulations ensures you ride legally and without hassles:</p>\r\n<ul>\r\n    <li><strong>Standard Pedelec / E-Bikes:</strong> Restricted to 32 km/h (20 mph) max assisted speed and 500W motor power with operational pedals. Can be ridden on designated bike paths, multi-use trails, and city bike lanes without a driver’s license, registration, or plate.</li>\r\n    <li><strong>Off-Road Electric Dirt Bikes (Light Bee X / Ultra Bee X):</strong> Built specifically for private property, designated off-highway vehicle (OHV) trail systems, and motocross parks. They produce 6,000W to 12,500W+ of peak power and reach 75–95 km/h, making them illegal for bicycle lanes or pedestrian paths.</li>\r\n    <li><strong>Street-Legal Homologated Dual-Sports (L1E / Ultra Bee T):</strong> Equipped with factory VIN numbers, mirrors, turn signals, high/low beam headlights, horn, and DOT-compliant tires. In most Canadian provinces (BC, Alberta, Ontario, Quebec), these can be plated and insured as Limited-Speed Motorcycles (LSM) or mopeds, allowing you to legally ride on city streets with a standard Class 5 or Class 6 driver’s license!</li>\r\n</ul>\r\n\r\n<h3>3. Real-World Capability Comparison Table</h3>\r\n<div class=\"table-responsive my-4\">\r\n    <table class=\"table table-bordered table-hover align-middle\">\r\n        <thead class=\"table-dark\">\r\n            <tr>\r\n                <th>Feature</th>\r\n                <th>Standard Commuter E-Bike</th>\r\n                <th>Surron Light Bee / Ultra Bee</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr>\r\n                <td class=\"fw-bold\">Peak Motor Power</td>\r\n                <td>250W – 750W</td>\r\n                <td>6,000W – 12,500W+</td>\r\n            </tr>\r\n            <tr>\r\n                <td class=\"fw-bold\">Max Terrain Capability</td>\r\n                <td>Pavement, smooth packed gravel</td>\r\n                <td>Steep singletracks, mud, boulders, jumps</td>\r\n            </tr>\r\n            <tr>\r\n                <td class=\"fw-bold\">Suspension Travel</td>\r\n                <td>0 – 80 mm</td>\r\n                <td>200 – 240 mm (Adjustable)</td>\r\n            </tr>\r\n            <tr>\r\n                <td class=\"fw-bold\">Top Speed</td>\r\n                <td>32 km/h (Governed)</td>\r\n                <td>75 – 95+ km/h</td>\r\n            </tr>\r\n            <tr>\r\n                <td class=\"fw-bold\">Braking System</td>\r\n                <td>2-Piston Mechanical/Hydraulic</td>\r\n                <td>4-Piston Heavy-Duty Hydraulic 203–220mm</td>\r\n            </tr>\r\n            <tr>\r\n                <td class=\"fw-bold\">Maintenance Focus</td>\r\n                <td>Chain derailleur, shifters, cables</td>\r\n                <td>Suspension seals, spokes, brake pads, belt</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n</div>\r\n\r\n<h3>Which One Should You Choose?</h3>\r\n<p>If your goal is casual pedal exercise, carrying groceries, or commuting strictly on protected urban cycling paths, a traditional commuter e-bike is practical and convenient. But if you crave heart-pounding off-road adrenaline, technical trail mastery, aggressive hill-climbing power, or dual-sport flexibility, an electric dirt bike like the Surron Light Bee or Ultra Bee delivers an unmatched riding experience.</p>",
+    "featured_image": "blog/images_9.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 1,
+    "tags": "Comparison, E-Bikes, Commuter, Dirt Bikes, Surron, Street Legal, Urban Transit, Trail Riding, Licensing, Canadian Laws",
+    "published": true,
+    "published_at": "2026-08-19T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.741Z",
+    "updated_at": "2026-10-01T14:06:36.745Z",
+    "views": 1577
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 7,
+  "fields": {
+    "title": "10 Actionable Habits to Extend E-Bike Battery Life & Save Thousands",
+    "slug": "how-to-extend-battery-life",
+    "excerpt": "Proven practical strategies from our technical engineering workshop to maximize your battery’s cycle life, avoid premature capacity loss, and protect your investment for years to come.",
+    "content": "<h3>The Economics of Battery Preservation</h3>\r\n<p>A replacement battery pack for a high-performance electric dirt bike costs anywhere from $1,200 to over $3,500 CAD. With the battery representing 30% to 45% of the machine's total value, treating your cells with technical care is the single best financial investment you can make as an owner. By incorporating these ten simple, scientific habits into your routine, you can comfortably achieve 1,000+ full charge cycles—translating to 50,000+ kilometers of dependable trail riding.</p>\r\n\r\n<h3>1. Avoid the \"Charge Immediately After a Hard Ride\" Trap</h3>\r\n<p>When you complete a vigorous ride, particularly in hot summer weather or following steep climbs, your battery cells are warm. Plugging the charger in immediately pumps high-voltage current into cells that are already thermally elevated, accelerating electrolyte breakdown and internal resistance buildup. <strong>Always allow the battery to rest and cool down for at least 30 to 45 minutes</strong> before initiating a charging session.</p>\r\n\r\n<h3>2. Do Not Leave the Battery on the Charger Overnight</h3>\r\n<p>While modern smart chargers feature automatic shut-off circuits once charging reaches terminal voltage, leaving a pack connected at 100% SoC for days at a time exposes the cathode to high chemical stress. Once the charger LED turns green, unplug it within an hour or two.</p>\r\n\r\n<h3>3. Use an Inexpensive Wall Outlet Timer</h3>\r\n<p>A $15 digital countdown timer plugged into your wall outlet is a game-changer. If your battery is sitting at 30% and you know a 4A charger adds approximately 15% capacity per hour, set your timer for 3 hours. The timer will automatically cut power when the pack reaches around 75%–80%, keeping your cells in their optimal mechanical longevity sweet spot.</p>\r\n\r\n<h3>4. The 80/20 Rule for Daily Practice</h3>\r\n<p>Lithium-ion cells experience the highest mechanical tension during the final 10% of charging (90% to 100%) and the bottom 10% of discharge (below 10%). Charge to 100% only when you genuinely need maximum range for a full-day weekend expedition. For short afternoon trail laps, staying between 20% and 85% can increase cumulative cycle count by up to 200%.</p>\r\n\r\n<h3>5. Store at Nominal Storage Voltage (50%–60%)</h3>\r\n<p>If you will not be riding for two weeks or more, never store your battery fully charged at 100% or fully depleted at 0%. Set the state of charge to 50%–60% (approx 3.7V to 3.8V per individual cell), disconnect the breaker, and store it in a cool, dry room.</p>\r\n\r\n<h3>6. Keep Terminals Sparkling Clean and Greased</h3>\r\n<p>Dust, grit, and moisture on high-current connectors create micro-arcing and contact resistance, generating unwanted heat that transfers directly into the battery case. Clean your connectors every month with electrical contact cleaner and apply a microscopic film of dielectric grease.</p>\r\n\r\n<h3>7. Protect the Battery from Direct Sunlight</h3>\r\n<p>Never leave your bike or battery sitting in the bed of an open truck or on black asphalt under direct mid-day sun. Ambient temperatures of 30&deg;C can quickly push internal pack temperatures past 55&deg;C, initiating permanent capacity loss.</p>\r\n\r\n<h3>8. Periodic Full Balancing Charge</h3>\r\n<p>Once every month or two, perform a complete 100% balance charge. Let the battery stay plugged in for 2 hours after the green light turns on. This gives the BMS time to bleed excess voltage from higher-voltage cell groups and trickle charge lower cells, restoring maximum usable capacity across the pack.</p>\r\n\r\n<h3>9. Avoid Abrupt Throttle Snapping from Dead Stops</h3>\r\n<p>Snapping the throttle wide open when the rear wheel is locked or bogged down in thick mud pulls maximum peak phase current, creating sudden voltage sag. Smooth, progressive throttle roll-on generates better forward traction while minimizing electrical shock to the cells.</p>\r\n\r\n<h3>10. Use Genuine or Factory-Approved Chargers</h3>\r\n<p>Cheap unverified aftermarket chargers often have unstable voltage regulation, poor ripple filtering, or inadequate current tapering. Always use OEM factory chargers or certified high-end units with accurate CC/CV (constant current / constant voltage) profiles designed specifically for your pack's cell chemistry.</p>",
+    "featured_image": "blog/images_5.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 3,
+    "tags": "Battery Life, Battery Longevity, Savings, Smart Charging, Thermal Management, Maintenance, Storage Habits, Voltage Optimization, DIY",
+    "published": true,
+    "published_at": "2026-09-06T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.771Z",
+    "updated_at": "2026-10-01T13:30:35.778Z",
+    "views": 973
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 8,
+  "fields": {
+    "title": "Common E-Bike Troubleshooting: Diagnostics, Error Codes & Field Fixes",
+    "slug": "common-e-bike-problems-and-solutions",
+    "excerpt": "A comprehensive field guide to diagnosing electronic throttle cutoffs, hall sensor errors, brake sensor cutouts, display glitches, and unexpected power drops on trail.",
+    "content": "<h3>Step-by-Step Diagnostic Procedures for Trailside Confidence</h3>\r\n<p>Modern electric dirt bikes are remarkably reliable due to having fewer moving mechanical parts than gas machines. However, when an electrical issue does arise, it can be intimidating without a systematic troubleshooting protocol. Nine times out of ten, an unresponsive bike is caused by a simple safety sensor cutoff, a loose connection, or a misadjusted throttle rather than a blown controller or failed motor. Here is our master troubleshooting guide to get you back on the trail quickly.</p>\r\n\r\n<h3>Symptom 1: Bike Turns On, Display Lights Up, But No Throttle Response</h3>\r\n<p>This is the most common trailside issue. When the display is illuminated but twisting the throttle produces zero motor movement, follow this elimination checklist:</p>\r\n<ul>\r\n    <li><strong>Check the Kickstand Safety Sensor:</strong> Modern street-legal and trail bikes feature a magnetic safety interlock on the kickstand. If mud, a twig, or a loose sensor bracket prevents the magnet from aligning, the controller cuts all motor power. Temporarily inspect the sensor magnet or disconnect the kickstand sensor plug to test.</li>\r\n    <li><strong>Check Brake Lever Electronic Cutoff Sensors:</strong> Both brake levers contain microswitches or reed sensors that instantly cut motor power when the lever is pulled. If a handguard is pressing slightly against the lever, or if the sensor wire is pinched, the bike thinks the brakes are engaged. Look at your display for a \"Brake\" icon, or unplug the brake cutoff leads from the harness to test.</li>\r\n    <li><strong>Check the Tip-Over / Tilt Sensor:</strong> Surron bikes feature an internal accelerometer / tilt sensor that cuts power if the bike drops past 65 degrees. If you tipped over, turn the key switch completely off, wait 10 seconds with the bike upright, and turn the key back on to reset the gyroscope.</li>\r\n</ul>\r\n\r\n<h3>Symptom 2: Motor Stutters, Shudders, or Vibrates Under Throttle</h3>\r\n<p>If the motor jerks or makes a grinding sound upon accelerating from a standstill:</p>\r\n<ol>\r\n    <li><strong>Hall Sensor Connection:</strong> The motor uses three internal Hall effect sensors to detect rotor magnet position. Inspect the 5-pin or 6-pin Hall sensor wiring connector near the controller. If water or mud has entered the plug, dry it out and reseat firmly.</li>\r\n    <li><strong>Loose Phase Wire:</strong> Check the three thick high-voltage phase wires (Yellow, Blue, Green) running from the controller to the motor. Ensure the screw terminals or bullets are torqued down securely and show no signs of heat discoloration.</li>\r\n</ol>\r\n\r\n<h3>Symptom 3: Bike Shuts Off Under Heavy Acceleration (Over-Current / Low Voltage Trip)</h3>\r\n<p>If the bike runs fine under gentle throttle but completely cuts out the moment you demand full power:</p>\r\n<ul>\r\n    <li><strong>Battery Voltage Sag:</strong> If the battery is below 20% SoC, internal cell resistance increases. Pulling high amps can cause pack voltage to sag below the controller’s Low-Voltage Cutoff (LVC) threshold, triggering a momentary shutdown.</li>\r\n    <li><strong>Main Circuit Breaker Weakness:</strong> Under the seat is the main DC circuit breaker. If this breaker has tripped repeatedly over months, its thermal bimetallic strip can become overly sensitive, causing it to trip under normal peak loads. Replacing the breaker with a fresh OEM unit resolves the issue.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-toolbox text-primary me-2\"></i> What to Pack in Your Trail Tool Roll</h5>\r\n    <p class=\"mb-0 text-secondary\">Always carry: 4mm, 5mm, 6mm Allen keys; 8mm and 10mm combination wrenches; a small roll of electrical tape; zip ties; a spare master link; and a compact multimeter. This 500-gram kit can resolve 95% of common electrical and mechanical trailside surprises.</p>\r\n</div>",
+    "featured_image": "blog/images_11.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 2,
+    "tags": "Troubleshooting, DIY Repairs, Error Codes, Diagnostics, Field Fixes, Throttle Cutoff, Hall Sensor, Brake Sensor, Wiring, Workshop",
+    "published": true,
+    "published_at": "2026-08-15T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.802Z",
+    "updated_at": "2026-10-01T14:13:18.030Z",
+    "views": 1750
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 9,
+  "fields": {
+    "title": "How to Choose the Correct Charger for Your E-Bike: Voltage & Amp Guide",
+    "slug": "how-to-choose-the-correct-charger",
+    "excerpt": "Demystifying charger specifications. Understand terminal voltage, CC/CV charging curves, safe amperage ratings, cooling systems, and connector types to protect your battery.",
+    "content": "<h3>Matching Power Supplies with Precision and Safety</h3>\r\n<p>Connecting the wrong charger to a high-capacity lithium battery pack is one of the most hazardous mistakes an electric bike owner can make. Incompatible voltage thresholds can trigger over-voltage catastrophic runaway, while incorrect current ratings can severely overheat cells and degrade their lifespan. Whether you are seeking a fast charger for midday trail top-ups or replacing a lost factory power brick, here is everything you need to know about charging specifications.</p>\r\n\r\n<h3>1. Rule #1: Terminal Voltage Must Match Exactly</h3>\r\n<p>Never choose a charger based solely on the battery's \"nominal\" voltage. Always verify the charger's <strong>Maximum Output Voltage (Cutoff Voltage)</strong>:</p>\r\n<ul>\r\n    <li><strong>For 60V Nominal Packs (16S Li-Ion):</strong> Maximum charge cutoff voltage must be exactly <strong>67.2 Volts</strong> (16 cells &times; 4.2V per cell).</li>\r\n    <li><strong>For 72V Nominal Packs (20S Li-Ion):</strong> Maximum charge cutoff voltage must be exactly <strong>84.0 Volts</strong> (20 cells &times; 4.2V per cell).</li>\r\n    <li><strong>For 74V Nominal Packs (Surron Ultra Bee 20S High-Spec):</strong> Maximum charge cutoff voltage must be calibrated to <strong>84.0V – 84.8V</strong> per factory specification.</li>\r\n    <li><strong>For 81.4V Nominal Upgrade Packs (22S Li-Ion):</strong> Maximum charge cutoff voltage must be exactly <strong>92.4 Volts</strong>.</li>\r\n</ul>\r\n\r\n<h3>2. Understanding Amperage and Safe \"C-Rate\" Limits</h3>\r\n<p>Amperage (A) determines charging speed. A higher amp rating fills the battery faster, but pushes more heat into the cells:</p>\r\n<ul>\r\n    <li><strong>Standard Stock Chargers (3A to 5A):</strong> Gentle on cells, whisper-quiet, perfect for overnight charging in your garage. Charges a 38.5Ah battery in approximately 7 to 9 hours.</li>\r\n    <li><strong>High-Output Fast Chargers (8A to 12A):</strong> Great for midday trail top-ups. Charges a 38.5Ah battery to 80% in about 2.5 to 3.5 hours. Always ensure the charger features active fan cooling and temperature monitoring.</li>\r\n    <li><strong>Calculating Safe Charge Rate:</strong> Most premium 18650 and 21700 cells support a continuous charge rate of 0.3C to 0.5C. For a 38.5Ah battery, 0.3C equals approximately 11.5 Amps. Staying at or below 10A provides rapid charging while remaining well within safe thermal thresholds.</li>\r\n</ul>\r\n\r\n<h3>3. Two-Stage CC/CV Charging Protocol Explained</h3>\r\n<p>High-quality lithium chargers must utilize the <strong>Constant Current / Constant Voltage (CC/CV)</strong> algorithm:</p>\r\n<ol>\r\n    <li><strong>Constant Current (CC) Stage:</strong> The charger delivers a steady, regulated current (e.g. 10 Amps) while pack voltage steadily climbs from empty (approx 50V) up to 67.2V. This fills roughly 80% to 85% of total capacity.</li>\r\n    <li><strong>Constant Voltage (CV) Stage:</strong> Once maximum voltage (67.2V) is reached, the charger holds voltage steady while current gradually tapers down toward zero. This final stage allows the BMS to balance individual cell strings safely without overcharging.</li>\r\n</ol>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-check-circle text-success me-2\"></i> The Golden Rule of Connectors</h5>\r\n    <p class=\"mb-0 text-secondary\">Never use makeshift wire splices or unrated adapters on high-current DC charge lines. High-amperage chargers require heavy-duty gold-plated pins (such as genuine Anderson Powerpole, Chogori, or Neutrik connectors) rated for at least 15A continuous current to eliminate contact resistance and spark damage.</p>\r\n</div>",
+    "featured_image": "blog/images_2.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 3,
+    "tags": "Chargers, Fast Charging, Voltage Matching, Amperage, Safety, CC-CV, Battery Packs, OEM Parts, Electrical Engineering, Workshop",
+    "published": true,
+    "published_at": "2026-09-19T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.832Z",
+    "updated_at": "2026-10-01T13:25:12.545Z",
+    "views": 1728
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 10,
+  "fields": {
+    "title": "Essential E-Bike Spare Parts Every Rider Should Keep in Stock",
+    "slug": "essential-e-bike-spare-parts",
+    "excerpt": "Avoid ruined weekend riding trips. The definitive spare parts checklist for electric dirt bike owners, including primary belts, brake pads, chain links, throttles, and hardware.",
+    "content": "<h3>Zero Weekend Downtime: The Smart Rider’s Spare Parts Inventory</h3>\r\n<p>Few things are more frustrating than packing up your gear, driving three hours into the Canadian mountains, and having your weekend riding trip cut short on the first trail lap because of a snapped chain link, bent footpeg bracket, or worn brake pad. Because electric dirt bikes deliver extreme instantaneous torque and take heavy punishment from rocks and roots, carrying a small, strategic inventory of spare parts ensures you can execute quick field repairs and keep riding.</p>\r\n\r\n<h3>1. High-Priority Drivetrain Spares</h3>\r\n<ul>\r\n    <li><strong>Primary Drive Belt (Gates Carbon or OEM HTD):</strong> If you ride a Light Bee X, the primary belt transfers torque from the motor to the intermediate jackshaft. While durable, sharp rocks or deep gravel can occasionally puncture or snap a belt. Always keep a spare belt and an 8mm/10mm wrench in your vehicle.</li>\r\n    <li><strong>Master Links & Chain Breaker Tool:</strong> Carrying two 420 or 428 O-ring master links costs under $10 and takes up zero room in your pack. If a rock snaps your secondary drive chain, a master link gets you rolling in under five minutes.</li>\r\n    <li><strong>Rear Sprockets (Hardware Included):</strong> If you want to switch between open fire-road speed (48T) and extreme vertical singletrack hill climbing (54T or 58T), keep an alternative rear sprocket and matching chain length ready.</li>\r\n</ul>\r\n\r\n<h3>2. Braking System Essentials</h3>\r\n<ul>\r\n    <li><strong>Sintered Metallic Brake Pads:</strong> Wet sand, mud, and continuous downhill braking can chew through organic brake pads in a single muddy weekend. Sintered metallic pads offer superior heat dissipation and last three times longer. Always keep at least two full spare sets (front and rear) in your toolbox.</li>\r\n    <li><strong>Spare Brake Rotors (203mm or 220mm):</strong> A crash into a boulder can easily bend a brake rotor, causing severe wheel rub. Having a straight spare rotor in your garage saves a trip to the bike shop.</li>\r\n    <li><strong>Brake Bleed Syringe Kit & Mineral Oil / Fluid:</strong> Air bubbles from inverted crashes can cause sudden lever fade. A quick 5-minute gravity or syringe bleed restores razor-sharp braking response.</li>\r\n</ul>\r\n\r\n<h3>3. Cockpit & Electrical Protection Spares</h3>\r\n<ul>\r\n    <li><strong>Replacement Electronic Twist Throttle:</strong> A hard slide on the right side of the handlebars can crack the throttle casing or damage the internal magnetic hall sensor. A plug-and-play spare throttle ensures you never get stranded.</li>\r\n    <li><strong>Billet Aluminum Footpeg Brackets:</strong> Stock cast aluminum footpeg brackets are a known weak point during heavy jump landings or rock impacts. Carrying heavy-duty CNC billet replacement brackets prevents a snapped peg from ending your ride.</li>\r\n    <li><strong>Assorted Metric Hardware Kit:</strong> High-torque vibration can occasionally shake loose M5, M6, and M8 fasteners. Keep a compartmentalized organizer box of metric stainless steel socket-head bolts, nyloc nuts, and blue Loctite.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-box-open text-primary me-2\"></i> Our Official Spare Parts Availability</h5>\r\n    <p class=\"mb-0 text-secondary\">At Surron Bikes & Parts Canada, we warehouse 100% genuine factory OEM replacement components and premium aftermarket upgrades directly in Vancouver, BC. We offer tracked ground and express shipping nationwide so your bike is never out of commission for long.</p>\r\n</div>",
+    "featured_image": "blog/images.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 2,
+    "tags": "Spare Parts, Emergency Kit, Maintenance, Brake Pads, Primary Belt, Chain Links, DIY, Throttle, Footpegs, Workshop",
+    "published": true,
+    "published_at": "2026-09-28T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.860Z",
+    "updated_at": "2026-10-01T13:19:48.055Z",
+    "views": 357
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 11,
+  "fields": {
+    "title": "Electric Dirt Bike Safety Protocols: Gear, Trail Etiquette & Defensive Riding",
+    "slug": "electric-bike-safety-tips",
+    "excerpt": "Essential safety procedures for high-torque electric motorcycles. Learn proper body positioning, protective armor standards, multi-use trail diplomacy, and high-speed braking techniques.",
+    "content": "<h3>Responsible Riding and Advanced Trail Safety</h3>\r\n<p>Electric dirt bikes offer incredible silent torque, blistering acceleration, and lightweight agility. However, their silent operation also means pedestrians, hikers, equestrians, and wildlife cannot hear you coming. Furthermore, speeds exceeding 70 km/h on narrow forest singletracks require total concentration, rigorous protective armor, and disciplined trail etiquette. Here is our comprehensive guide to staying safe, preserving trail access, and mastering bike control.</p>\r\n\r\n<h3>1. Essential Rider Protective Equipment (PPE)</h3>\r\n<p>Never ride an electric dirt bike in casual street clothes or open-face bicycle helmets. The speed and impact energy of a 60–90 kg machine require certified motorcycle-grade protection:</p>\r\n<ul>\r\n    <li><strong>Full-Face Helmet:</strong> Wear a DOT, ECE 22.06, or ASTM F1952 downhill/motocross certified helmet. Full chin protection is non-negotiable when riding technical rock gardens.</li>\r\n    <li><strong>Goggles with Tear-Offs or Anti-Fog Lenses:</strong> Clear vision is crucial. Branches, dust, and mud thrown from other bikes can cause immediate eye injury without quality polycarbonate lenses.</li>\r\n    <li><strong>Rigid Knee & Shin Guards:</strong> Knee injuries from twisting in deep ruts or striking trailside boulders are the most common off-road injuries. Modern hinged knee braces or hard-shell knee guards provide essential hyperextension protection.</li>\r\n    <li><strong>Stiff-Soled Motocross / Enduro Boots:</strong> Standard running shoes offer zero ankle protection and bend over footpegs, risking broken foot bones. Use reinforced boots with ankle support and grippy soles.</li>\r\n    <li><strong>Chest Protector / Roost Deflector:</strong> Shields your chest, spine, and ribs from handlebar impacts, rocks, and unexpected tree strikes.</li>\r\n</ul>\r\n\r\n<h3>2. Trail Etiquette & Preserving Access for the E-Moto Community</h3>\r\n<p>Trail access for electric dirt bikes is a critical issue across Canadian provinces. Irresponsible riding can lead to trail closures and municipal bans. Follow these golden rules:</p>\r\n<ul>\r\n    <li><strong>The \"Slow & Polite\" Yield Rule:</strong> When encountering hikers, mountain bikers, or horse riders, immediately slow down to walking speed (10 km/h) or pull over completely, turn off your motor, and greet them verbally. Horses can easily spook at silent, fast-moving objects.</li>\r\n    <li><strong>Stay on Designated Off-Highway Vehicle (OHV) Trails:</strong> Do not tear through unauthorized nature preserves, fragile wetlands, or manicured municipal pedestrian parks. Support your local trail associations.</li>\r\n    <li><strong>Avoid Excessive Wheelspin & Trail Trenching:</strong> Aggressive roosting in soft wet loam tears up singletracks and accelerates trail erosion. Modulate your throttle smoothly to maintain traction rather than spinning your tire down to bedrock.</li>\r\n</ul>\r\n\r\n<h3>3. Defensive Riding Techniques for Instant-Torque Machines</h3>\r\n<ul>\r\n    <li><strong>Always Cover Both Brake Levers:</strong> Keep one or two fingers resting over the front and rear brake levers at all times. In an emergency, this saves 200–300 milliseconds of reaction time—which translates to several meters of stopping distance at 50 km/h.</li>\r\n    <li><strong>Master the Standing Attack Position:</strong> Never sit down through rough, rocky sections or over jumps. Stand on the balls of your feet with your knees slightly bent, elbows out, and chest centered over the handlebars. Your arms and legs act as natural secondary suspension systems, allowing the bike to move freely beneath you.</li>\r\n    <li><strong>Look Ahead, Not Down:</strong> Your eyes should scan 15 to 20 meters down the trail rather than staring directly in front of your front tire. Where your eyes look, your bike will follow.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-hand-holding-heart text-danger me-2\"></i> Respect the Wilderness</h5>\r\n    <p class=\"mb-0 text-secondary\">Pack out what you pack in. Carry a hydration pack, emergency space blanket, basic first-aid kit, and tell someone your planned trail route before heading into areas without cellular coverage.</p>\r\n</div>",
+    "featured_image": "blog/images_7.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 4,
+    "tags": "Safety, Defensive Riding, Protective Gear, Helmets, Trail Etiquette, Trail Access, Braking Technique, Riding Skills, Rider Education",
+    "published": true,
+    "published_at": "2026-09-04T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.887Z",
+    "updated_at": "2026-10-01T13:33:07.426Z",
+    "views": 1608
+  }
+},
+{
+  "model": "blog.blogpost",
+  "pk": 12,
+  "fields": {
+    "title": "The Future of Electric Off-Road Mobility: Solid-State Cells, IoT & AI Traction",
+    "slug": "the-future-of-electric-mobility",
+    "excerpt": "An exciting glimpse into the next decade of electric motorsport technology. Explore upcoming solid-state batteries, intelligent neural traction control, and lightweight carbon composites.",
+    "content": "<h3>The Next Frontier in High-Performance Light Electric Vehicles (LEVs)</h3>\r\n<p>We are currently witnessing the golden age of electric motorsport development. In less than a decade, electric dirt bikes have transitioned from experimental garage prototypes into precision-engineered, championship-winning machines capable of challenging traditional 250cc and 450cc combustion motorcycles. But the engineering roadmap ahead is even more exhilarating. From solid-state battery breakthroughs to AI-powered predictive traction algorithms, here is what the next five to ten years hold for the electric off-road industry.</p>\r\n\r\n<h3>1. Solid-State Battery Chemistry: The Holy Grail</h3>\r\n<p>Current high-performance bikes rely on liquid electrolyte lithium-ion cells (typically NMC 21700 formats). While energy-dense, they operate near their thermodynamic limits. Solid-state batteries replace volatile liquid electrolytes with solid ceramic or polymer conductors, unlocking revolutionary advancements:</p>\r\n<ul>\r\n    <li><strong>Double the Energy Density:</strong> Solid-state cells target 450–500 Wh/kg, compared to today’s 250 Wh/kg. This means a future Light Bee battery could deliver <strong>150+ km of range while weighing the same 12 kilograms</strong>, or deliver today's range in a pack weighing under 6 kg!</li>\r\n    <li><strong>Ultra-Fast 10-Minute Charging:</strong> Solid electrolytes eliminate dendrite formation risks, allowing extreme charging rates without thermal degradation. Imagine pulling into a trail staging area and getting a 90% charge in the time it takes to drink an espresso.</li>\r\n    <li><strong>Zero Fire Hazard:</strong> Without flammable liquid solvents, solid-state batteries are virtually impervious to puncture-induced thermal runaway, even during extreme high-impact crashes.</li>\r\n</ul>\r\n\r\n<h3>2. Intelligent Neural Network Traction Control (AI-TC)</h3>\r\n<p>Current traction control systems (like Surron’s SRTC) use optical wheel speed sensors to detect rear-wheel slip and pull back motor phase amps. Next-generation systems will incorporate machine learning and 6-axis Inertial Measurement Units (IMU):</p>\r\n<ul>\r\n    <li><strong>Predictive Surface Classification:</strong> By measuring micro-vibrations, motor back-EMF, and chassis pitch in real time, the controller's onboard processor identifies whether the tire is rolling over dry asphalt, wet gravel, deep sand, or slick moss-covered roots—adjusting torque delivery 1,000 times per second before wheelspin even starts.</li>\r\n    <li><strong>Personalized Power Delivery Profiles:</strong> Onboard telemetry will learn your riding style, automatically softening the throttle when you show fatigue and sharpening throttle response when you enter aggressive attack mode.</li>\r\n</ul>\r\n\r\n<h3>3. Aerospace Carbon Composites and Forged Magnesium Chassis</h3>\r\n<p>As battery densities climb, frame builders are adopting forged magnesium and hollow carbon fiber structural monocoques. This reduces dry chassis weight by 25% while increasing torsional stiffness, giving riders surgical handling precision through technical switchbacks and berms.</p>\r\n\r\n<h3>4. Connected Fleet Telemetry & Cloud Anti-Theft Geofencing</h3>\r\n<p>Integrated 4G/5G cellular modems and satellite GPS modules will become factory standards across premium off-road bikes:</p>\r\n<ul>\r\n    <li><strong>Instant Crash Detection & SOS Dispatch:</strong> If the bike senses a severe crash impact in remote backcountry terrain followed by no rider movement for two minutes, it can automatically transmit GPS coordinates via satellite to emergency rescue contacts.</li>\r\n    <li><strong>Remote Biometric Immobilization:</strong> Smartphone app connectivity allows instant geofencing, silent alarm notifications, and remote motor kill switches if unauthorized movement is detected, making stolen electric bikes virtually impossible to resell or operate.</li>\r\n</ul>\r\n\r\n<div class=\"p-4 bg-light rounded-4 border-start border-4 border-primary my-4\">\r\n    <h5 class=\"fw-bold text-dark mb-2\"><i class=\"fas fa-bolt text-warning me-2\"></i> The Electric Era Has Arrived</h5>\r\n    <p class=\"mb-0 text-secondary\">The future of powersports is quiet, clean, instantaneous, and astonishingly fast. At Surron Bikes & Parts Canada, we remain dedicated to bringing the latest factory advancements, genuine components, and expert engineering support to riders across North America.</p>\r\n</div>",
+    "featured_image": "blog/images_3.jfif",
+    "author": [
+      "admin"
+    ],
+    "category": 1,
+    "tags": "Future Technology, Innovation, Solid-State Batteries, AI Traction, Electric Dirt Bikes, Carbon Fiber, Sustainable Mobility, Next-Gen, Telemetry",
+    "published": true,
+    "published_at": "2026-09-11T16:43:42Z",
+    "created_at": "2026-09-29T16:43:42.916Z",
+    "updated_at": "2026-10-01T13:27:23.957Z",
+    "views": 1581
+  }
+},
+{
+  "model": "pages.contactmessage",
+  "pk": 1,
+  "fields": {
+    "name": "Mark Stevens",
+    "email": "mark.s@example.com",
+    "phone": "+1 555-4421",
+    "subject": "Wholesale inquiries for bike rental shop",
+    "message": "Hello VoltRide team, I operate a coastal bike rental shop and would like to inquire about purchasing 12 VoltRide Explorer models for our upcoming summer season. Do you offer fleet commercial pricing?",
+    "is_read": false,
+    "created_at": "2026-09-29T16:43:43.170Z"
+  }
+},
+{
+  "model": "pages.contactmessage",
+  "pk": 2,
+  "fields": {
+    "name": "Linda Garcia",
+    "email": "linda.g@example.com",
+    "phone": "+1 555-9011",
+    "subject": "Battery replacement compatibility question",
+    "message": "Hi, I have an older 48V e-bike and would like to confirm if your 48V 15Ah Samsung battery pack cradle has identical pin placement. Could you please share the cradle dimensions drawing?",
+    "is_read": false,
+    "created_at": "2026-09-29T16:43:43.179Z"
+  }
+},
+{
+  "model": "pages.contactmessage",
+  "pk": 3,
+  "fields": {
+    "name": "Kevin Brooks",
+    "email": "kevin.b@example.com",
+    "phone": "+1 555-3211",
+    "subject": "Great customer support experience!",
+    "message": "Just wanted to send a quick note thanking Jason from technical support who walked me through installing the C900 display. Excellent service and support!",
+    "is_read": false,
+    "created_at": "2026-09-29T16:43:43.188Z"
+  }
+},
+{
+  "model": "pages.newslettersubscriber",
+  "pk": 1,
+  "fields": {
+    "name": "Jordan Smith",
+    "email": "jordan.smith@example.com",
+    "is_active": true,
+    "subscribed_at": "2026-09-29T16:43:43.125Z"
+  }
+},
+{
+  "model": "pages.newslettersubscriber",
+  "pk": 2,
+  "fields": {
+    "name": "Taylor Morgan",
+    "email": "taylor.m@example.com",
+    "is_active": true,
+    "subscribed_at": "2026-09-29T16:43:43.134Z"
+  }
+},
+{
+  "model": "pages.newslettersubscriber",
+  "pk": 3,
+  "fields": {
+    "name": "Casey Green",
+    "email": "casey.g@example.com",
+    "is_active": true,
+    "subscribed_at": "2026-09-29T16:43:43.143Z"
+  }
+},
+{
+  "model": "pages.newslettersubscriber",
+  "pk": 4,
+  "fields": {
+    "name": "Morgan Lee",
+    "email": "morgan.lee@example.com",
+    "is_active": true,
+    "subscribed_at": "2026-09-29T16:43:43.152Z"
+  }
+},
+{
+  "model": "pages.newslettersubscriber",
+  "pk": 5,
+  "fields": {
+    "name": "Riley Davis",
+    "email": "riley.davis@example.com",
+    "is_active": true,
+    "subscribed_at": "2026-09-29T16:43:43.160Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-09-30T15:27:40.999Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "store",
+      "category"
+    ],
+    "object_id": "3",
+    "object_repr": "Batteries & Power",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-09-30T15:27:41.000Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "store",
+      "category"
+    ],
+    "object_id": "4",
+    "object_repr": "Chargers",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-09-30T15:27:41.000Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "store",
+      "category"
+    ],
+    "object_id": "5",
+    "object_repr": "Lighting & Electronics",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-10-01T13:19:48.059Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "10",
+    "object_repr": "Essential E-Bike Spare Parts Every Rider Should Keep in Stock",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-10-01T13:22:03.358Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "3",
+    "object_repr": "How Far Can an Electric Dirt Bike Travel? Real-World Range Unveiled",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-10-01T13:25:12.548Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "9",
+    "object_repr": "How to Choose the Correct Charger for Your E-Bike: Voltage & Amp Guide",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-10-01T13:27:23.960Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "12",
+    "object_repr": "The Future of Electric Off-Road Mobility: Solid-State Cells, IoT & AI Traction",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-10-01T13:29:09.268Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "5",
+    "object_repr": "Understanding Motor Power: Watts, Amps, Volts & Peak Torque Explained",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-10-01T13:30:35.781Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "7",
+    "object_repr": "10 Actionable Habits to Extend E-Bike Battery Life & Save Thousands",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-10-01T13:31:50.876Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "2",
+    "object_repr": "The Ultimate E-Bike Battery Care & Cold-Weather Maintenance Guide",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-10-01T13:33:07.431Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "11",
+    "object_repr": "Electric Dirt Bike Safety Protocols: Gear, Trail Etiquette & Defensive Riding",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-10-01T13:49:35.873Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "4",
+    "object_repr": "E-Bike Maintenance Master Checklist: Weekly, Monthly & Seasonal",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-10-01T14:06:36.749Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "6",
+    "object_repr": "City Commuter E-Bikes vs. Electric Dirt Bikes: Complete Comparison",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-10-01T14:11:20.593Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "1",
+    "object_repr": "How to Choose the Right Electric Bike: Complete Buyer’s Guide",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-10-01T14:13:18.033Z",
+    "user": [
+      "admin"
+    ],
+    "content_type": [
+      "blog",
+      "blogpost"
+    ],
+    "object_id": "8",
+    "object_repr": "Common E-Bike Troubleshooting: Diagnostics, Error Codes & Field Fixes",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Content\", \"Featured image\"]}}]"
+  }
+}
+]

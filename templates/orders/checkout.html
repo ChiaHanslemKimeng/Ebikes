@@ -1,0 +1,541 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Checkout | Surron Bikes & Parts{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-4 text-white border-bottom border-secondary">
+    <div class="container">
+        <h1 class="display-6 fw-extrabold mb-1">Express Checkout</h1>
+        <p class="text-secondary small mb-0">Provide your shipping address and select a payment method.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <form action="{% url 'orders:checkout' %}" method="POST" id="checkoutForm">
+        {% csrf_token %}
+        <div class="row g-5">
+
+            <!-- SHIPPING & BILLING ADDRESS (LEFT) -->
+            <div class="col-lg-7">
+                <div class="bg-white p-4 p-md-5 rounded-4 border shadow-sm mb-4">
+                    <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">
+                        <i class="fas fa-map-marker-alt text-primary me-2"></i> Shipping Address
+                    </h5>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">First Name *</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Last Name *</label>
+                            {{ form.last_name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Email Address *</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Phone Number *</label>
+                            {{ form.phone }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Street Address *</label>
+                            {{ form.address }}
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label small fw-bold">City *</label>
+                            {{ form.city }}
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-bold">Postal / ZIP Code *</label>
+                            {{ form.postal_code }}
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Country *</label>
+                            {{ form.country }}
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Delivery Notes (Optional)</label>
+                            {{ form.delivery_notes }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAYMENT METHOD CHOICES -->
+                <div class="bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+                    <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">
+                        <i class="fas fa-credit-card text-primary me-2"></i> Payment Method
+                    </h5>
+
+                    <div class="d-flex flex-column gap-3">
+                        <!-- Option 1: Credit/Debit card -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option" id="cardOptionContainer">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payCreditCard" value="credit_debit_card" checked>
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payCreditCard">
+                                    <span><i class="fas fa-credit-card text-primary me-2"></i> Credit/Debit card</span>
+                                    <span class="text-secondary small" id="cardBrandIcons">
+                                        <i class="fab fa-cc-visa me-1 brand-icon" id="brandVisa"></i>
+                                        <i class="fab fa-cc-mastercard me-1 brand-icon" id="brandMastercard"></i>
+                                        <i class="fab fa-cc-amex me-1 brand-icon" id="brandAmex"></i>
+                                        <i class="fab fa-cc-discover brand-icon" id="brandDiscover"></i>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4" id="creditCardDetailsBox">
+                                <p class="mb-2 text-muted small">Enter your card details for verification.</p>
+                                <div class="row g-2 mt-1" style="max-width: 440px;">
+                                    <div class="col-12">
+                                        <label class="form-label small fw-semibold text-dark mb-1">Card Number *</label>
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-text bg-light text-muted"><i class="fas fa-credit-card"></i></span>
+                                            <input type="text" id="ccNumber" name="card_number" class="form-control form-control-sm font-monospace" placeholder="4242 •••• •••• 4242" maxlength="19" autocomplete="cc-number">
+                                        </div>
+                                        <div class="text-danger small mt-1 d-none" id="ccNumberError">Please enter a valid 15-16 digit card number.</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small fw-semibold text-dark mb-1">Expiration *</label>
+                                        <input type="text" id="ccExpiry" name="card_expiry" class="form-control form-control-sm font-monospace" placeholder="MM / YY" maxlength="7" autocomplete="cc-exp">
+                                        <div class="text-danger small mt-1 d-none" id="ccExpiryError">Enter MM / YY</div>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small fw-semibold text-dark mb-1">CVV / CVC *</label>
+                                        <input type="password" id="ccCvv" name="card_cvv" class="form-control form-control-sm font-monospace" placeholder="CVC" maxlength="4" autocomplete="cc-csc">
+                                        <div class="text-danger small mt-1 d-none" id="ccCvvError">3 or 4 digits required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Option 2: E Transfer -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payETransfer" value="e_transfer">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payETransfer">
+                                    <span><i class="fas fa-exchange-alt text-info me-2"></i> E Transfer</span>
+                                    <span class="badge bg-info-subtle text-info">Fast Online Transfer</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                Once your order is placed, our admin team will contact you directly with official electronic transfer details and payment instructions.
+                            </div>
+                        </div>
+
+                        <!-- Option 3: Crypto -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payCrypto" value="crypto">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payCrypto">
+                                    <span><i class="fab fa-bitcoin text-warning me-2"></i> Crypto</span>
+                                    <span class="badge bg-warning-subtle text-warning">BTC / ETH / USDT</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                Once your order is placed, our admin team will contact you directly with verified wallet deposit addresses (BTC, ETH, USDT) and transfer instructions.
+                            </div>
+                        </div>
+
+                        <!-- Option 4: Cashapp -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payCashApp" value="cashapp">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payCashApp">
+                                    <span><i class="fas fa-dollar-sign text-success me-2"></i> Cashapp</span>
+                                    <span class="badge bg-success-subtle text-success">Mobile Cashtag</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                Once your order is placed, our admin team will contact you directly with our verified Cashtag and payment instructions.
+                            </div>
+                        </div>
+
+                        <!-- Option 5: Bank Transfer -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payBank" value="bank_transfer">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payBank">
+                                    <span><i class="fas fa-university text-primary me-2"></i> Bank Transfer</span>
+                                    <span class="badge bg-secondary-subtle text-dark">Wire / ACH</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                Once your order is placed, our admin team will contact you directly with our corporate wire coordinates and ACH banking details.
+                            </div>
+                        </div>
+
+                        <!-- Option 6: Zelle -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payZelle" value="zelle">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payZelle">
+                                    <span><i class="fas fa-bolt text-primary me-2"></i> Zelle</span>
+                                    <span class="badge bg-primary-subtle text-primary">Instant Bank-to-Bank</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                Once your order is placed, our admin team will contact you directly with verified Zelle recipient details and instructions.
+                            </div>
+                        </div>
+
+                        <!-- Option 7: Apple Pay -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payApplePay" value="apple_pay">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payApplePay">
+                                    <span><i class="fab fa-apple text-dark me-2"></i> Apple Pay</span>
+                                    <span class="badge bg-dark text-white">1-Click Touch ID</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                Once your order is placed, our admin team will contact you directly with your Apple Pay checkout link and payment instructions.
+                            </div>
+                        </div>
+
+                        <!-- Option 8: Other -->
+                        <div class="border rounded-3 p-3 bg-white payment-card-option">
+                            <div class="form-check">
+                                <input class="form-check-input payment-radio" type="radio" name="payment_method" id="payOther" value="other">
+                                <label class="form-check-label fw-bold text-dark d-flex align-items-center justify-content-between w-100" for="payOther">
+                                    <span><i class="fas fa-ellipsis-h text-secondary me-2"></i> Other</span>
+                                    <span class="badge bg-secondary-subtle text-secondary">Custom</span>
+                                </label>
+                            </div>
+                            <div class="text-secondary small mt-2 ps-4">
+                                <p class="mb-2">Once your order is placed, our admin team will contact you directly with payment details for your chosen method.</p>
+                                <div id="otherPaymentContainer" class="mt-2" style="display: none;">
+                                    <label class="form-label small fw-bold text-dark mb-1">
+                                        <i class="fas fa-pen text-primary me-1"></i> Specify Your Preferred Payment Method *
+                                    </label>
+                                    <input type="text" name="other_payment_method" id="otherPaymentMethodInput" class="form-control form-control-sm" placeholder="e.g. Venmo, PayPal, Google Pay, Fleet Purchase Order, Cash on Pickup">
+                                    <div class="text-danger small mt-1 d-none" id="otherPaymentError">Please specify your preferred payment method.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDER SUMMARY (RIGHT) -->
+            <div class="col-lg-5">
+                <div class="checkout-summary-card sticky-top" style="top: 100px;">
+                    <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">Order Summary ({{ cart|length }} items)</h5>
+
+                    <div class="d-flex flex-column gap-3 mb-4" style="max-height: 280px; overflow-y: auto;">
+                        {% for item in cart %}
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-3 overflow-hidden bg-dark p-1 me-3 border" style="width: 48px; height: 48px; flex-shrink: 0;">
+                                        {% with primary_img=item.product.get_primary_image %}
+                                            {% if primary_img and primary_img.image %}
+                                                <img src="{{ primary_img.image.url }}" alt="{{ item.product.name }}" class="w-100 h-100" style="object-fit: cover;">
+                                            {% else %}
+                                                <img src="/static/images/placeholder-bike.svg" alt="{{ item.product.name }}" class="w-100 h-100" style="object-fit: cover;">
+                                            {% endif %}
+                                        {% endwith %}
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark small text-truncate" style="max-width: 180px;">{{ item.product.name }}</div>
+                                        <span class="text-secondary small">Qty: {{ item.quantity }} × ${{ item.price }}</span>
+                                    </div>
+                                </div>
+                                <span class="fw-bold text-dark">${{ item.total_price }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2 text-secondary small">
+                            <span>Subtotal</span>
+                            <strong class="text-dark">${{ cart.get_subtotal }}</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2 text-secondary small">
+                            <span>Ground Freight Shipping</span>
+                            {% if cart.get_shipping_cost == 0 %}
+                                <strong class="text-success text-uppercase">FREE</strong>
+                            {% else %}
+                                <strong class="text-dark">${{ cart.get_shipping_cost }}</strong>
+                            {% endif %}
+                        </div>
+
+                        {% if cart.get_coupon %}
+                            <div class="d-flex justify-content-between mb-2 text-success small">
+                                <span class="d-flex align-items-center">
+                                    <i class="fas fa-tag me-1"></i> Coupon (<strong>{{ cart.get_coupon.code }}</strong>)
+                                </span>
+                                <div class="d-flex align-items-center gap-2">
+                                    <strong>-${{ cart.get_discount }}</strong>
+                                    <button type="submit" formaction="{% url 'orders:remove_coupon' %}" formmethod="POST" formnovalidate class="btn btn-sm btn-link text-danger p-0" title="Remove coupon">
+                                        <i class="fas fa-times-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <!-- Coupon Box in Checkout -->
+                        <div class="card border rounded-3 p-3 bg-light my-3">
+                            <label class="form-label small fw-bold text-dark mb-1">
+                                <i class="fas fa-ticket-alt text-primary me-1"></i> Coupon Code
+                            </label>
+                            {% if not cart.get_coupon %}
+                                <div class="input-group">
+                                    <input type="text" name="coupon_code" class="form-control form-control-sm text-uppercase fw-semibold" placeholder="Enter coupon code">
+                                    <button type="submit" formaction="{% url 'orders:apply_coupon' %}" formmethod="POST" formnovalidate class="btn btn-dark btn-sm fw-bold">Apply</button>
+                                </div>
+                            {% else %}
+                                <div class="d-flex align-items-center justify-content-between bg-success-subtle p-2 rounded-2 small text-success">
+                                    <span><i class="fas fa-check-circle me-1"></i> <strong>{{ cart.get_coupon.code }}</strong> applied</span>
+                                    <button type="submit" formaction="{% url 'orders:remove_coupon' %}" formmethod="POST" formnovalidate class="btn btn-sm btn-outline-danger py-0 px-2" style="font-size: 0.75rem;">Remove</button>
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <hr class="my-3">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="h5 fw-bold text-dark">Total Amount</span>
+                            <span class="h4 fw-extrabold text-primary mb-0">${{ cart.get_total_price }}</span>
+                        </div>
+
+                        <!-- ACCEPT TERMS AND CONDITIONS -->
+                        <div class="card border rounded-3 p-3 bg-light mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="acceptTerms" name="accept_terms" required>
+                                <label class="form-check-label small text-dark fw-semibold" for="acceptTerms">
+                                    I agree to the <a href="{% url 'pages:terms_conditions' %}" target="_blank" class="text-primary text-decoration-underline">Terms &amp; Conditions</a> and <a href="{% url 'pages:returns_policy' %}" target="_blank" class="text-primary text-decoration-underline">Return Policy</a>. *
+                                </label>
+                            </div>
+                            <div class="text-danger small mt-1 d-none" id="termsError">
+                                <i class="fas fa-exclamation-circle me-1"></i> You must accept the terms and conditions to proceed.
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-volt btn-lg w-100 fw-bold py-3 shadow-sm" id="confirmOrderBtn">
+                            <i class="fas fa-lock me-2"></i> Confirm & Place Order
+                        </button>
+
+                        <div class="text-center text-muted small mt-3">
+                            <i class="fas fa-shield-alt text-success me-1"></i> 256-bit Encrypted Checkout • Surron Buyer Protection
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkoutForm = document.getElementById('checkoutForm');
+    const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+    const creditCardBox = document.getElementById('creditCardDetailsBox');
+    const otherContainer = document.getElementById('otherPaymentContainer');
+    const otherInput = document.getElementById('otherPaymentMethodInput');
+
+    const ccNumber = document.getElementById('ccNumber');
+    const ccExpiry = document.getElementById('ccExpiry');
+    const ccCvv = document.getElementById('ccCvv');
+
+    const ccNumberError = document.getElementById('ccNumberError');
+    const ccExpiryError = document.getElementById('ccExpiryError');
+    const ccCvvError = document.getElementById('ccCvvError');
+    const otherPaymentError = document.getElementById('otherPaymentError');
+
+    const acceptTerms = document.getElementById('acceptTerms');
+    const termsError = document.getElementById('termsError');
+
+    const brandVisa = document.getElementById('brandVisa');
+    const brandMastercard = document.getElementById('brandMastercard');
+    const brandAmex = document.getElementById('brandAmex');
+    const brandDiscover = document.getElementById('brandDiscover');
+
+    function updateBrandIcons(brand) {
+        [brandVisa, brandMastercard, brandAmex, brandDiscover].forEach(el => {
+            if (el) el.classList.remove('text-primary', 'text-danger', 'text-info', 'text-warning');
+        });
+        if (brand === 'visa' && brandVisa) brandVisa.classList.add('text-primary');
+        if (brand === 'mastercard' && brandMastercard) brandMastercard.classList.add('text-danger');
+        if (brand === 'amex' && brandAmex) brandAmex.classList.add('text-info');
+        if (brand === 'discover' && brandDiscover) brandDiscover.classList.add('text-warning');
+    }
+
+    function handleMethodChange() {
+        const selected = document.querySelector('input[name="payment_method"]:checked')?.value;
+        if (selected === 'credit_debit_card') {
+            if (creditCardBox) creditCardBox.style.display = 'block';
+        } else {
+            if (creditCardBox) creditCardBox.style.display = 'none';
+        }
+
+        if (selected === 'other') {
+            if (otherContainer) otherContainer.style.display = 'block';
+            if (otherInput) otherInput.focus();
+        } else {
+            if (otherContainer) otherContainer.style.display = 'none';
+            if (otherInput) {
+                otherInput.value = '';
+                otherInput.classList.remove('is-invalid');
+                if (otherPaymentError) otherPaymentError.classList.add('d-none');
+            }
+        }
+    }
+
+    paymentRadios.forEach(radio => {
+        radio.addEventListener('change', handleMethodChange);
+    });
+    handleMethodChange();
+
+    // 1. Credit Card Number formatting & brand detection
+    if (ccNumber) {
+        ccNumber.addEventListener('input', function(e) {
+            let val = e.target.value.replace(/\D/g, '');
+            if (val.length > 16) val = val.slice(0, 16);
+
+            if (val.startsWith('4')) {
+                updateBrandIcons('visa');
+            } else if (/^(5[1-5]|2[2-7])/.test(val)) {
+                updateBrandIcons('mastercard');
+            } else if (/^(34|37)/.test(val)) {
+                updateBrandIcons('amex');
+            } else if (/^(6011|65)/.test(val)) {
+                updateBrandIcons('discover');
+            } else {
+                updateBrandIcons(null);
+            }
+
+            let formatted = val.match(/.{1,4}/g)?.join(' ') || val;
+            e.target.value = formatted;
+            if (val.length >= 15) {
+                ccNumber.classList.remove('is-invalid');
+                if (ccNumberError) ccNumberError.classList.add('d-none');
+            }
+        });
+    }
+
+    // 2. Expiration Date formatting (MM / YY)
+    if (ccExpiry) {
+        ccExpiry.addEventListener('input', function(e) {
+            let val = e.target.value.replace(/\D/g, '');
+            if (val.length > 4) val = val.slice(0, 4);
+
+            if (val.length >= 3) {
+                let mm = val.slice(0, 2);
+                let yy = val.slice(2);
+                if (parseInt(mm, 10) > 12) mm = '12';
+                if (mm === '00') mm = '01';
+                e.target.value = mm + ' / ' + yy;
+            } else if (val.length === 2) {
+                let mm = parseInt(val, 10);
+                if (mm > 12) val = '12';
+                if (val === '00') val = '01';
+                if (e.inputType !== 'deleteContentBackward') {
+                    e.target.value = val + ' / ';
+                } else {
+                    e.target.value = val;
+                }
+            } else {
+                e.target.value = val;
+            }
+
+            if (val.length === 4) {
+                ccExpiry.classList.remove('is-invalid');
+                if (ccExpiryError) ccExpiryError.classList.add('d-none');
+            }
+        });
+    }
+
+    // 3. CVV formatting (max 4 digits)
+    if (ccCvv) {
+        ccCvv.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+            if (e.target.value.length >= 3) {
+                ccCvv.classList.remove('is-invalid');
+                if (ccCvvError) ccCvvError.classList.add('d-none');
+            }
+        });
+    }
+
+    // Form submission validation
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+            if (e.submitter && e.submitter.getAttribute('formaction')) {
+                return;
+            }
+
+            // Terms validation
+            if (acceptTerms && !acceptTerms.checked) {
+                e.preventDefault();
+                if (termsError) termsError.classList.remove('d-none');
+                acceptTerms.focus();
+                return;
+            } else if (termsError) {
+                termsError.classList.add('d-none');
+            }
+
+            const selected = document.querySelector('input[name="payment_method"]:checked')?.value;
+
+            // Credit Card validation
+            if (selected === 'credit_debit_card') {
+                let valid = true;
+                const rawNum = ccNumber ? ccNumber.value.replace(/\s+/g, '') : '';
+                const rawExp = ccExpiry ? ccExpiry.value.replace(/\s+/g, '') : '';
+                const rawCvv = ccCvv ? ccCvv.value.trim() : '';
+
+                if (rawNum.length < 15) {
+                    valid = false;
+                    if (ccNumber) ccNumber.classList.add('is-invalid');
+                    if (ccNumberError) ccNumberError.classList.remove('d-none');
+                } else {
+                    if (ccNumber) ccNumber.classList.remove('is-invalid');
+                    if (ccNumberError) ccNumberError.classList.add('d-none');
+                }
+
+                const expParts = rawExp.split('/');
+                if (expParts.length !== 2 || expParts[0].length !== 2 || expParts[1].length !== 2) {
+                    valid = false;
+                    if (ccExpiry) ccExpiry.classList.add('is-invalid');
+                    if (ccExpiryError) ccExpiryError.classList.remove('d-none');
+                } else {
+                    if (ccExpiry) ccExpiry.classList.remove('is-invalid');
+                    if (ccExpiryError) ccExpiryError.classList.add('d-none');
+                }
+
+                if (rawCvv.length < 3) {
+                    valid = false;
+                    if (ccCvv) ccCvv.classList.add('is-invalid');
+                    if (ccCvvError) ccCvvError.classList.remove('d-none');
+                } else {
+                    if (ccCvv) ccCvv.classList.remove('is-invalid');
+                    if (ccCvvError) ccCvvError.classList.add('d-none');
+                }
+
+                if (!valid) {
+                    e.preventDefault();
+                    document.getElementById('cardOptionContainer')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    return;
+                }
+            }
+
+            // Other payment method validation
+            if (selected === 'other') {
+                if (otherInput && !otherInput.value.trim()) {
+                    e.preventDefault();
+                    otherInput.classList.add('is-invalid');
+                    if (otherPaymentError) otherPaymentError.classList.remove('d-none');
+                    otherInput.focus();
+                    return;
+                } else if (otherInput) {
+                    otherInput.classList.remove('is-invalid');
+                    if (otherPaymentError) otherPaymentError.classList.add('d-none');
+                }
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

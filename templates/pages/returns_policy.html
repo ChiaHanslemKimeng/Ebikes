@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Returns, Trial & 2-Year Warranty Policy | Surron{% endblock %}
+{% block meta_description %}Surron 30-day in-home trial terms, 2-year comprehensive factory limited warranty coverage, RMA return steps, and crash replacement discounts.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto py-3">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Rider Confidence</span>
+        <h1 class="display-4 fw-extrabold mb-3">Returns & Warranty Guarantee</h1>
+        <p class="lead text-secondary mb-0">Our 30-Day In-Home Trial, 2-Year Factory Limited Warranty, and hassle-free RMA replacement procedures.</p>
+    </div>
+</div>
+
+<div class="container py-5" style="max-width: 900px;">
+
+    <!-- Highlights -->
+    <div class="row g-4 row-cols-1 row-cols-md-3 mb-5">
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm text-center h-100">
+                <div class="rounded-circle bg-primary-subtle text-primary mx-auto d-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                    <i class="fas fa-calendar-check fs-4"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">30-Day Trial</h5>
+                <p class="text-secondary small mb-0">Test ride your new Surron on your daily route with up to 20 miles of trial riding.</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm text-center h-100">
+                <div class="rounded-circle bg-success-subtle text-success mx-auto d-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                    <i class="fas fa-award fs-4"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">2-Year Warranty</h5>
+                <p class="text-secondary small mb-0">Comprehensive coverage on frame, motor, controller, display, and battery pack.</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card border rounded-4 p-4 bg-white shadow-sm text-center h-100">
+                <div class="rounded-circle bg-info-subtle text-info mx-auto d-flex align-items-center justify-content-center p-3 mb-3" style="width: 52px; height: 52px;">
+                    <i class="fas fa-shield-virus fs-4"></i>
+                </div>
+                <h5 class="fw-bold text-dark mb-1">Crash Protection</h5>
+                <p class="text-secondary small mb-0">30% discount on replacement parts or frames if you experience an accidental crash.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm text-secondary lh-lg mb-5">
+        
+        <!-- 1. 30-Day Trial -->
+        <h4 class="fw-bold text-dark mb-3"><i class="fas fa-undo text-primary me-2"></i> 1. The 30-Day In-Home Trial Policy</h4>
+        <p>
+            We want you to feel 100% confident in your choice. From the day your Surron bicycle is delivered to your doorstep, you have a full <strong>30-day window</strong> to test it on your commute, trails, and weekend getaways.
+        </p>
+        <p>
+            If you decide the bicycle is not right for you, contact us within 30 days of delivery to initiate a return.
+        </p>
+
+        <!-- 2. Return Eligibility Criteria -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-clipboard-check text-primary me-2"></i> 2. Return Eligibility Criteria</h4>
+        <p>To qualify for a refund under our 30-Day Trial:</p>
+        <ul>
+            <li><strong>Odometer Reading:</strong> The digital LCD display odometer must show fewer than <strong>20.0 miles</strong> total recorded distance.</li>
+            <li><strong>Physical Condition:</strong> The bicycle must be clean, free from frame dents, deep scratches, tire gouges, or mechanical alterations.</li>
+            <li><strong>Complete Contents:</strong> The original packaging, charger, two battery keys, toolkit, reflector set, and owner's manuals must be repacked in the original box.</li>
+            <li><strong>Spare Parts & Electronics:</strong> Replacement controllers, throttles, and wiring components must not have cut or spliced wires.</li>
+        </ul>
+
+        <!-- 3. Return Steps (RMA) -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-tasks text-primary me-2"></i> 3. Step-by-Step Return Process (RMA)</h4>
+        <div class="row g-3 my-2">
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 text-center h-100">
+                    <span class="badge bg-dark text-primary rounded-circle mb-2">Step 1</span>
+                    <strong class="d-block text-dark small">Request RMA</strong>
+                    <span class="small text-muted">Email support@surronbikesandparts.shop with your order number.</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 text-center h-100">
+                    <span class="badge bg-dark text-primary rounded-circle mb-2">Step 2</span>
+                    <strong class="d-block text-dark small">Prepaid Label</strong>
+                    <span class="small text-muted">We send you a prepaid freight shipping bill of lading.</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 text-center h-100">
+                    <span class="badge bg-dark text-primary rounded-circle mb-2">Step 3</span>
+                    <strong class="d-block text-dark small">Carrier Pickup</strong>
+                    <span class="small text-muted">FedEx or freight carrier collects the sealed box from your door.</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 text-center h-100">
+                    <span class="badge bg-dark text-primary rounded-circle mb-2">Step 4</span>
+                    <strong class="d-block text-dark small">Fast Refund</strong>
+                    <span class="small text-muted">Inspected within 48h; funds returned to your original payment card.</span>
+                </div>
+            </div>
+        </div>
+        <p class="small text-muted mt-2">
+            <em>Note: A standard $150 freight return deduction is subtracted from refunds on complete bicycles to cover the carrier hazardous ground transport cost, unless the return is due to an unresolvable factory defect.</em>
+        </p>
+
+        <!-- 4. 2-Year Limited Factory Warranty -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-shield-alt text-primary me-2"></i> 4. Two-Year Comprehensive Factory Limited Warranty</h4>
+        <p>Surron bicycles purchased directly from our website are backed by our 2-Year Manufacturer's Warranty from date of receipt:</p>
+        
+        <div class="table-responsive my-3">
+            <table class="table table-bordered table-striped small align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Component Group</th>
+                        <th>Warranty Term</th>
+                        <th>Coverage Inclusions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold text-dark">Frame & Rigid Fork</td>
+                        <td>2 Years</td>
+                        <td>Structural integrity, welds, material fractures from normal riding.</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Motor Assembly</td>
+                        <td>2 Years</td>
+                        <td>Planetary gears, stator copper windings, bearings, hall sensors.</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Lithium-Ion Battery</td>
+                        <td>2 Years</td>
+                        <td>Guaranteed &ge;70% capacity retention over 500 charge cycles, BMS board defects.</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Electronics & Display</td>
+                        <td>2 Years</td>
+                        <td>Controller PCB, color LCD display, wiring harness, throttle.</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold text-dark">Wear & Tear Consumables</td>
+                        <td>30 Days</td>
+                        <td>Brake pads, inner tubes, chains, tires (initial manufacturing defect coverage only).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 5. Crash Replacement Program -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-heartbeat text-primary me-2"></i> 5. Crash Replacement Assistance Program</h4>
+        <p>
+            Accidents happen. If your Surron is damaged in a traffic incident or mountain crash that is not covered by factory warranty, we offer registered owners a <strong>30% discount off standard MSRP</strong> on replacement frames, wheels, motors, and structural components to get you back on the road safely.
+        </p>
+
+        <!-- 6. Submitting a Claim -->
+        <h4 class="fw-bold text-dark mb-3 mt-4"><i class="fas fa-file-signature text-primary me-2"></i> 6. How to Submit a Warranty Claim</h4>
+        <p>
+            To begin a warranty claim, simply email <strong>support@surronbikesandparts.shop</strong> with:
+        </p>
+        <ol>
+            <li>Your original 6-digit Surron Order Number.</li>
+            <li>The bike serial number (permanently engraved beneath the bottom bracket shell).</li>
+            <li>A clear 15-second video or 2–3 photos displaying the issue.</li>
+        </ol>
+        <p>
+            Our master mechanics will review the diagnostic within 24 business hours and expedite replacement parts directly to your address with complimentary technical installation guidance.
+        </p>
+    </div>
+
+    <!-- Quick Help Card -->
+    <div class="card border rounded-4 p-4 bg-light text-center">
+        <h5 class="fw-bold text-dark mb-2">Need Help Starting a Return or Warranty Claim?</h5>
+        <p class="text-secondary small mb-3">Our technical specialists will guide you through the process step by step.</p>
+        <a href="{% url 'pages:contact' %}?subject=Warranty+or+Return+Claim" class="btn btn-volt btn-sm rounded-pill px-4 fw-bold align-self-center">Open Warranty Ticket</a>
+    </div>
+</div>
+
+{% endblock %}

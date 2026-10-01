@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | Surron High-Performance Electric Mobility{% endblock %}
+{% block meta_description %}Learn about Surron's engineering mission: modular e-bikes, certified battery packs, right-to-repair OEM components, and zero-compromise rider support.{% endblock %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary position-relative overflow-hidden">
+    <div class="container text-center max-w-700 mx-auto py-4 position-relative z-1">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Our Mission & Engineering Values</span>
+        <h1 class="display-4 fw-extrabold mb-3">Electrifying Every Journey</h1>
+        <p class="lead text-secondary mb-0">We design, build, and support high-performance electric bicycles that deliver exhilarating torque, bulletproof reliability, and zero emissions for everyday riders and outdoor enthusiasts.</p>
+    </div>
+</div>
+
+<!-- 1. OUR STORY -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+                <span class="text-primary text-uppercase fw-bold small">The Surron Genesis</span>
+                <h2 class="display-6 fw-extrabold text-dark mb-4">From Silicon Valley Garage to Nationwide Fleet</h2>
+                <p class="text-secondary leading-relaxed">
+                    Founded in 2021 by a dedicated team of automotive electrical engineers and avid bicycle commuters, Surron was created to resolve a fundamental market frustration: e-bikes were either overpriced luxury status symbols locked down with proprietary software, or cheap disposable imports with unreliable battery packs and zero replacement parts.
+                </p>
+                <p class="text-secondary leading-relaxed">
+                    We chose a radically different path: <strong>open-architecture, modular electric bicycles</strong> engineered with certified Grade-A Samsung and LG lithium cells, high-torque Bafang drivetrains, and aerospace-grade 6061 hydroformed aluminum frames. Every bike we manufacture can be serviced, upgraded, and repaired with standard tools for decades of dependable riding.
+                </p>
+                <div class="d-flex gap-4 pt-2">
+                    <div class="border-start border-3 border-primary ps-3">
+                        <span class="h4 fw-extrabold text-dark d-block mb-0">100%</span>
+                        <small class="text-muted">In-Stock Spare Parts</small>
+                    </div>
+                    <div class="border-start border-3 border-primary ps-3">
+                        <span class="h4 fw-extrabold text-dark d-block mb-0">UL 2849</span>
+                        <small class="text-muted">Certified Electrical Safety</small>
+                    </div>
+                    <div class="border-start border-3 border-primary ps-3">
+                        <span class="h4 fw-extrabold text-dark d-block mb-0">Right-to-Repair</span>
+                        <small class="text-muted">Guaranteed Open Specs</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-2 rounded-4 bg-dark border shadow-lg position-relative overflow-hidden">
+                    <img src="{% static 'images/voltride-mountain-x.webp' %}" alt="Surron Engineering Workshop" class="img-fluid rounded-3 w-100" style="max-height: 420px; object-fit: cover;">
+                    <div class="position-absolute bottom-0 start-0 m-3 p-3 bg-dark bg-opacity-75 rounded-3 text-white backdrop-blur small">
+                        <i class="fas fa-check-circle text-primary me-2"></i> Surron Research & Diagnostics Lab, Vancouver, BC, Canada
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2. MISSION & VISION CARDS -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm h-100">
+                    <div class="rounded-circle bg-primary-subtle text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
+                        <i class="fas fa-bullseye fs-4"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-3">Our Mission</h3>
+                    <p class="text-secondary leading-relaxed">
+                        To empower riders with sustainable, rapid, and joy-inducing mobility that replaces highway gridlock and fossil fuel expenses, backed by lifelong customer support, transparent technical schematics, and same-day access to genuine replacement parts.
+                    </p>
+                    <ul class="text-secondary small ps-3 mb-0">
+                        <li class="mb-1">Democratize access to premium, reliable e-mobility</li>
+                        <li class="mb-1">Eliminate planned obsolescence with modular components</li>
+                        <li>Deliver industry-leading 24/7 technical customer support</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border rounded-4 p-4 p-md-5 bg-white shadow-sm h-100">
+                    <div class="rounded-circle bg-primary-subtle text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 54px; height: 54px;">
+                        <i class="fas fa-compass fs-4"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-3">Our Vision</h3>
+                    <p class="text-secondary leading-relaxed">
+                        A world where urban centers and wild mountain trails are navigated cleanly and quietly on accessible electric platforms engineered to withstand heavy all-weather use, extreme gradients, and decades of reliable daily transit.
+                    </p>
+                    <ul class="text-secondary small ps-3 mb-0">
+                        <li class="mb-1">Zero-landfill closed-loop battery recycling programs</li>
+                        <li class="mb-1">Continuous firmware optimizations for maximum battery life</li>
+                        <li>Expansion of authorized regional mobile service depots</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. STATISTICS & IMPACT -->
+<section class="py-5 bg-dark text-white border-top border-bottom border-secondary">
+    <div class="container py-4 text-center">
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="display-5 fw-extrabold text-primary mb-1">15,000+</div>
+                <div class="text-secondary small fw-semibold text-uppercase">Bikes on the Road</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="display-5 fw-extrabold text-primary mb-1">98.8%</div>
+                <div class="text-secondary small fw-semibold text-uppercase">Customer Satisfaction</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="display-5 fw-extrabold text-primary mb-1">4.2M lbs</div>
+                <div class="text-secondary small fw-semibold text-uppercase">CO₂ Emissions Saved</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="display-5 fw-extrabold text-primary mb-1">2,400+</div>
+                <div class="text-secondary small fw-semibold text-uppercase">OEM Parts Maintained</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. COMPANY MILESTONES & JOURNEY TIMELINE -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Our Evolution</span>
+            <h2 class="fw-extrabold text-dark mb-2">Milestones in Electric Innovation</h2>
+            <p class="text-secondary">How a modest prototype evolved into North America's trusted open-platform electric mobility brand.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm">
+                    <span class="badge bg-dark text-primary px-3 py-2 fw-bold align-self-start mb-3">2021 • Origin</span>
+                    <h5 class="fw-bold text-dark mb-2">Prototype Zero & Inception</h5>
+                    <p class="text-secondary small mb-0">Engineered our first hydroformed aluminum commuter frame in a British Columbia workshop. Replaced generic lead acid components with bespoke 48V Samsung 18650 packs.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm">
+                    <span class="badge bg-dark text-primary px-3 py-2 fw-bold align-self-start mb-3">2022 • Growth</span>
+                    <h5 class="fw-bold text-dark mb-2">Surron Commuter Pro Launch</h5>
+                    <p class="text-secondary small mb-0">Introduced the flagship Commuter Pro with integrated Bafang 750W hub motor and color LCD. Surpassed 2,500 active riders within the first 6 months of nationwide launch.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm">
+                    <span class="badge bg-dark text-primary px-3 py-2 fw-bold align-self-start mb-3">2023 • Quality</span>
+                    <h5 class="fw-bold text-dark mb-2">Dedicated Battery Test Facility</h5>
+                    <p class="text-secondary small mb-0">Commissioned an in-house thermal dynamics and battery impedance laboratory. Achieved UL 2849 full-system electrical safety certification across all models.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm">
+                    <span class="badge bg-dark text-primary px-3 py-2 fw-bold align-self-start mb-3">2024 • Expansion</span>
+                    <h5 class="fw-bold text-dark mb-2">Open Parts Catalog & Right to Repair</h5>
+                    <p class="text-secondary small mb-0">Launched our open OEM spare parts catalog with complete pinout wiring diagrams and step-by-step video repair tutorials for independent mechanics.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm">
+                    <span class="badge bg-dark text-primary px-3 py-2 fw-bold align-self-start mb-3">2025 • Impact</span>
+                    <h5 class="fw-bold text-dark mb-2">15,000 Riders & Fleet Solutions</h5>
+                    <p class="text-secondary small mb-0">Crossed 15,000 electric bicycles deployed. Partnered with regional courier and campus security programs with heavy-duty commercial cargo configurations.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border rounded-4 p-4 h-100 shadow-sm border-primary">
+                    <span class="badge bg-primary text-dark px-3 py-2 fw-bold align-self-start mb-3">2026 • Present</span>
+                    <h5 class="fw-bold text-dark mb-2">Smart IoT Telematics & Solid-State</h5>
+                    <p class="text-secondary small mb-0">Pioneering smart Bluetooth battery diagnostics, over-the-air motor torque curve mapping, and initial solid-state cell endurance prototyping.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. ENGINEERING & QUALITY COMMITMENT -->
+<section class="py-5" style="background-color: #f8fafc;">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">Engineering Excellence</span>
+            <h2 class="fw-extrabold text-dark mb-2">Our 4 Pillars of Mechanical Durability</h2>
+            <p class="text-secondary">We subject every frame, motor batch, and battery pack to rigorous mechanical stress tests before it reaches your door.</p>
+        </div>
+
+        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-microchip fs-5"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2">Cell Thermal Runaway Protection</h6>
+                    <p class="text-secondary small mb-0">Every pack features individual cell nickel-plated fuse links, pyrophoric barriers, and dual thermistor sensors that shut down power within 2ms of abnormal thermal spikes.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-hammer fs-5"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2">200,000 Cycle ISO Stress Tests</h6>
+                    <p class="text-secondary small mb-0">Our 6061 hydroformed frames undergo pneumatic horizontal fatigue tests simulating 10 years of aggressive urban potholes and rocky mountain drops with zero weld fatigue.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-tint fs-5"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2">IP65 All-Weather Sealing</h6>
+                    <p class="text-secondary small mb-0">Motor casings, controller housings, and quick-disconnect Julet connectors are gasketed to IP65 standards, allowing confident riding through heavy rainstorms, snow, and mud.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 p-4 bg-white shadow-sm h-100">
+                    <div class="rounded-circle bg-dark text-primary d-inline-flex align-items-center justify-content-center p-3 mb-3" style="width: 50px; height: 50px;">
+                        <i class="fas fa-wrench fs-5"></i>
+                    </div>
+                    <h6 class="fw-bold text-dark mb-2">Complete Right-to-Repair Open Specs</h6>
+                    <p class="text-secondary small mb-0">No proprietary locking software. We publish full electrical pinout tables and provide accessible spare parts so you or your local bike shop can repair any part anytime.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. LEADERSHIP TEAM -->
+<section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="text-primary text-uppercase fw-bold small">The Builders</span>
+            <h2 class="fw-extrabold text-dark mb-2">Meet the Leadership & Engineering Team</h2>
+            <p class="text-secondary">The engineers, technicians, and mobility advocates steering the Surron mission.</p>
+        </div>
+
+        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div class="col">
+                <div class="card border rounded-4 overflow-hidden shadow-sm text-center p-4">
+                    <div class="rounded-circle bg-dark text-primary mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 80px; height: 80px;">
+                        MV
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Marcus Vance</h5>
+                    <div class="text-primary small fw-semibold mb-2">Founder & Chief Engineer</div>
+                    <p class="text-secondary small mb-0">Former EV powertrain systems architect with 12 years in lithium battery design and high-voltage motor control.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 overflow-hidden shadow-sm text-center p-4">
+                    <div class="rounded-circle bg-dark text-primary mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 80px; height: 80px;">
+                        ER
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Elena Rostova, Ph.D.</h5>
+                    <div class="text-primary small fw-semibold mb-2">VP of Battery Systems</div>
+                    <p class="text-secondary small mb-0">Stanford Materials Science doctorate specializing in lithium-ion dendrite inhibition and thermal runaway management.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 overflow-hidden shadow-sm text-center p-4">
+                    <div class="rounded-circle bg-dark text-primary mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 80px; height: 80px;">
+                        DC
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">David Chen</h5>
+                    <div class="text-primary small fw-semibold mb-2">Head of Technical Support</div>
+                    <p class="text-secondary small mb-0">Master bicycle mechanic and hydraulic systems expert with over 15 years overseeing factory service depots.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border rounded-4 overflow-hidden shadow-sm text-center p-4">
+                    <div class="rounded-circle bg-dark text-primary mx-auto d-flex align-items-center justify-content-center fw-bold fs-3 mb-3" style="width: 80px; height: 80px;">
+                        MB
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Maya Brooks</h5>
+                    <div class="text-primary small fw-semibold mb-2">Director of Rider Experience</div>
+                    <p class="text-secondary small mb-0">Urban transportation policy specialist dedicated to making green micro-mobility accessible and safe for everyone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. SUSTAINABILITY & BATTERY STEWARDSHIP -->
+<section class="py-5" style="background-color: #f1f5f9;">
+    <div class="container py-4">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <span class="text-primary text-uppercase fw-bold small">Environmental Responsibility</span>
+                <h3 class="fw-extrabold text-dark mb-3">100% Closed-Loop Battery Recycling</h3>
+                <p class="text-secondary leading-relaxed">
+                    At Surron, environmental stewardship does not stop at zero tailpipe emissions. In official partnership with <strong>Call2Recycle®</strong>, we operate a nationwide battery recovery initiative. When your battery pack eventually completes its multi-year operational lifecycle, you can ship it to any Surron service depot for free, closed-loop processing.
+                </p>
+                <p class="text-secondary leading-relaxed mb-0">
+                    Over 95% of cobalt, nickel, and copper are recovered and recycled back into clean energy supply chains, ensuring zero lithium cells end up in municipal landfills.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 bg-dark text-white p-4 p-md-5 rounded-4 shadow">
+                    <h5 class="fw-bold text-primary mb-3"><i class="fas fa-recycle me-2"></i> Our Green Operations Pledge</h5>
+                    <ul class="list-unstyled mb-0 d-flex flex-column gap-3 small">
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                            <span><strong>Zero-Plastic Shipping:</strong> 100% recycled biodegradable honeycomb cardboard internal bracing replaces harmful styrofoam blocks.</span>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                            <span><strong>Solar Powered Assembly:</strong> Our Vancouver, BC engineering and distribution facility draws over 80% of its electricity from a 120kW rooftop solar array.</span>
+                        </li>
+                        <li class="d-flex align-items-start">
+                            <i class="fas fa-check-circle text-primary mt-1 me-3"></i>
+                            <span><strong>Free End-of-Life Disposal:</strong> Complimentary return shipping labels provided for spent battery packs to ensure certified metallurgical recycling.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 8. CALL TO ACTION -->
+<section class="py-5 bg-white">
+    <div class="container py-4 text-center">
+        <div class="max-w-700 mx-auto">
+            <h2 class="display-6 fw-extrabold text-dark mb-3">Ready to Experience the Surron Difference?</h2>
+            <p class="text-secondary mb-4">Discover our top-rated electric commuters, rugged mountain e-bikes, and genuine spare parts today.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="{% url 'store:shop' %}" class="btn btn-volt btn-lg rounded-pill px-4 fw-bold">Explore Our Bikes</a>
+                <a href="{% url 'pages:contact' %}" class="btn btn-outline-dark btn-lg rounded-pill px-4">Contact Technical Team</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

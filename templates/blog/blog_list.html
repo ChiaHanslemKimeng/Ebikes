@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Knowledge Base & Tech Guides | Surron E-Mobility Blog{% endblock %}
+{% block meta_description %}Technical guides, battery care tutorials, motor diagnostics, and e-bike commuting strategies from the Surron engineering team.{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Surron Knowledge Hub</span>
+        <h1 class="display-5 fw-extrabold mb-3">E-Mobility & Engineering Insights</h1>
+        <p class="lead text-secondary mb-0">Practical maintenance checklists, lithium battery care, motor deep-dives, and commuting guides.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-5">
+
+        <!-- ARTICLES LIST (LEFT) -->
+        <main class="col-lg-8">
+            <!-- Active Filter Badge -->
+            {% if current_category or tag or q %}
+                <div class="mb-4 d-flex align-items-center gap-2">
+                    <span class="text-secondary small">Filtering by:</span>
+                    {% if current_category %}
+                        <span class="badge bg-primary-subtle text-primary border p-2">Category: {{ current_category.name }} <a href="{% url 'blog:post_list' %}" class="text-danger ms-1">&times;</a></span>
+                    {% endif %}
+                    {% if tag %}
+                        <span class="badge bg-info-subtle text-info border p-2">Tag: {{ tag }} <a href="{% url 'blog:post_list' %}" class="text-danger ms-1">&times;</a></span>
+                    {% endif %}
+                    {% if q %}
+                        <span class="badge bg-secondary-subtle text-dark border p-2">Query: "{{ q }}" <a href="{% url 'blog:post_list' %}" class="text-danger ms-1">&times;</a></span>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if posts %}
+                <div class="row g-4 row-cols-1 row-cols-md-2">
+                    {% for post in posts %}
+                        <div class="col">
+                            <article class="blog-card">
+                                <div class="blog-card-media">
+                                    <a href="{{ post.get_absolute_url }}">
+                                        {% if post.featured_image %}
+                                            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy">
+                                        {% else %}
+                                            <img src="/static/images/placeholder-bike.svg" alt="{{ post.title }}" loading="lazy">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="blog-card-body">
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar-alt text-primary me-1"></i> {{ post.published_at|date:"M d, Y" }}</span>
+                                        <span><i class="far fa-eye text-info me-1"></i> {{ post.views }} views</span>
+                                    </div>
+                                    <span class="badge bg-light text-muted border text-uppercase mb-2" style="width: fit-content;">{{ post.category.name }}</span>
+                                    <h3 class="blog-title">
+                                        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                                    </h3>
+                                    <p class="text-secondary small mb-4 flex-grow-1">{{ post.excerpt|truncatewords:22 }}</p>
+                                    <a href="{{ post.get_absolute_url }}" class="fw-bold text-primary small mt-auto">
+                                        Read Complete Guide <i class="fas fa-arrow-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Pagination -->
+                {% if posts.has_other_pages %}
+                    <nav class="mt-5" aria-label="Blog pagination">
+                        <ul class="pagination justify-content-center">
+                            {% if posts.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}{% if current_category %}&category={{ current_category.slug }}{% endif %}"><i class="fas fa-chevron-left"></i></a></li>
+                            {% endif %}
+                            {% for num in posts.paginator.page_range %}
+                                <li class="page-item {% if posts.number == num %}active{% endif %}">
+                                    <a class="page-link {% if posts.number == num %}bg-dark border-dark text-white fw-bold{% else %}text-dark{% endif %}" href="?page={{ num }}{% if current_category %}&category={{ current_category.slug }}{% endif %}">{{ num }}</a>
+                                </li>
+                            {% endfor %}
+                            {% if posts.has_next %}
+                                <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}{% if current_category %}&category={{ current_category.slug }}{% endif %}"><i class="fas fa-chevron-right"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+
+            {% else %}
+                <div class="text-center py-5 bg-white rounded-4 border p-5">
+                    <i class="far fa-newspaper fa-3x text-muted mb-3"></i>
+                    <h4 class="fw-bold text-dark">No Articles Found</h4>
+                    <p class="text-secondary">Try searching for other topics such as batteries, motors, or safety tips.</p>
+                    <a href="{% url 'blog:post_list' %}" class="btn btn-volt btn-sm">View All Articles</a>
+                </div>
+            {% endif %}
+        </main>
+
+        <!-- SIDEBAR (RIGHT) -->
+        <aside class="col-lg-4">
+            <!-- Search Widget -->
+            <div class="card border rounded-4 shadow-sm p-4 bg-white mb-4">
+                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-search text-primary me-2"></i> Search Knowledge Base</h6>
+                <form action="{% url 'blog:post_list' %}" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search guides & care tips..." value="{{ q|default:'' }}">
+                        <button class="btn btn-volt" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Categories Widget -->
+            <div class="card border rounded-4 shadow-sm p-4 bg-white mb-4">
+                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-folder text-primary me-2"></i> Categories</h6>
+                <div class="d-flex flex-column gap-1">
+                    <a href="{% url 'blog:post_list' %}" class="d-flex justify-content-between py-1 px-2 rounded text-dark small {% if not current_category %}bg-light fw-bold{% endif %}">
+                        <span>All Topics</span>
+                    </a>
+                    {% for cat in categories %}
+                        <a href="{% url 'blog:post_list' %}?category={{ cat.slug }}" class="d-flex justify-content-between py-1 px-2 rounded text-dark small {% if current_category.slug == cat.slug %}bg-primary-subtle text-primary fw-bold{% endif %}">
+                            <span>{{ cat.name }}</span>
+                            <span class="badge bg-light text-muted">{{ cat.posts.count }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Recent Articles Widget -->
+            <div class="card border rounded-4 shadow-sm p-4 bg-white mb-4">
+                <h6 class="fw-bold text-dark mb-3"><i class="fas fa-history text-primary me-2"></i> Recent Articles</h6>
+                <div class="d-flex flex-column gap-3">
+                    {% for rpost in recent_posts %}
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="rounded-3 overflow-hidden bg-dark" style="width: 58px; height: 58px; flex-shrink: 0;">
+                                {% if rpost.featured_image %}
+                                    <img src="{{ rpost.featured_image.url }}" alt="{{ rpost.title }}" class="w-100 h-100" style="object-fit: cover;">
+                                {% else %}
+                                    <img src="/static/images/placeholder-bike.svg" alt="{{ rpost.title }}" class="w-100 h-100" style="object-fit: cover;">
+                                {% endif %}
+                            </div>
+                            <div>
+                                <a href="{{ rpost.get_absolute_url }}" class="fw-bold text-dark small d-block line-clamp-2">{{ rpost.title }}</a>
+                                <span class="text-muted small" style="font-size: 0.72rem;">{{ rpost.published_at|date:"M d, Y" }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+{% endblock %}

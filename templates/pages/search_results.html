@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Search Results for "{{ query }}" | Surron{% endblock %}
+
+{% block content %}
+
+<!-- Header -->
+<div class="bg-dark py-5 text-white border-bottom border-secondary">
+    <div class="container text-center max-w-700 mx-auto">
+        <span class="badge bg-primary text-dark fw-bold text-uppercase px-3 py-2 mb-3">Site-Wide Search</span>
+        <h1 class="display-6 fw-extrabold mb-2">Search Results</h1>
+        <p class="text-secondary small mb-4">Showing results for query: <strong class="text-white">"{{ query }}"</strong></p>
+
+        <!-- Search Bar -->
+        <form action="{% url 'pages:search' %}" method="GET" class="mx-auto position-relative" style="max-width: 560px;">
+            <div class="input-group input-group-lg">
+                <input type="text" name="q" class="form-control bg-black border-secondary text-white site-search-input" value="{{ query }}" placeholder="Search bikes, parts, guides..." required>
+                <button class="btn btn-volt fw-bold" type="submit"><i class="fas fa-search me-1"></i> Search</button>
+            </div>
+            <div class="search-autocomplete-results d-none position-absolute w-100 mt-2 z-3 text-start"></div>
+        </form>
+    </div>
+</div>
+
+<div class="container py-5">
+    <!-- Tabs for Products vs Blog Articles -->
+    <ul class="nav nav-pills justify-content-center mb-5 gap-2" id="searchTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active px-4 py-2 fw-bold rounded-pill" id="products-search-tab" data-bs-toggle="pill" data-bs-target="#searchProducts" type="button" role="tab">
+                <i class="fas fa-bicycle me-2"></i> Products & Spare Parts ({{ products_count }})
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link px-4 py-2 fw-bold rounded-pill" id="blog-search-tab" data-bs-toggle="pill" data-bs-target="#searchBlog" type="button" role="tab">
+                <i class="fas fa-newspaper me-2"></i> Knowledge Articles ({{ posts_count }})
+            </button>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="searchTabsContent">
+        <!-- Products Tab -->
+        <div class="tab-pane fade show active" id="searchProducts" role="tabpanel">
+            {% if products %}
+                <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+                    {% for product in products %}
+                        <div class="col">
+                            <div class="product-card">
+                                <div class="product-card-media">
+                                    <div class="product-card-actions">
+                                        <button type="button" class="btn-card-action btn-wishlist-toggle {% if product.id in user_wishlist_ids %}active{% endif %}" data-product-id="{{ product.id }}" title="Wishlist">
+                                            <i class="{% if product.id in user_wishlist_ids %}fas{% else %}far{% endif %} fa-heart"></i>
+                                        </button>
+                                        <button type="button" class="btn-card-action btn-quick-view" data-slug="{{ product.slug }}" title="Quick View">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <a href="{{ product.get_absolute_url }}">
+                                        {% with primary_img=product.get_primary_image %}
+                                            {% if primary_img and primary_img.image %}
+                                                <img src="{{ primary_img.image.url }}" alt="{{ product.name }}" loading="lazy">
+                                            {% else %}
+                                                <img src="/static/images/placeholder-bike.svg" alt="{{ product.name }}" loading="lazy">
+                                            {% endif %}
+                                        {% endwith %}
+                                    </a>
+                                </div>
+                                <div class="product-card-body">
+                                    <div class="product-card-category">{{ product.category.name }}</div>
+                                    <h4 class="product-card-title"><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
+                                    <div class="product-price-wrapper">
+                                        <div class="product-price">${{ product.current_price }}</div>
+                                    </div>
+                                    <button type="button" class="btn btn-volt w-100 btn-ajax-add-cart mt-2" data-product-id="{{ product.id }}">
+                                        <i class="fas fa-shopping-bag me-1"></i> Add to Cart
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-5 bg-white rounded-4 border p-5 max-w-700 mx-auto">
+                    <i class="fas fa-bicycle fa-3x text-muted mb-3"></i>
+                    <h5 class="fw-bold text-dark">No Matching Products</h5>
+                    <p class="text-secondary small mb-3">No electric bikes or components matched your search term.</p>
+                    <a href="{% url 'store:shop' %}" class="btn btn-volt btn-sm">Browse Full Shop</a>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Blog Articles Tab -->
+        <div class="tab-pane fade" id="searchBlog" role="tabpanel">
+            {% if posts %}
+                <div class="row g-4 row-cols-1 row-cols-md-3">
+                    {% for post in posts %}
+                        <div class="col">
+                            <article class="blog-card">
+                                <div class="blog-card-media">
+                                    <a href="{{ post.get_absolute_url }}">
+                                        {% if post.featured_image %}
+                                            <img src="{{ post.featured_image.url }}" alt="{{ post.title }}" loading="lazy">
+                                        {% else %}
+                                            <img src="/static/images/placeholder-bike.svg" alt="{{ post.title }}" loading="lazy">
+                                        {% endif %}
+                                    </a>
+                                </div>
+                                <div class="blog-card-body">
+                                    <div class="blog-meta">
+                                        <span><i class="far fa-calendar-alt text-primary me-1"></i> {{ post.published_at|date:"M d, Y" }}</span>
+                                    </div>
+                                    <h4 class="blog-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                                    <p class="text-secondary small mb-3 flex-grow-1">{{ post.excerpt|truncatewords:20 }}</p>
+                                    <a href="{{ post.get_absolute_url }}" class="fw-bold text-primary small mt-auto">
+                                        Read Article <i class="fas fa-arrow-right ms-1"></i>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-5 bg-white rounded-4 border p-5 max-w-700 mx-auto">
+                    <i class="far fa-newspaper fa-3x text-muted mb-3"></i>
+                    <h5 class="fw-bold text-dark">No Matching Articles</h5>
+                    <p class="text-secondary small mb-3">No technical guides matched your search keyword.</p>
+                    <a href="{% url 'blog:post_list' %}" class="btn btn-volt btn-sm">Explore Tech Guides</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile | Surron Account{% endblock %}
+
+{% block content %}
+
+<div class="bg-dark py-4 text-white border-bottom border-secondary">
+    <div class="container">
+        <h1 class="display-6 fw-extrabold mb-1">Edit Account Profile</h1>
+        <p class="text-secondary small mb-0">Update your contact information and shipping delivery address.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3">
+            <div class="card border rounded-4 shadow-sm p-3 bg-white">
+                <div class="text-center p-3 border-bottom mb-3">
+                    <div class="width-60 height-60 rounded-circle bg-dark text-primary mx-auto d-flex align-items-center justify-content-center fw-bold fs-4 mb-2" style="width: 60px; height: 60px;">
+                        {{ user.first_name|default:user.username|make_list|first|upper }}
+                    </div>
+                    <h6 class="fw-bold mb-0 text-dark">{{ user.get_full_name|default:user.username }}</h6>
+                    <span class="text-muted small">{{ user.email }}</span>
+                </div>
+                <div class="nav flex-column gap-1">
+                    <a href="{% url 'accounts:dashboard' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-columns me-2 text-primary"></i> Dashboard</a>
+                    <a href="{% url 'orders:order_list' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-box me-2 text-primary"></i> My Orders</a>
+                    <a href="{% url 'store:wishlist' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-heart me-2 text-danger"></i> Wishlist</a>
+                    <a href="{% url 'accounts:profile_edit' %}" class="nav-link py-2 px-3 rounded bg-primary-subtle text-primary fw-bold"><i class="fas fa-user-cog me-2"></i> Edit Profile</a>
+                    <a href="{% url 'accounts:password_change' %}" class="nav-link py-2 px-3 rounded text-dark"><i class="fas fa-key me-2 text-warning"></i> Password</a>
+                    <hr class="my-2">
+                    <a href="{% url 'accounts:logout' %}" class="nav-link py-2 px-3 rounded text-danger"><i class="fas fa-sign-out-alt me-2"></i> Sign Out</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
+                <h5 class="fw-bold text-dark mb-4 pb-2 border-bottom">Profile & Contact Preferences</h5>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">First Name</label>
+                            {{ u_form.first_name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Last Name</label>
+                            {{ u_form.last_name }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Email Address</label>
+                            {{ u_form.email }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small fw-bold">Phone Number</label>
+                            {{ p_form.phone }}
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold text-dark mb-3 pt-3 border-top">Default Shipping Location</h6>
+                    <div class="row g-3 mb-4">
+                        <div class="col-12">
+                            <label class="form-label small fw-bold">Street Address</label>
+                            {{ p_form.address }}
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label small fw-bold">City</label>
+                            {{ p_form.city }}
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small fw-bold">Postal Code</label>
+                            {{ p_form.postal_code }}
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label small fw-bold">Country</label>
+                            {{ p_form.country }}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="{% url 'accounts:dashboard' %}" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-volt fw-bold px-4">Save Profile Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

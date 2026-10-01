@@ -1,0 +1,63 @@
+{% extends 'emails/email_base.html' %}
+
+{% block email_title %}Welcome to Surron Bikes &amp; Parts Canada{% endblock %}
+
+{% block preview_text %}Welcome to the premier Canadian Surron community, {{ user.first_name|default:user.username }}!{% endblock %}
+
+{% block header_badge %}New Rider Welcome{% endblock %}
+
+{% block hero_banner %}
+<tr>
+    <td style="background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%); padding: 32px 36px; text-align: left; color: #ffffff;" class="mobile-padding">
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #38bdf8; margin-bottom: 6px;">
+            Account Created Successfully
+        </div>
+        <div style="font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 8px;">
+            Welcome to Surron Canada!
+        </div>
+        <div style="font-size: 14px; opacity: 0.95;">
+            High-Performance Electric Mobility &bull; Genuine OEM Parts
+        </div>
+    </td>
+</tr>
+{% endblock %}
+
+{% block email_content %}
+<p style="margin-top: 0; font-size: 16px; color: #1e293b;">
+    Hello <strong>{{ user.first_name|default:user.username }}</strong>,
+</p>
+<p style="color: #475569; font-size: 15px; line-height: 24px;">
+    Thank you for registering with <strong>Surron Bikes &amp; Parts Canada</strong>. Your customer account is now active. As a member of our rider community, you enjoy direct access to:
+</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin: 20px 0;">
+    <tr>
+        <td style="padding: 12px 16px; background-color: #f8fafc; border-left: 4px solid #0284c7; border-radius: 4px; margin-bottom: 10px;">
+            <strong style="color: #0f172a;">Tracked Orders &amp; Live Status:</strong> Monitor your shipments and past purchase receipts directly from your dashboard.
+        </td>
+    </tr>
+    <tr><td style="height: 10px;"></td></tr>
+    <tr>
+        <td style="padding: 12px 16px; background-color: #f8fafc; border-left: 4px solid #0284c7; border-radius: 4px; margin-bottom: 10px;">
+            <strong style="color: #0f172a;">Factory Warranty Registration:</strong> Register your Surron VIN and battery serial number for priority official 2-year warranty support.
+        </td>
+    </tr>
+    <tr><td style="height: 10px;"></td></tr>
+    <tr>
+        <td style="padding: 12px 16px; background-color: #f8fafc; border-left: 4px solid #0284c7; border-radius: 4px;">
+            <strong style="color: #0f172a;">Wishlist &amp; Stock Alerts:</strong> Save custom configurations and receive instant alerts when high-demand OEM upgrade components arrive in stock.
+        </td>
+    </tr>
+</table>
+
+<p style="color: #64748b; font-size: 14px; line-height: 22px;">
+    Your registered username: <strong style="color: #0f172a;">{{ user.username }}</strong><br>
+    Your registered email: <strong style="color: #0f172a;">{{ user.email }}</strong>
+</p>
+
+<div style="text-align: center; margin-top: 32px;">
+    <a href="{{ site_url }}{% url 'accounts:dashboard' %}" style="display: inline-block; background-color: #0284c7; color: #ffffff; font-size: 15px; font-weight: 700; text-decoration: none; padding: 14px 32px; border-radius: 8px; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);">
+        Go to Rider Dashboard &rarr;
+    </a>
+</div>
+{% endblock %}

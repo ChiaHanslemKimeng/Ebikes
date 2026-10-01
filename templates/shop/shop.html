@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Shop Electric Bikes & Spare Parts | Surron Official Store{% endblock %}
+{% block meta_description %}Browse the complete Surron catalog of electric commuter bikes, eMTBs, motors, batteries, chargers, and accessories.{% endblock %}
+
+{% block content %}
+
+<!-- Breadcrumbs & Header -->
+<div class="bg-dark py-4 text-white border-bottom border-secondary">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small mb-2">
+                <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-secondary">Home</a></li>
+                <li class="breadcrumb-item active text-white" aria-current="page">Shop</li>
+                {% if current_category %}
+                    <li class="breadcrumb-item active text-primary" aria-current="page">{{ current_category.name }}</li>
+                {% endif %}
+            </ol>
+        </nav>
+        <h1 class="display-6 fw-extrabold mb-1">
+            {% if current_category %}{{ current_category.name }}{% elif current_type %}{{ current_type|title }}s{% else %}All Products & Components{% endif %}
+        </h1>
+        <p class="text-secondary small mb-0">High-torque mobility solutions, OEM replacement parts, and precision accessories.</p>
+    </div>
+</div>
+
+<div class="container py-5">
+    <div class="row g-4">
+
+        <!-- DESKTOP FILTER SIDEBAR (Brand filter removed) -->
+        <aside class="col-lg-3 d-none d-lg-block">
+            <div class="bg-white p-4 rounded-4 border shadow-sm sticky-top" style="top: 90px; z-index: 10;">
+                <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                    <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-sliders-h text-primary me-2"></i> Filters</h5>
+                    <a href="{% url 'store:shop' %}" class="small text-danger fw-semibold">Reset All</a>
+                </div>
+
+                <form method="GET" action="{% url 'store:shop' %}" id="shopFilterForm">
+                    <!-- Preserve search query & sort -->
+                    {% if q %}<input type="hidden" name="q" value="{{ q }}">{% endif %}
+                    <input type="hidden" name="sort" value="{{ current_sort }}">
+
+                    <!-- Product Classification Filter -->
+                    <div class="mb-4">
+                        <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Classification</label>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" value="" id="typeAll" {% if not current_type %}checked{% endif %} onchange="this.form.submit()">
+                                <label class="form-check-label small" for="typeAll">All Catalog</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" value="ebike" id="typeEbike" {% if current_type == 'ebike' %}checked{% endif %} onchange="this.form.submit()">
+                                <label class="form-check-label small fw-semibold" for="typeEbike">Electric Bikes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" value="spare_part" id="typeSpare" {% if current_type == 'spare_part' %}checked{% endif %} onchange="this.form.submit()">
+                                <label class="form-check-label small fw-semibold" for="typeSpare">Spare Parts</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="type" value="accessory" id="typeAcc" {% if current_type == 'accessory' %}checked{% endif %} onchange="this.form.submit()">
+                                <label class="form-check-label small fw-semibold" for="typeAcc">Accessories</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories Filter -->
+                    <div class="mb-4">
+                        <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Categories</label>
+                        <div class="d-flex flex-column gap-1" style="max-height: 260px; overflow-y: auto;">
+                            <!-- All Categories Option -->
+                            <a href="?{% for k, v in request.GET.items %}{% if k != 'category' and k != 'subcategory' and k != 'page' and k != 'type' %}{{ k }}={{ v }}&{% endif %}{% endfor %}" class="d-flex justify-content-between align-items-center py-1 px-2 rounded text-dark small {% if not current_category %}bg-primary-subtle text-primary fw-bold{% endif %}">
+                                <span>All Categories</span>
+                                <span class="badge bg-light text-muted">{{ total_count }}</span>
+                            </a>
+                            {% for cat in categories %}
+                                <a href="?{% for k, v in request.GET.items %}{% if k != 'category' and k != 'subcategory' and k != 'page' and k != 'type' %}{{ k }}={{ v }}&{% endif %}{% endfor %}category={{ cat.slug }}" class="d-flex justify-content-between align-items-center py-1 px-2 rounded text-dark small {% if current_category.slug == cat.slug %}bg-primary-subtle text-primary fw-bold{% endif %}">
+                                    <span>{{ cat.name }}</span>
+                                    <span class="badge bg-light text-muted">{{ cat.products.count }}</span>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Price Range Filter -->
+                    <div class="mb-4">
+                        <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Price Range ($)</label>
+                        <div class="row g-2 mb-2">
+                            <div class="col-6">
+                                <input type="number" name="min_price" class="form-control form-control-sm" placeholder="Min" value="{{ min_price|default:'' }}">
+                            </div>
+                            <div class="col-6">
+                                <input type="number" name="max_price" class="form-control form-control-sm" placeholder="Max" value="{{ max_price|default:'' }}">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-dark btn-sm w-100 fw-bold">Apply Price</button>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="mb-2">
+                        <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Inventory Availability</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="in_stock" value="1" id="filterInStock" {% if in_stock == '1' %}checked{% endif %} onchange="this.form.submit()">
+                            <label class="form-check-label small fw-semibold" for="filterInStock">In Stock Only</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </aside>
+
+        <!-- MAIN PRODUCT CATALOG AREA -->
+        <main class="col-lg-9">
+            <!-- Top Controls (Mobile filter trigger + Sorting dropdown) -->
+            <div class="bg-white p-3 rounded-4 border shadow-sm mb-4 d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <button class="btn btn-outline-dark btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileFilterOffcanvas">
+                    <i class="fas fa-filter me-1"></i> Filter Products
+                </button>
+
+                <div class="d-flex align-items-center ms-auto">
+                    <label class="small text-secondary me-2 fw-semibold mb-0 text-nowrap">Sort By:</label>
+                    <select class="form-select form-select-sm w-auto" onchange="location = this.value;">
+                        <option value="?{% for k, v in request.GET.items %}{% if k != 'sort' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}sort=newest" {% if current_sort == 'newest' %}selected{% endif %}>Newest First</option>
+                        <option value="?{% for k, v in request.GET.items %}{% if k != 'sort' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}sort=price_low" {% if current_sort == 'price_low' %}selected{% endif %}>Price: Low to High</option>
+                        <option value="?{% for k, v in request.GET.items %}{% if k != 'sort' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}sort=price_high" {% if current_sort == 'price_high' %}selected{% endif %}>Price: High to Low</option>
+                        <option value="?{% for k, v in request.GET.items %}{% if k != 'sort' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}sort=popular" {% if current_sort == 'popular' %}selected{% endif %}>Most Popular</option>
+                        <option value="?{% for k, v in request.GET.items %}{% if k != 'sort' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}sort=rating" {% if current_sort == 'rating' %}selected{% endif %}>Highest Rated</option>
+                        <option value="?{% for k, v in request.GET.items %}{% if k != 'sort' and k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}sort=name_asc" {% if current_sort == 'name_asc' %}selected{% endif %}>Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid Fragment -->
+            {% include 'shop/partials/product_grid.html' %}
+        </main>
+    </div>
+</div>
+
+<!-- MOBILE FILTER OFFCANVAS (Brand removed) -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileFilterOffcanvas" aria-labelledby="mobileFilterLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold" id="mobileFilterLabel"><i class="fas fa-filter text-primary me-2"></i> Filter Products</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <form method="GET" action="{% url 'store:shop' %}">
+            {% if q %}<input type="hidden" name="q" value="{{ q }}">{% endif %}
+            <div class="mb-4">
+                <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Classification</label>
+                <select name="type" id="mFilterType" class="form-select mb-3" onchange="if(this.value){ document.getElementById('mFilterCategory').value=''; }">
+                    <option value="">All Catalog</option>
+                    <option value="ebike" {% if current_type == 'ebike' %}selected{% endif %}>Electric Bikes</option>
+                    <option value="spare_part" {% if current_type == 'spare_part' %}selected{% endif %}>Spare Parts</option>
+                    <option value="accessory" {% if current_type == 'accessory' %}selected{% endif %}>Accessories</option>
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Categories</label>
+                <select name="category" id="mFilterCategory" class="form-select" onchange="if(this.value){ document.getElementById('mFilterType').value=''; }">
+                    <option value="">All Categories</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat.slug }}" {% if current_category.slug == cat.slug %}selected{% endif %}>{{ cat.name }} ({{ cat.products.count }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label class="fw-bold small text-uppercase text-secondary mb-2 d-block">Price Range ($)</label>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <input type="number" name="min_price" class="form-control" placeholder="Min $" value="{{ min_price|default:'' }}">
+                    </div>
+                    <div class="col-6">
+                        <input type="number" name="max_price" class="form-control" placeholder="Max $" value="{{ max_price|default:'' }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="in_stock" value="1" id="mFilterInStock" {% if in_stock == '1' %}checked{% endif %}>
+                    <label class="form-check-label fw-semibold" for="mFilterInStock">In Stock Only</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-volt w-100 py-2 fw-bold">Apply Filters</button>
+            <a href="{% url 'store:shop' %}" class="btn btn-outline-secondary w-100 py-2 mt-2">Reset All</a>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
