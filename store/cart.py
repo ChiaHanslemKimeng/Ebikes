@@ -134,6 +134,17 @@ class Cart:
         total = subtotal + shipping - discount
         return max(Decimal('0.00'), total)
 
+    MIN_ORDER_AMOUNT = Decimal('200.00')
+
+    def meets_min_order(self):
+        return self.get_subtotal() >= self.MIN_ORDER_AMOUNT
+
+    def get_remaining_for_min_order(self):
+        subtotal = self.get_subtotal()
+        if subtotal >= self.MIN_ORDER_AMOUNT:
+            return Decimal('0.00')
+        return self.MIN_ORDER_AMOUNT - subtotal
+
     def clear(self):
         if settings.CART_SESSION_ID in self.session:
             del self.session[settings.CART_SESSION_ID]

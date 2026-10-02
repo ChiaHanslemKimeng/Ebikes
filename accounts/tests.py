@@ -28,3 +28,14 @@ class AccountsTests(TestCase):
         res_dash = self.client.get(reverse('accounts:dashboard'))
         self.assertEqual(res_dash.status_code, 200)
         self.assertContains(res_dash, "Account Dashboard")
+
+    def test_password_reset_unregistered_email_rejected(self):
+        res = self.client.post(reverse('accounts:password_reset'), {'email': 'unknown@example.com'})
+        self.assertEqual(res.status_code, 200)
+        self.assertContains(res, "No active account found with this email address")
+
+    def test_password_reset_registered_email_accepted(self):
+        User.objects.create_user(username='rider2', email='registered@example.com', password='password123')
+        res = self.client.post(reverse('accounts:password_reset'), {'email': 'registered@example.com'})
+        self.assertEqual(res.status_code, 302)
+        self.assertIn('/account/password-reset/done/', res.url)

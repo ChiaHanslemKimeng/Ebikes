@@ -104,3 +104,21 @@ class OrderTests(TestCase):
         self.assertEqual(order.payment_method, 'other')
         self.assertEqual(order.other_payment_method, 'Venmo @VoltTech')
 
+    def test_minimum_order_enforced(self):
+        cheap_product = Product.objects.create(
+            name="Bolt Set",
+            slug="bolt-set",
+            SKU="BLT-01",
+            category=self.category,
+            product_type="accessory",
+            price=Decimal("45.00"),
+            stock_quantity=20
+        )
+        self.client.login(username="orderuser", password="password123")
+        self.client.post(reverse('store:cart_add', kwargs={'product_id': cheap_product.id}), {'quantity': 1})
+
+        # Subtotal is $45, below $200
+        res = self.client.get(reverse('orders:checkout'), follow=True)
+        self.assertRedirects(res, reverse('store:cart_detail'))
+        self.assertContains(res, "minimum order amount is $200.00")
+

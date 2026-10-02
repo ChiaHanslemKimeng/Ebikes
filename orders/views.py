@@ -22,6 +22,15 @@ def checkout_view(request):
         messages.warning(request, "Your shopping cart is empty. Please add items before checking out.")
         return redirect('store:shop')
 
+    # Enforce minimum order threshold of $200.00
+    if not cart.meets_min_order():
+        remaining = cart.get_remaining_for_min_order()
+        messages.warning(
+            request,
+            f"The minimum order amount is $200.00. Your current cart subtotal is ${cart.get_subtotal():.2f}. Please add ${remaining:.2f} more to proceed with checkout."
+        )
+        return redirect('store:cart_detail')
+
     # Pre-fill data if authenticated
     initial_data = {}
     if request.user.is_authenticated:
@@ -37,7 +46,7 @@ def checkout_view(request):
                 'address': prof.address,
                 'city': prof.city,
                 'postal_code': prof.postal_code,
-                'country': prof.country or 'United States',
+                'country': prof.country or '',
             })
 
     if request.method == 'POST':

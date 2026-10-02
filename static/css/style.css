@@ -26,12 +26,48 @@
   --vr-glow: 0 0 20px rgba(0, 229, 153, 0.3);
 }
 
+html {
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
 body {
   font-family: var(--vr-font-family);
   background-color: var(--vr-light-bg);
   color: #1e293b;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
   line-height: 1.6;
+}
+
+main {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+/* Prevent Bootstrap row gutters from spilling outside containers on tablets & phones */
+@media (max-width: 991.98px) {
+  .row.g-5 {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 1.5rem;
+  }
+  .row.g-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1.25rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .row {
+    --bs-gutter-x: 1rem;
+  }
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 }
 
 a {

@@ -63,6 +63,58 @@ class ProfileUpdateForm(forms.ModelForm):
             'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Street Address'}),
             'city': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'City'}),
             'postal_code': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Postal Code'}),
-            'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Country'}),
+            'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Country / Region'}),
             'avatar': forms.FileInput(attrs={'class': 'form-control'}),
         }
+
+
+from django.contrib.auth.forms import PasswordResetForm, SetPasswordForm
+
+
+class StrictPasswordResetForm(PasswordResetForm):
+    """
+    Password reset form that strictly validates that the email is registered
+    in the database before sending any reset link.
+    """
+    email = forms.EmailField(
+        label="Email Address",
+        max_length=254,
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control form-control-lg',
+            'placeholder': 'name@example.com',
+            'autocomplete': 'email',
+            'required': True,
+            'autofocus': True,
+        })
+    )
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email', '').strip()
+        users = User.objects.filter(email__iexact=email, is_active=True)
+        if not users.exists():
+            raise forms.ValidationError(
+                "No active account found with this email address. Please check your spelling or register a new account."
+            )
+        return email
+
+
+class StyledSetPasswordForm(SetPasswordForm):
+    """
+    Styled SetPasswordForm with clean Bootstrap 5 form-control styling.
+    """
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'new_password1' in self.fields:
+            self.fields['new_password1'].widget.attrs.update({
+                'class': 'form-control form-control-lg',
+                'placeholder': 'Enter new password (min. 8 characters)',
+                'autocomplete': 'new-password',
+                'id': 'newPassword1Input',
+            })
+        if 'new_password2' in self.fields:
+            self.fields['new_password2'].widget.attrs.update({
+                'class': 'form-control form-control-lg',
+                'placeholder': 'Re-enter new password to confirm',
+                'autocomplete': 'new-password',
+                'id': 'newPassword2Input',
+            })

@@ -9,12 +9,11 @@
     <div class="max-w-700 mx-auto" style="max-width: 480px;" data-aos="fade-up">
         <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5 bg-white">
             <div class="text-center mb-4">
-                <a class="navbar-brand navbar-brand-logo mb-2 d-inline-flex" href="{% url 'pages:home' %}">
-                    <span class="volt-bolt"><i class="fas fa-bolt"></i></span>
-                    <span class="text-dark">VOLT<span class="text-info">RIDE</span></span>
+                <a class="d-inline-flex align-items-center justify-content-center mb-3" href="{% url 'pages:home' %}">
+                    <img src="{% static 'images/surron-logo.jpg' %}" alt="Surron Bikes &amp; Parts" class="rounded-3 shadow-sm" style="height: 64px; width: auto; object-fit: contain;">
                 </a>
                 <h3 class="fw-extrabold text-dark">Welcome Back</h3>
-                <p class="text-secondary small">Access your order history, wishlist, and warranty data.</p>
+                <p class="text-secondary small">Sign in to your Surron account to manage orders, wishlist, and warranty data.</p>
             </div>
 
             <form method="POST" action="{% url 'accounts:login' %}">

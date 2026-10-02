@@ -2,7 +2,38 @@ from django import forms
 from orders.models import Order
 
 
+COUNTRY_CHOICES = [
+    ('', '-- Select Country / Region --'),
+    ('Canada', 'Canada'),
+    ('United States', 'United States'),
+    ('United Kingdom', 'United Kingdom'),
+    ('Australia', 'Australia'),
+    ('Germany', 'Germany'),
+    ('France', 'France'),
+    ('Italy', 'Italy'),
+    ('Spain', 'Spain'),
+    ('Netherlands', 'Netherlands'),
+    ('Switzerland', 'Switzerland'),
+    ('Sweden', 'Sweden'),
+    ('Norway', 'Norway'),
+    ('Denmark', 'Denmark'),
+    ('Belgium', 'Belgium'),
+    ('Austria', 'Austria'),
+    ('New Zealand', 'New Zealand'),
+    ('Ireland', 'Ireland'),
+    ('Japan', 'Japan'),
+    ('Singapore', 'Singapore'),
+    ('Other', 'Other Country'),
+]
+
+
 class CheckoutForm(forms.ModelForm):
+    country = forms.ChoiceField(
+        choices=COUNTRY_CHOICES,
+        required=True,
+        widget=forms.Select(attrs={'class': 'form-select', 'required': True}),
+        error_messages={'required': 'Please select your country / region.'}
+    )
     accept_terms = forms.BooleanField(
         required=True,
         error_messages={'required': 'You must accept the Terms and Conditions to proceed.'}
@@ -31,7 +62,6 @@ class CheckoutForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Last Name', 'required': True}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email Address', 'required': True}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': '+1 (555) 000-0000', 'required': True}),
-            'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Country', 'required': True}),
             'city': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'City', 'required': True}),
             'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Street Address, Apartment, Suite', 'required': True}),
             'postal_code': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Postal Code / ZIP', 'required': True}),

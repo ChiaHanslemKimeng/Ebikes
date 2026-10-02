@@ -74,7 +74,7 @@ class Order(models.Model):
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=20)
-    country = models.CharField(max_length=100, default='United States')
+    country = models.CharField(max_length=100, blank=True, default='')
     delivery_notes = models.TextField(blank=True)
 
     # Order Totals
@@ -155,7 +155,7 @@ class ShippingAddress(models.Model):
     address = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     postal_code = models.CharField(max_length=20)
-    country = models.CharField(max_length=100, default='United States')
+    country = models.CharField(max_length=100, blank=True, default='')
     is_default = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 

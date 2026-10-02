@@ -105,8 +105,23 @@
                 </div>
             </a>
 
+            <!-- Mobile Quick Action Icons (Cart & Wishlist) -->
+            <div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-2">
+                <!-- Mobile Wishlist Icon -->
+                <a href="{% url 'store:wishlist' %}" class="nav-icon-btn position-relative" title="Saved Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge-count wishlist-count-badge">{{ wishlist_count }}</span>
+                </a>
+
+                <!-- Mobile Shopping Cart Icon -->
+                <a href="{% url 'store:cart_detail' %}" class="nav-icon-btn position-relative" title="Shopping Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge-count cart-count-badge">{{ cart_count }}</span>
+                </a>
+            </div>
+
             <!-- Mobile Offcanvas Toggle Button -->
-            <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
+            <button class="navbar-toggler border-0 text-white p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenuOffcanvas" aria-controls="mobileMenuOffcanvas">
                 <i class="fas fa-bars fa-lg text-white"></i>
             </button>
 
@@ -278,6 +293,7 @@
                 <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'blog:post_list' %}"><i class="fas fa-newspaper me-2 text-primary"></i> Blog</a></li>
                 <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:contact' %}"><i class="fas fa-envelope me-2 text-primary"></i> Contact</a></li>
                 <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'store:wishlist' %}"><i class="fas fa-heart me-2 text-danger"></i> Wishlist ({{ wishlist_count }})</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'store:cart_detail' %}"><i class="fas fa-shopping-bag me-2 text-primary"></i> Shopping Cart ({{ cart_count }})</a></li>
             </ul>
 
             <div class="border-top border-secondary pt-3">
