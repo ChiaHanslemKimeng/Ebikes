@@ -122,3 +122,36 @@ class OrderTests(TestCase):
         self.assertRedirects(res, reverse('store:cart_detail'))
         self.assertContains(res, "minimum order amount is $200.00")
 
+    def test_custom_country_selection(self):
+        self.client.login(username="orderuser", password="password123")
+        self.client.post(reverse('store:cart_add', kwargs={'product_id': self.product.id}), {'quantity': 1})
+
+        # Test empty custom country when Other is chosen
+        payload_fail = {
+            'first_name': 'Marcus',
+            'last_name': 'Vance',
+            'email': 'brazil_test@example.com',
+            'phone': '+1 555-0199',
+            'country': 'Other',
+            'custom_country': '',
+            'city': 'Rio de Janeiro',
+            'address': 'Copacabana 100',
+            'postal_code': '22000-000',
+            'payment_method': 'other',
+            'other_payment_method': 'Wire Transfer',
+            'accept_terms': True,
+        }
+        res_fail = self.client.post(reverse('orders:checkout'), payload_fail)
+        self.assertEqual(res_fail.status_code, 200)
+        self.assertContains(res_fail, "Please type your country name")
+
+        # Test valid custom country
+        payload_success = payload_fail.copy()
+        payload_success['custom_country'] = 'Brazil'
+        res_success = self.client.post(reverse('orders:checkout'), payload_success)
+        self.assertEqual(res_success.status_code, 302)
+
+        order = Order.objects.filter(email='brazil_test@example.com').first()
+        self.assertIsNotNone(order)
+        self.assertEqual(order.country, 'Brazil')
+

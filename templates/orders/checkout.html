@@ -55,8 +55,14 @@
                             {{ form.postal_code }}
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label small fw-bold">Country *</label>
+                            <label class="form-label small fw-bold">Country / Region *</label>
                             {{ form.country }}
+                            {% if form.country.errors %}<div class="text-danger small mt-1">{{ form.country.errors }}</div>{% endif %}
+                        </div>
+                        <div class="col-md-5 d-none" id="customCountryWrapper">
+                            <label class="form-label small fw-bold text-primary">Specify Your Country Name *</label>
+                            {{ form.custom_country }}
+                            {% if form.custom_country.errors %}<div class="text-danger small mt-1">{{ form.custom_country.errors }}</div>{% endif %}
                         </div>
                         <div class="col-12">
                             <label class="form-label small fw-bold">Delivery Notes (Optional)</label>
@@ -535,6 +541,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    }
+
+    // Custom Country Field Toggle
+    const countrySelect = document.getElementById('countrySelect') || document.querySelector('select[name="country"]');
+    const customCountryWrapper = document.getElementById('customCountryWrapper');
+    const customCountryInput = document.getElementById('customCountryInput');
+
+    function checkCustomCountry() {
+        if (!countrySelect || !customCountryWrapper) return;
+        if (countrySelect.value === 'Other') {
+            customCountryWrapper.classList.remove('d-none');
+            if (customCountryInput && !customCountryInput.value.trim()) {
+                customCountryInput.focus();
+            }
+        } else {
+            customCountryWrapper.classList.add('d-none');
+        }
+    }
+
+    if (countrySelect) {
+        countrySelect.addEventListener('change', checkCustomCountry);
+        checkCustomCountry();
     }
 });
 </script>

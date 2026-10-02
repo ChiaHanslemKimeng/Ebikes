@@ -31,13 +31,32 @@ class CheckoutForm(forms.ModelForm):
     country = forms.ChoiceField(
         choices=COUNTRY_CHOICES,
         required=True,
-        widget=forms.Select(attrs={'class': 'form-select', 'required': True}),
+        widget=forms.Select(attrs={'class': 'form-select', 'id': 'countrySelect', 'required': True}),
         error_messages={'required': 'Please select your country / region.'}
+    )
+    custom_country = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Type your country name',
+            'id': 'customCountryInput',
+        })
     )
     accept_terms = forms.BooleanField(
         required=True,
         error_messages={'required': 'You must accept the Terms and Conditions to proceed.'}
     )
+
+    def clean(self):
+        cleaned_data = super().clean()
+        country = cleaned_data.get('country')
+        custom_country = cleaned_data.get('custom_country', '').strip()
+        if country == 'Other':
+            if not custom_country:
+                self.add_error('custom_country', 'Please type your country name.')
+            else:
+                cleaned_data['country'] = custom_country
+        return cleaned_data
 
     class Meta:
         model = Order

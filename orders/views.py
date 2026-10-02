@@ -41,12 +41,26 @@ def checkout_view(request):
         }
         if hasattr(request.user, 'profile'):
             prof = request.user.profile
+            user_country = prof.country or ''
+            from orders.forms import COUNTRY_CHOICES
+            known_countries = [c[0] for c in COUNTRY_CHOICES if c[0] and c[0] != 'Other']
+            if user_country in known_countries:
+                init_country = user_country
+                init_custom = ''
+            elif user_country:
+                init_country = 'Other'
+                init_custom = user_country
+            else:
+                init_country = ''
+                init_custom = ''
+
             initial_data.update({
                 'phone': prof.phone,
                 'address': prof.address,
                 'city': prof.city,
                 'postal_code': prof.postal_code,
-                'country': prof.country or '',
+                'country': init_country,
+                'custom_country': init_custom,
             })
 
     if request.method == 'POST':
@@ -54,8 +68,13 @@ def checkout_view(request):
         if form.is_valid():
             with transaction.atomic():
                 order = form.save(commit=False)
+                order.country = form.cleaned_data.get('country', order.country)
                 if request.user.is_authenticated:
                     order.user = request.user
+                    if hasattr(request.user, 'profile'):
+                        prof = request.user.profile
+                        prof.country = order.country
+                        prof.save(update_fields=['country'])
 
                 order.subtotal = cart.get_subtotal()
                 order.shipping_cost = cart.get_shipping_cost()

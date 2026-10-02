@@ -268,15 +268,19 @@
             </form>
 
             <ul class="nav flex-column gap-2 mb-4">
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:home' %}"><i class="fas fa-home me-2 text-primary"></i> Home</a></li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'pages:home' %}active{% endif %}" href="{% url 'pages:home' %}">
+                        <i class="fas fa-home me-2 text-primary"></i> Home
+                    </a>
+                </li>
                 
                 <!-- Shop Dropdown for Mobile -->
                 <li class="nav-item">
-                    <a class="nav-link text-white fw-semibold d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#mobileShopCollapse" role="button">
+                    <a class="nav-link text-white fw-semibold d-flex justify-content-between align-items-center {% if 'store' in request.resolver_match.app_names and request.resolver_match.view_name != 'pages:home' %}active{% endif %}" data-bs-toggle="collapse" href="#mobileShopCollapse" role="button">
                         <span><i class="fas fa-th-large me-2 text-primary"></i> Shop</span>
                         <i class="fas fa-chevron-down small"></i>
                     </a>
-                    <div class="collapse ps-3 mt-1" id="mobileShopCollapse">
+                    <div class="collapse ps-3 mt-1 {% if 'store' in request.resolver_match.app_names and request.resolver_match.view_name != 'pages:home' %}show{% endif %}" id="mobileShopCollapse">
                         <ul class="nav flex-column gap-1">
                             <li class="nav-item"><a class="nav-link text-light small py-1" href="{% url 'store:shop' %}">Shop All</a></li>
                             <li class="nav-item"><a class="nav-link text-light small py-1" href="{% url 'store:shop' %}?type=ebike">Electric Bikes</a></li>
@@ -286,14 +290,14 @@
                     </div>
                 </li>
 
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:about' %}"><i class="fas fa-info-circle me-2 text-primary"></i> About Us</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:services' %}"><i class="fas fa-wrench me-2 text-primary"></i> Services</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'reviews:review_list' %}"><i class="fas fa-star me-2 text-warning"></i> Reviews</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:faq' %}"><i class="fas fa-question-circle me-2 text-info"></i> FAQ</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'blog:post_list' %}"><i class="fas fa-newspaper me-2 text-primary"></i> Blog</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'pages:contact' %}"><i class="fas fa-envelope me-2 text-primary"></i> Contact</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'store:wishlist' %}"><i class="fas fa-heart me-2 text-danger"></i> Wishlist ({{ wishlist_count }})</a></li>
-                <li class="nav-item"><a class="nav-link text-white fw-semibold" href="{% url 'store:cart_detail' %}"><i class="fas fa-shopping-bag me-2 text-primary"></i> Shopping Cart ({{ cart_count }})</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'pages:about' %}active{% endif %}" href="{% url 'pages:about' %}"><i class="fas fa-info-circle me-2 text-primary"></i> About Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'pages:services' %}active{% endif %}" href="{% url 'pages:services' %}"><i class="fas fa-wrench me-2 text-primary"></i> Services</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if 'reviews' in request.resolver_match.app_names %}active{% endif %}" href="{% url 'reviews:review_list' %}"><i class="fas fa-star me-2 text-warning"></i> Reviews</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'pages:faq' %}active{% endif %}" href="{% url 'pages:faq' %}"><i class="fas fa-question-circle me-2 text-info"></i> FAQ</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if 'blog' in request.resolver_match.app_names %}active{% endif %}" href="{% url 'blog:post_list' %}"><i class="fas fa-newspaper me-2 text-primary"></i> Blog</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'pages:contact' %}active{% endif %}" href="{% url 'pages:contact' %}"><i class="fas fa-envelope me-2 text-primary"></i> Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'store:wishlist' %}active{% endif %}" href="{% url 'store:wishlist' %}"><i class="fas fa-heart me-2 text-danger"></i> Wishlist ({{ wishlist_count }})</a></li>
+                <li class="nav-item"><a class="nav-link text-white fw-semibold {% if request.resolver_match.view_name == 'store:cart_detail' %}active{% endif %}" href="{% url 'store:cart_detail' %}"><i class="fas fa-shopping-bag me-2 text-primary"></i> Shopping Cart ({{ cart_count }})</a></li>
             </ul>
 
             <div class="border-top border-secondary pt-3">
@@ -468,9 +472,6 @@
                         </span>
                         <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Mastercard">
                             <i class="fab fa-cc-mastercard text-danger fa-lg"></i> <span class="small fw-semibold">Mastercard</span>
-                        </span>
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="American Express">
-                            <i class="fab fa-cc-amex text-info fa-lg"></i> <span class="small fw-semibold">Amex</span>
                         </span>
                         <span class="badge bg-dark border border-secondary text-light px-2 py-1 d-inline-flex align-items-center gap-1" title="Apple Pay">
                             <i class="fab fa-apple text-white fa-lg"></i> <span class="small fw-semibold">Apple Pay</span>
