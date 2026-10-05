@@ -63,6 +63,12 @@ CATEGORY_URLS = [
 
 SHOP_URL = 'https://ridesurronusa.com/shop/'
 
+# Complete XML Sitemaps covering all 1,994 live products
+PRODUCT_SITEMAPS = [
+    'https://ridesurronusa.com/product-sitemap.xml',
+    'https://ridesurronusa.com/product-sitemap2.xml',
+]
+
 
 def fetch_url(url, timeout=20):
     try:
@@ -297,15 +303,70 @@ def parse_product_detail(product_url, category_hint=None):
     }
 
 
-def scrape_products(limit=10, delete_existing=False):
+def discover_all_product_urls():
+    """
+    Discovers all product URLs from https://ridesurronusa.com/.
+    Reads the complete XML sitemaps containing all 1,994 products,
+    falling back to shop pagination if sitemaps are unreachable.
+    """
+    discovered_urls = []
+    seen_urls = set()
+
+    print("\n--> Step 1: Discovering all products via XML sitemaps...")
+    for sitemap_url in PRODUCT_SITEMAPS:
+        sitemap_name = sitemap_url.split('/')[-1]
+        print(f"    Fetching sitemap: {sitemap_name}...")
+        xml_data = fetch_url(sitemap_url, timeout=30)
+        if xml_data:
+            matches = re.findall(r'https://ridesurronusa\.com/product/[a-zA-Z0-9_\-]+/?', xml_data)
+            count = 0
+            for url in matches:
+                clean_url = url.strip()
+                if clean_url not in seen_urls:
+                    seen_urls.add(clean_url)
+                    discovered_urls.append(clean_url)
+                    count += 1
+            print(f"    Found {count} unique products from {sitemap_name}.")
+
+    if not discovered_urls:
+        print("\n--> Sitemaps unavailable, falling back to shop HTML pagination...")
+        page = 1
+        while True:
+            page_url = f"https://ridesurronusa.com/shop/page/{page}/" if page > 1 else SHOP_URL
+            print(f"    Scanning page {page}: {page_url}...")
+            html = fetch_url(page_url, timeout=20)
+            if not html:
+                break
+            soup = BeautifulSoup(html, 'html.parser')
+            items = soup.select('.product a[href*="/product/"], li.product a[href*="/product/"]')
+            if not items:
+                break
+            count = 0
+            for a in items:
+                href = a.get('href', '').split('?')[0]
+                if href and href not in seen_urls:
+                    seen_urls.add(href)
+                    discovered_urls.append(href)
+                    count += 1
+            print(f"    Found {count} new products (Total so far: {len(discovered_urls)})")
+            if count == 0 or page >= 20:
+                break
+            page += 1
+
+    print(f"    Total discovered product URLs: {len(discovered_urls)}")
+    return discovered_urls
+
+
+def scrape_products(limit=10, delete_existing=False, skip_existing=False):
     """
     Main scraping coordinator.
     """
     print("=" * 60)
     print("SURRON BIKES & PARTS - AUTOMATED PRODUCT SCRAPER")
     print("Target: https://ridesurronusa.com/shop/")
-    print(f"Limit: {'ALL' if limit is None else limit} products")
+    print(f"Limit: {'ALL (1994)' if limit is None else limit} products")
     print(f"Delete existing: {delete_existing}")
+    print(f"Skip existing: {skip_existing}")
     print("=" * 60)
 
     if delete_existing:
@@ -314,65 +375,28 @@ def scrape_products(limit=10, delete_existing=False):
         Product.objects.all().delete()
         print(f"    Deleted {deleted_count} existing products.")
 
-    # 1. Discover product links across categories & main shop
-    discovered_urls = []
-    seen_urls = set()
+    discovered_urls = discover_all_product_urls()
 
-    # First gather from category pages for balanced representation
-    print("\n--> Step 1: Discovering products across categories...")
-    for cat_url, cat_slug in CATEGORY_URLS:
-        print(f"    Scanning {cat_url}...")
-        html = fetch_url(cat_url)
-        if html:
-            soup = BeautifulSoup(html, 'html.parser')
-            for a in soup.select('.product a[href*="/product/"], li.product a[href*="/product/"]'):
-                href = a.get('href', '').split('?')[0]
-                if href and href not in seen_urls:
-                    seen_urls.add(href)
-                    discovered_urls.append((href, cat_slug))
-
-    # Also scan main shop page
-    print(f"    Scanning main shop: {SHOP_URL}...")
-    shop_html = fetch_url(SHOP_URL)
-    if shop_html:
-        soup = BeautifulSoup(shop_html, 'html.parser')
-        for item in soup.select('.product, li.product'):
-            a = item.select_one('a[href*="/product/"]')
-            if a:
-                href = a.get('href', '').split('?')[0]
-                if href and href not in seen_urls:
-                    classes = item.get('class', [])
-                    cat_class = next((c.replace('product_cat-', '') for c in classes if c.startswith('product_cat-')), None)
-                    seen_urls.add(href)
-                    discovered_urls.append((href, cat_class))
-
-    print(f"    Discovered {len(discovered_urls)} total product URLs.")
-
-    # If limit is set, balance selection across categories
-    targets = []
     if limit:
-        by_category = {}
-        for url, cat in discovered_urls:
-            by_category.setdefault(cat or 'general', []).append((url, cat))
-
-        # Balance across electric bikes, parts, gear
-        while len(targets) < limit and any(by_category.values()):
-            for cat_key in list(by_category.keys()):
-                if by_category[cat_key] and len(targets) < limit:
-                    targets.append(by_category[cat_key].pop(0))
-        if len(targets) < limit:
-            targets = discovered_urls[:limit]
+        targets = discovered_urls[:limit]
     else:
         targets = discovered_urls
 
     print(f"\n--> Step 2: Scraping {len(targets)} selected products...")
 
     scraped_products = []
-    for idx, (prod_url, cat_hint) in enumerate(targets, 1):
+    for idx, prod_url in enumerate(targets, 1):
+        if skip_existing:
+            url_slug = [p for p in prod_url.rstrip('/').split('/') if p][-1]
+            if Product.objects.filter(slug=url_slug).exists():
+                print(f"\n[{idx}/{len(targets)}] Skipping existing product: {url_slug}")
+                continue
+
         print(f"\n[{idx}/{len(targets)}] Scraping: {prod_url}")
-        data = parse_product_detail(prod_url, category_hint=cat_hint)
+        data = parse_product_detail(prod_url)
         if not data:
             print("    Failed to parse product.")
+
             continue
 
         # Get or create Category
@@ -471,11 +495,13 @@ def scrape_products(limit=10, delete_existing=False):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Scrape products from ridesurronusa.com")
+    parser = argparse.ArgumentParser(description="Scrape products from ridesurronusa.com (all 1,994 products)")
     parser.add_argument('--limit', type=int, default=10, help="Number of products to scrape (default: 10)")
-    parser.add_argument('--all', action='store_true', help="Scrape all available products without limit")
+    parser.add_argument('--all', action='store_true', help="Scrape all available products without limit (all 1994)")
     parser.add_argument('--delete-existing', action='store_true', help="Delete existing products before scraping")
+    parser.add_argument('--skip-existing', action='store_true', help="Skip products that are already imported into database")
 
     args = parser.parse_args()
     limit = None if args.all else args.limit
-    scrape_products(limit=limit, delete_existing=args.delete_existing)
+    scrape_products(limit=limit, delete_existing=args.delete_existing, skip_existing=args.skip_existing)
+

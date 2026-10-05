@@ -4,7 +4,7 @@ from django.views.decorators.http import require_POST
 from django.http import JsonResponse, HttpResponse
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.db.models import Q, Avg, Count
+from django.db.models import Q, Avg, Count, Case, When, Value, IntegerField
 
 from store.models import Product, Category, Subcategory, Wishlist, ProductImage
 from store.cart import Cart
@@ -33,14 +33,15 @@ def shop_view(request):
     Shop listing page supporting multi-attribute filtering,
     sorting, search, and pagination.
     """
-    products = Product.objects.filter(active=True).select_related('category', 'subcategory').prefetch_related('images', 'reviews')
+    all_products_count = Product.objects.filter(active=True).count()
+    products = Product.objects.filter(active=True).select_related('category', 'subcategory').prefetch_related('categories', 'images', 'reviews')
 
-    # Filter by category slug
+    # Filter by category slug (supports products in multiple categories)
     category_slug = request.GET.get('category')
     current_category = None
     if category_slug:
         current_category = get_object_or_404(Category, slug=category_slug)
-        products = products.filter(category=current_category)
+        products = products.filter(Q(categories=current_category) | Q(category=current_category)).distinct()
 
     # Filter by subcategory slug
     subcategory_slug = request.GET.get('subcategory')
@@ -86,23 +87,34 @@ def shop_view(request):
             Q(compatibility__icontains=q)
         )
 
+    # Prioritize bikes so bikes are always listed first in shop listings
+    products = products.annotate(
+        is_bike=Case(
+            When(product_type='ebike', then=Value(0)),
+            default=Value(1),
+            output_field=IntegerField()
+        )
+    )
+
     # Sorting
     sort_by = request.GET.get('sort', 'newest')
     if sort_by == 'price_low':
-        products = products.order_by('price')
+        products = products.order_by('is_bike', 'price')
     elif sort_by == 'price_high':
-        products = products.order_by('-price')
+        products = products.order_by('is_bike', '-price')
     elif sort_by == 'popular':
-        products = products.order_by('-bestseller', '-created_at')
+        products = products.order_by('is_bike', '-bestseller', '-created_at')
     elif sort_by == 'name_asc':
-        products = products.order_by('name')
+        products = products.order_by('is_bike', 'name')
     elif sort_by == 'rating':
-        products = products.annotate(avg_rating=Avg('reviews__rating')).order_by('-avg_rating', '-created_at')
+        products = products.annotate(avg_rating=Avg('reviews__rating')).order_by('is_bike', '-avg_rating', '-created_at')
     else:  # newest
-        products = products.order_by('-created_at')
+        products = products.order_by('is_bike', '-created_at')
 
-    # Available filter metadata for sidebar
-    categories = Category.objects.all().prefetch_related('subcategories')
+    # Available filter metadata for sidebar with stable, accurate product counts
+    categories = Category.objects.annotate(
+        active_products_count=Count('products', filter=Q(products__active=True), distinct=True)
+    ).prefetch_related('subcategories').order_by('order', 'name')
 
     # Pagination (9 per page)
     paginator = Paginator(products, 9)
@@ -119,6 +131,7 @@ def shop_view(request):
     context = {
         'products': products_page,
         'total_count': products.count(),
+        'all_products_count': all_products_count,
         'categories': categories,
         'current_category': current_category,
         'current_sort': sort_by,

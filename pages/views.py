@@ -27,8 +27,17 @@ def home_view(request):
     """
     featured_categories = Category.objects.filter(is_featured=True).order_by('order')[:8]
     
-    # 10 lastly added products
-    last_10_products = Product.objects.filter(active=True).select_related('category').prefetch_related('images', 'reviews').order_by('-created_at')[:10]
+    # Featured Products in home: Ensure bikes are prominently featured
+    featured_bikes = Product.objects.filter(
+        active=True,
+        product_type='ebike'
+    ).select_related('category').prefetch_related('images', 'reviews').order_by('-created_at')[:12]
+
+    # Graceful fallback if no bikes exist
+    if not featured_bikes.exists():
+        featured_bikes = Product.objects.filter(
+            active=True
+        ).select_related('category').prefetch_related('images', 'reviews').order_by('-created_at')[:10]
     
     # 9 customer reviews
     customer_reviews_9 = ProductReview.objects.filter(approved=True).select_related('user', 'product').order_by('-created_at')[:9]
@@ -40,7 +49,7 @@ def home_view(request):
 
     context = {
         'featured_categories': featured_categories,
-        'featured_products': last_10_products,
+        'featured_products': featured_bikes,
         'testimonials': customer_reviews_9,
         'recent_blogs': blog_posts_9,
         'user_wishlist_ids': user_wishlist_ids,

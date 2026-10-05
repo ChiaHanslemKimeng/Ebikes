@@ -42,4 +42,9 @@ urlpatterns = [
              template_name='accounts/password_reset_complete.html'
          ),
          name='password_reset_complete'),
+
+    # Web Push Notification Endpoints
+    path('save-push-subscription/', views.save_push_subscription, name='save_push_subscription'),
+    path('vapid-public-key/', views.get_vapid_public_key, name='vapid_public_key'),
+    path('test-push/', views.send_test_push, name='test_push'),
 ]

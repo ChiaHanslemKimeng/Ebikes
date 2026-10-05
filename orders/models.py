@@ -105,9 +105,21 @@ class Order(models.Model):
         return f"Order #{self.order_number} ({self.get_status_display()})"
 
     def save(self, *args, **kwargs):
+        is_new = self.pk is None
         if not self.order_number:
             self.order_number = f"VR-{uuid.uuid4().hex[:8].upper()}"
         super().save(*args, **kwargs)
+        if is_new:
+            try:
+                from accounts.push import send_web_push
+                send_web_push(
+                    title=f"🚨 New Order #{self.order_number}",
+                    body=f"New order from {self.first_name} {self.last_name} (${self.total:.2f})",
+                    url=f"/admin/orders/order/{self.pk}/change/"
+                )
+            except Exception as e:
+                import logging
+                logging.getLogger(__name__).error(f"Failed to trigger web push for order #{self.order_number}: {e}")
 
     @property
     def full_name(self):

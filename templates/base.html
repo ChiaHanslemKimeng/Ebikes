@@ -24,7 +24,18 @@
     <!-- URL Bar Favicon: Exactly matching the navigation logo -->
     <link rel="icon" type="image/jpeg" href="{% static 'images/surron-logo.jpg' %}">
     <link rel="shortcut icon" href="{% static 'images/surron-logo.jpg' %}">
-    <link rel="apple-touch-icon" href="{% static 'images/surron-logo.jpg' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="192x192" href="{% static 'images/icon-192x192.png' %}">
+    <link rel="apple-touch-icon" sizes="512x512" href="{% static 'images/icon-512x512.png' %}">
+
+    <!-- PWA & Mobile Web App Meta Tags -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Surron Canada">
+    <meta name="theme-color" content="#0f172a">
 
     <!-- Schema.org Canadian MotorcycleDealer / LocalBusiness -->
     <script type="application/ld+json">
@@ -35,7 +46,7 @@
       "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/surron-logo.jpg' %}",
       "@id": "{{ request.scheme }}://{{ request.get_host }}/#store",
       "url": "{{ request.scheme }}://{{ request.get_host }}/",
-      "telephone": "+1-888-787-7661",
+      "telephone": "+1-716-501-5867",
       "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",

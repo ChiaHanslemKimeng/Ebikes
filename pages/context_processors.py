@@ -13,7 +13,8 @@ def site_settings(request):
     return {
         'SITE_NAME': 'VoltRide',
         'SITE_TAGLINE': 'Ride Smarter. Go Further.',
-        'SUPPORT_EMAIL': getattr(settings, 'SUPPORT_EMAIL', 'support@voltride.com'),
-        'SUPPORT_PHONE': getattr(settings, 'SUPPORT_PHONE', '+1 (800) 555-VOLT'),
+        'SUPPORT_EMAIL': getattr(settings, 'SUPPORT_EMAIL', 'support@surronbikesandparts.shop'),
+        'SUPPORT_PHONE': getattr(settings, 'SUPPORT_PHONE', '+1 (716) 501-5867'),
+        'VAPID_PUBLIC_KEY': getattr(settings, 'VAPID_PUBLIC_KEY', ''),
         'MARQUEE_MESSAGES': marquee_messages,
     }

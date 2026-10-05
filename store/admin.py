@@ -43,16 +43,17 @@ class ProductAdmin(admin.ModelAdmin):
         'bestseller',
         'new_arrival'
     )
-    list_filter = ('active', 'featured', 'bestseller', 'product_type', 'category', 'brand')
+    list_filter = ('active', 'featured', 'bestseller', 'product_type', 'categories', 'brand')
     search_fields = ('name', 'SKU', 'description', 'brand', 'model')
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ('active', 'featured', 'bestseller')
+    filter_horizontal = ('categories',)
     inlines = [ProductImageInline]
     actions = ['make_active', 'make_inactive', 'mark_featured', 'mark_bestseller']
 
     fieldsets = (
         ('Basic Information', {
-            'fields': ('name', 'slug', 'SKU', 'category', 'subcategory', 'product_type', 'brand', 'model')
+            'fields': ('name', 'slug', 'SKU', 'category', 'categories', 'subcategory', 'product_type', 'brand', 'model')
         }),
         ('Pricing & Inventory', {
             'fields': ('price', 'sale_price', 'cost_price', 'stock_quantity', 'low_stock_threshold')

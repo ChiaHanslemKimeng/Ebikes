@@ -28,3 +28,22 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
             instance.profile.save()
         else:
             UserProfile.objects.create(user=instance)
+
+
+class PushSubscription(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='push_subscriptions', null=True, blank=True)
+    endpoint = models.TextField(unique=True)
+    p256dh = models.CharField(max_length=255)
+    auth = models.CharField(max_length=255)
+    user_agent = models.CharField(max_length=500, blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Push Subscription'
+        verbose_name_plural = 'Push Subscriptions'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        user_name = self.user.username if self.user else "Anonymous"
+        return f"Subscription for {user_name} ({self.endpoint[:30]}...)"

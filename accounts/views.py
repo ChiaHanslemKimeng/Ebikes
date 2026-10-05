@@ -122,3 +122,107 @@ def password_change_view(request):
         form = PasswordChangeForm(request.user)
 
     return render(request, 'accounts/password_change.html', {'form': form})
+
+
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.http import JsonResponse
+from django.conf import settings
+from accounts.models import PushSubscription
+from accounts.push import send_web_push
+
+
+@csrf_exempt
+@require_POST
+def save_push_subscription(request):
+    """
+    Accepts push subscription JSON and saves or updates it in the PushSubscription table.
+    Links the subscription to request.user if authenticated.
+    """
+    try:
+        data = json.loads(request.body.decode('utf-8'))
+    except Exception as e:
+        return JsonResponse({'status': 'error', 'message': f'Invalid JSON payload: {str(e)}'}, status=400)
+
+    endpoint = data.get('endpoint')
+    keys = data.get('keys', {})
+    p256dh = keys.get('p256dh') or data.get('p256dh')
+    auth = keys.get('auth') or data.get('auth')
+
+    if not endpoint or not p256dh or not auth:
+        return JsonResponse({'status': 'error', 'message': 'Missing endpoint or key credentials.'}, status=400)
+
+    user = request.user if request.user.is_authenticated else None
+    user_agent = request.META.get('HTTP_USER_AGENT', '')[:500]
+
+    subscription, created = PushSubscription.objects.update_or_create(
+        endpoint=endpoint,
+        defaults={
+            'user': user,
+            'p256dh': p256dh,
+            'auth': auth,
+            'user_agent': user_agent
+        }
+    )
+
+    return JsonResponse({
+        'status': 'success',
+        'created': created,
+        'message': 'Push subscription saved successfully.'
+    })
+
+
+@csrf_exempt
+def get_vapid_public_key(request):
+    """Returns the VAPID public key for frontend subscription initialization."""
+    return JsonResponse({
+        'status': 'success',
+        'publicKey': getattr(settings, 'VAPID_PUBLIC_KEY', '')
+    })
+
+
+@csrf_exempt
+@require_POST
+def send_test_push(request):
+    """Triggers an immediate test push alert to verify sound and vibration."""
+    title = request.POST.get('title', '⚡ Surron Admin: Alert System Active')
+    body = request.POST.get('body', 'Push alerts are working perfectly with sound and vibration!')
+    url = request.POST.get('url', '/admin/')
+    send_web_push(title=title, body=body, url=url)
+    return JsonResponse({'status': 'success', 'message': 'Test push dispatched to all subscribed devices.'})
+
+
+import os
+from django.http import HttpResponse
+
+
+def service_worker_view(request):
+    """
+    Serves sw.js directly at /sw.js with Service-Worker-Allowed header set to '/',
+    enabling it to control the entire origin including /admin/.
+    """
+    sw_path = os.path.join(settings.BASE_DIR, 'static', 'js', 'sw.js')
+    try:
+        with open(sw_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception:
+        content = "/* sw.js not found */"
+    response = HttpResponse(content, content_type='application/javascript')
+    response['Service-Worker-Allowed'] = '/'
+    response['Cache-Control'] = 'no-cache'
+    return response
+
+
+def manifest_view(request):
+    """Serves manifest.json directly at /manifest.json."""
+    manifest_path = os.path.join(settings.BASE_DIR, 'static', 'manifest.json')
+    try:
+        with open(manifest_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception:
+        content = "{}"
+    response = HttpResponse(content, content_type='application/manifest+json')
+    response['Cache-Control'] = 'public, max-age=3600'
+    return response
+

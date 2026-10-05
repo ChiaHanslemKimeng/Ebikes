@@ -59,7 +59,8 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=280, unique=True, blank=True)
     SKU = models.CharField(max_length=64, unique=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='primary_products', help_text="Primary category")
+    categories = models.ManyToManyField(Category, related_name='products', blank=True, help_text="All categories this product belongs to")
     subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
     product_type = models.CharField(max_length=20, choices=PRODUCT_TYPE_CHOICES, default='ebike')
     description = models.TextField()
@@ -112,6 +113,8 @@ class Product(models.Model):
                 counter += 1
             self.slug = slug
         super().save(*args, **kwargs)
+        if self.category_id and not self.categories.filter(pk=self.category_id).exists():
+            self.categories.add(self.category_id)
 
     def get_absolute_url(self):
         return reverse('store:product_detail', kwargs={'slug': self.slug})

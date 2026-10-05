@@ -9,6 +9,7 @@ from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 
 from pages.sitemaps import StaticViewSitemap, ProductSitemap, CategorySitemap, BlogSitemap
+from accounts.views import service_worker_view, manifest_view, save_push_subscription, get_vapid_public_key, send_test_push
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -18,6 +19,13 @@ sitemaps = {
 }
 
 urlpatterns = [
+    # PWA Service Worker & Web Push Endpoints
+    path('sw.js', service_worker_view, name='service_worker'),
+    path('manifest.json', manifest_view, name='pwa_manifest'),
+    path('save-push-subscription/', save_push_subscription, name='save_push_subscription'),
+    path('vapid-public-key/', get_vapid_public_key, name='vapid_public_key'),
+    path('test-push/', send_test_push, name='test_push'),
+
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('', include('store.urls')),
