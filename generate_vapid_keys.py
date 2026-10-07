@@ -30,6 +30,6 @@ if __name__ == '__main__':
     print("=" * 65)
     print(f"VAPID_PUBLIC_KEY={pub}")
     print(f"VAPID_PRIVATE_KEY={priv}")
-    print("VAPID_ADMIN_EMAIL=mailto:admin@surronbikesandparts.shop")
+    print("VAPID_ADMIN_EMAIL=mailto:support@surronbikesandparts.shop")
     print("=" * 65)
     print("\nCopy and paste these 3 lines into your .env file.")

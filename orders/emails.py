@@ -21,7 +21,7 @@ def send_order_placed_emails(order, request=None):
     """
     site_url = get_site_url(request)
     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'Surron Bikes & Parts Canada <support@surronbikesandparts.shop>')
-    admin_email = getattr(settings, 'ADMIN_EMAIL', 'admin@surronbikesandparts.shop')
+    admin_email = getattr(settings, 'ADMIN_EMAIL', 'support@surronbikesandparts.shop')
 
     # 1. USER ORDER CONFIRMATION EMAIL (Users receive ONLY user emails)
     if order.email:
@@ -78,7 +78,7 @@ def send_contact_form_emails(contact_message, request=None):
     """
     site_url = get_site_url(request)
     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'Surron Bikes & Parts Canada <support@surronbikesandparts.shop>')
-    admin_email = getattr(settings, 'ADMIN_EMAIL', 'admin@surronbikesandparts.shop')
+    admin_email = getattr(settings, 'ADMIN_EMAIL', 'support@surronbikesandparts.shop')
 
     # 1. USER CONTACT CONFIRMATION (User receives only user confirmation)
     if contact_message.email:

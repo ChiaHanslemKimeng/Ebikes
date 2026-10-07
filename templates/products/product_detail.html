@@ -1,8 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ product.name }} | Surron Bikes & Parts{% endblock %}
-{% block meta_description %}{{ product.short_description|default:product.description|truncatewords:30 }}{% endblock %}
+{% block title %}{{ product.name }} | Buy Online at Surron Bikes &amp; Parts Canada{% endblock %}
+{% block meta_description %}Buy genuine {{ product.name }} online at Surron Canada. {{ product.short_description|default:product.description|striptags|truncatewords:22 }} Genuine OEM quality with fast nationwide Canadian delivery.{% endblock %}
+{% block meta_keywords %}{{ product.name }}, buy {{ product.name }} canada, surron {{ product.name }}, surron {{ product.category.name|lower }}, genuine surron parts, surron OEM replacement, surron bikes and parts{% endblock %}
+
+{% block og_title %}{{ product.name }} | Surron Bikes &amp; Parts Canada{% endblock %}
+{% block og_description %}{{ product.short_description|default:product.description|striptags|truncatewords:24 }} — Genuine OEM parts &amp; bikes at surronbikesandparts.shop{% endblock %}
+{% block og_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block twitter_title %}{{ product.name }} | Surron Bikes &amp; Parts Canada{% endblock %}
+{% block twitter_description %}{{ product.short_description|default:product.description|striptags|truncatewords:24 }}{% endblock %}
+{% block twitter_image %}{% if product.image %}{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ product.name|escapejs }}",
+  "description": "{{ product.short_description|default:product.description|truncatewords:50|escapejs }}",
+  "sku": "{{ product.sku|escapejs }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ product.brand|default:'Surron'|escapejs }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ request.build_absolute_uri }}",
+    "priceCurrency": "CAD",
+    "price": "{{ product.current_price }}",
+    "availability": "https://schema.org/{% if product.active %}InStock{% else %}OutOfStock{% endif %}",
+    "seller": {
+      "@type": "Organization",
+      "name": "Surron Bikes & Parts Canada"
+    }
+  }{% if product.image %},
+  "image": "{{ request.scheme }}://{{ request.get_host }}{{ product.image.url }}"{% endif %}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Shop", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'store:shop' %}"},
+    {"@type": "ListItem", "position": 3, "name": "{{ product.category.name|escapejs }}", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'store:shop' %}?category={{ product.category.slug }}"},
+    {"@type": "ListItem", "position": 4, "name": "{{ product.name|escapejs }}"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

@@ -1,8 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Frequently Asked Questions | Surron Knowledge Base{% endblock %}
+{% block title %}Frequently Asked Questions | Surron Knowledge Base Canada{% endblock %}
 {% block meta_description %}Comprehensive answers to questions about Surron electric bikes, battery longevity, spare parts compatibility, warranty claims, and shipping.{% endblock %}
+{% block meta_keywords %}surron faq, surron shipping times canada, surron battery warranty, surron maintenance, surron assembly, surron support{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are Surron electric bikes shipped, and how much assembly is required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All Surron e-bikes are shipped in reinforced 7-ply corrugated cartons with biodegradable foam inserts via specialized ground freight carriers. Each bicycle arrives 85% to 90% pre-assembled. Drivetrain, brakes, wiring, and motor are already fully tuned."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does transit take, and is an adult signature required?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Orders ship within 1-2 business days with insured freight across Canada and North America. An adult signature is required upon delivery for high-value security."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I purchase without creating an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, absolutely. We support instant guest checkout and guest wishlist functionality. Tracking updates are sent directly to your email."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

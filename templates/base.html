@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Surron Bikes &amp; Parts Canada | High-Performance Electric Dirt Bikes &amp; OEM Parts{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}Surron Bikes &amp; Parts Canada - Official Canadian source for high-performance Surron electric dirt bikes, genuine battery packs, controllers, and OEM replacement parts. Fast nationwide shipping across British Columbia, Alberta, Ontario, Quebec &amp; all Canadian provinces. Official shop: surronbikesandparts.shop{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}surron, surron bikes, surron parts, surron canada, surron light bee x, surron ultra bee, surron storm bee, sur-ron electric dirt bike, e-bike parts, surron battery 60v 72v, surron controller, ebmx, torp, surron upgrades, oem replacement parts, fast shipping canada, electric motorcycle, surron dealer, surron accessories, surronbikesandparts.shop{% endblock %}">
+    <meta name="robots" content="{% block meta_robots %}index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1{% endblock %}">
+    <meta name="author" content="Surron Bikes &amp; Parts Canada">
+
     <meta property="og:title" content="{% block og_title %}Surron Bikes &amp; Parts Canada | Official Electric Dirt Bikes &amp; Spare Parts{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Buy authentic Surron Light Bee X, Ultra Bee, Storm Bee electric bikes and factory parts in Canada. Fast insured delivery across all provinces from Vancouver, BC.{% endblock %}">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_CA">
     <meta property="og:site_name" content="Surron Bikes &amp; Parts Canada">
-    <meta property="og:image" content="{% static 'images/surron-logo.jpg' %}">
+    <meta property="og:url" content="{% block og_url %}{{ request.build_absolute_uri }}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/surron-logo.jpg' %}{% endblock %}">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Surron Bikes &amp; Parts Canada | Electric Dirt Bikes &amp; OEM Parts{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Buy authentic Surron Light Bee X, Ultra Bee, Storm Bee electric bikes and factory parts in Canada.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/surron-logo.jpg' %}{% endblock %}">
 
     <!-- Canadian Geo & SEO Targeting -->
     <meta name="geo.region" content="CA-BC">
@@ -66,6 +76,35 @@
       "areaServed": {
         "@type": "Country",
         "name": "Canada"
+      },
+      "email": "support@surronbikesandparts.shop",
+      "sameAs": [
+        "https://facebook.com",
+        "https://instagram.com",
+        "https://tiktok.com",
+        "https://youtube.com"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    }
+    </script>
+
+    <!-- Schema.org WebSite with Sitelinks Searchbox -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Surron Bikes & Parts Canada",
+      "alternateName": ["Surron Canada", "Surron Bikes & Parts", "surronbikesandparts.shop"],
+      "url": "{{ request.scheme }}://{{ request.get_host }}/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ request.scheme }}://{{ request.get_host }}{% url 'store:shop' %}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
     </script>
@@ -88,6 +127,7 @@
     <!-- Custom Theme CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3.5">
     {% block extra_css %}{% endblock %}
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
 
@@ -542,5 +582,19 @@
     <!-- Surron Master JS -->
     <script src="{% static 'js/main.js' %}"></script>
     {% block extra_js %}{% endblock %}
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6ac511d8d44dd134ca736c44/1k48sre9i';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>

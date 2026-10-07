@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Knowledge Base & Tech Guides | Surron E-Mobility Blog{% endblock %}
-{% block meta_description %}Technical guides, battery care tutorials, motor diagnostics, and e-bike commuting strategies from the Surron engineering team.{% endblock %}
+{% block title %}{% if current_category %}{{ current_category.name }} - Surron Tech Guides | Surron Canada{% elif tag %}{{ tag }} Guides | Surron Canada Blog{% else %}Technical Guides &amp; Riding Insights | Surron Canada Blog{% endif %}{% endblock %}
+{% block meta_description %}Read in-depth Surron tech guides, battery optimization, controller tuning, maintenance checklists, and e-bike commuting strategies from the Surron Canada team.{% endblock %}
+{% block meta_keywords %}surron blog, surron battery guide, surron upgrades, surron light bee mods, surron maintenance tips, surron canada articles{% endblock %}
 
 {% block content %}
 

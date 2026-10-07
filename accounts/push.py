@@ -54,7 +54,7 @@ def _deliver_web_push_to_subscription(sub, payload_json, vapid_private_key, vapi
 def _send_web_push_thread(title, body, url, badge=None, icon=None):
     """Worker function executed in background thread."""
     vapid_private_key = getattr(settings, 'VAPID_PRIVATE_KEY', '')
-    vapid_admin_email = getattr(settings, 'VAPID_ADMIN_EMAIL', 'mailto:admin@surronbikesandparts.shop')
+    vapid_admin_email = getattr(settings, 'VAPID_ADMIN_EMAIL', 'mailto:support@surronbikesandparts.shop')
 
     if not vapid_private_key:
         logger.warning("VAPID_PRIVATE_KEY is not set in settings/environment. Web push aborted.")

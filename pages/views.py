@@ -190,15 +190,16 @@ def newsletter_subscribe_view(request):
 
 def robots_txt(request):
     lines = [
-        "User-agent: *",
-        "Disallow: /admin/",
-        "Disallow: /account/",
-        "Disallow: /checkout/",
-        "Disallow: /cart/",
-        "Allow: /",
-        f"Sitemap: {request.build_absolute_uri('/sitemap.xml')}",
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin/',
+        'Disallow: /account/',
+        'Disallow: /cart/',
+        'Disallow: /checkout/',
+        '',
+        f'Sitemap: {request.scheme}://{request.get_host()}/sitemap.xml',
     ]
-    return HttpResponse("\n".join(lines), content_type="text/plain")
+    return HttpResponse('\n'.join(lines), content_type='text/plain')
 
 
 def handler404_view(request, exception=None):

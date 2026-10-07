@@ -1,8 +1,46 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ post.title }} | Surron Tech Insights{% endblock %}
-{% block meta_description %}{{ post.excerpt|truncatewords:30 }}{% endblock %}
+{% block title %}{{ post.title }} | Surron Canada Tech Blog{% endblock %}
+{% block meta_description %}{{ post.excerpt|default:post.content|striptags|truncatewords:28 }}{% endblock %}
+{% block meta_keywords %}{{ post.title }}, Surron tech blog, electric dirt bike guides, Surron Canada, {{ post.tags }}{% endblock %}
+
+{% block og_title %}{{ post.title }} | Surron Bikes &amp; Parts Canada{% endblock %}
+{% block og_description %}{{ post.excerpt|default:post.content|striptags|truncatewords:25 }}{% endblock %}
+{% block og_image %}{% if post.featured_image %}{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+{% block twitter_title %}{{ post.title }} | Surron Canada{% endblock %}
+{% block twitter_description %}{{ post.excerpt|default:post.content|striptags|truncatewords:25 }}{% endblock %}
+{% block twitter_image %}{% if post.featured_image %}{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ post.title|escapejs }}",
+  "description": "{{ post.excerpt|default:post.content|striptags|truncatewords:40|escapejs }}",
+  {% if post.featured_image %}"image": "{{ request.scheme }}://{{ request.get_host }}{{ post.featured_image.url }}",{% endif %}
+  "datePublished": "{{ post.published_at|date:'c' }}",
+  "dateModified": "{{ post.updated_at|date:'c' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ post.author.get_full_name|default:post.author.username|default:'Surron Technical Team'|escapejs }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Surron Bikes & Parts Canada",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/surron-logo.jpg' %}"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ request.build_absolute_uri }}"
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

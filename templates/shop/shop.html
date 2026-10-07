@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Shop Electric Bikes & Spare Parts | Surron Official Store{% endblock %}
-{% block meta_description %}Browse the complete Surron catalog of electric commuter bikes, eMTBs, motors, batteries, chargers, and accessories.{% endblock %}
+{% block title %}{% if current_category %}{{ current_category.name }} | Genuine Surron Parts &amp; Bikes Canada{% elif current_type %}{{ current_type|title }}s | Surron Bikes &amp; Parts Canada{% elif q %}Search results for "{{ q }}" | Surron Bikes &amp; Parts Canada{% else %}Shop Surron Electric Dirt Bikes &amp; Genuine OEM Spare Parts | Canada{% endif %}{% endblock %}
+{% block meta_description %}{% if current_category %}Shop authentic {{ current_category.name }} for Surron Light Bee X, Ultra Bee, and Storm Bee. Guaranteed OEM fitment, heavy-duty build, and fast Canadian shipping.{% elif current_type %}Browse our {{ current_type|title }} collection at Surron Bikes &amp; Parts Canada. Factory-tested quality with rapid nationwide delivery.{% else %}Browse the full catalog of authentic Surron electric dirt bikes, genuine replacement parts, 60V/72V lithium batteries, upgraded controllers, brakes, tires &amp; accessories in Canada.{% endif %}{% endblock %}
+{% block meta_keywords %}{% if current_category %}surron {{ current_category.name|lower }}, surron {{ current_category.name|lower }} canada, buy {{ current_category.name|lower }} surron, surron parts{% else %}shop surron bikes, surron parts canada, surron light bee x parts, surron ultra bee parts, buy surron online, surron battery, surron controllers, surron store canada{% endif %}{% endblock %}
 
 {% block content %}
 

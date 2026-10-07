@@ -11,7 +11,7 @@ def site_settings(request):
         "SECURE CHECKOUT GUARANTEED"
     ]
     return {
-        'SITE_NAME': 'VoltRide',
+        'SITE_NAME': 'Surron Bikes & Parts',
         'SITE_TAGLINE': 'Ride Smarter. Go Further.',
         'SUPPORT_EMAIL': getattr(settings, 'SUPPORT_EMAIL', 'support@surronbikesandparts.shop'),
         'SUPPORT_PHONE': getattr(settings, 'SUPPORT_PHONE', '+1 (716) 501-5867'),

@@ -137,14 +137,15 @@ MESSAGE_TAGS = {
 }
 
 # Email settings
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.console.EmailBackend')
-EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'True').lower() in ('true', '1', 't')
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'server306-2.web-hosting.com')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT', 465))
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'False').lower() in ('true', '1', 't')
+EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'True').lower() in ('true', '1', 't')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'support@surronbikesandparts.shop')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'Surron Bikes & Parts Canada <support@surronbikesandparts.shop>')
-ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'admin@surronbikesandparts.shop')
+ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'support@surronbikesandparts.shop')
 SITE_URL = os.getenv('SITE_URL', 'https://surronbikesandparts.shop')
 
 # Contact Settings
@@ -154,7 +155,7 @@ SUPPORT_EMAIL = os.getenv('SUPPORT_EMAIL', 'support@surronbikesandparts.shop')
 # Web Push (VAPID) Settings
 VAPID_PUBLIC_KEY = os.getenv('VAPID_PUBLIC_KEY', '')
 VAPID_PRIVATE_KEY = os.getenv('VAPID_PRIVATE_KEY', '')
-VAPID_ADMIN_EMAIL = os.getenv('VAPID_ADMIN_EMAIL', 'mailto:admin@surronbikesandparts.shop')
+VAPID_ADMIN_EMAIL = os.getenv('VAPID_ADMIN_EMAIL', 'mailto:support@surronbikesandparts.shop')
 
 # Jazzmin Admin Theme Configuration
 JAZZMIN_SETTINGS = {

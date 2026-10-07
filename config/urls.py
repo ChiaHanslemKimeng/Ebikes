@@ -10,6 +10,7 @@ from django.contrib.sitemaps.views import sitemap
 
 from pages.sitemaps import StaticViewSitemap, ProductSitemap, CategorySitemap, BlogSitemap
 from accounts.views import service_worker_view, manifest_view, save_push_subscription, get_vapid_public_key, send_test_push
+from pages.views import robots_txt
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -26,6 +27,7 @@ urlpatterns = [
     path('vapid-public-key/', get_vapid_public_key, name='vapid_public_key'),
     path('test-push/', send_test_push, name='test_push'),
 
+    path('robots.txt', robots_txt, name='robots_txt'),
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
     path('', include('store.urls')),
